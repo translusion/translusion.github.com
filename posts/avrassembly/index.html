@@ -1,0 +1,136 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://translusion.github.com//">
+    <title> AVR Assembly programming on Mac OS X </title>
+    <link rel="canonical" href="http://translusion.github.com/posts/avrassembly">
+    
+
+<link rel="stylesheet" href="css/poole.css">
+<link rel="stylesheet" href="css/syntax.css">
+<link rel="stylesheet" href="css/hyde.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body >
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+
+    <div class="sidebar-about">
+      <h1>Trans Lusion</h1>
+      <p class="lead">Erik Engheim's Projects and Articles</p>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href=".">Home</a>
+        <a class="sidebar-nav-item" href="projects">Projects</a>    
+        <a class="sidebar-nav-item" href="articles">Articles</a>
+        <a class="sidebar-nav-item" href="maker">Maker</a>
+
+        <a class="sidebar-nav-item" href="posts">Blog</a>
+    </nav>
+
+    <div class="sidebar-item">
+        <br>
+        <p>
+          &copy; 2014 Erik Engheim. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://hyde.getpoole.com">Hyde</a>.
+        </p>
+    </div>
+    </div>
+    
+</div>
+
+
+  <div class="container content">
+    <h1 class="post-title">AVR Assembly programming on Mac OS X</h1>
+    <section id="main">
+      <h5 id="date"> Tue Mar 5, 2013 </h5>
+      <p>When starting with out programming the <a href="http://en.wikipedia.org/wiki/Atmel_AVR">AVR</a> microcontroller on OS X, you will probably start by using <a href="http://www.obdev.at/products/crosspack/index.html">CrossPack</a>. However the problem with that is it doesn&rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. <a href="http://www.obdev.at/products/crosspack/index.html">CrossPack</a> installs the AVR GNU assembler <strong>avr-as</strong> described <a href="http://www.nongnu.org/avr-libc/user-manual/assembler.html">here</a>. The assembly files typically end with <strong>.S</strong>. You can invoke it through gcc with e.g.</p>
+
+<pre><code>avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S
+</code></pre>
+
+<p>This will assemble the file <em>ledflash.S </em>for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.</p>
+
+<p>Fortunatly if you look around you can find the open source <a href="http://avra.sourceforge.net">avra</a> assembler. A problem when first googling is that an older assembler <strong>tavrasm</strong> will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.</p>
+
+<p><a href="http://avra.sourceforge.net">avra</a> is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the <a title="vAVRdiasm" href="https://github.com/vsergeev/vAVRdisasm">vAVRdiasm</a> to diassemble the .hex file and see that you get back something that looks like what you put in ;-)</p>
+
+<p>There is also a TextMate <a title="avr-assembly bundle" href="https://github.com/mherb/avr-assembly.tmbundle">bundle avr-assembly</a> which you can install which makes it possible to have syntax highlight for your AVR assemble programming.</p>
+
+<p>As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.</p>
+
+    </section>
+    
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://translusion.github.com/posts/avrdevboard">Development board for 8 pin AVR microcontrollers</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://translusion.github.com/posts/avr_without_arduino"> &nbsp; Getting started with AVR programming</a> &raquo;
+    </span>
+  
+</div>
+
+    <br />
+    
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="/categories/avr">AVR</a> </li>
+    
+      <li><a href="/categories/assembly">Assembly</a> </li>
+    
+  </ul>
+</div>
+
+  </div>
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    Fancy footer here. Link to <a href="/">Home Page</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36732392-2', 'sglyon.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
