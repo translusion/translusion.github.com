@@ -52,17 +52,96 @@
     <div class="container content">
       <h1 class="post-title">Cryptography</h1>
         <section id="main">
-          <h5 id="date"> Fri Mar 28, 2014 </h5>
+          <h5 id="date"> Sun May 4, 2014 </h5>
           
 
-<h2 id="toc_0">Crypto Intro</h2>
+<p>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1 id="toc_0">Symetric Encryption</h1>
+
+<p>Plain text is encrypted using a method or algorithm called a <em>cipher</em>.</p>
+
+<p><img src="/images/articles/crypto/cipher.svg" alt="Cipher" />
+</p>
+
+<p>Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a <em>secret key</em> will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.</p>
+
+<p><img src="/images/articles/crypto/symetricencryption.svg" alt="Symetric" />
+</p>
+
+<h1 id="toc_1">Asymetric Encryption</h1>
+
+<p>Key distribution becomes a big problem with symetric encryption. To be on the safe side you have to distribute a different key to everyone you communicate with some they can&rsquo;t read each others messages. This becomes a maintenance nightmare.</p>
+
+<p>It also requires a secure channel to send someone your secret encryption key. Thus <em>public key encryption</em> or <em>asymetric encryption</em> was developed. With <em>public key encryptin</em> we use two keys:</p>
+
+<ul>
+<li>Public key. Which is not secret. It can be shared with anyone. Think of it as a padlock.</li>
+<li>Private key. Should be kept secret and never shared. Think of it as the key to the padlock.</li>
+</ul>
+
+<p>Usually there is no fundamental difference between a <em>public</em> and <em>private</em> key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.</p>
+
+<p><img src="/images/articles/crypto/asymetricencryption.svg" alt="Asymetric" />
+</p>
+
+<p>The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.</p>
+
+<h1 id="toc_2">Hashes</h1>
+
+<p>Data is transformed using a <code>hash function</code> into something we can either call:</p>
+
+<ul>
+<li>A hash</li>
+<li>Digital fingerprint</li>
+<li>Message digest</li>
+</ul>
+
+<p><img src="/images/articles/crypto/hashfunc.svg" alt="Hashing" />
+</p>
+
+<p>A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same <code>digital fingerprint</code>. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a <strong>sufficiently large number</strong> of hashes so that collision is practically impossible.</p>
+
+<p>E.g. an attacker can&rsquo;t trivially create a bogus message with the same hash as the valid message unless trial and error is performed, which would be impractical if the number of possible hashes is very large.</p>
+
+<p>Hashes are used with digital signatures to <strong>compress</strong> a message so we only have small amounts of data to encrypt and decrypt.</p>
+
+<h2 id="toc_3">Usage of Hash Functions</h2>
+
+<p>Hash function have a wide variety of applications, which might not be immediatly obvious:</p>
+
+<ul>
+<li>Store passwords safely (e.g. Unix password file)</li>
+<li>Create encryption keys</li>
+<li>Deterministic password generation</li>
+<li>Cheaply check over the network if two files or parts of a file are equal</li>
+<li>Create a fingerprint for a public key</li>
+</ul>
+
+<p>The properties of hashes that make them usefull for all these tasks is that when hashing something you lose information, so it is impossible to recreate the original message from a hash. This is used in a Unix login system to store passwords as hashes. A login is then performed by hashing the users provided password and comparing it to a hashed password in the password file. This way if a hacker is able to get hold of the password file there is no way to decrypt the file and see all the passwords in plaintext. He or she has to find the password through brute force.</p>
+
+<p>You can use this property to combine simple passwords with other information to create strong passwords. E.g. if you concatinate &ldquo;pass123&rdquo; and &ldquo;amazon&rdquo; as you login password for amazon this will produce a string full of giberish.</p>
+
+<h3 id="toc_4">Different algorithms for different Usage</h3>
+
+<p>The desired properties of the hashing function used will vary depending on application. If you want to compare two files on separat locations on a network you want to be able to hash the content of the files <strong>fast</strong>, before you transmit the hash to compare the files.</p>
+
+<p>But if you derive a password or a key using a hash you probably want it to be <strong>slow</strong>, because you want a brute force attack to be time consuming.</p>
+
+<h1 id="toc_5">Digital Signatures</h1>
+
+<p>The sender sends a message to a receiver in plain text. But the sender attached a <em>digital signature</em> to the message to prove he/she wrote the message.</p>
+
+<h3 id="toc_6">Sender</h3>
+
+<p>To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders <code>private key</code>. The resulting <em>digital signature</em> could only have been created by someone knowing the <code>private key</code>. This signature is attached to the message and sent to the receiver.</p>
+
+<p><img src="/images/articles/crypto/digitalsigning.svg" alt="Digital Signature" />
+</p>
+
+<h3 id="toc_7">Receiver</h3>
+
+<p>The receiver decrypts (3) the signature using the sendes <em>public key</em>. The resulting digest is compared (4) to the digest the receiver computes by hashing the received message. If they are equal, it is proof that the creator of the message could only have been someone knowing the corresponding <em>private key</em>.</p>
 
         </section>
     </div>
@@ -75,13 +154,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://translusion.github.com/prototyping/fischertechnik">Fischertechnik</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://translusion.github.com/posts/dulgt-intro">Deterministic Password Generator</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://translusion.github.com/projects/econsim"> &nbsp; Economics Simulator</a> &raquo;
+    <em>Next: </em><a class="next" href="http://translusion.github.com/prototyping/fischertechnik"> &nbsp; Fischertechnik</a> &raquo;
     </span>
   
 </div>
@@ -92,11 +171,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <ul class="catlist">
     <li><em>Categories: </em></li>
     
-      <li><a href="/categories/template">template</a> </li>
-    
-      <li><a href="/categories/second">second</a> </li>
-    
-      <li><a href="/categories/boring">boring</a> </li>
+      <li><a href="/categories/cryptography">Cryptography</a> </li>
     
   </ul>
 </div>
