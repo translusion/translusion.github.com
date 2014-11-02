@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Munching Data with Julia &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>Munching Data with Julia</h1>
+  <span class="post-date">Sun, May 11, 2014</span>
+      
+
+<p>I&rsquo;ve recently performed a survey at my work using <a href="http://www.google.com/google-d-s/createforms.html">Google form</a>, unfortunatle the data wasn&rsquo;t usable right out of the box, because it mycompanyallowed people to register an answer multiple times, but one person should just have one vote.</p>
+
+<p>I chose to clean the data with [the Julia programming language][julia], which might not be the best choice for this sort of thing. Not because julia isn&rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster. Unfortunately I am crappy at all 3. The data looked like this (anonymized):</p>
+
+<pre><code>5/8/2014 10:32:14   spam@mycompany.no   Bonus   2,5%   40%       4,42%
+5/8/2014 10:35:03   bar@mycompany.no    Higher salary     2,9%   37,5%    3,9%
+5/8/2014 10:41:10   spam@mycompany.no   Bonus   2,5%   40%       4,42%
+5/8/2014 10:45:10   foo@mycompany.no    Higher salary    2,9%   37,5%    3,9%
+</code></pre>
+
+<p>I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comman instead of dot for separating decimals.</p>
+
+<p>So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example <em>spam</em> voted twice. So the 1st line needs to be elimenated and the 3rd kept.</p>
+
+<h3 id="toc_0">Read the data</h3>
+
+<p>First we read in our data. Indicating that data is separated with tab and that first line is a header:</p>
+
+<pre><code>(ourdata, header) = readdlm(&quot;result.tsv&quot;, '\t', has_header=true)
+</code></pre>
+
+<p>This gives us a 2D array (matrix) which sounds neat. Well it is quite neat in a lot of ways. I can ask for e.g. the whole second column containing the email of the respondents with:</p>
+
+<pre><code>ourdata[:,2]
+</code></pre>
+
+<p>If I instead wanted the 3rd row I could do:</p>
+
+<pre><code>ourdata[3, :]
+</code></pre>
+
+<p>What is <strong>NOT neat</strong> about it compared to the regular arrays within arrays found in languages such a python and ruby is that you can&rsquo;t process this with a <code>foreach</code> type of construct. Like this:</p>
+
+<pre><code>for row in ourdata
+   dostuff(row)
+end
+</code></pre>
+
+<p><code>row</code> will in this case just be a substring and not an actual array object.</p>
+
+<h3 id="toc_1">Find unique rows</h3>
+
+<p>Instead you have to iterate by index:</p>
+
+<pre><code>byname = Dict{String, Any}()
+for i in 1:size(ourdata,1)
+    byname[ourdata[i, 2]] = ourdata[i, :]
+end
+</code></pre>
+
+<p>What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. <code>size(ourdata, 1)</code> gives us the number of rows. <code>size(ourdata, 2)</code> would have given number of columns. <code>length(ourdata)</code> or <code>size(ourdata)</code> would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&rsquo;t apply.</p>
+
+<h3 id="toc_2">Count each line matching a predicate</h3>
+
+<p>So to check how many of our respondents wanted higher bonus we do:</p>
+
+<pre><code>count(values(byname)) do row
+    row[3] == &quot;Bonus   2,5%   40%       4,42%&quot;
+end
+</code></pre>
+
+<p>And to get those who want higher salary:</p>
+
+<pre><code>count(values(byname)) do row
+    row[3] == &quot;Higher salary    2,9%   37,5%    3,9%&quot;
+end
+</code></pre>
+
+<h3 id="toc_3">Working with Dates in Julia</h3>
+
+<p>When I first started looking at this problem, I thought I needed to work with dates, which wasn&rsquo;t necessary because the data was already sorted by date and time, but if it wasn&rsquo;t you need to get hold of the julia <a href="https://github.com/karbarcca/Datetime.jl">datetime package</a>. There isn&rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:</p>
+
+<pre><code>5/8/2014 0:16:03
+</code></pre>
+
+<p>Which isn&rsquo;t the format the package deals with date and time. So here are some tricks for how to convert:</p>
+
+<pre><code>(d, t) = split(&quot;5/8/2014 0:16:03&quot;) # Put date in d, and time t
+</code></pre>
+
+<p>We can then turn this into a formate our date creation function <code>date</code> wants:</p>
+
+<pre><code>date(reverse(map(int, split(d, '/')))...)
+</code></pre>
+
+<h3 id="toc_4">Iteratively creating code in the Julia REPL</h3>
+
+<p>That was a <em>mouthfull</em>. Usually when writing lines like this I develop them interactively by starting with:</p>
+
+<pre><code>julia&gt; split(d, '/')
+3-element Array{String,1}:
+ &quot;5&quot;   
+ &quot;8&quot;   
+ &quot;2014&quot;
+</code></pre>
+
+<p>This looks like what I wanted, but the data is string and I need integers so I:</p>
+
+<ul>
+<li>Hit arrow up button to get back <code>split</code></li>
+<li>Ctrl+A to go to start of line and write <code>map(int</code></li>
+<li>Ctrl+E to get to end of line and close it with <code>)</code></li>
+</ul>
+
+<p>This gives me the next line:</p>
+
+<pre><code>julia&gt; map(int, split(d, '/'))
+3-element Array{Int64,1}:
+    5
+    8
+ 2014
+</code></pre>
+
+<p>Looks good, but not in reverse order compared to what <code>date</code> wants. So we do:</p>
+
+<pre><code>julia&gt; reverse(map(int, split(d, '/')))
+3-element Array{Int64,1}:
+ 2014
+    8
+    5
+</code></pre>
+
+<p>Okay so we are good, except <code>date</code> doesn&rsquo;t take an array as argument. So we need to explode our array to function arguments with the <code>...</code>.</p>
+
+</div>
+</div>
+
+  </body>
+</html>

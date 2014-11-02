@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Googleforms on Trans lusion </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://translusion.github.com/categories/googleforms/index.xml</link>
+    <language>en-us</language>
+    <author>Erik Engheim</author>
+    
+    <updated>Sun, 11 May 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Munching Data with Julia</title>
+      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve recently performed a survey at my work using &lt;a href=&#34;http://www.google.com/google-d-s/createforms.html&#34;&gt;Google form&lt;/a&gt;, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it mycompanyallowed people to register an answer multiple times, but one person should just have one vote.&lt;/p&gt;
+
+&lt;p&gt;I chose to clean the data with [the Julia programming language][julia], which might not be the best choice for this sort of thing. Not because julia isn&amp;rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster. Unfortunately I am crappy at all 3. The data looked like this (anonymized):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;5/8/2014 10:32:14   spam@mycompany.no   Bonus   2,5%   40%       4,42%
+5/8/2014 10:35:03   bar@mycompany.no    Higher salary     2,9%   37,5%    3,9%
+5/8/2014 10:41:10   spam@mycompany.no   Bonus   2,5%   40%       4,42%
+5/8/2014 10:45:10   foo@mycompany.no    Higher salary    2,9%   37,5%    3,9%
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comman instead of dot for separating decimals.&lt;/p&gt;
+
+&lt;p&gt;So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example &lt;em&gt;spam&lt;/em&gt; voted twice. So the 1st line needs to be elimenated and the 3rd kept.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Read the data&lt;/h3&gt;
+
+&lt;p&gt;First we read in our data. Indicating that data is separated with tab and that first line is a header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(ourdata, header) = readdlm(&amp;quot;result.tsv&amp;quot;, &#39;\t&#39;, has_header=true)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This gives us a 2D array (matrix) which sounds neat. Well it is quite neat in a lot of ways. I can ask for e.g. the whole second column containing the email of the respondents with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ourdata[:,2]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If I instead wanted the 3rd row I could do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ourdata[3, :]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is &lt;strong&gt;NOT neat&lt;/strong&gt; about it compared to the regular arrays within arrays found in languages such a python and ruby is that you can&amp;rsquo;t process this with a &lt;code&gt;foreach&lt;/code&gt; type of construct. Like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for row in ourdata
+   dostuff(row)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;row&lt;/code&gt; will in this case just be a substring and not an actual array object.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Find unique rows&lt;/h3&gt;
+
+&lt;p&gt;Instead you have to iterate by index:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;byname = Dict{String, Any}()
+for i in 1:size(ourdata,1)
+    byname[ourdata[i, 2]] = ourdata[i, :]
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. &lt;code&gt;size(ourdata, 1)&lt;/code&gt; gives us the number of rows. &lt;code&gt;size(ourdata, 2)&lt;/code&gt; would have given number of columns. &lt;code&gt;length(ourdata)&lt;/code&gt; or &lt;code&gt;size(ourdata)&lt;/code&gt; would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&amp;rsquo;t apply.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;Count each line matching a predicate&lt;/h3&gt;
+
+&lt;p&gt;So to check how many of our respondents wanted higher bonus we do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;count(values(byname)) do row
+    row[3] == &amp;quot;Bonus   2,5%   40%       4,42%&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And to get those who want higher salary:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;count(values(byname)) do row
+    row[3] == &amp;quot;Higher salary    2,9%   37,5%    3,9%&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Working with Dates in Julia&lt;/h3&gt;
+
+&lt;p&gt;When I first started looking at this problem, I thought I needed to work with dates, which wasn&amp;rsquo;t necessary because the data was already sorted by date and time, but if it wasn&amp;rsquo;t you need to get hold of the julia &lt;a href=&#34;https://github.com/karbarcca/Datetime.jl&#34;&gt;datetime package&lt;/a&gt;. There isn&amp;rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;5/8/2014 0:16:03
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which isn&amp;rsquo;t the format the package deals with date and time. So here are some tricks for how to convert:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(d, t) = split(&amp;quot;5/8/2014 0:16:03&amp;quot;) # Put date in d, and time t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then turn this into a formate our date creation function &lt;code&gt;date&lt;/code&gt; wants:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;date(reverse(map(int, split(d, &#39;/&#39;)))...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;Iteratively creating code in the Julia REPL&lt;/h3&gt;
+
+&lt;p&gt;That was a &lt;em&gt;mouthfull&lt;/em&gt;. Usually when writing lines like this I develop them interactively by starting with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;julia&amp;gt; split(d, &#39;/&#39;)
+3-element Array{String,1}:
+ &amp;quot;5&amp;quot;   
+ &amp;quot;8&amp;quot;   
+ &amp;quot;2014&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This looks like what I wanted, but the data is string and I need integers so I:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hit arrow up button to get back &lt;code&gt;split&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ctrl+A to go to start of line and write &lt;code&gt;map(int&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ctrl+E to get to end of line and close it with &lt;code&gt;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This gives me the next line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;julia&amp;gt; map(int, split(d, &#39;/&#39;))
+3-element Array{Int64,1}:
+    5
+    8
+ 2014
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looks good, but not in reverse order compared to what &lt;code&gt;date&lt;/code&gt; wants. So we do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;julia&amp;gt; reverse(map(int, split(d, &#39;/&#39;)))
+3-element Array{Int64,1}:
+ 2014
+    8
+    5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Okay so we are good, except &lt;code&gt;date&lt;/code&gt; doesn&amp;rsquo;t take an array as argument. So we need to explode our array to function arguments with the &lt;code&gt;...&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
