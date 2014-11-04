@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>http://translusion.github.com/articles/cryptography/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://translusion.github.com/posts/dulgt-intro/</loc>
     <lastmod>2014-05-04T00:00:00+00:00</lastmod>
   </url>
@@ -43,12 +48,12 @@
   </url>
   
   <url>
-    <loc>http://translusion.github.com/posts/avrdevboard/</loc>
+    <loc>http://translusion.github.com/posts/debugavrproject/</loc>
     <lastmod>2013-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://translusion.github.com/posts/debugavrproject/</loc>
+    <loc>http://translusion.github.com/posts/avrdevboard/</loc>
     <lastmod>2013-03-24T00:00:00+00:00</lastmod>
   </url>
   
