@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>http://translusion.github.com/prototyping/fischertechnik/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://translusion.github.com/posts/avrdevboard/</loc>
     <lastmod>2013-03-24T00:00:00+00:00</lastmod>
   </url>
@@ -55,6 +60,26 @@
   <url>
     <loc>http://translusion.github.com/posts/avr_without_arduino/</loc>
     <lastmod>2013-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/maker/prototyping/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/maker/tools/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/maker/supplies/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/maker/mechanical/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>
