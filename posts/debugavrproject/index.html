@@ -95,6 +95,24 @@ brge r16Greatest
 
 <p>The implication of that is also that you can not blink your LEDs at different frequency, but you may blink them out of phase, since OCR0B need not be the same as OCR0A. When I first set this up I did not understand this difference so I wrote a value into OCR0B thinking that would affect the frequency of LED blinking. I did not get any blinking at all. Just a steady light because OCR0A was 0, since it was never set. Thus when TCNT0 got reset it immediatly got the same values as OCR0A again. When turning on interrupts, this had the effect of making the interrupt only fire once.</p>
 
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
 </div>
 </div>
 
