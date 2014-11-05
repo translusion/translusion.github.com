@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Go on Trans lusion </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://translusion.github.com/categories/go/index.xml</link>
+    <language>en-us</language>
+    <author>Erik Engheim</author>
+    
+    <updated>Tue, 15 Jul 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Comparison of the Go tour with Swift</title>
+      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
+      <description>
+
+&lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift so this is just to get a flavour.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Hello world&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import &amp;quot;fmt&amp;quot;
+
+func main() {
+    fmt.Println(&amp;quot;Hello, 世界&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see below Swift looks very similar at first glance. Although &lt;code&gt;main&lt;/code&gt; doesn&amp;rsquo;t have any special meaning. It is just a function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import Foundation
+
+func main() {
+    println(&amp;quot;Hello, 世界&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we should rather replace the code with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import Foundation
+
+println(&amp;quot;Hello, 世界&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Import&lt;/h3&gt;
+
+&lt;p&gt;In Go one divides the code into lots of small packages, which you can import as shown in the tour example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;math/rand&amp;quot;
+)
+
+func main() {
+    fmt.Println(&amp;quot;My favorite number is&amp;quot;, rand.Intn(10))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With Swift we typically import large frameworks containg a number of libraries. For just simple math libraries &lt;code&gt;Foundation&lt;/code&gt; or &lt;code&gt;Cocoa&lt;/code&gt; isn&amp;rsquo;t needed. You can import e.g. the &lt;code&gt;Darwin&lt;/code&gt; framework.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import Darwin
+
+let favorite = rand() % 10
+println(&amp;quot;My favorite number is&amp;quot;, favorite)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;Functions&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;func add(x int, y int) int {
+    return x + y
+}
+
+func main() {
+    fmt.Println(add(42, 13))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift is similar placing type info last instead of traditional C/C++ way of putting type first.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func add(x: Int, y: Int) -&amp;gt; Int {
+    return x + y
+}
+
+
+println(add(42, 13))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Multiple results&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;func swap(x, y string) (string, string) {
+    return y, x
+}
+
+func main() {
+    a, b := swap(&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;)
+    fmt.Println(a, b)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift doesn&amp;rsquo;t really return multiple values like Go functions but instead returns tuples which lets you accomplish basically the same thing.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func swap(x: String, y: String) -&amp;gt; (String, String) {
+    return (y, x)
+}
+
+var (a, b) = swap(&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;)
+println(&amp;quot;\(a) \(b)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another minor difference is that Swift can do &lt;code&gt;println(a)&lt;/code&gt; but not &lt;code&gt;println(a, b)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;Named results&lt;/h3&gt;
+
+&lt;p&gt;You can name the results in both Go and Swift but the meaning is very different, because Go has multiple return variables and Swift has tuples instead. In the Go example &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; can be assigned to directly:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func split(sum int) (x, y int) {
+    x = sum * 4 / 9
+    y = sum - x
+    return
+}
+
+func main() {
+    fmt.Println(split(17))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can&amp;rsquo;t do that in Swift, because naming here has a different meaning. What you are doing is naming the entries in the tupple so, that you can refer to the entries later. It is sort of like making a struct on the fly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func split(sum: Int) -&amp;gt; (x: Int, y: Int) {
+    var x = sum * 4 / 9
+    var y = sum - x
+    return (x, y)
+}
+
+var result = split(17)
+
+println(result.x)
+println(result.y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;Variables&lt;/h3&gt;
+
+&lt;p&gt;In Go &lt;code&gt;var&lt;/code&gt; start the definition of one or more variables with the type last.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var i int
+var c, python, java bool
+
+func main() {
+    fmt.Println(i, c, python, java)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift is similar, except in Swift variables are never automatically initialized to 0 or false like in Go. If a variable is not initialized it is undefined and you are not allowed to use it. So you  must assign to it before you can read from it. Also multiple assignment relies on the tuple concept.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var i: Int
+var c, python, java: Bool
+var (c, python, java) = (false, false, false)
+
+println(&amp;quot;\(c) \(python) \(java)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So when doing initialization Go and Swift look more similar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var i, j int = 1, 2
+var c, python, java = true, false, &amp;quot;no!&amp;quot;
+
+func main() {
+    fmt.Println(i, j, c, python, java)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the difference that type annotations work a bit different. If you want every variable in the tupple to be of type &lt;code&gt;Int&lt;/code&gt; you have to specify that for each individual variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var (i: Int, j: Int)  = (1, 2)
+var (c, python, java) = (true, false, &amp;quot;no!&amp;quot;)
+
+println(&amp;quot;\(i) \(j) \(c) \(python) \(java)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The tradeoff here is that that allows you to chose which variables you want infered and which ones you want to specify. So with Swift you could write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var (i: Float, j)  = (1, 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which would turn &lt;code&gt;i&lt;/code&gt; into a floating point number while &lt;code&gt;j&lt;/code&gt; would be infered to be an integer. Writing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var i Float64, j  = 1, 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in Go would be a compiler error. Type has to come last and apply to all variables.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;Shorthand&lt;/h3&gt;
+
+&lt;p&gt;In Go there is a shorthand notation using &lt;code&gt;:=&lt;/code&gt; when infering variables so you could write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;k := 3
+c, python, java := true, false, &amp;quot;no!&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There isn&amp;rsquo;t anything similar in Swift.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;Type conversions&lt;/h3&gt;
+
+&lt;p&gt;Both Swift and Go are much more strict on type conversions than what is traditional for C/C++. Conversion from &lt;code&gt;int&lt;/code&gt; to &lt;code&gt;float&lt;/code&gt; won&amp;rsquo;t happen automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x, y int = 3, 4
+var f float64 = math.Sqrt(float64(3*3 + 4*4))
+var z int = int(f)
+fmt.Println(x, y, z)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
