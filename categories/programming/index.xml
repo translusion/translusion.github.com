@@ -17,9 +17,11 @@
       <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
-&lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift so this is just to get a flavour.&lt;/p&gt;
+&lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
 
 &lt;h3 id=&#34;toc_0&#34;&gt;Hello world&lt;/h3&gt;
+
+&lt;p&gt;The Go tour starts with the infamous &amp;ldquo;Hello world&amp;rdquo; program:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;package main
 
@@ -210,10 +212,258 @@ c, python, java := true, false, &amp;quot;no!&amp;quot;
 &lt;p&gt;Both Swift and Go are much more strict on type conversions than what is traditional for C/C++. Conversion from &lt;code&gt;int&lt;/code&gt; to &lt;code&gt;float&lt;/code&gt; won&amp;rsquo;t happen automatically.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var x, y int = 3, 4
-var f float64 = math.Sqrt(float64(3*3 + 4*4))
+var f float64 = math.Sqrt(float64(x*x + y*y))
 var z int = int(f)
 fmt.Println(x, y, z)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift works similar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var (x : Int, y : Int) = (3, 4)
+var f : Float = sqrt(Float(x*x + y*y))
+var z : Int = Int(f)
+println(&amp;quot;\(x) \(y) \(z)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both Swift and Go can treat primitive types as first class citizens. You can create a type from a e.g. an &lt;code&gt;int&lt;/code&gt; in Go and add method to it. Swift is slightly different in this regard in that the most primitive types are not exposed directly. &lt;code&gt;Int&lt;/code&gt;, &lt;code&gt;Float&lt;/code&gt; etc are really structs which may contain methods. Conversion from say &lt;code&gt;Float&lt;/code&gt; to &lt;code&gt;Int&lt;/code&gt; isn&amp;rsquo;t built into the language but rather exploits one of the initializer methods on the &lt;code&gt;Int&lt;/code&gt; type that takes a &lt;code&gt;Float&lt;/code&gt; as an argument.&lt;/p&gt;
+
+&lt;p&gt;The example above could also be simplified. We don&amp;rsquo;t need to write types as often. Here is an example from a Swift REPL session, demonstrating this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ swift
+Welcome to Swift!  Type :help for assistance.
+  1&amp;gt; var (x, y) = (3, 4)
+x: Int = 3
+y: Int = 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see the REPL will inform us that it infered the &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; to be of type &lt;code&gt;Int&lt;/code&gt;. Regular math functions such as &lt;code&gt;sqrt&lt;/code&gt; is in the &lt;em&gt;Darwin&lt;/em&gt; package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  2&amp;gt; import Darwin
+  3&amp;gt; var f = sqrt(Float(x*x + y*y)) 
+f: (Float) = 5
+  4&amp;gt; var z = Int(f)
+z: Int = 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift infers that the result of &lt;code&gt;sqrt&lt;/code&gt; has to be of type &lt;code&gt;Float&lt;/code&gt; if the input is of type &lt;code&gt;Float&lt;/code&gt;. You can&amp;rsquo;t quite do the same in Go since Go does not overload functions on types.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_8&#34;&gt;Structs&lt;/h3&gt;
+
+&lt;p&gt;Both Go and Swift support structs. There meaning is quite different however, since Swift is more like C# in that it has the notion of both structs and classes to deal with the lack of pointers. In Go it is idiomatic to access variables directly without accessors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Vertex struct {
+    X int
+    Y int
+}
+
+func main() {
+    v := Vertex{1, 2}
+    v.X = 4
+    fmt.Println(v.X)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Swift we can&amp;rsquo;t access member variables directly. Although the code looks almost identical Swift always creates accessors conceptually. In machine code it might of course perform a direct access.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Vertex {
+  var x : Int
+  var y : Int
+}
+
+var v = Vertex(x: 1, y: 2)
+v.x = 4
+println(v.x)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Swift initializers we also have to give the names of the arguments. With Go this is optional. The Go code could have been written like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;v := Vertex{X: 1, Y: 2}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A significant conceptual difference is that in Swift creating any object requires running an initializer function. In the Go example the data structure is just initialized directly. No function call is done. If you want an initialiser function for &lt;code&gt;Vertex&lt;/code&gt; objects in Go you have to write a free function explicity:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func NewVertex(x, y int) Vertex {
+  return Vertex{x, y}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;Swift inout and Go pointers&lt;/h3&gt;
+
+&lt;p&gt;Go has real pointers, but Swift allows you to things which makes it look as if it has pointers. Take this example of pointer usage in Go:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func swapXY(v *Vertex) {
+    tmp := v.X
+    v.X = v.Y
+    v.Y = tmp
+}
+
+v := Vertex{1, 2}
+swapXY(&amp;amp;v) // v becomes Vertex{2, 1}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can do almost exactly the same in Swift:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func swapXY(inout v: Vertex) {
+   var tmp = v.x 
+   v.x = v.y 
+   v.y = tmp 
+} 
+
+var v = Vertex(x: 1, y: 2)
+swapXY(&amp;amp;v)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However except for when using unsafe features you can&amp;rsquo;t represent an inout function argument as a separate variable in Swift code the ampersand, only makes sense in the context of calling a function. So this will NOT work in Swift:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var p = &amp;amp;v // error: type &#39;inout Vertex&#39; of variable is not materializable
+swapXY(p)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However Go has real pointers which allows you to write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;p := &amp;amp;v
+swapXY(p)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go pointers can be passed around and stored like any other variable. This also displays so key design differences between Swift and Go. Swift is generally designed to make code safe and prevent you from accidentally doing something dangerous or wrong. Because you have to prefix with ampersand at the call site it will always be clear to the code reader when you are potentially modifying a struct. Go instead opts for simplicity by having one simple feature which has many use cases.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_10&#34;&gt;Classes&lt;/h3&gt;
+
+&lt;p&gt;This naturally brings us to classes. Classes is the way Swift allows us to simulate some of the properties of pointers in Go. If we defined &lt;code&gt;Vertex&lt;/code&gt; as a class instead of a struct we could perform the &lt;code&gt;swapXY&lt;/code&gt; without using &lt;code&gt;inout&lt;/code&gt; because variables of class types are always pointers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Vertex {
+  var x : Int
+  var y : Int
+
+  // classes don&#39;t have initializers automatically made
+  init(x: Int, y: Int) {
+    self.x = x
+    self.y = y
+  }
+}
+
+// this works because v is now essentially a pointer
+func swapXY(v: Vertex) {
+   var tmp = v.x 
+   v.x = v.y 
+   v.y = tmp 
+}
+
+var v = Vertex(x: 1, y: 2)
+swapXY(v) // Becomes Vertex(2, 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So Swift structs allow us to use variables as values. Meaning they get copied with every assignment (except when using &lt;code&gt;inout&lt;/code&gt; arguments) while classes let use variables as pointers (assignment does not cause a copy). With Go we can manage with just &lt;code&gt;struct&lt;/code&gt; because we can make pointers to values using the ampersand operator.&lt;/p&gt;
+
+&lt;p&gt;Other than that Swift classes works much the same as classes in other languages. It is what allows us to support implementation inheritance. Go does not support implementation inheritance. Go is not alone in this regard new languages like Clojure and Rust also tries to avoid inheritance. For Swift that was not an option as one of the important design goals was to be able to smoothly interface with Objective-C and existing Cocoa libraries which use inheritance hierarchies heavily.&lt;/p&gt;
+
+&lt;p&gt;Both Swift and Go allows you to specify methods on structs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Vertex struct {
+    X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func main() {
+    v := Vertex{3, 4}
+    fmt.Println(v.Abs())
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Go the methods are placed outside the struct, while in Swift they must be inside. To Go approach makes it easy to split method definitions over several files. You can achieve the same in Swift using class extensions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Vertex {
+  var x : Float
+  var y : Float
+
+  func abs() -&amp;gt; Float {
+    return sqrt(x*x + y*y)
+  }
+}
+
+var v = Vertex(x:3, y:4)
+println(v.abs())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However in Swift it would be more idiomatic to treat the length of a vertex as a calculated property. To do that the code becomes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Vertex {
+  var x : Float
+  var y : Float
+
+  var abs : Float {
+    return sqrt(x*x + y*y)
+  }
+}
+
+var v = Vertex(x:3, y:4)
+println(v.abs) // Looks like member variable access
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_11&#34;&gt;Swift Protocols and Go Interfaces&lt;/h3&gt;
+
+&lt;p&gt;Lack of classes does of course not mean that Go doesn&amp;rsquo;t support polymorphism. It does that using &lt;em&gt;interfaces&lt;/em&gt; which are quite similar to Swift &lt;em&gt;protocols&lt;/em&gt;. We don&amp;rsquo;t have to explicitly define that a struct implements an interface in Go, so if we define a interface like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Abser interface {
+    Abs() float64
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can automatically use &lt;code&gt;Vertex&lt;/code&gt; with it since it has a &lt;code&gt;Abs()&lt;/code&gt; method even if &lt;code&gt;Vertex&lt;/code&gt; came from a third party library we didn&amp;rsquo;t own and couldn&amp;rsquo;t modify.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func main() {
+    var a Abser
+    v := Vertex{3, 4}
+    a = v
+
+    fmt.Println(a.Abs()) // displays 5
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Even though Swift does not allow classes or struct to implicitly implement a protocol like Go, it does still allow us to make third party classes and struct implement protocols they were never designed for. If we write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;protocol Abser { 
+  var abs : Float { get }
+}
+
+var v : Abser = Vertex(x:3, y:4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We will get the error&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;type &amp;lsquo;Vertex&amp;rsquo; does not conform to protocol &amp;lsquo;Abser&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So we can&amp;rsquo;t do like Go, but we can tell Swift that &lt;code&gt;Vertex&lt;/code&gt; implements &lt;code&gt;Abser&lt;/code&gt; using a class extension (or perhaps we should call it struct extension in this case). Here is an excerpt from a Swift REPL session demonstrating that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 13&amp;gt; extension Vertex : Abser { 
+ 14. }    
+ 15&amp;gt; var v : Abser = Vertex(x:3, y:4) 
+v: Vertex = {
+  x = 3
+  y = 4
+}
+ 16&amp;gt; v.abs
+$R0: Float = 5
+ 17&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If our &lt;code&gt;Vertex&lt;/code&gt; class had not already implemented &lt;code&gt;abs&lt;/code&gt; we could have added it with the class extension:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;extension Vertex : Abser {
+    var abs : Float {
+      return sqrt(x*x + y*y)
+    }    
+}    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;toc_12&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Go and Swift have a number of superficial similarities. So you can write code that looks almost identical and does the same thing but the way it works under the hood might be radically different. E.g. using pointers in Go and inout variables in Swift often looks almost identical but works very different.&lt;/p&gt;
 </description>
     </item>
     
