@@ -7,7 +7,292 @@
     <language>en-us</language>
     <author>Erik Engheim</author>
     
-    <updated>Tue, 15 Jul 2014 00:00:00 UTC</updated>
+    <updated>Sat, 08 Nov 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>An introduction to Swift for Python developers</title>
+      <link>http://translusion.github.com/posts/swift_compared_to_python/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
+      <description>
+
+&lt;p&gt;While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 2 + 3
+5
+&amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5
+7
+&amp;gt;&amp;gt;&amp;gt; 3.5 * 2
+7.0
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can do much the same with Swift:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  1&amp;gt; 2 + 3
+$R0: Int = 5
+  2&amp;gt; 10 + 2 - 5
+$R1: Int = 7
+  3&amp;gt; 3.5 * 2
+$R2: Double = 7
+  4&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Although this is quite similar, we can already get a hint here that Swift is different and cares a lot more about type. Along with all results we can see that Swift derives the type of the result. Swift is however a lot stricter language. In Python I can write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x = 4
+&amp;gt;&amp;gt;&amp;gt; y = 5
+&amp;gt;&amp;gt;&amp;gt; z = x + y
+&amp;gt;&amp;gt;&amp;gt; z
+9
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Despite the fact that &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; and &lt;code&gt;z&lt;/code&gt; does not exist already. By assigning we created them. So there is no way to avoid having the accident of thinking you are assigning to a new variable when in fact you are overwriting the value of an existing one. In Swift if we try this we get:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    4&amp;gt; x = 4
+error: use of unresolved identifier &#39;x&#39;
+x = 4
+^
+
+    4&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead we have to write &lt;code&gt;var&lt;/code&gt; to indicate we are creating a new variable:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 4&amp;gt; var x = 4
+x: Int = 4
+  5&amp;gt; var y = 5
+y: Int = 5
+  6&amp;gt; var z = x + y
+z: Int = 9
+  7&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can assign new values to these&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    7&amp;gt; x = 30
+    8&amp;gt; x
+$R3: Int = 30
+    9&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However if we made the variable constant by using &lt;code&gt;let&lt;/code&gt; we could not:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 12&amp;gt; let x = 4
+x: Int = 4
+ 13&amp;gt; x = 5
+error: cannot assign to &#39;let&#39; value &#39;x&#39;
+x = 5
+~ ^
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift is also a lot more strict about not mixing types. While you can do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;     13&amp;gt; 2.3 + 3
+$R4: Double = 5.2999999999999998
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can&amp;rsquo;t do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 14&amp;gt; let x = 2.3
+x: Double = 2.2999999999999998
+ 15&amp;gt; let y = 3
+y: Int = 3
+ 16&amp;gt; x + y
+error: cannot invoke &#39;+&#39; with an argument list of type &#39;(Double, Int)&#39;
+x + y
+~~^~~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You will have to explicitly convert the values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 17&amp;gt; x + Double(y)
+$R6: Double = 5.2999999999999998
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Type annotation&lt;/h2&gt;
+
+&lt;p&gt;Sometimes Swift will not be able to guess what type you wanted a variable to be. E.g. Swift could not know that &lt;code&gt;3&lt;/code&gt; was supposed to be a &lt;code&gt;Double&lt;/code&gt;. But what you can do is either write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  1&amp;gt; let y = 3.0
+y: Double = 3 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or you could annotate the variable y with the type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  2&amp;gt; let y : Double = 3
+y: Double = 3 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Arrays and Dictionaries&lt;/h2&gt;
+
+&lt;p&gt;One of the nice things about Python the batteries included approach. We get usefull data types like arrays and dictionaries built into the language. So we can easily create arrays and dictionaries and manipulate them:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; numbers = [2, 4, 6, 8]
+&amp;gt;&amp;gt;&amp;gt; squared = map(lambda x: x*x, numbers)
+&amp;gt;&amp;gt;&amp;gt; squared[0:3]
+[4, 16, 36] 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift follows a similar philosophy and allows you to create collections of objects with succint syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  4&amp;gt; let numbers = [2, 4, 6, 8] 
+numbers: [Int] = 4 values {
+  [0] = 2
+  [1] = 4
+  [2] = 6
+  [3] = 8
+}
+  5&amp;gt; let squared = map(numbers, {x in x*x}) 
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see this is very similar. But Swift has a number of alternative ways to do this with ruby inspired syntax sugar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  8&amp;gt; let squared = map(numbers) {x in x*x}
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+  9&amp;gt; let squared = numbers.map {x in x*x} 
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To slice arrays we can either do that with a closed &lt;code&gt;...&lt;/code&gt; or open interval &lt;code&gt;..&amp;lt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  6&amp;gt; squared[0...3]
+$R0: Slice&amp;lt;Int&amp;gt; = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+  7&amp;gt; squared[0..&amp;lt;3]
+$R1: Slice&amp;lt;Int&amp;gt; = 3 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Functions&lt;/h2&gt;
+
+&lt;p&gt;With python you can easily create a function like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def add(a, b):
+    return a + b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However that is not going to work in Swift:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 21&amp;gt; func add(a, b) { 
+ 22.     return a + b 
+ 23. }    
+error: use of undeclared type &#39;a&#39;
+func add(a, b) {
+         ^
+error: use of undeclared type &#39;b&#39;
+func add(a, b) {
+            ^
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Because Swift needs to know what the type of your variables are. Unlike like our previous example where we assigned a value right away, there is no way for Swift to know what the type of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is going to be. It can&amp;rsquo;t infer it, so we have annotate the variables:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func add(a: Int, b: Int) -&amp;gt; Int {
+    return a + b
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this has some limitations compared to the Python example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 4&amp;gt; add(2, 3)
+$R0: Int = 5
+  5&amp;gt; add(2.0, 3.3)
+error: cannot convert the expression&#39;s type &#39;(FloatLiteralConvertible, FloatLiteralConvertible)&#39; to type &#39;Int&#39;
+add(2.0, 3.3)
+^~~~~~~~~~~~~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Generics&lt;/h2&gt;
+
+&lt;p&gt;Python allowed us to use any type of number, but now we have limited ourselves to integers. We can&amp;rsquo;t e.g. use float values. The Swift solution for this is Generics as found in C#, Java and many other languages. If this had been C++ I could have written something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func add&amp;lt;T&amp;gt;(a: T, b: T) -&amp;gt; T {
+    return a + b
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To indicate that &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; can be of any type but they have to be of the same type &lt;code&gt;T&lt;/code&gt;. Likewise with the result. However this would give us the error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;error: cannot invoke &#39;+&#39; with an argument list of type &#39;(T, T)&#39;
+return a + b
+       ~~^~~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The reason being that an arbitrary type &lt;code&gt;T&lt;/code&gt; doesn&amp;rsquo;t support adding. C++ solves this problem by checking every use of &lt;code&gt;add()&lt;/code&gt; in the program and making sure only types which support &lt;code&gt;+&lt;/code&gt; is provided as arguments. But that is actually a terrible solution as it produces errors inside the function at the offending line. Thus users of a third party library has to understand how a third party function is implemented. So the Swift way of doing this is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func add&amp;lt;T: Addable&amp;gt;(a: T, b: T) -&amp;gt; T {
+    return a + b
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To indicate that that the type &lt;code&gt;T&lt;/code&gt; has to implement the protocol &lt;code&gt;Addable&lt;/code&gt;. A protocol is like a C# or Java interface. It lists functions which any class which wants to adhere to the protocol has to implement. In this case we say that &lt;code&gt;T&lt;/code&gt; has to be of a type that support the &lt;code&gt;+&lt;/code&gt; operator. Unfortunatly no &lt;code&gt;Addable&lt;/code&gt; protocol exists in Swift. In fact Swift is at the moment quite lacking in protocols. The whole Swift standard library is quite tiny at the momment. So the above code will give the error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    error: use of undeclared type &#39;Addable&#39;
+func add&amp;lt;T: Addable&amp;gt;(a: T, b: T) -&amp;gt; T {
+            ^~~~~~~ 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thus we have to specify the &lt;code&gt;Addable&lt;/code&gt; protocol ourselves:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;protocol Addable {
+    func +(a: Self, b: Self) -&amp;gt; Self
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The use of &lt;code&gt;Self&lt;/code&gt; looks strange. Self is a sort of placeholder for the type of the object the method is being invoked on. So e.g. when &lt;code&gt;+&lt;/code&gt; is being invoked on an &lt;code&gt;Int&lt;/code&gt; object then &lt;code&gt;Self&lt;/code&gt; is the same as &lt;code&gt;Int&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now we have the protocol but that only takes us half way. No concrete type is actually implementing this protocol. If this was Java or C++ that would be the end of this, because we would have had to implement our own number types somehow. Existing types can&amp;rsquo;t implement a new interface. Except in Swift you can. We can add methods to existing types or have existing types implement new protocols through extensions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;extension Int: Addable {}
+extension Double: Addable {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This specifies that &lt;code&gt;Int&lt;/code&gt; and &lt;code&gt;Double&lt;/code&gt; implements &lt;code&gt;Addable&lt;/code&gt;. Notice we don&amp;rsquo;t have to actually implement any methods ourselves because &lt;code&gt;Int&lt;/code&gt; and &lt;code&gt;Double&lt;/code&gt; already have the &lt;code&gt;+&lt;/code&gt; method/operator. Now we can write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  1&amp;gt; add(1, 2)
+$R0: (Int) = 4
+  2&amp;gt; add(2.0, 3.0)
+$R1: (Double) = 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However if we use a &lt;code&gt;Float&lt;/code&gt; we get:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  3&amp;gt; let x : Float = 2
+x: Float = 2
+  4&amp;gt; let y : Float = 3
+y: Float = 3 
+  5&amp;gt; add(x, y)
+error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We get an error because we have not specified that &lt;code&gt;Float&lt;/code&gt; implements our &lt;code&gt;Addable&lt;/code&gt; protocol.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
@@ -1508,68 +1793,6 @@ The Olimex AVR-ISP500 manual shows pictures of the connectors to help you identi
 &lt;/p&gt;
 
 &lt;p&gt;At 15x15mm &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; is the same size as a standard &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; building block. &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt;&amp;rsquo;s main advantage over other forms of &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; is that they have been designed to be used with regular nuts and bolts. Other T-slot systems have custom nuts and bolts which are harder to get hold of and more expensive.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tools</title>
-      <link>http://translusion.github.com/maker/tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/tools/</guid>
-      <description>
-
-&lt;p&gt;Most of these tools you can get at stores such as:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.clasohlson.no&#34;&gt;Clas Ohlson&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.jernia.no&#34;&gt;Jernia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.byggmakker.no&#34;&gt;Byggmaker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.maxbo.no&#34;&gt;Maxbo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.clasohlson.no&#34;&gt;Clas Ohlson&lt;/a&gt; might be your first choice because they have a good selection and are usually easily accessible in shopping centers around Norway.&lt;/p&gt;
-
-&lt;h1 id=&#34;toc_0&#34;&gt;Drilling holes&lt;/h1&gt;
-
-&lt;p&gt;When you drill a hole there are a lot of issues and challenges to consider:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Is the hole straight?&lt;/li&gt;
-&lt;li&gt;Do you want to put screws into it or rod or axel later?&lt;/li&gt;
-&lt;li&gt;What to do when the hole is almost big enough but not quite.&lt;/li&gt;
-&lt;li&gt;Are all my holes accurately aligned with each other?&lt;/li&gt;
-&lt;li&gt;Are there any differences between making holes in wood or plastic.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To answer these questions I&amp;rsquo;d like to show some tools you should be aware of for working with holes.&lt;/p&gt;
-
-&lt;h3 id=&#34;toc_1&#34;&gt;Deburring Tool&lt;/h3&gt;
-
-&lt;p&gt;Take off sharp edges or enlarge holes&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/deburringtool.jpg&#34; alt=&#34;Deburringtool&#34; /&gt;
-
-&lt;img src=&#34;/images/maker/tools/deburringtip.jpg&#34; alt=&#34;Deburringtip&#34; /&gt;
-
-When you drill a hole you can get a rough edge for the hole or the hold didn&amp;rsquo;t get quite large enough. Do deal with this you can use a deburring tool It can smoothen an edge or enlarge a hole slightly. Usually you buy these in kits because you need a different one depending on &lt;em&gt;material&lt;/em&gt; you want to deburr. I could be refered to as a &lt;em&gt;edge off&lt;/em&gt; tool rather than &lt;em&gt;deburring tool&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;toc_2&#34;&gt;Taper Tool&lt;/h3&gt;
-
-&lt;p&gt;Make screw holes or turn a metal rod into a screw&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/tapwrenches.jpg&#34; alt=&#34;Tapwrenches&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;When you drill a hole it will be smooth inside so e.g. a machine screw won&amp;rsquo;t fasten in the hole. You need to cut a thread out of the side of the hole. This is called &amp;ldquo;tapping&amp;rdquo; and you do it by fastening a tap in a tap wrench (shown above):&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/taper-pipe-taps-hcs-847.jpg&#34; alt=&#34;Taper Pipe Taps Hcs 847&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;You then screw the tap into the hole by hand in similar fashion to how you screw a screw. When you are done, you have to unscrew it carefully avoiding to ruin the thread you just cut. To turn a smooth metal rod into a screw you perform &amp;ldquo;threading&amp;rdquo; on it using a die wrench.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/diewrench.jpg&#34; alt=&#34;Diewrench&#34; /&gt;
-&lt;/p&gt;
 </description>
     </item>
     

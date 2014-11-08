@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> An introduction to Swift for Python developers &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/maker">Maker</a> </li>
+      <li><a href="/articles">Articles</a> </li>                  
+      <li><a href="/posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>An introduction to Swift for Python developers</h1>
+  <span class="post-date">Sat, Nov 8, 2014</span>
+      
+
+<p>While Swift fundamentally isn&rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:</p>
+
+<pre><code>&gt;&gt;&gt; 2 + 3
+5
+&gt;&gt;&gt; 10 + 2 - 5
+7
+&gt;&gt;&gt; 3.5 * 2
+7.0
+&gt;&gt;&gt;
+</code></pre>
+
+<p>We can do much the same with Swift:</p>
+
+<pre><code>  1&gt; 2 + 3
+$R0: Int = 5
+  2&gt; 10 + 2 - 5
+$R1: Int = 7
+  3&gt; 3.5 * 2
+$R2: Double = 7
+  4&gt;
+</code></pre>
+
+<p>Although this is quite similar, we can already get a hint here that Swift is different and cares a lot more about type. Along with all results we can see that Swift derives the type of the result. Swift is however a lot stricter language. In Python I can write:</p>
+
+<pre><code>&gt;&gt;&gt; x = 4
+&gt;&gt;&gt; y = 5
+&gt;&gt;&gt; z = x + y
+&gt;&gt;&gt; z
+9
+&gt;&gt;&gt;
+</code></pre>
+
+<p>Despite the fact that <code>x</code>, <code>y</code> and <code>z</code> does not exist already. By assigning we created them. So there is no way to avoid having the accident of thinking you are assigning to a new variable when in fact you are overwriting the value of an existing one. In Swift if we try this we get:</p>
+
+<pre><code>    4&gt; x = 4
+error: use of unresolved identifier 'x'
+x = 4
+^
+
+    4&gt;
+</code></pre>
+
+<p>Instead we have to write <code>var</code> to indicate we are creating a new variable:</p>
+
+<pre><code> 4&gt; var x = 4
+x: Int = 4
+  5&gt; var y = 5
+y: Int = 5
+  6&gt; var z = x + y
+z: Int = 9
+  7&gt;    
+</code></pre>
+
+<p>We can assign new values to these</p>
+
+<pre><code>    7&gt; x = 30
+    8&gt; x
+$R3: Int = 30
+    9&gt;
+</code></pre>
+
+<p>However if we made the variable constant by using <code>let</code> we could not:</p>
+
+<pre><code> 12&gt; let x = 4
+x: Int = 4
+ 13&gt; x = 5
+error: cannot assign to 'let' value 'x'
+x = 5
+~ ^
+</code></pre>
+
+<p>Swift is also a lot more strict about not mixing types. While you can do this:</p>
+
+<pre><code>     13&gt; 2.3 + 3
+$R4: Double = 5.2999999999999998
+</code></pre>
+
+<p>You can&rsquo;t do this:</p>
+
+<pre><code> 14&gt; let x = 2.3
+x: Double = 2.2999999999999998
+ 15&gt; let y = 3
+y: Int = 3
+ 16&gt; x + y
+error: cannot invoke '+' with an argument list of type '(Double, Int)'
+x + y
+~~^~~
+</code></pre>
+
+<p>You will have to explicitly convert the values:</p>
+
+<pre><code> 17&gt; x + Double(y)
+$R6: Double = 5.2999999999999998
+</code></pre>
+
+<h2 id="toc_0">Type annotation</h2>
+
+<p>Sometimes Swift will not be able to guess what type you wanted a variable to be. E.g. Swift could not know that <code>3</code> was supposed to be a <code>Double</code>. But what you can do is either write:</p>
+
+<pre><code>  1&gt; let y = 3.0
+y: Double = 3 
+</code></pre>
+
+<p>Or you could annotate the variable y with the type:</p>
+
+<pre><code>  2&gt; let y : Double = 3
+y: Double = 3 
+</code></pre>
+
+<h2 id="toc_1">Arrays and Dictionaries</h2>
+
+<p>One of the nice things about Python the batteries included approach. We get usefull data types like arrays and dictionaries built into the language. So we can easily create arrays and dictionaries and manipulate them:</p>
+
+<pre><code>&gt;&gt;&gt; numbers = [2, 4, 6, 8]
+&gt;&gt;&gt; squared = map(lambda x: x*x, numbers)
+&gt;&gt;&gt; squared[0:3]
+[4, 16, 36] 
+</code></pre>
+
+<p>Swift follows a similar philosophy and allows you to create collections of objects with succint syntax:</p>
+
+<pre><code>  4&gt; let numbers = [2, 4, 6, 8] 
+numbers: [Int] = 4 values {
+  [0] = 2
+  [1] = 4
+  [2] = 6
+  [3] = 8
+}
+  5&gt; let squared = map(numbers, {x in x*x}) 
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+</code></pre>
+
+<p>As you can see this is very similar. But Swift has a number of alternative ways to do this with ruby inspired syntax sugar:</p>
+
+<pre><code>  8&gt; let squared = map(numbers) {x in x*x}
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+  9&gt; let squared = numbers.map {x in x*x} 
+squared: [Int] = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+</code></pre>
+
+<p>To slice arrays we can either do that with a closed <code>...</code> or open interval <code>..&lt;</code>:</p>
+
+<pre><code>  6&gt; squared[0...3]
+$R0: Slice&lt;Int&gt; = 4 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+  [3] = 64
+}
+  7&gt; squared[0..&lt;3]
+$R1: Slice&lt;Int&gt; = 3 values {
+  [0] = 4
+  [1] = 16
+  [2] = 36
+}
+</code></pre>
+
+<h2 id="toc_2">Functions</h2>
+
+<p>With python you can easily create a function like this:</p>
+
+<pre><code>def add(a, b):
+    return a + b
+</code></pre>
+
+<p>However that is not going to work in Swift:</p>
+
+<pre><code> 21&gt; func add(a, b) { 
+ 22.     return a + b 
+ 23. }    
+error: use of undeclared type 'a'
+func add(a, b) {
+         ^
+error: use of undeclared type 'b'
+func add(a, b) {
+            ^
+</code></pre>
+
+<p>Because Swift needs to know what the type of your variables are. Unlike like our previous example where we assigned a value right away, there is no way for Swift to know what the type of <code>a</code> and <code>b</code> is going to be. It can&rsquo;t infer it, so we have annotate the variables:</p>
+
+<pre><code>func add(a: Int, b: Int) -&gt; Int {
+    return a + b
+}
+</code></pre>
+
+<p>But this has some limitations compared to the Python example:</p>
+
+<pre><code> 4&gt; add(2, 3)
+$R0: Int = 5
+  5&gt; add(2.0, 3.3)
+error: cannot convert the expression's type '(FloatLiteralConvertible, FloatLiteralConvertible)' to type 'Int'
+add(2.0, 3.3)
+^~~~~~~~~~~~~
+</code></pre>
+
+<h2 id="toc_3">Generics</h2>
+
+<p>Python allowed us to use any type of number, but now we have limited ourselves to integers. We can&rsquo;t e.g. use float values. The Swift solution for this is Generics as found in C#, Java and many other languages. If this had been C++ I could have written something like this:</p>
+
+<pre><code>func add&lt;T&gt;(a: T, b: T) -&gt; T {
+    return a + b
+}
+</code></pre>
+
+<p>To indicate that <code>a</code> and <code>b</code> can be of any type but they have to be of the same type <code>T</code>. Likewise with the result. However this would give us the error:</p>
+
+<pre><code>error: cannot invoke '+' with an argument list of type '(T, T)'
+return a + b
+       ~~^~~
+</code></pre>
+
+<p>The reason being that an arbitrary type <code>T</code> doesn&rsquo;t support adding. C++ solves this problem by checking every use of <code>add()</code> in the program and making sure only types which support <code>+</code> is provided as arguments. But that is actually a terrible solution as it produces errors inside the function at the offending line. Thus users of a third party library has to understand how a third party function is implemented. So the Swift way of doing this is:</p>
+
+<pre><code>func add&lt;T: Addable&gt;(a: T, b: T) -&gt; T {
+    return a + b
+}
+</code></pre>
+
+<p>To indicate that that the type <code>T</code> has to implement the protocol <code>Addable</code>. A protocol is like a C# or Java interface. It lists functions which any class which wants to adhere to the protocol has to implement. In this case we say that <code>T</code> has to be of a type that support the <code>+</code> operator. Unfortunatly no <code>Addable</code> protocol exists in Swift. In fact Swift is at the moment quite lacking in protocols. The whole Swift standard library is quite tiny at the momment. So the above code will give the error:</p>
+
+<pre><code>    error: use of undeclared type 'Addable'
+func add&lt;T: Addable&gt;(a: T, b: T) -&gt; T {
+            ^~~~~~~ 
+</code></pre>
+
+<p>Thus we have to specify the <code>Addable</code> protocol ourselves:</p>
+
+<pre><code>protocol Addable {
+    func +(a: Self, b: Self) -&gt; Self
+}
+</code></pre>
+
+<p>The use of <code>Self</code> looks strange. Self is a sort of placeholder for the type of the object the method is being invoked on. So e.g. when <code>+</code> is being invoked on an <code>Int</code> object then <code>Self</code> is the same as <code>Int</code>.</p>
+
+<p>Now we have the protocol but that only takes us half way. No concrete type is actually implementing this protocol. If this was Java or C++ that would be the end of this, because we would have had to implement our own number types somehow. Existing types can&rsquo;t implement a new interface. Except in Swift you can. We can add methods to existing types or have existing types implement new protocols through extensions:</p>
+
+<pre><code>extension Int: Addable {}
+extension Double: Addable {}
+</code></pre>
+
+<p>This specifies that <code>Int</code> and <code>Double</code> implements <code>Addable</code>. Notice we don&rsquo;t have to actually implement any methods ourselves because <code>Int</code> and <code>Double</code> already have the <code>+</code> method/operator. Now we can write:</p>
+
+<pre><code>  1&gt; add(1, 2)
+$R0: (Int) = 4
+  2&gt; add(2.0, 3.0)
+$R1: (Double) = 5
+</code></pre>
+
+<p>However if we use a <code>Float</code> we get:</p>
+
+<pre><code>  3&gt; let x : Float = 2
+x: Float = 2
+  4&gt; let y : Float = 3
+y: Float = 3 
+  5&gt; add(x, y)
+error: Type 'Float' does not conform to protocol 'Addable'
+</code></pre>
+
+<p>We get an error because we have not specified that <code>Float</code> implements our <code>Addable</code> protocol.</p>
+
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
+</div>
+</div>
+
+  </body>
+</html>
