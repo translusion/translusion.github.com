@@ -7,7 +7,53 @@
     <language>en-us</language>
     <author>Erik Engheim</author>
     
-    <updated>Sat, 08 Nov 2014 00:00:00 UTC</updated>
+    <updated>Mon, 10 Nov 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Indispensable and Other Myths</title>
+      <link>http://translusion.github.com/posts/europe-is-not-america/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/europe-is-not-america/</guid>
+      <description>
+
+&lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;
+
+&lt;p&gt;Michael B. Dorff shows in his book &amp;ldquo;Indispensable and Other Myths&amp;rdquo; how the &amp;ldquo;market&amp;rdquo; for CEOs isn&amp;rsquo;t really a market. The most refreshing thing about the book I think is that he shows how essentially both sides of the debate about CEO salaries are quite wrong. The salaries are not determined by some highly efficient market which pays for talent, nor is it some sort of conspiracy to get as much money as possible.&lt;/p&gt;
+
+&lt;p&gt;In a way Michael B. Dorff&amp;rsquo;s explanation for CEO salaries reminds me of &lt;a href=&#34;http://en.wikipedia.org/wiki/Hanlon&#39;s_razor&#34;&gt;Hanlon&amp;rsquo;s razor&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Never attribute to malice that which is adequately explained by stupidity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;CEO pay is high essentially because everybody in charge of deciding CEO pay believes both that CEOs matter a lot to the fortunes of a company and that performance based pay is really effective for the sort of work a CEO does. The problem is turns out is that there isn&amp;rsquo;t really any evidence for any of this and the evidence that does exist typically shows no correlation or negative correlation.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;How did it all start?&lt;/h2&gt;
+
+&lt;p&gt;It all essentially started with the economists Michael Jensen and William Meckling in the mid 1970s. They produced an extremely influential paper that argued that CEOs needed to get their pay tied to company performance to align themselves with the interests of the shareholders. Only problem was that this idea was based on flimsy evidence at the time and has never since been proven. Yet the intuinitive appeal was so strong that this idea soon spread to the boardrooms.&lt;/p&gt;
+
+&lt;p&gt;The other problem is that board members easily get too carried away with increasing CEO compensation when hiring because there is strong belief that it is vital for the success of the company to get the very best CEO money can buy. Yet studies by Gabaix and Lanier, who were in favor of performance based pay showed that the difference between the best CEO and the 250th best was 0.016 percent. Meaning if one replaced the 250th best CEO with the best, then the companies market capitalization would grow by 0.016 percent. That is just small of a difference to expect that a board member can spot such minute difference between two CEOs.&lt;/p&gt;
+
+&lt;p&gt;So why do they keep doing it? One of the effects Michael B. Dorff talks about is one similar to the one where you find that if you ask every driver about how good they are, then 90 percent will say they are better than the average. That is mathematically impossible. Board members are no better. They will typically believe they are above average and that they have superior ability to spot a good CEO.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
+
+&lt;p&gt;Michael B. Dorff goes on to discuss a number of studies which shows that while performance based pay usually works with repetitive non-intelectual tasks it generally doesn&amp;rsquo;t work for more intelectually challenging work. And even when it works, it has so many side effects that it is often not worth it. One exampe he mentions is &lt;a href=&#34;http://hbswk.hbs.edu/item/3424.html&#34;&gt;HP&amp;rsquo;s experiments&lt;/a&gt; with performance based pay in the 90s.&lt;/p&gt;
+
+&lt;p&gt;Incentive based pay reduced learning and mobility between teams. Team members became too focused on the metrics being measured at the detriment of everything else. When teams exceeded expectations according to metrics that would eventually force management to increase the requirements to meet the goals to get costs under control. However that would often cause resentment because employees now struggled with achieving what they had normally achieved. This issues led to management having to spend an exorbiant amount of time on tweaking and modifying incentives. In the end they concluded it was not worth it and all the branches of HP which had introduced performance based pay had abandoned it within 3 years.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;When reading &amp;ldquo;Indispensable and Other Myths&amp;rdquo; I can&amp;rsquo;t help but thinking that the reason we are so stuck with these approaches that doesn&amp;rsquo;t work like excessive CEO pay is that we are too eager to trust common sense. It makes common sense that performance based pay works and that CEOs are important. Perhaps it is worth remembering one of Albert Einstein&amp;rsquo;s quotes:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Common sense is the collection of prejudices acquired by age eighteen.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In reasoning about the very large or the very small like galaxies or sub atomic particles our common sense is of no help because our brains developed never having to deal with object of this size. It is also well known that we are notoriously horrible about having an intuition about probablity and statistics which are quite fundamental to studying anything like society, economics or CEO pay.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>An introduction to Swift for Python developers</title>
@@ -976,10 +1022,10 @@ case let .Error(error):
     
     <item>
       <title>Why American states cannot be compared to European countries</title>
-      <link>http://translusion.github.com/posts/europe-is-not-america/</link>
+      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
       <pubDate>Tue, 03 Jun 2014 00:00:00 UTC</pubDate>
       <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/europe-is-not-america/</guid>
+      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
       <description>
 
 &lt;p&gt;It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc. The American retort would be that these countries are too small to make for a meaningful comparison and that the whole of America should be compared to the whole of Europe. The idea is that variations among American states is quite large just like variations between European countries. Thus American states could be compared to European countries.&lt;/p&gt;
@@ -1714,85 +1760,6 @@ The Olimex AVR-ISP500 manual shows pictures of the connectors to help you identi
 &lt;p&gt;Below you can see how I connected all the pins from the programmer to the chip. This is the simple project from chapter 1 of the Evil Genius book. But the important thing here is how the cables are connected from the programmer to the ATtiny13 chip, because that is all you need. You do not need the LEDs, buttons, resitors and capacitor I put in.&lt;/p&gt;
 
 &lt;p&gt;&lt;caption id=&#34;attachment_7&#34; align=&#34;aligncenter&#34; width=&#34;300&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0560.jpg&#34;&gt;&lt;img class=&#34; wp-image-7 &#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0560.jpg?w=300&#34; alt=&#34;IMG_0560&#34; width=&#34;300&#34; height=&#34;176&#34; /&gt;&lt;/a&gt; Simple setup from Evil Genius book. Allows us to turn on toggle to LEDs with push buttons.&lt;/caption&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Prototyping</title>
-      <link>http://translusion.github.com/maker/prototyping/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/prototyping/</guid>
-      <description>
-
-&lt;p&gt;Lets say you want to test out an idea for a robot car, DVD changing robot arm, automatic card sorter or something similar. Machining your own parts would be time consuming. So what are the options for rapid prototyping?&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_0&#34;&gt;Lego Mindstorm&lt;/h2&gt;
-
-&lt;p&gt;The best known option and a huge community&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/lego-rover.jpg&#34; alt=&#34;alt text&#34; title=&#34;Lego&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Easy to find help and wide variety of parts. You can get hold of lego mindstorm in almost any toystore. The downside is that lego is its own world. Lego parts don&amp;rsquo;t mesh naturally with regular industrial components. You are typically limited to using parts made specifically for lego.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_1&#34;&gt;Meccano&lt;/h2&gt;
-
-&lt;p&gt;Readily available and works quite well with non meccano parts from industry&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/meccano-crane.jpg&#34; alt=&#34;alt text&#34; title=&#34;Meccano&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;In Norway you can find Meccano at:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.clasohlson.no/Product/StartPageProducts.aspx?kb=kb&#34;&gt;Clas Ohlson&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.riktigeleker.no/?page=312&#34;&gt;Riktige Leker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.tekniskmuseum.no/nettbutikk&#34;&gt;Teknisk Museum&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It is slower to put together things with Meccano than with Lego but the benefit is that the same approach for connecting things as &amp;ldquo;real&amp;rdquo; objects: screws and nuts. So you can more easily connect it to standard industrial components.&lt;/p&gt;
-
-&lt;p&gt;It also give a more solid construction, which you could keep as the final version if you want to.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_2&#34;&gt;&lt;a href=&#34;/prototyping/fischertechnik&#34;&gt;Fischertechnik&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Plastic parts like lego, but designed mainly for prototyping machines and engineering structures&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/fischertechnik-rover.jpg&#34; alt=&#34;Fischertechnik Rover&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;The way pieces are fitted together is very different from  Lego. It is similar to how industrial prototyping systems such as &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; works. In fact it can be combined with &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; aluminium T-slots. This makes the system one of the most flexible ones covered on this page. Unlike Lego and Meccano pieces do not need to be fitted together at fixed points. The main downside &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is that:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Largely unknown outside of Germany.&lt;/li&gt;
-&lt;li&gt;Can&amp;rsquo;t buy kits in your average toystore.&lt;/li&gt;
-&lt;li&gt;Much smaller community than Lego Mindstorm
-&lt;hr&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;toc_3&#34;&gt;MakerBeam&lt;/h2&gt;
-
-&lt;p&gt;A &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slot&lt;/a&gt; system for small hobby sized constructions&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/makerbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;MakerBeam&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; used in the industry is usually 20x20mm, which is impractical for a hobbyist. &lt;a href=&#34;http://www.makerbeam.eu&#34;&gt;MakerBeam&lt;/a&gt; is 10x10mm which is far more practical.&lt;/p&gt;
-
-&lt;p&gt;It is not sold as a toy like Lego, Meccano and Fischertechnik however. Using it requires more knowledge. There are no ready made kits with instructions.&lt;a href=&#34;http://www.makerbeam.eu&#34;&gt;MakerBeams&lt;/a&gt; are really just beams, brackets and screws. There are no ready made kits for building particular models. You have to buy industry standard motors, gears etc to make something usefull.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_4&#34;&gt;OpenBeam&lt;/h2&gt;
-
-&lt;p&gt;MakerBeam&amp;rsquo;s bigger brother&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/images/maker/openbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;OpenBeam&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;At 15x15mm &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; is the same size as a standard &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; building block. &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt;&amp;rsquo;s main advantage over other forms of &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; is that they have been designed to be used with regular nuts and bolts. Other T-slot systems have custom nuts and bolts which are harder to get hold of and more expensive.&lt;/p&gt;
 </description>
     </item>
     
