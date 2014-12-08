@@ -27,7 +27,7 @@
 5/8/2014 10:45:10   foo@mycompany.no    Higher salary    2,9%   37,5%    3,9%
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comman instead of dot for separating decimals.&lt;/p&gt;
+&lt;p&gt;I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comma instead of dot for separating decimals.&lt;/p&gt;
 
 &lt;p&gt;So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example &lt;em&gt;spam&lt;/em&gt; voted twice. So the 1st line needs to be elimenated and the 3rd kept.&lt;/p&gt;
 

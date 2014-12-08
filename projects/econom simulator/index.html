@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>  &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+  
+  
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/maker">Maker</a> </li>
+      <li><a href="/articles">Articles</a> </li>                  
+      <li><a href="/posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1></h1>
+  <span class="post-date">Mon, Jan 1, 0001</span>
+      
+
+<h1 id="toc_0">Economics Simulator of Comparative Advantage, Trade and Production</h1>
+
+<p>When you look around the world at different economies you see that a common pattern is that countries richly endowed with natural resources are often the least industrialized. While many countries or areas such as Japan, Singapore, Hong Kong and Switzerland with little resources of importance often have sophisticated industries.</p>
+
+<p>There are of course lots of factors at work here and there are many exceptions to the rule. But what we want to explore is whether we can predict this sort of development in a model using just a few parameters. The hypothesis is that this development can be described by only modeling comparative advantage and simple trade and production.</p>
+
+<p>My hypothesis is that given two producers $$ P_1 $$ and $$ P_2 $$, where $$ P_1 $$ has access to raw materials, while $$ P_2 $$ doesn&rsquo;t have any resources but have to import, then over time $$ P_2 $$ will develop further than $$ P_1 $$. We assume that in the start there will be minor differences but due to comparative advantage each producer will double down on their particular advantage and thus the difference will grow bigger.</p>
+
+<h1 id="toc_1">Description of the Model</h1>
+
+<p>A producer is a tuple</p>
+
+<p>$$ P = (c_u, c_f, m, s, p_u) $$</p>
+
+<p>where $$ c_u $$ and $$ c_f $$ is unit cost and fixed cost for producing the output goods. $$ m $$ is the max production capacity of producer $$ P $$. $$ s $$ is the supply of output for sale. $$ p_u $$ is the unit price for the produced goods.</p>
+
+<p>We assume production happens in iterations or turns so that $$ q<em>1 $$ quantity was produced after $$ q_0 $$ and $$ q_i $$ after $$ q</em>{i - 1} $$.</p>
+
+<p>We want the following properties for our model. Production cost per unit $$ c_u $$ should fall when the number of units produced increase. So</p>
+
+<p>$$ \forall n, m \textrm{ where } n &gt; m $$</p>
+
+<p>$$ c_u(n) &lt; c_u(m) $$</p>
+
+<p>If supply $$ s $$ keeps increasing</p>
+
+<p>$$ s_{i + 1} &gt; s_i \textrm{ where } i = 1, 2, 3, &hellip; $$</p>
+
+<p>That means we are either producing too much or charging too much so price $$ p $$ or produced quantity $$ q $$ should fall:</p>
+
+<p>$$ p<em>{i+1} \leq p_i \lor q</em>{+1} \leq q_i $$</p>
+
+<p>However if supply $$ s $$ keeps falling $$ s_{i+1} &lt; s_i $$ then prices or production should be increasing:</p>
+
+<p>$$ p<em>{i+1} \geq p_i \lor q</em>{+1} \geq q_i $$</p>
+
+<p>However if production quantity $$ q $$ can not increase then only prices $$ p $$ need to increase.</p>
+
+<p>$$ q<em>i = m \implies p</em>{i+1} \geq p_i$$</p>
+
+<h2 id="toc_2">Determining correct output</h2>
+
+<p>A challenge with the model is that we are attempting to determine correct values for two variables production quantity $$ q $$ and price $$ p $$ based on just one input, the supply level $$ s $$. If a store is not clearing inventory then it could either be due to prices being too high or that one is making more than the market needs.</p>
+
+<p>Possible ways of solving this problem is either:</p>
+
+<ol>
+<li>Try adjusting both $$ q $$ and $$ p $$</li>
+<li>Make decision on more input. E.g. compare out sales price $$ p $$ to the other other sellers.</li>
+</ol>
+
+<p>Assuming $$ p $$ is the price set by producer $$ P $$ and $$ p_a $$ is set by one of the other producers $$ a \in A $$. Then if</p>
+
+<p>$$ \forall a \in A, p_a \leq p \land g(q, p) - c(q, p) &gt; 0 $$</p>
+
+<p>where $$ g(q, p) $$ is the gain or profit from producing $$ q$$ units at price $$ p $$ and $$ c(q, p) $$ is the monetary cost of doing so. If the above is true, then prices ought to  be reduced to $$ p&rsquo; $$ as long as $$  g(q, p&rsquo;) - c(q, p&rsquo;) \geq 0 $$</p>
+
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
+</div>
+</div>
+
+  </body>
+</html>
