@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://translusion.github.com/</loc>
-    <lastmod>2014-12-08T00:00:00+00:00</lastmod>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/torture/</loc>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>

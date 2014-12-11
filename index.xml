@@ -7,7 +7,40 @@
     <language>en-us</language>
     <author>Erik Engheim</author>
     
-    <updated>Mon, 08 Dec 2014 00:00:00 UTC</updated>
+    <updated>Thu, 11 Dec 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Why I don&#39;t believe in Torture</title>
+      <link>http://translusion.github.com/posts/torture/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/torture/</guid>
+      <description>
+
+&lt;p&gt;This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it. It is much like free speech. If you argue free speech should only be allowed to those who don&amp;rsquo;t say nasty things, then it isn&amp;rsquo;t free speech.&lt;/p&gt;
+
+&lt;p&gt;Anyway the two common assumptions proponents of torture of terrorists indulge in is:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;That you are always able to tell whether the terrorist is telling the truth or not.&lt;/li&gt;
+&lt;li&gt;That you know that you got the right guy.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In a realistic scenario you don&amp;rsquo;t know who knows what. Say you got 10 terror suspects and one of them knows where the next attack is going to be. You don&amp;rsquo;t know who knows however and when you ask each of them, they all refuse to tell you. So you decide to torture every one of them to force them to talk. Now everyone of them wants to get away from the pain so they say whatever they think you want to hear. 9 of them has to invent something, because there is only 1 who actually knows. Problem is that now you have 10 different answers to your question.&lt;/p&gt;
+
+&lt;p&gt;So the problem is that even if we assumed torture made people tell the truth if they know it, it wont help because the whole torture approach is producing so many false answers that you can&amp;rsquo;t tell when you got the right answer.&lt;/p&gt;
+
+&lt;p&gt;Then there is silly assumption that the authorities can really know for sure whether they got the right person or not. As the Senate Committee&amp;rsquo;s Report on CIA&amp;rsquo;s use of torture details, one often apperhended innocents. In fact 20% of those detained did not even meet CIA&amp;rsquo;s own criteria for being detained.&lt;/p&gt;
+
+&lt;p&gt;A great example of this is &lt;a href=&#34;http://en.wikipedia.org/wiki/Guildford_Four_and_Maguire_Seven#Guildford_Four&#34;&gt;&amp;ldquo;Guildford Four and Maguire Seven&amp;rdquo;&lt;/a&gt; who were convicted of the Guildford pub bombings of 5 October 1974. This later formed the basis of the famous movie &amp;ldquo;In the name of my father&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Convictions based on the use of torture. They were not released until 1991, when it was uncovered how the police had manipulated evidence and tortured the suspects into confessions. No doubt the police thought they had the right guys. When it started becoming clear they were wrong they covered up. That is third problem with torture. If one ever makes a mistake in torture, authorities will attempt to cover up the truth because the truth will be too much of an embarrasment. Just like the catholic chrurch has covered up their abuses because what could be more embarrassing that the guardians of moral displaying imoral.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_0&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;So in short I believe torture is wrong because when we torture we create a lot of false positives which hides the actual truth. Secondly because the principle of innocence exists not to be nice to bad guys but because it is very hard to know whether you got the right guy. That is why we have courts, to determine innocence. It stands to reasons that the graver the accusation the stronger the legal protection should be as the moral cost of wrongefully convicting someone of mass murder or terrorism is very high. Sadly many seem to conclude opposite. The more terrible the accusation you are subject to the less legal protection you deserve. With this form of logic, going over the speed limit on the highway should give someone the strongest legal defence.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Dynamic Typing as a Paradigm</title>
@@ -1739,29 +1772,6 @@ brge r16Greatest
 &lt;p&gt;My second big misunderstanding was the timer/counter system. Register TCNT0 counts upwards constantly and you can use it as a sort of timer or to generate PWM signals on the output. One way of using it is to toggle an output pin OC0B (PB1) or OC0A (PB0) whenever I/O register TCNT0 is equal to I/O register OCR0B or OCR0A. You can configure this in one of the timer controll registers. So far so good. The problem arose when using something called CTC mode. When using CTC, the TCNT0 register will be reset to 0 each time TCNT0 equals OCR0A. The last part is the imporant. You can only use OCR0A for this purpose on ATtiny13. When TCNT0 equals OCR0B it will toggle the OC0B pin if you have enabled that but it will never reset TCNT0. There is no way of configuring that.&lt;/p&gt;
 
 &lt;p&gt;The implication of that is also that you can not blink your LEDs at different frequency, but you may blink them out of phase, since OCR0B need not be the same as OCR0A. When I first set this up I did not understand this difference so I wrote a value into OCR0B thinking that would affect the frequency of LED blinking. I did not get any blinking at all. Just a steady light because OCR0A was 0, since it was never set. Thus when TCNT0 got reset it immediatly got the same values as OCR0A again. When turning on interrupts, this had the effect of making the interrupt only fire once.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AVR Assembly programming on Mac OS X</title>
-      <link>http://translusion.github.com/posts/avrassembly/</link>
-      <pubDate>Tue, 05 Mar 2013 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/avrassembly/</guid>
-      <description>&lt;p&gt;When starting with out programming the &lt;a href=&#34;http://en.wikipedia.org/wiki/Atmel_AVR&#34;&gt;AVR&lt;/a&gt; microcontroller on OS X, you will probably start by using &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt; installs the AVR GNU assembler &lt;strong&gt;avr-as&lt;/strong&gt; described &lt;a href=&#34;http://www.nongnu.org/avr-libc/user-manual/assembler.html&#34;&gt;here&lt;/a&gt;. The assembly files typically end with &lt;strong&gt;.S&lt;/strong&gt;. You can invoke it through gcc with e.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will assemble the file &lt;em&gt;ledflash.S &lt;/em&gt;for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.&lt;/p&gt;
-
-&lt;p&gt;Fortunatly if you look around you can find the open source &lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;avra&lt;/a&gt; assembler. A problem when first googling is that an older assembler &lt;strong&gt;tavrasm&lt;/strong&gt; will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;avra&lt;/a&gt; is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the &lt;a title=&#34;vAVRdiasm&#34; href=&#34;https://github.com/vsergeev/vAVRdisasm&#34;&gt;vAVRdiasm&lt;/a&gt; to diassemble the .hex file and see that you get back something that looks like what you put in ;-)&lt;/p&gt;
-
-&lt;p&gt;There is also a TextMate &lt;a title=&#34;avr-assembly bundle&#34; href=&#34;https://github.com/mherb/avr-assembly.tmbundle&#34;&gt;bundle avr-assembly&lt;/a&gt; which you can install which makes it possible to have syntax highlight for your AVR assemble programming.&lt;/p&gt;
-
-&lt;p&gt;As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.&lt;/p&gt;
 </description>
     </item>
     
