@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Beautiful Julia: Cool language constructs and Tricks for Beginners &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+  
+  
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/maker">Maker</a> </li>
+      <li><a href="/articles">Articles</a> </li>                  
+      <li><a href="/posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>Beautiful Julia: Cool language constructs and Tricks for Beginners</h1>
+  <span class="post-date">Sun, Dec 14, 2014</span>
+      
+
+<p>I just read <a href="http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/">this blog</a> about cool language constructs in Python. Before clicking it I thought to myself are there cool things only Python can do or could I easily replicate this in my favorite script language, <a href="http://julialang.org">Julia</a>.</p>
+
+<p>So without further ado, her are some examples.</p>
+
+<h3 id="toc_0">Reverse an iterable</h3>
+
+<p>There are two ways of doing this</p>
+
+<pre><code> julia&gt; a = [1, 2, 4]
+ 3-element Array{Int64,1}:
+  1
+  2
+  4
+</code></pre>
+
+<p>The most obvious way is the <code>reverse</code> function</p>
+
+<pre><code> julia&gt; reverse(a)
+ 3-element Array{Int64,1}:
+  4
+  2
+  1
+</code></pre>
+
+<p>But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice</p>
+
+<pre><code> julia&gt; a[end:-1:1]
+ 3-element Array{Int64,1}:
+  4
+  2
+  1
+</code></pre>
+
+<p>This of course works for any types:</p>
+
+<pre><code>julia&gt; reverse(b)
+(4,3,2)
+
+julia&gt; b[end:-1:1]
+(4,3,2)
+
+julia&gt; c = &quot;This is a string&quot;
+&quot;This is a string&quot;
+
+julia&gt; reverse(c)
+&quot;gnirts a si sihT&quot;
+</code></pre>
+
+<p>Julia follows the Ruby convention of suffixing with <code>!</code> if the function is mutating, so we can be confident these functions created copies.</p>
+
+<h3 id="toc_1">Swapping the values of two variables</h3>
+
+<pre><code>julia&gt; a, b = 1, 2
+(1,2)
+
+julia&gt; a, b = b, a
+(2,1)
+
+julia&gt; a
+2
+
+julia&gt; b
+1
+</code></pre>
+
+<p>In the python example, the author Praveen Kumar disassembled the Python code to demonstrate how it worked by showing the bytecode. That will be quite different for <a href="http://julialang.org">Julia</a> as Julia JITs different implementations based on the types of arguments. That is why Julia is so fast. E.g. when we define a function that swaps in Julia we get a generic function which will be specialized when called by the Just in Time compiler:</p>
+
+<pre><code>julia&gt; foo(a, b) = a, b = b, a
+foo (generic function with 1 method)
+</code></pre>
+
+<p>So when dumping the assembly with <code>code_native</code> we have to specify what the types of arguments  will be as second argument:</p>
+
+<pre><code>julia&gt; code_native(foo, (Int, Int))
+    .section    __TEXT,__text,regular,pure_instructions
+Filename: none
+Source line: 1
+    push    RBP
+    mov RBP, RSP
+Source line: 1
+    movq    XMM1, RDI
+    movq    XMM0, RSI
+    punpcklqdq  XMM0, XMM1      ## xmm0 = xmm0[0],xmm1[0]
+    pop RBP
+    ret
+</code></pre>
+
+<p>If we want the bytecode like Python we get something that I consider less readable as it is LLVM based which contains a lot of type information to be able to generate efficient machien code output:</p>
+
+<pre><code>julia&gt; code_llvm(foo, (Int, Int))
+
+define &lt;2 x i64&gt; @&quot;julia_foo;20220&quot;(i64, i64) {
+top:
+  %2 = insertelement &lt;2 x i64&gt; undef, i64 %1, i32 0, !dbg !1422, !julia_type !1423
+  %3 = insertelement &lt;2 x i64&gt; %2, i64 %0, i32 1, !dbg !1422, !julia_type !1423
+  ret &lt;2 x i64&gt; %3, !dbg !1422
+}
+</code></pre>
+
+<p>This isn&rsquo;t obviously readable so we need to consult the <a href="http://llvm.org/releases/2.6/docs/LangRef.html">LLVM reference</a> manual. <a href="http://llvm.org/releases/2.6/docs/LangRef.html#i_insertelement">insertelement</a> is instruction which insert an element into a vector at given index.</p>
+
+<p>First part <code>&lt;2 x i64&gt;</code> is a type annotation saying we are operating on a 2 element 64 bit integer vector.</p>
+
+<p>First argument is the vector register to operate on. In the first case that is <code>undef</code> while in the next line it is <code>%2</code>, which is where the result of the first line was put.</p>
+
+<p>Second argument <code>i64 %1</code> says we are inserting a 64 bit integer element. Where is given in third argument: <code>i32 0</code>. Insert at index 0 (given as a 32 bit integer).</p>
+
+<p>I&rsquo;ll leave it as a readers excercise to figure out exactly how this performs a swap as going into the nitty bitty details of this was not the intention of this blog post.</p>
+
+<h3 id="toc_2">Enumerate</h3>
+
+<p>Interestingly the <a href="http://julialang.org">Julia</a> approach for iterating over both index and value is almost identical to that of Python:</p>
+
+<pre><code>julia&gt; for (index, value) in enumerate([&quot;foo&quot;, &quot;bar&quot;, &quot;zoo&quot;])
+         println(index, &quot; &quot; , value)
+       end
+1 foo
+2 bar
+3 zoo
+</code></pre>
+
+<h3 id="toc_3">Splitting a string into a list of words and joining them back</h3>
+
+<p>Splitting and joining is similar to Python except Julia isn&rsquo;t really object oriented so function name comes first as Julia uses multiple dispatch to decide which implementation to call.</p>
+
+<pre><code>julia&gt; b = split(&quot;This is a string&quot;)
+4-element Array{SubString{ASCIIString},1}:
+ &quot;This&quot;  
+ &quot;is&quot;    
+ &quot;a&quot;     
+ &quot;string&quot;
+
+julia&gt; join(b, &quot; &quot;)
+&quot;This is a string&quot;
+
+julia&gt; join(b, &quot;, &quot;)
+&quot;This, is, a, string&quot;
+</code></pre>
+
+<p>Nesting functions call is sometimes hard to read, so Julia offers the <code>|&gt;</code> operator to write the code in similar sequence as with object oriented languages .e.g:</p>
+
+<pre><code>julia&gt; &quot;This is a string&quot; |&gt; split |&gt; join
+&quot;Thisisastring&quot;
+</code></pre>
+
+<h3 id="toc_4">List Comprehensions</h3>
+
+<p>The traditional imperative way transforming on list to a new one is:</p>
+
+<pre><code>julia&gt; M = String[]
+0-element Array{String,1}
+
+julia&gt; for word in L
+           push!(M, word[1:3])
+       end
+
+julia&gt; M
+4-element Array{String,1}:
+ &quot;Jul&quot;
+ &quot;mak&quot;
+ &quot;peo&quot;
+ &quot;lov&quot;
+</code></pre>
+
+<p>Quite similar to the Python example except Julia lists havea type so you have to specify that it is a String. You can create a python like array but then you need to specify that it takes any element:</p>
+
+<pre><code>julia&gt; M = Any[]
+0-element Array{Any,1}
+</code></pre>
+
+<p>With list comperhensions you can do this more elegantly with:</p>
+
+<pre><code>julia&gt; M = [word[1:3] for word in L]
+4-element Array{Any,1}:
+ &quot;Jul&quot;
+ &quot;mak&quot;
+ &quot;peo&quot;
+ &quot;lov&quot;
+</code></pre>
+
+<p>However for <a href="http://julialang.org">Julia</a> it would be more idiomatic to express what you are doing. E.g. in this case we are mapping from one array to another which we can express like this:</p>
+
+<pre><code>julia&gt; M = map(word -&gt;  word[1:3], L)
+4-element Array{ASCIIString,1}:
+ &quot;Jul&quot;
+ &quot;mak&quot;
+ &quot;peo&quot;
+ &quot;lov&quot;
+</code></pre>
+
+<p>If we want to filter a list by producing a new list containg only the elements with length greater than 5 we would do it like this:</p>
+
+<pre><code>for word in L
+  if length(word) &gt; 5
+    push!(M, word)
+  end
+end
+</code></pre>
+
+<p>With Python we could solve this with a list comperhension however with Julia you have to explicity state that you are filtering:</p>
+
+<pre><code>M = filter(word -&gt; length(word) &gt; 5, L)
+</code></pre>
+
+<p>The reason for this is that Julia has bultin support for multidimensional arrays, given that it was designed for scientific computing where this is important. There is no natural way to filter a multi dimensional array, as e.g. every row in a matrix needs to have the same number of columns.</p>
+
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
+</div>
+</div>
+
+  </body>
+</html>

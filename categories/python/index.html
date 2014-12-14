@@ -58,6 +58,19 @@
       
           <article class="post">
     <header>
+      <h2><a href='http://translusion.github.com/posts/beautiful-julia/'> Beautiful Julia: Cool language constructs and Tricks for Beginners</a> </h2>
+      <span class="post-date">Sun, Dec 14, 2014</span>
+    </header>
+
+    I just read this blog about cool language constructs in Python. Before clicking it I thought to myself are there cool things only Python can do or could I easily replicate this in my favorite script language, Julia. So without further ado, her are some examples. Reverse an iterable There are two ways of doing this julia&gt; a = [1, 2, 4] 3-element Array{Int64,1}: 1 2 4 The most obvious way is the reverse function julia&gt; reverse(a) 3-element Array{Int64,1}: 4 2 1 But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice julia&gt; a[end:-1:1] 3-element Array{Int64,1}: 4 2 1 This of course works for any types: julia&gt; reverse(b) (4,3,2) julia&gt; b[end:-1:1] (4,3,2) julia&gt; c = &quot;This is a string&quot; &quot;This is a string&quot; julia&gt; reverse(c) &quot;gnirts a si sihT&quot; Julia follows the Ruby convention of suffixing with !
+    <footer>
+        <a href='http://translusion.github.com/posts/beautiful-julia/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+      
+          <article class="post">
+    <header>
       <h2><a href='http://translusion.github.com/posts/swift_compared_to_python/'> An introduction to Swift for Python developers</a> </h2>
       <span class="post-date">Sat, Nov 8, 2014</span>
     </header>
