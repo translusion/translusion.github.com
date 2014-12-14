@@ -17,7 +17,7 @@
       <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
       <description>
 
-&lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself are there cool things only Python can do or could I easily replicate this in my favorite script language, &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;?&lt;/p&gt;
 
 &lt;p&gt;So without further ado, her are some examples.&lt;/p&gt;
 
