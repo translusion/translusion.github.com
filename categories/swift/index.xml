@@ -296,10 +296,10 @@ error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigme/</link>
+      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 UTC</pubDate>
       <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigme/</guid>
+      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
 &lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;

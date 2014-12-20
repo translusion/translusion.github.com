@@ -11,10 +11,10 @@
     
     <item>
       <title>Dynamic Typing as a Paradigm</title>
-      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
+      <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</link>
       <pubDate>Mon, 08 Dec 2014 00:00:00 UTC</pubDate>
       <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>
 
 &lt;p&gt;The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post &lt;a href=&#34;https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/&#34;&gt;Dynamic languages are static languages&lt;/a&gt; illustrates the misunderstanding very well.&lt;/p&gt;
