@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Tricks in Julia &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+  
+  
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/maker">Maker</a> </li>
+      <li><a href="/articles">Articles</a> </li>                  
+      <li><a href="/posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>Tricks in Julia</h1>
+  <span class="post-date">Sun, Dec 21, 2014</span>
+      
+
+<p>After doing various small Julia projects I&rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:</p>
+
+<h3 id="toc_0">Parsing Strings</h3>
+
+<p>Extract 3 numbers from a string into 3 variables:</p>
+
+<pre><code>a, b, c = map(int, split(&quot;11 12 13&quot;))
+</code></pre>
+
+<h3 id="toc_1">Initialization</h3>
+
+<p>There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.</p>
+
+<pre><code>&gt; type Point
+    x::Int
+    y::Int
+  end
+
+&gt; points = fill(Point(0, 0), 4)
+4-element Array{Point,1}:
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+</code></pre>
+
+<p>That looks all fine, until you make a change and get this:</p>
+
+<pre><code>&gt; points[2].x = 20
+&gt; points
+4-element Array{Point,1}:
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+</code></pre>
+
+<p>That was probably not as expected. The reason for this is that references to the created <code>Point</code> object in fill is copied not the values themselves. So what we actually got to do is:</p>
+
+<pre><code>points = [Point(0, 0) for _ in 1:4]
+</code></pre>
+
+<h2 id="toc_2">Integers</h2>
+
+<p>There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:</p>
+
+<pre><code>&gt; typemax(Int8)
+127
+&gt; typemax(Uint8)
+0xff # which is 255 decimal
+&gt; typemin(Int8)
+-128
+</code></pre>
+
+<p>One also has to remember that Julia integers do not get promoted to larger values when overflowing. So e.g. taking the factorial of a really big number like 100 requires using <code>BigInt</code>:</p>
+
+<pre><code> &gt; factorial(BigInt(25))
+ 15511210043330985984000000
+</code></pre>
+
+<h3 id="toc_3">Division</h3>
+
+<p>One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:</p>
+
+<pre><code>&gt; 10 / 6
+1.6666666666666667
+</code></pre>
+
+<p>Which has of course the minor inaccuracies of floating point arithmetic. If you want accurate results you can compute fractions with the <code>//</code> division operator:</p>
+
+<pre><code>&gt; a = 10 // 6
+5//3
+&gt; a.num
+5
+&gt; a.div
+3
+</code></pre>
+
+<p>If you want to work with C/C++ style division then we use the <code>div</code>, <code>rem</code> and <code>mod</code> functions:</p>
+
+<pre><code>&gt; div(10, 6)
+1
+&gt; rem(10, 6)
+4
+</code></pre>
+
+<p>C/C++ style remainder</p>
+
+<pre><code>&gt; 10 % 6
+4
+</code></pre>
+
+<p>Modulus is not quite the same as remaineder. E.g.</p>
+
+<pre><code>&gt; rem(-21, 4)
+-1
+&gt; mod(-21, 4)
+3
+</code></pre>
+
+<p>With modulus we can imagine doing calculations on a clock.</p>
+
+<h3 id="toc_4">Reading files</h3>
+
+<p>Julia has some nice ways you can compose functions to read files.</p>
+
+<pre><code>lines = open(readlines, &quot;myfile.txt&quot;)
+</code></pre>
+
+<p>This corresponds to writing:</p>
+
+<pre><code>f = open(&quot;myfile.txt&quot;)
+lines = readlines(f)
+close(f)
+</code></pre>
+
+<p>With the julia <code>do end</code> syntax sugar you can use this to conveniently read a file and not forget to close it:</p>
+
+<pre><code>open(&quot;myfile.txt&quot;) do f
+   println(readline(f))     # print out first line in file
+end                         # file stream automatically closes here
+</code></pre>
+
+<h3 id="toc_5">Working with dates</h3>
+
+<p>This is just to show how to deal with a common case:</p>
+
+<pre><code>&gt; using Dates
+&gt; (date, time) = split(&quot;5/8/2014 0:16:03&quot;)
+2-element Array{SubString{ASCIIString},1}:
+ &quot;5/8/2014&quot;
+ &quot;0:16:03&quot; 
+</code></pre>
+
+<p>Then as shown before we can unpack an array into separate variables like this:</p>
+
+<pre><code>&gt; year, month, day = reverse(map(int, split(date, '/')))
+3-element Array{Int64,1}:
+ 2014
+    8
+    5
+&gt; date = Date(year, month, day)
+2014-08-05
+</code></pre>
+
+<p>You could also do this in one go by unpacking an array into function arguments using <code>...</code>:</p>
+
+<pre><code>&gt; Date(reverse(map(int, split(date, '/')))...)
+2014-08-05
+</code></pre>
+
+<h3 id="toc_6">Enumeration</h3>
+
+<p>Regular enumeration in Julia is straightforward but it might not be obvious how you enumerate over both values and keys or indicies in an array or dictionary:</p>
+
+<pre><code>&gt; for (index, value) in enumerate([&quot;one&quot;, &quot;two&quot;, &quot;three&quot;])
+           println(index, &quot;: &quot;, value)
+       end
+1: one
+2: two
+3: three
+</code></pre>
+
+<h3 id="toc_7">Accessing fields of a type</h3>
+
+<p>Unlike Ruby and Python, Julia&rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:</p>
+
+<pre><code>type FooBar
+    foo::Int64
+    bar::String
+end
+
+&gt; a = FooBar(42, &quot;The answer to everything&quot;)
+&gt; a.(:bar)
+&quot;The answer to everything&quot;
+</code></pre>
+
+<p>If you only got the name of a field as a string you can do:</p>
+
+<pre><code>&gt; a.(symbol(&quot;bar&quot;))
+&quot;The answer to everything&quot;
+</code></pre>
+
+<p>To find out what fields actually exist you can use <code>names</code>:</p>
+
+<pre><code>&gt; names(FooBar)
+2-element Array{Symbol,1}:
+ :foo
+ :bar
+</code></pre>
+
+<p>Alternatively if you got an instance you can see both the name of the fields and their values with <code>dump</code>:</p>
+
+<pre><code>&gt; dump(a)
+FooBar 
+  foo: Int64 42
+  bar: ASCIIString &quot;The answer to everything&quot;
+</code></pre>
+
+<p>Most of these code snippets or approaches I picked up from doing small things like implement an algorithm in <a href="https://projecteuler.net">project Euler</a>. I hope to write some bigger piece of code and see how Julia stacks up and how well suited Julia is for more software engineering type of challenges.</p>
+
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
+</div>
+</div>
+
+  </body>
+</html>

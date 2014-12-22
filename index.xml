@@ -7,7 +7,218 @@
     <language>en-us</language>
     <author>Erik Engheim</author>
     
-    <updated>Sun, 14 Dec 2014 00:00:00 UTC</updated>
+    <updated>Sun, 21 Dec 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Tricks in Julia</title>
+      <link>http://translusion.github.com/posts/julia-tricks/</link>
+      <pubDate>Sun, 21 Dec 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
+      <description>
+
+&lt;p&gt;After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Parsing Strings&lt;/h3&gt;
+
+&lt;p&gt;Extract 3 numbers from a string into 3 variables:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a, b, c = map(int, split(&amp;quot;11 12 13&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Initialization&lt;/h3&gt;
+
+&lt;p&gt;There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; type Point
+    x::Int
+    y::Int
+  end
+
+&amp;gt; points = fill(Point(0, 0), 4)
+4-element Array{Point,1}:
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That looks all fine, until you make a change and get this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; points[2].x = 20
+&amp;gt; points
+4-element Array{Point,1}:
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was probably not as expected. The reason for this is that references to the created &lt;code&gt;Point&lt;/code&gt; object in fill is copied not the values themselves. So what we actually got to do is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;points = [Point(0, 0) for _ in 1:4]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Integers&lt;/h2&gt;
+
+&lt;p&gt;There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; typemax(Int8)
+127
+&amp;gt; typemax(Uint8)
+0xff # which is 255 decimal
+&amp;gt; typemin(Int8)
+-128
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One also has to remember that Julia integers do not get promoted to larger values when overflowing. So e.g. taking the factorial of a really big number like 100 requires using &lt;code&gt;BigInt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; &amp;gt; factorial(BigInt(25))
+ 15511210043330985984000000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Division&lt;/h3&gt;
+
+&lt;p&gt;One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; 10 / 6
+1.6666666666666667
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which has of course the minor inaccuracies of floating point arithmetic. If you want accurate results you can compute fractions with the &lt;code&gt;//&lt;/code&gt; division operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a = 10 // 6
+5//3
+&amp;gt; a.num
+5
+&amp;gt; a.div
+3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to work with C/C++ style division then we use the &lt;code&gt;div&lt;/code&gt;, &lt;code&gt;rem&lt;/code&gt; and &lt;code&gt;mod&lt;/code&gt; functions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; div(10, 6)
+1
+&amp;gt; rem(10, 6)
+4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C/C++ style remainder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; 10 % 6
+4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Modulus is not quite the same as remaineder. E.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; rem(-21, 4)
+-1
+&amp;gt; mod(-21, 4)
+3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With modulus we can imagine doing calculations on a clock.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;Reading files&lt;/h3&gt;
+
+&lt;p&gt;Julia has some nice ways you can compose functions to read files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lines = open(readlines, &amp;quot;myfile.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This corresponds to writing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = open(&amp;quot;myfile.txt&amp;quot;)
+lines = readlines(f)
+close(f)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the julia &lt;code&gt;do end&lt;/code&gt; syntax sugar you can use this to conveniently read a file and not forget to close it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;open(&amp;quot;myfile.txt&amp;quot;) do f
+   println(readline(f))     # print out first line in file
+end                         # file stream automatically closes here
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;Working with dates&lt;/h3&gt;
+
+&lt;p&gt;This is just to show how to deal with a common case:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; using Dates
+&amp;gt; (date, time) = split(&amp;quot;5/8/2014 0:16:03&amp;quot;)
+2-element Array{SubString{ASCIIString},1}:
+ &amp;quot;5/8/2014&amp;quot;
+ &amp;quot;0:16:03&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then as shown before we can unpack an array into separate variables like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; year, month, day = reverse(map(int, split(date, &#39;/&#39;)))
+3-element Array{Int64,1}:
+ 2014
+    8
+    5
+&amp;gt; date = Date(year, month, day)
+2014-08-05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You could also do this in one go by unpacking an array into function arguments using &lt;code&gt;...&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; Date(reverse(map(int, split(date, &#39;/&#39;)))...)
+2014-08-05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;Enumeration&lt;/h3&gt;
+
+&lt;p&gt;Regular enumeration in Julia is straightforward but it might not be obvious how you enumerate over both values and keys or indicies in an array or dictionary:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; for (index, value) in enumerate([&amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;, &amp;quot;three&amp;quot;])
+           println(index, &amp;quot;: &amp;quot;, value)
+       end
+1: one
+2: two
+3: three
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;Accessing fields of a type&lt;/h3&gt;
+
+&lt;p&gt;Unlike Ruby and Python, Julia&amp;rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type FooBar
+    foo::Int64
+    bar::String
+end
+
+&amp;gt; a = FooBar(42, &amp;quot;The answer to everything&amp;quot;)
+&amp;gt; a.(:bar)
+&amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you only got the name of a field as a string you can do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a.(symbol(&amp;quot;bar&amp;quot;))
+&amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To find out what fields actually exist you can use &lt;code&gt;names&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; names(FooBar)
+2-element Array{Symbol,1}:
+ :foo
+ :bar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Alternatively if you got an instance you can see both the name of the fields and their values with &lt;code&gt;dump&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; dump(a)
+FooBar 
+  foo: Int64 42
+  bar: ASCIIString &amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Most of these code snippets or approaches I picked up from doing small things like implement an algorithm in &lt;a href=&#34;https://projecteuler.net&#34;&gt;project Euler&lt;/a&gt;. I hope to write some bigger piece of code and see how Julia stacks up and how well suited Julia is for more software engineering type of challenges.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
@@ -1861,79 +2072,6 @@ end
 &lt;p&gt;Lego is well suited for building the same things that you would build with bricks such as houses and buildings. Lego technik or Mindstorm tries to expand on that by offering pieces which connect in a similar fashion as Meccano by having regularly spaced holes in the bricks.&lt;/p&gt;
 
 &lt;p&gt;A downside to that is that pieces can only be connected at fixed points. &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;Fischertechnik&lt;/a&gt; pieces on the other hand may be connected at any point. A standard building block can connect to another standard building block at any of the block&amp;rsquo;s six faces. That gives versatility which can not be matched by either Meccano or Lego. &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;Fischertechnik&lt;/a&gt; well suited for constructing machnines but poorly suited for making things resembling builds. Lego is better suited for this.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Development board for 8 pin AVR microcontrollers</title>
-      <link>http://translusion.github.com/posts/avrdevboard/</link>
-      <pubDate>Sun, 24 Mar 2013 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/avrdevboard/</guid>
-      <description>&lt;p&gt;I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.&lt;/p&gt;
-
-&lt;p&gt;The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13. You can get a tiny for around 20 Kr at e.g. &lt;a title=&#34;electrokit&#34; href=&#34;http://www.electrokit.com&#34;&gt;electrokit&lt;/a&gt; in sweden.&lt;/p&gt;
-
-&lt;p&gt;Lots of projects such as motor controllers with buttons or a dial for controlling speed does not need anything more than a tiny13, and a small program. My first problem however hooking up the circuit below to program one of my tiny13s, is that it is easy to connect the cables to the programmer wrong.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0648.jpg&#34;&gt;&lt;img id=&#34;i-179&#34; class=&#34; wp-image&#34; title=&#34;ATtiny13 development breadboard&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0648.jpg?w=650&#34; alt=&#34;ATtiny13 development breadboard&#34; width=&#34;650&#34; height=&#34;365&#34; /&gt;&lt;/a&gt; Development board for AVR ATtiny13 microcontroller on breadboard, connected to a AVR-ISP500 programmer from Olimex. Pin 2 and 7 are connected to push buttons, which will pull the pins LOW when pushed (will connect to GND). Pin 6 and 5 drive a yellow and green LED through 2 transistors. The two transistors and 22K Ohm resistors are there to avoid interfering with the programmer, since it uses those pins for MISO and MOSI.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;The example above is not too bad because I used colored wires with one female and one male end. Thus I could connect the female end directly to the output of the programmer and the male end into the breadboard. But if you have to connect into the connector of a ISP6 cable then it is easy to get the pin numbering wrong.&lt;/p&gt;
-
-&lt;p&gt;So that is why I build the above curcuit first on a breadboard, tested it and then built it on the prototype board below.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0653.jpg&#34;&gt;&lt;img id=&#34;i-216&#34; class=&#34; wp-image&#34; title=&#34;ATtiny13 development board&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0653.jpg?w=650&#34; alt=&#34;ATtiny13 development board&#34; width=&#34;650&#34; height=&#34;427&#34; /&gt;&lt;/a&gt; Pin 2 and 7 are connected to push buttons, which will pull the pins LOW when pushed (will connect to GND). Pin 6 and 5 drive a yellow and green LED through two 2N2222 transistors. Potentiometer is connected to pin 3. Red LED indicates that our LM7805 voltage regulator is delivering power. On the bottom right there is a ISP6 connector for in system programming.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;It has a ISP6 connector (black 2x3 pins). With this there is only one way to connect the cable from your programmer, so it is very quick to connect your 8 pin AVR microcontroller to a programmer. A lot of devboards contains the bare minimum of components. I wanted to be able to test most of my ideas and programs directly on my development board without having the move the chip to another circuit to do actual work.&lt;/p&gt;
-
-&lt;p&gt;So my development board has the following inputs and outputs which I believe I will typically be using for most projects:
-&lt;ul&gt;
-    &lt;li&gt;&lt;span style=&#34;line-height: 14px;&#34;&gt;2 outputs connected to a green and yellow LED. These are connect to pins which can do PWM, since I will need that for motor controller programs.&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;2 digital inputs connected to push buttons. Assume pullup resistor is enabled.&lt;/li&gt;
-    &lt;li&gt;1 analog input connected to a potentiometer.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/tiny13-programmer_bb.png&#34;&gt;&lt;img id=&#34;i-236&#34; class=&#34; wp-image&#34; title=&#34;Partlist for attiny13 devboard&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/tiny13-programmer_bb.png?w=650&#34; alt=&#34;partlist&#34; width=&#34;650&#34; height=&#34;304&#34; /&gt;&lt;/a&gt; 10uF, 100uF capacitor handling 25V. 10K potentiometer. Two 2N2222 transistors. 3 push buttons (one for reset not shown). 3 regular LEDs as shown. 1 switch for power. LM7805 voltage regulator (+5V out). Restors as shown.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;If figured I would to projects with blinking LEDs, dimmers or motor controllers. All that will require PWM. Hence pin 6 and 5 were selected for output.&lt;/p&gt;
-
-&lt;p&gt;In the design it is worth nothing that the outputs of the AVR chip do not power the green and yellow LED directly. The reason for that is that pin 6 and 5 are used for in system programming, and are thus connected to our programmer.&lt;/p&gt;
-
-&lt;p&gt;Connecting LEDs directly to these same pins as used by the programmer could interfere with its operation. &lt;a title=&#34;Atmel AVR042: AVR Hardware Design Considerations&#34; href=&#34;http://www.atmel.com/images/doc2521.pdf&#34;&gt;ATMELs datasheets&lt;/a&gt;(page 6) says you should put in a series resistor between the load and the AVR. 10K would be a good value. I put in 22K and a transistor so very little current or voltage drop will happen to drive the LEDs.&lt;/p&gt;
-
-&lt;p&gt;I can program the AVR without any external power because the AVR-ISP500 programmer I use delivers power to the AVR through pin 2 of ISP6 connector. With the transistors I am also able to program it while external power is connected and the circuit is running. This makes development a lot faster, because I do not need to unplug anything to test the circuit, or plug in anythin to transfer an updated version of my program.&lt;/p&gt;
-
-&lt;p&gt;Here is a very simple program I ran on it to make one of the LEDs blink. I will not explain the program here, because it is just something for you to try, to make sure it works.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  .include &amp;quot;tn13def.inc&amp;quot;
-  .def a = r16
-  .org 0000
-   rjmp Reset
-
-Reset:
-   ;define output
-   sbi DDRB, PB0
-   sbi DDRB, PB1
-   cbi PORTB, PB0 ;turn off LED
-   cbi PORTB, PB1
-
-   ;set prescaler to divide clock freq by 1024. 
-   ;each count is about 0.8ms at 1.2MHz
-   ldi a, 1&amp;lt;&amp;lt;CS02 | 1&amp;lt;&amp;lt;CS00
-   out TCCR0B, a
-
-   ;set blink frequency
-   ldi a, 250
-   out OCR0A, a
-   ldi a, 250
-   out OCR0B, a
-
-   ;set CTC mode (clear timer/counter on compare)
-   ldi a, 1&amp;lt;&amp;lt;WGM01 | 1&amp;lt;&amp;lt;COM0B0 | 1&amp;lt;&amp;lt;COM0A0 
-   out TCCR0A, a 
-loop:
-   nop
-   rjmp loop
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

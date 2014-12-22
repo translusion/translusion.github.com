@@ -7,7 +7,218 @@
     <language>en-us</language>
     <author>Erik Engheim</author>
     
-    <updated>Sun, 14 Dec 2014 00:00:00 UTC</updated>
+    <updated>Sun, 21 Dec 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Tricks in Julia</title>
+      <link>http://translusion.github.com/posts/julia-tricks/</link>
+      <pubDate>Sun, 21 Dec 2014 00:00:00 UTC</pubDate>
+      <author>Erik Engheim</author>
+      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
+      <description>
+
+&lt;p&gt;After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Parsing Strings&lt;/h3&gt;
+
+&lt;p&gt;Extract 3 numbers from a string into 3 variables:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a, b, c = map(int, split(&amp;quot;11 12 13&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Initialization&lt;/h3&gt;
+
+&lt;p&gt;There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; type Point
+    x::Int
+    y::Int
+  end
+
+&amp;gt; points = fill(Point(0, 0), 4)
+4-element Array{Point,1}:
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+ Point(0,0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That looks all fine, until you make a change and get this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; points[2].x = 20
+&amp;gt; points
+4-element Array{Point,1}:
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+ Point(20,0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was probably not as expected. The reason for this is that references to the created &lt;code&gt;Point&lt;/code&gt; object in fill is copied not the values themselves. So what we actually got to do is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;points = [Point(0, 0) for _ in 1:4]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Integers&lt;/h2&gt;
+
+&lt;p&gt;There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; typemax(Int8)
+127
+&amp;gt; typemax(Uint8)
+0xff # which is 255 decimal
+&amp;gt; typemin(Int8)
+-128
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One also has to remember that Julia integers do not get promoted to larger values when overflowing. So e.g. taking the factorial of a really big number like 100 requires using &lt;code&gt;BigInt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; &amp;gt; factorial(BigInt(25))
+ 15511210043330985984000000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Division&lt;/h3&gt;
+
+&lt;p&gt;One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; 10 / 6
+1.6666666666666667
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which has of course the minor inaccuracies of floating point arithmetic. If you want accurate results you can compute fractions with the &lt;code&gt;//&lt;/code&gt; division operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a = 10 // 6
+5//3
+&amp;gt; a.num
+5
+&amp;gt; a.div
+3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to work with C/C++ style division then we use the &lt;code&gt;div&lt;/code&gt;, &lt;code&gt;rem&lt;/code&gt; and &lt;code&gt;mod&lt;/code&gt; functions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; div(10, 6)
+1
+&amp;gt; rem(10, 6)
+4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C/C++ style remainder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; 10 % 6
+4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Modulus is not quite the same as remaineder. E.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; rem(-21, 4)
+-1
+&amp;gt; mod(-21, 4)
+3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With modulus we can imagine doing calculations on a clock.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;Reading files&lt;/h3&gt;
+
+&lt;p&gt;Julia has some nice ways you can compose functions to read files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lines = open(readlines, &amp;quot;myfile.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This corresponds to writing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = open(&amp;quot;myfile.txt&amp;quot;)
+lines = readlines(f)
+close(f)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the julia &lt;code&gt;do end&lt;/code&gt; syntax sugar you can use this to conveniently read a file and not forget to close it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;open(&amp;quot;myfile.txt&amp;quot;) do f
+   println(readline(f))     # print out first line in file
+end                         # file stream automatically closes here
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;Working with dates&lt;/h3&gt;
+
+&lt;p&gt;This is just to show how to deal with a common case:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; using Dates
+&amp;gt; (date, time) = split(&amp;quot;5/8/2014 0:16:03&amp;quot;)
+2-element Array{SubString{ASCIIString},1}:
+ &amp;quot;5/8/2014&amp;quot;
+ &amp;quot;0:16:03&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then as shown before we can unpack an array into separate variables like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; year, month, day = reverse(map(int, split(date, &#39;/&#39;)))
+3-element Array{Int64,1}:
+ 2014
+    8
+    5
+&amp;gt; date = Date(year, month, day)
+2014-08-05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You could also do this in one go by unpacking an array into function arguments using &lt;code&gt;...&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; Date(reverse(map(int, split(date, &#39;/&#39;)))...)
+2014-08-05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;Enumeration&lt;/h3&gt;
+
+&lt;p&gt;Regular enumeration in Julia is straightforward but it might not be obvious how you enumerate over both values and keys or indicies in an array or dictionary:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; for (index, value) in enumerate([&amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;, &amp;quot;three&amp;quot;])
+           println(index, &amp;quot;: &amp;quot;, value)
+       end
+1: one
+2: two
+3: three
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;Accessing fields of a type&lt;/h3&gt;
+
+&lt;p&gt;Unlike Ruby and Python, Julia&amp;rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type FooBar
+    foo::Int64
+    bar::String
+end
+
+&amp;gt; a = FooBar(42, &amp;quot;The answer to everything&amp;quot;)
+&amp;gt; a.(:bar)
+&amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you only got the name of a field as a string you can do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a.(symbol(&amp;quot;bar&amp;quot;))
+&amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To find out what fields actually exist you can use &lt;code&gt;names&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; names(FooBar)
+2-element Array{Symbol,1}:
+ :foo
+ :bar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Alternatively if you got an instance you can see both the name of the fields and their values with &lt;code&gt;dump&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; dump(a)
+FooBar 
+  foo: Int64 42
+  bar: ASCIIString &amp;quot;The answer to everything&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Most of these code snippets or approaches I picked up from doing small things like implement an algorithm in &lt;a href=&#34;https://projecteuler.net&#34;&gt;project Euler&lt;/a&gt;. I hope to write some bigger piece of code and see how Julia stacks up and how well suited Julia is for more software engineering type of challenges.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
@@ -1874,29 +2085,6 @@ loop:
    nop
    rjmp loop
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AVR Assembly programming on Mac OS X</title>
-      <link>http://translusion.github.com/posts/avrassembly/</link>
-      <pubDate>Tue, 05 Mar 2013 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/avrassembly/</guid>
-      <description>&lt;p&gt;When starting with out programming the &lt;a href=&#34;http://en.wikipedia.org/wiki/Atmel_AVR&#34;&gt;AVR&lt;/a&gt; microcontroller on OS X, you will probably start by using &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt; installs the AVR GNU assembler &lt;strong&gt;avr-as&lt;/strong&gt; described &lt;a href=&#34;http://www.nongnu.org/avr-libc/user-manual/assembler.html&#34;&gt;here&lt;/a&gt;. The assembly files typically end with &lt;strong&gt;.S&lt;/strong&gt;. You can invoke it through gcc with e.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will assemble the file &lt;em&gt;ledflash.S &lt;/em&gt;for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.&lt;/p&gt;
-
-&lt;p&gt;Fortunatly if you look around you can find the open source &lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;avra&lt;/a&gt; assembler. A problem when first googling is that an older assembler &lt;strong&gt;tavrasm&lt;/strong&gt; will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;avra&lt;/a&gt; is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the &lt;a title=&#34;vAVRdiasm&#34; href=&#34;https://github.com/vsergeev/vAVRdisasm&#34;&gt;vAVRdiasm&lt;/a&gt; to diassemble the .hex file and see that you get back something that looks like what you put in ;-)&lt;/p&gt;
-
-&lt;p&gt;There is also a TextMate &lt;a title=&#34;avr-assembly bundle&#34; href=&#34;https://github.com/mherb/avr-assembly.tmbundle&#34;&gt;bundle avr-assembly&lt;/a&gt; which you can install which makes it possible to have syntax highlight for your AVR assemble programming.&lt;/p&gt;
-
-&lt;p&gt;As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.&lt;/p&gt;
 </description>
     </item>
     
