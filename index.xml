@@ -294,7 +294,7 @@ end                         # file stream automatically closes here
 
 &lt;h3 id=&#34;toc_7&#34;&gt;Accessing fields of a type&lt;/h3&gt;
 
-&lt;p&gt;Unlike Ruby and Python, Julia&amp;rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:&lt;/p&gt;
+&lt;p&gt;The syntax for accessing fields known at compile time is similar in Julia as in most other languages with Algol syntax:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;type FooBar
     foo::Int64
@@ -302,7 +302,15 @@ end                         # file stream automatically closes here
 end
 
 &amp;gt; a = FooBar(42, &amp;quot;The answer to everything&amp;quot;)
-&amp;gt; a.(:bar)
+&amp;gt; a.bar
+&amp;quot;The answer to everything&amp;quot;
+&amp;gt; a.foo
+42
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However accessing fields not known at compile time is different. Imagine the user inputs the name of a field to access or the names of fields are read of a file. Unlike Ruby and Python, Julia&amp;rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a.(:bar)
 &amp;quot;The answer to everything&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
