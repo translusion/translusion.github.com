@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Python on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/python/index.xml</link>
+    <title>Python on Trans lusion</title>
+    <link>http://localhost:1313/categories/python/</link>
+    <description>Recent content in Python on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Sun, 14 Dec 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Sun, 14 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
-      <link>http://translusion.github.com/posts/beautiful-julia/</link>
-      <pubDate>Sun, 14 Dec 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
+      <link>http://localhost:1313/posts/beautiful-julia/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/beautiful-julia/</guid>
       <description>
 
 &lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;?&lt;/p&gt;
 
 &lt;p&gt;So without further ado, her are some examples.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_0&#34;&gt;Reverse an iterable&lt;/h3&gt;
+&lt;h3 id=&#34;reverse-an-iterable:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Reverse an iterable&lt;/h3&gt;
 
 &lt;p&gt;There are two ways of doing this&lt;/p&gt;
 
@@ -67,7 +67,7 @@ julia&amp;gt; reverse(c)
 
 &lt;p&gt;Julia follows the Ruby convention of suffixing with &lt;code&gt;!&lt;/code&gt; if the function is mutating, so we can be confident these functions created copies.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Swapping the values of two variables&lt;/h3&gt;
+&lt;h3 id=&#34;swapping-the-values-of-two-variables:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Swapping the values of two variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;julia&amp;gt; a, b = 1, 2
 (1,2)
@@ -126,7 +126,7 @@ top:
 
 &lt;p&gt;I&amp;rsquo;ll leave it as a readers excercise to figure out exactly how this performs a swap as going into the nitty bitty details of this was not the intention of this blog post.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Enumerate&lt;/h3&gt;
+&lt;h3 id=&#34;enumerate:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Enumerate&lt;/h3&gt;
 
 &lt;p&gt;Interestingly the &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt; approach for iterating over both index and value is almost identical to that of Python:&lt;/p&gt;
 
@@ -138,7 +138,7 @@ top:
 3 zoo
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Splitting a string into a list of words and joining them back&lt;/h3&gt;
+&lt;h3 id=&#34;splitting-a-string-into-a-list-of-words-and-joining-them-back:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Splitting a string into a list of words and joining them back&lt;/h3&gt;
 
 &lt;p&gt;Splitting and joining is similar to Python except Julia isn&amp;rsquo;t really object oriented so function name comes first as Julia uses multiple dispatch to decide which implementation to call.&lt;/p&gt;
 
@@ -162,7 +162,7 @@ julia&amp;gt; join(b, &amp;quot;, &amp;quot;)
 &amp;quot;Thisisastring&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_4&#34;&gt;List Comprehensions&lt;/h3&gt;
+&lt;h3 id=&#34;list-comprehensions:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;List Comprehensions&lt;/h3&gt;
 
 &lt;p&gt;The traditional imperative way transforming on list to a new one is:&lt;/p&gt;
 
@@ -227,10 +227,10 @@ end
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>http://translusion.github.com/posts/swift_compared_to_python/</link>
-      <pubDate>Sat, 08 Nov 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
+      <link>http://localhost:1313/posts/swift_compared_to_python/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/swift_compared_to_python/</guid>
       <description>
 
 &lt;p&gt;While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:&lt;/p&gt;
@@ -328,7 +328,7 @@ x + y
 $R6: Double = 5.2999999999999998
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Type annotation&lt;/h2&gt;
+&lt;h2 id=&#34;type-annotation:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Type annotation&lt;/h2&gt;
 
 &lt;p&gt;Sometimes Swift will not be able to guess what type you wanted a variable to be. E.g. Swift could not know that &lt;code&gt;3&lt;/code&gt; was supposed to be a &lt;code&gt;Double&lt;/code&gt;. But what you can do is either write:&lt;/p&gt;
 
@@ -342,7 +342,7 @@ y: Double = 3
 y: Double = 3 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Arrays and Dictionaries&lt;/h2&gt;
+&lt;h2 id=&#34;arrays-and-dictionaries:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Arrays and Dictionaries&lt;/h2&gt;
 
 &lt;p&gt;One of the nice things about Python the batteries included approach. We get usefull data types like arrays and dictionaries built into the language. So we can easily create arrays and dictionaries and manipulate them:&lt;/p&gt;
 
@@ -405,7 +405,7 @@ $R1: Slice&amp;lt;Int&amp;gt; = 3 values {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Functions&lt;/h2&gt;
+&lt;h2 id=&#34;functions:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Functions&lt;/h2&gt;
 
 &lt;p&gt;With python you can easily create a function like this:&lt;/p&gt;
 
@@ -443,7 +443,7 @@ add(2.0, 3.3)
 ^~~~~~~~~~~~~
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;Generics&lt;/h2&gt;
+&lt;h2 id=&#34;generics:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Generics&lt;/h2&gt;
 
 &lt;p&gt;Python allowed us to use any type of number, but now we have limited ourselves to integers. We can&amp;rsquo;t e.g. use float values. The Swift solution for this is Generics as found in C#, Java and many other languages. If this had been C++ I could have written something like this:&lt;/p&gt;
 

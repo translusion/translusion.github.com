@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Getting started with AVR programming &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -59,7 +54,7 @@
   <span class="post-date">Fri, Mar 1, 2013</span>
       
 
-<h2 id="toc_0">After Arduino</h2>
+<h2 id="after-arduino:ce54b2126f2778a22eac2dacc40dfaa1">After Arduino</h2>
 
 <p>So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.</p>
 
@@ -67,17 +62,17 @@
 
 <p>The problem getting started with this is that the information related to it is scattered all around the internet. This is my attempt to collect it all in one guide.</p>
 
-<h3 id="toc_1">What  software to get</h3>
+<h3 id="what-software-to-get:ce54b2126f2778a22eac2dacc40dfaa1">What  software to get</h3>
 
 <p>First get <a title="CrossPack" href="http://www.obdev.at/products/crosspack/index.html">CrossPack</a>. It is a collection of tools for programming AVR chips on OS X. The most important part being <a title="AVRDUDE" href="http://www.nongnu.org/avrdude/">AVRDUDE</a>. The next thing you need to do is bookmark <a title="Fuse Calc" href="http://www.engbedded.com/fusecalc">AVR fuse calculator</a>. When programming AVR there are something called fuse bits. There are bits which you store in flash memory which affect how the AVR chip will work. It is important to not screw up these settings because if you do it wrong you might not be able to program it again. The fuse bits can be used to set the way the AVR chip should be programmed.</p>
 
-<h3 id="toc_2">Hardware</h3>
+<h3 id="hardware:ce54b2126f2778a22eac2dacc40dfaa1">Hardware</h3>
 
 <p>When developing electronics projects I prefer to have the important data sheets printed out. So I recommend printing out the <a href="http://www.atmel.com/Images/doc2535.pdf">ATtiny13 datasheet</a> found at atmel.com. And if you like me use the <a href="https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/">AVR-ISP500 programmer</a> from Olimex get its <a href="https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/resources/AVR-ISP500.pdf">manual</a>.</p>
 
 <p>Now I am not going to repeat all the great information found in all these data sheets and manual, but I will try to fill in the blanks. Connecting all this information to get you to program your AVR chip is not always straight forward.</p>
 
-<h2 id="toc_3">Setting up the software</h2>
+<h2 id="setting-up-the-software:ce54b2126f2778a22eac2dacc40dfaa1">Setting up the software</h2>
 
 <p>Follow the<a href="http://www.obdev.at/products/crosspack/index.html"> tutorial at CrossPack</a>. You then get a Makefile containing these settings:</p>
 
@@ -116,7 +111,7 @@ FUSES = -U lfuse:w:0x73:m -U hfuse:w:0xff:m
 
 <p>Now we got the software configured. What is left is getting the hardware configured.</p>
 
-<h2 id="toc_4">Configure the Hardware</h2>
+<h2 id="configure-the-hardware:ce54b2126f2778a22eac2dacc40dfaa1">Configure the Hardware</h2>
 
 <p>Before going into details, let me just tell you that hooking up the programmer to your AVR chip is a lot easier than I thought at first. You do not really need to put in any extra components: capacitors, resistors etc. You do not even need to supply a power source. The programmer will give you everything including power through its cable.</p>
 
@@ -166,5 +161,5 @@ The Olimex AVR-ISP500 manual shows pictures of the connectors to help you identi
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

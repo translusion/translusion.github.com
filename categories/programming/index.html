@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Programming &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://translusion.github.com/categories/programming/index.xml" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
+  <link href="http://localhost:1313/categories/programming/index.xml" rel="alternate" type="application/rss+xml" title="Trans lusion" />
 </head>
 
 <body>
@@ -58,78 +53,78 @@
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/julia-tricks/'> Tricks in Julia</a> </h2>
+      <h2><a href='http://localhost:1313/posts/julia-tricks/'> Tricks in Julia</a> </h2>
       <span class="post-date">Sun, Dec 21, 2014</span>
     </header>
 
     After doing various small Julia projects I&rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect: Parsing Strings Extract 3 numbers from a string into 3 variables: a, b, c = map(int, split(&quot;11 12 13&quot;)) Initialization There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.
     <footer>
-        <a href='http://translusion.github.com/posts/julia-tricks/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/julia-tricks/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/beautiful-julia/'> Beautiful Julia: Cool language constructs and Tricks for Beginners</a> </h2>
+      <h2><a href='http://localhost:1313/posts/beautiful-julia/'> Beautiful Julia: Cool language constructs and Tricks for Beginners</a> </h2>
       <span class="post-date">Sun, Dec 14, 2014</span>
     </header>
 
     I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia? So without further ado, her are some examples. Reverse an iterable There are two ways of doing this julia&gt; a = [1, 2, 4] 3-element Array{Int64,1}: 1 2 4 The most obvious way is the reverse function julia&gt; reverse(a) 3-element Array{Int64,1}: 4 2 1 But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice julia&gt; a[end:-1:1] 3-element Array{Int64,1}: 4 2 1 This of course works for any types: julia&gt; reverse(b) (4,3,2) julia&gt; b[end:-1:1] (4,3,2) julia&gt; c = &quot;This is a string&quot; &quot;This is a string&quot; julia&gt; reverse(c) &quot;gnirts a si sihT&quot; Julia follows the Ruby convention of suffixing with !
     <footer>
-        <a href='http://translusion.github.com/posts/beautiful-julia/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/beautiful-julia/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/'> Dynamic Typing as a Paradigm</a> </h2>
+      <h2><a href='http://localhost:1313/posts/dynamic_typing_as_a_paradigm/'> Dynamic Typing as a Paradigm</a> </h2>
       <span class="post-date">Mon, Dec 8, 2014</span>
     </header>
 
-    The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.
+    The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post [Dynamic languages are static languages][dynisstatic] illustrates the misunderstanding very well.
     <footer>
-        <a href='http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/dynamic_typing_as_a_paradigm/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/swift_compared_to_python/'> An introduction to Swift for Python developers</a> </h2>
+      <h2><a href='http://localhost:1313/posts/swift_compared_to_python/'> An introduction to Swift for Python developers</a> </h2>
       <span class="post-date">Sat, Nov 8, 2014</span>
     </header>
 
     While Swift fundamentally isn&rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator: &gt;&gt;&gt; 2 + 3 5 &gt;&gt;&gt; 10 + 2 - 5 7 &gt;&gt;&gt; 3.5 * 2 7.0 &gt;&gt;&gt; We can do much the same with Swift: 1&gt; 2 + 3 $R0: Int = 5 2&gt; 10 + 2 - 5 $R1: Int = 7 3&gt; 3.5 * 2 $R2: Double = 7 4&gt; Although this is quite similar, we can already get a hint here that Swift is different and cares a lot more about type.
     <footer>
-        <a href='http://translusion.github.com/posts/swift_compared_to_python/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/swift_compared_to_python/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/a_comparison_of_go_and_swift/'> Comparison of the Go tour with Swift</a> </h2>
+      <h2><a href='http://localhost:1313/posts/a_comparison_of_go_and_swift/'> Comparison of the Go tour with Swift</a> </h2>
       <span class="post-date">Tue, Jul 15, 2014</span>
     </header>
 
     One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it.
     <footer>
-        <a href='http://translusion.github.com/posts/a_comparison_of_go_and_swift/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/a_comparison_of_go_and_swift/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://translusion.github.com/posts/swift-is-kotlin/'> Swift is Kotlin</a> </h2>
+      <h2><a href='http://localhost:1313/posts/swift-is-kotlin/'> Swift is Kotlin</a> </h2>
       <span class="post-date">Thu, Jun 5, 2014</span>
     </header>
 
     Around the internet people are saying Apple&rsquo;s Swift looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and Swift has the var keyword. But it means completely different things since Swift is statically typed and JavaScript is not. Anyway being generally curious about programming languages I could see similarities in Swift with Rust, Go, Scala and Ruby. However all these languages differ from Swift in quite a number of ways.
     <footer>
-        <a href='http://translusion.github.com/posts/swift-is-kotlin/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/swift-is-kotlin/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -137,6 +132,6 @@
     </ul>
   </div>
 
-</body>
+<script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>
 

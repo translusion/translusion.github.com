@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Tricks in Julia &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -61,14 +56,14 @@
 
 <p>After doing various small Julia projects I&rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:</p>
 
-<h3 id="toc_0">Parsing Strings</h3>
+<h3 id="parsing-strings:59bb671a63313562ed2551763f52b78c">Parsing Strings</h3>
 
 <p>Extract 3 numbers from a string into 3 variables:</p>
 
 <pre><code>a, b, c = map(int, split(&quot;11 12 13&quot;))
 </code></pre>
 
-<h3 id="toc_1">Initialization</h3>
+<h3 id="initialization:59bb671a63313562ed2551763f52b78c">Initialization</h3>
 
 <p>There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.</p>
 
@@ -101,7 +96,7 @@
 <pre><code>points = [Point(0, 0) for _ in 1:4]
 </code></pre>
 
-<h2 id="toc_2">Integers</h2>
+<h2 id="integers:59bb671a63313562ed2551763f52b78c">Integers</h2>
 
 <p>There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:</p>
 
@@ -119,7 +114,7 @@
  15511210043330985984000000
 </code></pre>
 
-<h3 id="toc_3">Division</h3>
+<h3 id="division:59bb671a63313562ed2551763f52b78c">Division</h3>
 
 <p>One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:</p>
 
@@ -161,7 +156,7 @@
 
 <p>With modulus we can imagine doing calculations on a clock.</p>
 
-<h3 id="toc_4">Reading files</h3>
+<h3 id="reading-files:59bb671a63313562ed2551763f52b78c">Reading files</h3>
 
 <p>Julia has some nice ways you can compose functions to read files.</p>
 
@@ -182,7 +177,7 @@ close(f)
 end                         # file stream automatically closes here
 </code></pre>
 
-<h3 id="toc_5">Working with dates</h3>
+<h3 id="working-with-dates:59bb671a63313562ed2551763f52b78c">Working with dates</h3>
 
 <p>This is just to show how to deal with a common case:</p>
 
@@ -210,7 +205,7 @@ end                         # file stream automatically closes here
 2014-08-05
 </code></pre>
 
-<h3 id="toc_6">Enumeration</h3>
+<h3 id="enumeration:59bb671a63313562ed2551763f52b78c">Enumeration</h3>
 
 <p>Regular enumeration in Julia is straightforward but it might not be obvious how you enumerate over both values and keys or indicies in an array or dictionary:</p>
 
@@ -222,7 +217,7 @@ end                         # file stream automatically closes here
 3: three
 </code></pre>
 
-<h3 id="toc_7">Accessing fields of a type</h3>
+<h3 id="accessing-fields-of-a-type:59bb671a63313562ed2551763f52b78c">Accessing fields of a type</h3>
 
 <p>The syntax for accessing fields known at compile time is similar in Julia as in most other languages with Algol syntax:</p>
 
@@ -289,5 +284,5 @@ FooBar
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

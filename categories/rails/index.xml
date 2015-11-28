@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Rails on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/rails/index.xml</link>
+    <title>Rails on Trans lusion</title>
+    <link>http://localhost:1313/categories/rails/</link>
+    <description>Recent content in Rails on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Mon, 05 May 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Mon, 05 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/rails/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Learning Web Development with Rails</title>
-      <link>http://translusion.github.com/posts/learning-rails/</link>
-      <pubDate>Mon, 05 May 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/learning-rails/</guid>
+      <link>http://localhost:1313/posts/learning-rails/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/learning-rails/</guid>
       <description>
 
 &lt;p&gt;Here are some of my notes from learning rails. I am following the course &lt;a href=&#34;https://class.coursera.org/webapplications-001&#34;&gt;Web Application Architectures&lt;/a&gt; at &lt;a href=&#34;https://www.coursera.org&#34;&gt;Coursera&lt;/a&gt;. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Setup Project&lt;/h1&gt;
+&lt;h1 id=&#34;setup-project:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Setup Project&lt;/h1&gt;
 
 &lt;p&gt;Have rails autogenerate a bunch of files for a project:&lt;/p&gt;
 
@@ -75,7 +75,7 @@ first_comment = Comment.first
               DELETE /comments/:id(.:format)                     comments#destroy
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;toc_1&#34;&gt;Inspecting and Debugging&lt;/h1&gt;
+&lt;h1 id=&#34;inspecting-and-debugging:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Inspecting and Debugging&lt;/h1&gt;
 
 &lt;p&gt;You can interact with your whole rails app from the command line. You don&amp;rsquo;t need a browser running just run:&lt;/p&gt;
 
@@ -110,7 +110,7 @@ first_comment = Comment.first
 
 &lt;p&gt;Great way to drill down into your objects and inspect them.  &lt;code&gt;pry&lt;/code&gt; wans&amp;rsquo;t covered in the course I just found that online.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_2&#34;&gt;Databases and SQL&lt;/h1&gt;
+&lt;h1 id=&#34;databases-and-sql:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Databases and SQL&lt;/h1&gt;
 
 &lt;p&gt;You don&amp;rsquo;t setup the tables in the database yourself directly. Instead rails will generate a &lt;code&gt;schema.rb&lt;/code&gt; file. Looking like:&lt;/p&gt;
 

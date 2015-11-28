@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Economics on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/economics/index.xml</link>
+    <title>Economics on Trans lusion</title>
+    <link>http://localhost:1313/categories/economics/</link>
+    <description>Recent content in Economics on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Mon, 10 Nov 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Mon, 10 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/economics/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
-      <pubDate>Mon, 10 Nov 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
+      <link>http://localhost:1313/posts/CEO%20Salaries/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/CEO%20Salaries/</guid>
       <description>
 
 &lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;
@@ -29,7 +29,7 @@
 
 &lt;p&gt;CEO pay is high essentially because everybody in charge of deciding CEO pay believes both that CEOs matter a lot to the fortunes of a company and that performance based pay is really effective for the sort of work a CEO does. The problem is turns out is that there isn&amp;rsquo;t really any evidence for any of this and the evidence that does exist typically shows no correlation or negative correlation.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;How did it all start?&lt;/h2&gt;
+&lt;h2 id=&#34;how-did-it-all-start:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;How did it all start?&lt;/h2&gt;
 
 &lt;p&gt;It all essentially started with the economists Michael Jensen and William Meckling in the mid 1970s. They produced an extremely influential paper that argued that CEOs needed to get their pay tied to company performance to align themselves with the interests of the shareholders. Only problem was that this idea was based on flimsy evidence at the time and has never since been proven. Yet the intuinitive appeal was so strong that this idea soon spread to the boardrooms.&lt;/p&gt;
 
@@ -37,13 +37,13 @@
 
 &lt;p&gt;So why do they keep doing it? One of the effects Michael B. Dorff talks about is one similar to the one where you find that if you ask every driver about how good they are, then 90 percent will say they are better than the average. That is mathematically impossible. Board members are no better. They will typically believe they are above average and that they have superior ability to spot a good CEO.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
+&lt;h2 id=&#34;incentive-based-pay-doesn-t-work-for-intellectual-tasks:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
 
 &lt;p&gt;Michael B. Dorff goes on to discuss a number of studies which shows that while performance based pay usually works with repetitive non-intelectual tasks it generally doesn&amp;rsquo;t work for more intelectually challenging work. And even when it works, it has so many side effects that it is often not worth it. One exampe he mentions is &lt;a href=&#34;http://hbswk.hbs.edu/item/3424.html&#34;&gt;HP&amp;rsquo;s experiments&lt;/a&gt; with performance based pay in the 90s.&lt;/p&gt;
 
 &lt;p&gt;Incentive based pay reduced learning and mobility between teams. Team members became too focused on the metrics being measured at the detriment of everything else. When teams exceeded expectations according to metrics that would eventually force management to increase the requirements to meet the goals to get costs under control. However that would often cause resentment because employees now struggled with achieving what they had normally achieved. This issues led to management having to spend an exorbiant amount of time on tweaking and modifying incentives. In the end they concluded it was not worth it and all the branches of HP which had introduced performance based pay had abandoned it within 3 years.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;When reading &amp;ldquo;Indispensable and Other Myths&amp;rdquo; I can&amp;rsquo;t help but thinking that the reason we are so stuck with these approaches that doesn&amp;rsquo;t work like excessive CEO pay is that we are too eager to trust common sense. It makes common sense that performance based pay works and that CEOs are important. Perhaps it is worth remembering one of Albert Einstein&amp;rsquo;s quotes:&lt;/p&gt;
 
@@ -57,17 +57,17 @@
     
     <item>
       <title>Why the US can&#39;t teach the world</title>
-      <link>http://translusion.github.com/posts/america-cant-teach-the-world/</link>
-      <pubDate>Wed, 04 Jun 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/america-cant-teach-the-world/</guid>
+      <link>http://localhost:1313/posts/america-cant-teach-the-world/</link>
+      <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/america-cant-teach-the-world/</guid>
       <description>
 
 &lt;p&gt;While the US isn&amp;rsquo;t the richest country in the world in per capita GDP, it is by far the richest large country. It can boast of impressive results in science and innovation. Does that mean that anyone whishing to obtain similar levels of prosperity have to follow the American model for economic system and organization of society? My short answer is &amp;ldquo;no&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;The US is an outlier which has too many advantages not related to the organization of its economy or society. Advantages which can not be replicated anywhere else in the world. The US has enjoyed close to 150 years without any destructive wars on its land. Much of the rest of the advance world has suffered multiple destructive wars settings back the countries decades. America also enjoys an abundance of natural resources and huge amounts of fertile land available to each citizen. Agricultural land may not be that important today, but 150 years ago when America started surpassing other wealthy nations this was a large benefit. With so much cheap and fertile land American&amp;rsquo;s could afford to waste land in order to safe labour, thus greatly increasing productivity in a way unavailable to the rest of the world. When industrialization started America could benefit from large coal reserves, water power. Later the economy could be fueled by large reserves of oil. Other advance nations usually did not have these resources available within their own borders in large quantities except coal.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;The problem with comparing the US to Europe or Japan&lt;/h2&gt;
+&lt;h2 id=&#34;the-problem-with-comparing-the-us-to-europe-or-japan:b84da3975729363ad9c91adf1294f61e&#34;&gt;The problem with comparing the US to Europe or Japan&lt;/h2&gt;
 
 &lt;p&gt;Even if we disregarded these benefits or resources, absence of war, large quantities of cheap land etc, there are other factors which make comparisons deceiving. Europeans have different preferences than Americans. They prefer leisure over money. Thus a large part of the difference in GDP numbers between the US and European states is due to Americans working far more hours. American GDP growth numbers often look impressive. However the American population increases much faster than the European and Japanese e.g. In terms of GDP growth per capita Japan has actually outperformed the US for the last decade, since they have a shrinking population and will actually obtain per capita growth with much lower overal GDP growth.&lt;/p&gt;
 
@@ -75,7 +75,7 @@
 
 &lt;p&gt;If you look at wealth indicators such as average house size, number of home  appliances, TVs etc American&amp;rsquo;s will clearly come out on top. The problem with such comparisons is that they don&amp;rsquo;t offer any lessons to the rest of the world with respect to the possible superiority of American economic model. If American society was completely replicated in Japan, then houses and number of appliances would not magically increase to American levels. There is just not enough space in Japan. Houses would be much more expensive regardless of economic system. This is a matter of geography rather than economic model. If you live on tiny space you are not going to fill your appartment with 4 TVs as might be fairly common in the US, so house size affects many other aspects of life.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;What can be compared&lt;/h2&gt;
+&lt;h2 id=&#34;what-can-be-compared:b84da3975729363ad9c91adf1294f61e&#34;&gt;What can be compared&lt;/h2&gt;
 
 &lt;p&gt;I don&amp;rsquo;t think it is possible to make comparison over very short term or comparison of absolute numbers because the potential in each country or region is tied to so many factors outside of political control, such as geography natural occurence of resources etc. However I do think one can compare trends. If one country stops growing while another starts a growth acceleraton after policy changes then it is natural to compare the effectiveness of each of these policies. Likewise it should be possible to compare health care. Living in a country with a lot of space or little space should not affect your health to a large degree.&lt;/p&gt;
 </description>
@@ -83,10 +83,10 @@
     
     <item>
       <title>Why American states cannot be compared to European countries</title>
-      <link>http://translusion.github.com/posts/europe-is-not-america/</link>
-      <pubDate>Tue, 03 Jun 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/europe-is-not-america/</guid>
+      <link>http://localhost:1313/posts/europe-is-not-america/</link>
+      <pubDate>Tue, 03 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/europe-is-not-america/</guid>
       <description>
 
 &lt;p&gt;It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc. The American retort would be that these countries are too small to make for a meaningful comparison and that the whole of America should be compared to the whole of Europe. The idea is that variations among American states is quite large just like variations between European countries. Thus American states could be compared to European countries.&lt;/p&gt;
@@ -95,7 +95,7 @@
 
 &lt;p&gt;To speak of a European system is thus pointless. Comparing the whole of Europe to the US, makes no more sense than comparing the combination of Northern Europe and Northern States  with the combination of Southern States and Souther Europe. &amp;ldquo;Look how poor the south is doing. They have lower GDP than the North. They need to change their policy and laws!&amp;rdquo; It should be obvious to anybody that such a comparison in meaningless. Yet people seem to think that it makes sense when it applies to the whole of Europe. Greek society is no more similar to Norwegian society than New York.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Why can&amp;rsquo;t you compare a small country to a large?&lt;/h1&gt;
+&lt;h1 id=&#34;why-can-t-you-compare-a-small-country-to-a-large:7a9ffb669dc15890050116c774182095&#34;&gt;Why can&amp;rsquo;t you compare a small country to a large?&lt;/h1&gt;
 
 &lt;p&gt;This is frequently stated without much explanation. Lets look at it in more detail. Obviously a country of 1 can&amp;rsquo;t be compared to one with 1 million. One billionaire might move there and skew the results. Likewise very small countries like Luxemburg might create a tax heaven and have all rich people and banks move there and thus inflate GDP. Obviously such a tatic can&amp;rsquo;t be replicate at any scale. There can only be that much banking in the world. Kuwait is filthy rich because they have a tiny population relative to their vast oil reserves which may be extracted at a very low price. This policy can&amp;rsquo;t be replacated at a large scale to great prosperity either.&lt;/p&gt;
 

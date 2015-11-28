@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Book on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/book/index.xml</link>
+    <title>Book on Trans lusion</title>
+    <link>http://localhost:1313/categories/book/</link>
+    <description>Recent content in Book on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Mon, 10 Nov 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Mon, 10 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/book/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
-      <pubDate>Mon, 10 Nov 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
+      <link>http://localhost:1313/posts/CEO%20Salaries/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/CEO%20Salaries/</guid>
       <description>
 
 &lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;
@@ -29,7 +29,7 @@
 
 &lt;p&gt;CEO pay is high essentially because everybody in charge of deciding CEO pay believes both that CEOs matter a lot to the fortunes of a company and that performance based pay is really effective for the sort of work a CEO does. The problem is turns out is that there isn&amp;rsquo;t really any evidence for any of this and the evidence that does exist typically shows no correlation or negative correlation.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;How did it all start?&lt;/h2&gt;
+&lt;h2 id=&#34;how-did-it-all-start:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;How did it all start?&lt;/h2&gt;
 
 &lt;p&gt;It all essentially started with the economists Michael Jensen and William Meckling in the mid 1970s. They produced an extremely influential paper that argued that CEOs needed to get their pay tied to company performance to align themselves with the interests of the shareholders. Only problem was that this idea was based on flimsy evidence at the time and has never since been proven. Yet the intuinitive appeal was so strong that this idea soon spread to the boardrooms.&lt;/p&gt;
 
@@ -37,13 +37,13 @@
 
 &lt;p&gt;So why do they keep doing it? One of the effects Michael B. Dorff talks about is one similar to the one where you find that if you ask every driver about how good they are, then 90 percent will say they are better than the average. That is mathematically impossible. Board members are no better. They will typically believe they are above average and that they have superior ability to spot a good CEO.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
+&lt;h2 id=&#34;incentive-based-pay-doesn-t-work-for-intellectual-tasks:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
 
 &lt;p&gt;Michael B. Dorff goes on to discuss a number of studies which shows that while performance based pay usually works with repetitive non-intelectual tasks it generally doesn&amp;rsquo;t work for more intelectually challenging work. And even when it works, it has so many side effects that it is often not worth it. One exampe he mentions is &lt;a href=&#34;http://hbswk.hbs.edu/item/3424.html&#34;&gt;HP&amp;rsquo;s experiments&lt;/a&gt; with performance based pay in the 90s.&lt;/p&gt;
 
 &lt;p&gt;Incentive based pay reduced learning and mobility between teams. Team members became too focused on the metrics being measured at the detriment of everything else. When teams exceeded expectations according to metrics that would eventually force management to increase the requirements to meet the goals to get costs under control. However that would often cause resentment because employees now struggled with achieving what they had normally achieved. This issues led to management having to spend an exorbiant amount of time on tweaking and modifying incentives. In the end they concluded it was not worth it and all the branches of HP which had introduced performance based pay had abandoned it within 3 years.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;When reading &amp;ldquo;Indispensable and Other Myths&amp;rdquo; I can&amp;rsquo;t help but thinking that the reason we are so stuck with these approaches that doesn&amp;rsquo;t work like excessive CEO pay is that we are too eager to trust common sense. It makes common sense that performance based pay works and that CEOs are important. Perhaps it is worth remembering one of Albert Einstein&amp;rsquo;s quotes:&lt;/p&gt;
 

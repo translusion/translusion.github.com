@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Arduino on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/arduino/index.xml</link>
+    <title>Arduino on Trans lusion</title>
+    <link>http://localhost:1313/categories/arduino/</link>
+    <description>Recent content in Arduino on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Fri, 01 Mar 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Fri, 01 Mar 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/arduino/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Getting started with AVR programming</title>
-      <link>http://translusion.github.com/posts/avr_without_arduino/</link>
-      <pubDate>Fri, 01 Mar 2013 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/avr_without_arduino/</guid>
+      <link>http://localhost:1313/posts/avr_without_arduino/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/avr_without_arduino/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;After Arduino&lt;/h2&gt;
+&lt;h2 id=&#34;after-arduino:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;After Arduino&lt;/h2&gt;
 
 &lt;p&gt;So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.&lt;/p&gt;
 
@@ -25,17 +25,17 @@
 
 &lt;p&gt;The problem getting started with this is that the information related to it is scattered all around the internet. This is my attempt to collect it all in one guide.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;What  software to get&lt;/h3&gt;
+&lt;h3 id=&#34;what-software-to-get:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;What  software to get&lt;/h3&gt;
 
 &lt;p&gt;First get &lt;a title=&#34;CrossPack&#34; href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. It is a collection of tools for programming AVR chips on OS X. The most important part being &lt;a title=&#34;AVRDUDE&#34; href=&#34;http://www.nongnu.org/avrdude/&#34;&gt;AVRDUDE&lt;/a&gt;. The next thing you need to do is bookmark &lt;a title=&#34;Fuse Calc&#34; href=&#34;http://www.engbedded.com/fusecalc&#34;&gt;AVR fuse calculator&lt;/a&gt;. When programming AVR there are something called fuse bits. There are bits which you store in flash memory which affect how the AVR chip will work. It is important to not screw up these settings because if you do it wrong you might not be able to program it again. The fuse bits can be used to set the way the AVR chip should be programmed.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Hardware&lt;/h3&gt;
+&lt;h3 id=&#34;hardware:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Hardware&lt;/h3&gt;
 
 &lt;p&gt;When developing electronics projects I prefer to have the important data sheets printed out. So I recommend printing out the &lt;a href=&#34;http://www.atmel.com/Images/doc2535.pdf&#34;&gt;ATtiny13 datasheet&lt;/a&gt; found at atmel.com. And if you like me use the &lt;a href=&#34;https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/&#34;&gt;AVR-ISP500 programmer&lt;/a&gt; from Olimex get its &lt;a href=&#34;https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/resources/AVR-ISP500.pdf&#34;&gt;manual&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Now I am not going to repeat all the great information found in all these data sheets and manual, but I will try to fill in the blanks. Connecting all this information to get you to program your AVR chip is not always straight forward.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;Setting up the software&lt;/h2&gt;
+&lt;h2 id=&#34;setting-up-the-software:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Setting up the software&lt;/h2&gt;
 
 &lt;p&gt;Follow the&lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt; tutorial at CrossPack&lt;/a&gt;. You then get a Makefile containing these settings:&lt;/p&gt;
 
@@ -74,7 +74,7 @@ FUSES = -U lfuse:w:0x73:m -U hfuse:w:0xff:m
 
 &lt;p&gt;Now we got the software configured. What is left is getting the hardware configured.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;Configure the Hardware&lt;/h2&gt;
+&lt;h2 id=&#34;configure-the-hardware:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Configure the Hardware&lt;/h2&gt;
 
 &lt;p&gt;Before going into details, let me just tell you that hooking up the programmer to your AVR chip is a lot easier than I thought at first. You do not really need to put in any extra components: capacitors, resistors etc. You do not even need to supply a power source. The programmer will give you everything including power through its cable.&lt;/p&gt;
 

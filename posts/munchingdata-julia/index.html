@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Munching Data with Julia &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -73,7 +68,7 @@
 
 <p>So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example <em>spam</em> voted twice. So the 1st line needs to be elimenated and the 3rd kept.</p>
 
-<h3 id="toc_0">Read the data</h3>
+<h3 id="read-the-data:39090f6c1d52d850ae569d06cd709fcb">Read the data</h3>
 
 <p>First we read in our data. Indicating that data is separated with tab and that first line is a header:</p>
 
@@ -99,7 +94,7 @@ end
 
 <p><code>row</code> will in this case just be a substring and not an actual array object.</p>
 
-<h3 id="toc_1">Find unique rows</h3>
+<h3 id="find-unique-rows:39090f6c1d52d850ae569d06cd709fcb">Find unique rows</h3>
 
 <p>Instead you have to iterate by index:</p>
 
@@ -111,7 +106,7 @@ end
 
 <p>What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. <code>size(ourdata, 1)</code> gives us the number of rows. <code>size(ourdata, 2)</code> would have given number of columns. <code>length(ourdata)</code> or <code>size(ourdata)</code> would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&rsquo;t apply.</p>
 
-<h3 id="toc_2">Count each line matching a predicate</h3>
+<h3 id="count-each-line-matching-a-predicate:39090f6c1d52d850ae569d06cd709fcb">Count each line matching a predicate</h3>
 
 <p>So to check how many of our respondents wanted higher bonus we do:</p>
 
@@ -127,7 +122,7 @@ end
 end
 </code></pre>
 
-<h3 id="toc_3">Working with Dates in Julia</h3>
+<h3 id="working-with-dates-in-julia:39090f6c1d52d850ae569d06cd709fcb">Working with Dates in Julia</h3>
 
 <p>When I first started looking at this problem, I thought I needed to work with dates, which wasn&rsquo;t necessary because the data was already sorted by date and time, but if it wasn&rsquo;t you need to get hold of the julia <a href="https://github.com/karbarcca/Datetime.jl">datetime package</a>. There isn&rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:</p>
 
@@ -144,7 +139,7 @@ end
 <pre><code>date(reverse(map(int, split(d, '/')))...)
 </code></pre>
 
-<h3 id="toc_4">Iteratively creating code in the Julia REPL</h3>
+<h3 id="iteratively-creating-code-in-the-julia-repl:39090f6c1d52d850ae569d06cd709fcb">Iteratively creating code in the Julia REPL</h3>
 
 <p>That was a <em>mouthfull</em>. Usually when writing lines like this I develop them interactively by starting with:</p>
 
@@ -204,5 +199,5 @@ end
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

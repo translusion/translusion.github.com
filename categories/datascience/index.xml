@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Datascience on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/datascience/index.xml</link>
+    <title>Datascience on Trans lusion</title>
+    <link>http://localhost:1313/categories/datascience/</link>
+    <description>Recent content in Datascience on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Sun, 11 May 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Sun, 11 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/datascience/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Munching Data with Julia</title>
-      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
+      <link>http://localhost:1313/posts/munchingdata-julia/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/munchingdata-julia/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently performed a survey at my work using &lt;a href=&#34;http://www.google.com/google-d-s/createforms.html&#34;&gt;Google form&lt;/a&gt;, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.&lt;/p&gt;
@@ -31,7 +31,7 @@
 
 &lt;p&gt;So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example &lt;em&gt;spam&lt;/em&gt; voted twice. So the 1st line needs to be elimenated and the 3rd kept.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_0&#34;&gt;Read the data&lt;/h3&gt;
+&lt;h3 id=&#34;read-the-data:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Read the data&lt;/h3&gt;
 
 &lt;p&gt;First we read in our data. Indicating that data is separated with tab and that first line is a header:&lt;/p&gt;
 
@@ -57,7 +57,7 @@ end
 
 &lt;p&gt;&lt;code&gt;row&lt;/code&gt; will in this case just be a substring and not an actual array object.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Find unique rows&lt;/h3&gt;
+&lt;h3 id=&#34;find-unique-rows:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Find unique rows&lt;/h3&gt;
 
 &lt;p&gt;Instead you have to iterate by index:&lt;/p&gt;
 
@@ -69,7 +69,7 @@ end
 
 &lt;p&gt;What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. &lt;code&gt;size(ourdata, 1)&lt;/code&gt; gives us the number of rows. &lt;code&gt;size(ourdata, 2)&lt;/code&gt; would have given number of columns. &lt;code&gt;length(ourdata)&lt;/code&gt; or &lt;code&gt;size(ourdata)&lt;/code&gt; would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&amp;rsquo;t apply.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Count each line matching a predicate&lt;/h3&gt;
+&lt;h3 id=&#34;count-each-line-matching-a-predicate:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Count each line matching a predicate&lt;/h3&gt;
 
 &lt;p&gt;So to check how many of our respondents wanted higher bonus we do:&lt;/p&gt;
 
@@ -85,7 +85,7 @@ end
 end
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Working with Dates in Julia&lt;/h3&gt;
+&lt;h3 id=&#34;working-with-dates-in-julia:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Working with Dates in Julia&lt;/h3&gt;
 
 &lt;p&gt;When I first started looking at this problem, I thought I needed to work with dates, which wasn&amp;rsquo;t necessary because the data was already sorted by date and time, but if it wasn&amp;rsquo;t you need to get hold of the julia &lt;a href=&#34;https://github.com/karbarcca/Datetime.jl&#34;&gt;datetime package&lt;/a&gt;. There isn&amp;rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:&lt;/p&gt;
 
@@ -102,7 +102,7 @@ end
 &lt;pre&gt;&lt;code&gt;date(reverse(map(int, split(d, &#39;/&#39;)))...)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_4&#34;&gt;Iteratively creating code in the Julia REPL&lt;/h3&gt;
+&lt;h3 id=&#34;iteratively-creating-code-in-the-julia-repl:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Iteratively creating code in the Julia REPL&lt;/h3&gt;
 
 &lt;p&gt;That was a &lt;em&gt;mouthfull&lt;/em&gt;. Usually when writing lines like this I develop them interactively by starting with:&lt;/p&gt;
 

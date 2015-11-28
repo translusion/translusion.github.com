@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> AVR Assembly programming on Mac OS X &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -64,13 +59,15 @@
 
 <p>This will assemble the file <em>ledflash.S </em>for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.</p>
 
-<p>Fortunatly if you look around you can find the open source <a href="http://avra.sourceforge.net">avra</a> assembler. A problem when first googling is that an older assembler <strong>tavrasm</strong> will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.</p>
+<p>Fortunatly if you look around you can find the open source [avra][avra] assembler. A problem when first googling is that an older assembler <strong>tavrasm</strong> will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.</p>
 
-<p><a href="http://avra.sourceforge.net">avra</a> is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the <a title="vAVRdiasm" href="https://github.com/vsergeev/vAVRdisasm">vAVRdiasm</a> to diassemble the .hex file and see that you get back something that looks like what you put in ;-)</p>
+<p>[avra][avra] is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the <a title="vAVRdiasm" href="https://github.com/vsergeev/vAVRdisasm">vAVRdiasm</a> to diassemble the .hex file and see that you get back something that looks like what you put in ;-)</p>
 
 <p>There is also a TextMate <a title="avr-assembly bundle" href="https://github.com/mherb/avr-assembly.tmbundle">bundle avr-assembly</a> which you can install which makes it possible to have syntax highlight for your AVR assemble programming.</p>
 
 <p>As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.</p>
+
+<p>[avra]: <a href="http://avra.sourceforge.net">http://avra.sourceforge.net</a></p>
 
       
       <div id="disqus_thread"></div>
@@ -93,5 +90,5 @@
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

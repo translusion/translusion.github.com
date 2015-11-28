@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Makers on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/maker/index.xml</link>
+    <title>Makers on Trans lusion</title>
+    <link>http://localhost:1313/maker/</link>
+    <description>Recent content in Makers on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <atom:link href="http://localhost:1313/maker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Prototyping</title>
-      <link>http://translusion.github.com/maker/prototyping/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/prototyping/</guid>
+      <link>http://localhost:1313/maker/prototyping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/maker/prototyping/</guid>
       <description>
 
 &lt;p&gt;Lets say you want to test out an idea for a robot car, DVD changing robot arm, automatic card sorter or something similar. Machining your own parts would be time consuming. So what are the options for rapid prototyping?&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Lego Mindstorm&lt;/h2&gt;
+&lt;h2 id=&#34;lego-mindstorm:766e1ad3a2016679b54afacb946aeaad&#34;&gt;Lego Mindstorm&lt;/h2&gt;
 
 &lt;p&gt;The best known option and a huge community&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/lego-rover.jpg&#34; alt=&#34;alt text&#34; title=&#34;Lego&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/lego-rover.jpg&#34; alt=&#34;alt text&#34; title=&#34;Lego&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Easy to find help and wide variety of parts. You can get hold of lego mindstorm in almost any toystore. The downside is that lego is its own world. Lego parts don&amp;rsquo;t mesh naturally with regular industrial components. You are typically limited to using parts made specifically for lego.
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Meccano&lt;/h2&gt;
+&lt;h2 id=&#34;meccano:766e1ad3a2016679b54afacb946aeaad&#34;&gt;Meccano&lt;/h2&gt;
 
 &lt;p&gt;Readily available and works quite well with non meccano parts from industry&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/meccano-crane.jpg&#34; alt=&#34;alt text&#34; title=&#34;Meccano&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/meccano-crane.jpg&#34; alt=&#34;alt text&#34; title=&#34;Meccano&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Norway you can find Meccano at:&lt;/p&gt;
 
@@ -49,12 +46,11 @@
 &lt;p&gt;It also give a more solid construction, which you could keep as the final version if you want to.
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;&lt;a href=&#34;/prototyping/fischertechnik&#34;&gt;Fischertechnik&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;fischertechnik-prototyping-fischertechnik:766e1ad3a2016679b54afacb946aeaad&#34;&gt;&lt;a href=&#34;http://localhost:1313/prototyping/fischertechnik&#34;&gt;Fischertechnik&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Plastic parts like lego, but designed mainly for prototyping machines and engineering structures&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/fischertechnik-rover.jpg&#34; alt=&#34;Fischertechnik Rover&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/fischertechnik-rover.jpg&#34; alt=&#34;Fischertechnik Rover&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The way pieces are fitted together is very different from  Lego. It is similar to how industrial prototyping systems such as &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; works. In fact it can be combined with &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; aluminium T-slots. This makes the system one of the most flexible ones covered on this page. Unlike Lego and Meccano pieces do not need to be fitted together at fixed points. The main downside &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is that:&lt;/p&gt;
 
@@ -65,24 +61,22 @@
 &lt;hr&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;MakerBeam&lt;/h2&gt;
+&lt;h2 id=&#34;makerbeam:766e1ad3a2016679b54afacb946aeaad&#34;&gt;MakerBeam&lt;/h2&gt;
 
 &lt;p&gt;A &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slot&lt;/a&gt; system for small hobby sized constructions&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/makerbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;MakerBeam&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/makerbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;MakerBeam&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; used in the industry is usually 20x20mm, which is impractical for a hobbyist. &lt;a href=&#34;http://www.makerbeam.eu&#34;&gt;MakerBeam&lt;/a&gt; is 10x10mm which is far more practical.&lt;/p&gt;
 
 &lt;p&gt;It is not sold as a toy like Lego, Meccano and Fischertechnik however. Using it requires more knowledge. There are no ready made kits with instructions.&lt;a href=&#34;http://www.makerbeam.eu&#34;&gt;MakerBeams&lt;/a&gt; are really just beams, brackets and screws. There are no ready made kits for building particular models. You have to buy industry standard motors, gears etc to make something usefull.
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;OpenBeam&lt;/h2&gt;
+&lt;h2 id=&#34;openbeam:766e1ad3a2016679b54afacb946aeaad&#34;&gt;OpenBeam&lt;/h2&gt;
 
 &lt;p&gt;MakerBeam&amp;rsquo;s bigger brother&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/openbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;OpenBeam&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/openbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;OpenBeam&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At 15x15mm &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; is the same size as a standard &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; building block. &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt;&amp;rsquo;s main advantage over other forms of &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; is that they have been designed to be used with regular nuts and bolts. Other T-slot systems have custom nuts and bolts which are harder to get hold of and more expensive.&lt;/p&gt;
 </description>
@@ -90,10 +84,10 @@
     
     <item>
       <title>Tools</title>
-      <link>http://translusion.github.com/maker/tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/tools/</guid>
+      <link>http://localhost:1313/maker/tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/maker/tools/</guid>
       <description>
 
 &lt;p&gt;Most of these tools you can get at stores such as:&lt;/p&gt;
@@ -107,7 +101,7 @@
 
 &lt;p&gt;&lt;a href=&#34;http://www.clasohlson.no&#34;&gt;Clas Ohlson&lt;/a&gt; might be your first choice because they have a good selection and are usually easily accessible in shopping centers around Norway.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Drilling holes&lt;/h1&gt;
+&lt;h1 id=&#34;drilling-holes:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Drilling holes&lt;/h1&gt;
 
 &lt;p&gt;When you drill a hole there are a lot of issues and challenges to consider:&lt;/p&gt;
 
@@ -121,54 +115,49 @@
 
 &lt;p&gt;To answer these questions I&amp;rsquo;d like to show some tools you should be aware of for working with holes.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Deburring Tool&lt;/h3&gt;
+&lt;h3 id=&#34;deburring-tool:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Deburring Tool&lt;/h3&gt;
 
 &lt;p&gt;Take off sharp edges or enlarge holes&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/deburringtool.jpg&#34; alt=&#34;Deburringtool&#34; /&gt;
-
-&lt;img src=&#34;/images/maker/tools/deburringtip.jpg&#34; alt=&#34;Deburringtip&#34; /&gt;
-
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/deburringtool.jpg&#34; alt=&#34;Deburringtool&#34; /&gt;
+&lt;img src=&#34;http://localhost:1313/images/maker/tools/deburringtip.jpg&#34; alt=&#34;Deburringtip&#34; /&gt;
 When you drill a hole you can get a rough edge for the hole or the hold didn&amp;rsquo;t get quite large enough. Do deal with this you can use a deburring tool It can smoothen an edge or enlarge a hole slightly. Usually you buy these in kits because you need a different one depending on &lt;em&gt;material&lt;/em&gt; you want to deburr. I could be refered to as a &lt;em&gt;edge off&lt;/em&gt; tool rather than &lt;em&gt;deburring tool&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Taper Tool&lt;/h3&gt;
+&lt;h3 id=&#34;taper-tool:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Taper Tool&lt;/h3&gt;
 
 &lt;p&gt;Make screw holes or turn a metal rod into a screw&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/tapwrenches.jpg&#34; alt=&#34;Tapwrenches&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/tapwrenches.jpg&#34; alt=&#34;Tapwrenches&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you drill a hole it will be smooth inside so e.g. a machine screw won&amp;rsquo;t fasten in the hole. You need to cut a thread out of the side of the hole. This is called &amp;ldquo;tapping&amp;rdquo; and you do it by fastening a tap in a tap wrench (shown above):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/taper-pipe-taps-hcs-847.jpg&#34; alt=&#34;Taper Pipe Taps Hcs 847&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/taper-pipe-taps-hcs-847.jpg&#34; alt=&#34;Taper Pipe Taps Hcs 847&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You then screw the tap into the hole by hand in similar fashion to how you screw a screw. When you are done, you have to unscrew it carefully avoiding to ruin the thread you just cut. To turn a smooth metal rod into a screw you perform &amp;ldquo;threading&amp;rdquo; on it using a die wrench.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/maker/tools/diewrench.jpg&#34; alt=&#34;Diewrench&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/diewrench.jpg&#34; alt=&#34;Diewrench&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Supplies</title>
-      <link>http://translusion.github.com/maker/supplies/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/supplies/</guid>
+      <link>http://localhost:1313/maker/supplies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/maker/supplies/</guid>
       <description>
 
 &lt;p&gt;Materials are sheets, tubes, bars, extrusions etc made of plastic, metal, wood or rubber.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Where to buy materials&lt;/h2&gt;
+&lt;h2 id=&#34;where-to-buy-materials:442758296ee09eb87dac133fad325877&#34;&gt;Where to buy materials&lt;/h2&gt;
 
 &lt;p&gt;Bigger pieces are usually bought at hardware or home improvement stores. Smaller sized materials are can often be gotten in hobby stores catering to model builders or RC cars or airplanes.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Byggmakker&lt;/h3&gt;
+&lt;h3 id=&#34;byggmakker:442758296ee09eb87dac133fad325877&#34;&gt;Byggmakker&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.byggmakker.no&#34;&gt;Byggmakker&lt;/a&gt; is a usefull place to get tools, screws, nuts, bolts and wood. Apart from that not much interesting for makers.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Maxbo&lt;/h3&gt;
+&lt;h3 id=&#34;maxbo:442758296ee09eb87dac133fad325877&#34;&gt;Maxbo&lt;/h3&gt;
 
 &lt;p&gt;I can recommend visiting &lt;a href=&#34;http://www.maxbo.no&#34;&gt;Maxbo&lt;/a&gt;, they have a lot of usefull stuff for builders. Among other things they have:&lt;/p&gt;
 
@@ -191,21 +180,21 @@ When you drill a hole you can get a rough edge for the hole or the hold didn&amp
     
     <item>
       <title>Mechanical Parts</title>
-      <link>http://translusion.github.com/maker/mechanical/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/maker/mechanical/</guid>
+      <link>http://localhost:1313/maker/mechanical/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/maker/mechanical/</guid>
       <description>
 
 &lt;p&gt;I am not aiming to give an exhaustive guide here. This is mainly to get you started. I will link to more in depth articles. The problem I am trying to address here is that when you start out you end up on a wild goose chase with google to find out stuff. I will focus on mentioning mistakes I&amp;rsquo;ve made which might aid in getting the right parts or using them correctly.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Where to buy mechanical parts&lt;/h1&gt;
+&lt;h1 id=&#34;where-to-buy-mechanical-parts:367b5616a6ee935b15e2096e310986fa&#34;&gt;Where to buy mechanical parts&lt;/h1&gt;
 
 &lt;p&gt;A problem when buying mechanical parts is that the stores are usually made for professionals so it can be difficult to determine the right thing to get.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;RS&lt;/h2&gt;
+&lt;h2 id=&#34;rs:367b5616a6ee935b15e2096e310986fa&#34;&gt;RS&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://no.rs-online.com&#34;&gt;rs&lt;/a&gt; has one of the largest selections of products. That is both a benefit and a problem. You can get electric motors, wires, screws etc lots of places. But if you want to get hold of things such as:&lt;/p&gt;
+&lt;p&gt;[rs][rs] has one of the largest selections of products. That is both a benefit and a problem. You can get electric motors, wires, screws etc lots of places. But if you want to get hold of things such as:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Pulleys&lt;/li&gt;
@@ -214,7 +203,9 @@ When you drill a hole you can get a rough edge for the hole or the hold didn&amp
 &lt;li&gt;Axel collars&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;And a whole host of other things then &lt;a href=&#34;http://no.rs-online.com&#34;&gt;rs&lt;/a&gt; is the best choice.&lt;/p&gt;
+&lt;p&gt;And a whole host of other things then [rs][rs] is the best choice.&lt;/p&gt;
+
+&lt;p&gt;[rs]: &lt;a href=&#34;http://no.rs-online.com&#34;&gt;http://no.rs-online.com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Cryptography &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -61,19 +56,17 @@
 
 <p>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</p>
 
-<h1 id="toc_0">Symetric Encryption</h1>
+<h1 id="symetric-encryption:cc06946d1ae9135e11410dec4a30523b">Symetric Encryption</h1>
 
 <p>Plain text is encrypted using a method or algorithm called a <em>cipher</em>.</p>
 
-<p><img src="/images/articles/crypto/cipher.svg" alt="Cipher" />
-</p>
+<p><img src="/images/articles/crypto/cipher.svg" alt="Cipher" /></p>
 
 <p>Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a <em>secret key</em> will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.</p>
 
-<p><img src="/images/articles/crypto/symetricencryption.svg" alt="Symetric" />
-</p>
+<p><img src="/images/articles/crypto/symetricencryption.svg" alt="Symetric" /></p>
 
-<h1 id="toc_1">Asymetric Encryption</h1>
+<h1 id="asymetric-encryption:cc06946d1ae9135e11410dec4a30523b">Asymetric Encryption</h1>
 
 <p>Key distribution becomes a big problem with symetric encryption. To be on the safe side you have to distribute a different key to everyone you communicate with some they can&rsquo;t read each others messages. This becomes a maintenance nightmare.</p>
 
@@ -86,12 +79,11 @@
 
 <p>Usually there is no fundamental difference between a <em>public</em> and <em>private</em> key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.</p>
 
-<p><img src="/images/articles/crypto/asymetricencryption.svg" alt="Asymetric" />
-</p>
+<p><img src="/images/articles/crypto/asymetricencryption.svg" alt="Asymetric" /></p>
 
 <p>The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.</p>
 
-<h1 id="toc_2">Hashes</h1>
+<h1 id="hashes:cc06946d1ae9135e11410dec4a30523b">Hashes</h1>
 
 <p>Data is transformed using a <code>hash function</code> into something we can either call:</p>
 
@@ -101,8 +93,7 @@
 <li>Message digest</li>
 </ul>
 
-<p><img src="/images/articles/crypto/hashfunc.svg" alt="Hashing" />
-</p>
+<p><img src="/images/articles/crypto/hashfunc.svg" alt="Hashing" /></p>
 
 <p>A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same <code>digital fingerprint</code>. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a <strong>sufficiently large number</strong> of hashes so that collision is practically impossible.</p>
 
@@ -110,7 +101,7 @@
 
 <p>Hashes are used with digital signatures to <strong>compress</strong> a message so we only have small amounts of data to encrypt and decrypt.</p>
 
-<h2 id="toc_3">Usage of Hash Functions</h2>
+<h2 id="usage-of-hash-functions:cc06946d1ae9135e11410dec4a30523b">Usage of Hash Functions</h2>
 
 <p>Hash function have a wide variety of applications, which might not be immediatly obvious:</p>
 
@@ -126,24 +117,23 @@
 
 <p>You can use this property to combine simple passwords with other information to create strong passwords. E.g. if you concatinate &ldquo;pass123&rdquo; and &ldquo;amazon&rdquo; as you login password for amazon this will produce a string full of giberish.</p>
 
-<h3 id="toc_4">Different algorithms for different Usage</h3>
+<h3 id="different-algorithms-for-different-usage:cc06946d1ae9135e11410dec4a30523b">Different algorithms for different Usage</h3>
 
 <p>The desired properties of the hashing function used will vary depending on application. If you want to compare two files on separat locations on a network you want to be able to hash the content of the files <strong>fast</strong>, before you transmit the hash to compare the files.</p>
 
 <p>But if you derive a password or a key using a hash you probably want it to be <strong>slow</strong>, because you want a brute force attack to be time consuming.</p>
 
-<h1 id="toc_5">Digital Signatures</h1>
+<h1 id="digital-signatures:cc06946d1ae9135e11410dec4a30523b">Digital Signatures</h1>
 
 <p>The sender sends a message to a receiver in plain text. But the sender attached a <em>digital signature</em> to the message to prove he/she wrote the message.</p>
 
-<h3 id="toc_6">Sender</h3>
+<h3 id="sender:cc06946d1ae9135e11410dec4a30523b">Sender</h3>
 
 <p>To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders <code>private key</code>. The resulting <em>digital signature</em> could only have been created by someone knowing the <code>private key</code>. This signature is attached to the message and sent to the receiver.</p>
 
-<p><img src="/images/articles/crypto/digitalsigning.svg" alt="Digital Signature" />
-</p>
+<p><img src="/images/articles/crypto/digitalsigning.svg" alt="Digital Signature" /></p>
 
-<h3 id="toc_7">Receiver</h3>
+<h3 id="receiver:cc06946d1ae9135e11410dec4a30523b">Receiver</h3>
 
 <p>The receiver decrypts (3) the signature using the sendes <em>public key</em>. The resulting digest is compared (4) to the digest the receiver computes by hashing the received message. If they are equal, it is proof that the creator of the message could only have been someone knowing the corresponding <em>private key</em>.</p>
 
@@ -168,5 +158,5 @@
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

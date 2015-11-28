@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Go on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/go/index.xml</link>
+    <title>Go on Trans lusion</title>
+    <link>http://localhost:1313/categories/go/</link>
+    <description>Recent content in Go on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Tue, 15 Jul 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Tue, 15 Jul 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
-      <pubDate>Tue, 15 Jul 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
+      <link>http://localhost:1313/posts/a_comparison_of_go_and_swift/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
 &lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_0&#34;&gt;Hello world&lt;/h3&gt;
+&lt;h3 id=&#34;hello-world:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Hello world&lt;/h3&gt;
 
 &lt;p&gt;The Go tour starts with the infamous &amp;ldquo;Hello world&amp;rdquo; program:&lt;/p&gt;
 
@@ -48,7 +48,7 @@ func main() {
 println(&amp;quot;Hello, 世界&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Import&lt;/h3&gt;
+&lt;h3 id=&#34;import:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Import&lt;/h3&gt;
 
 &lt;p&gt;In Go one divides the code into lots of small packages, which you can import as shown in the tour example:&lt;/p&gt;
 
@@ -72,7 +72,7 @@ let favorite = rand() % 10
 println(&amp;quot;My favorite number is&amp;quot;, favorite)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Functions&lt;/h3&gt;
+&lt;h3 id=&#34;functions:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Functions&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;func add(x int, y int) int {
     return x + y
@@ -93,7 +93,7 @@ func main() {
 println(add(42, 13))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Multiple results&lt;/h3&gt;
+&lt;h3 id=&#34;multiple-results:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Multiple results&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;func swap(x, y string) (string, string) {
     return y, x
@@ -117,7 +117,7 @@ println(&amp;quot;\(a) \(b)&amp;quot;)
 
 &lt;p&gt;Another minor difference is that Swift can do &lt;code&gt;println(a)&lt;/code&gt; but not &lt;code&gt;println(a, b)&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_4&#34;&gt;Named results&lt;/h3&gt;
+&lt;h3 id=&#34;named-results:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Named results&lt;/h3&gt;
 
 &lt;p&gt;You can name the results in both Go and Swift but the meaning is very different, because Go has multiple return variables and Swift has tuples instead. In the Go example &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; can be assigned to directly:&lt;/p&gt;
 
@@ -146,7 +146,7 @@ println(result.x)
 println(result.y)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_5&#34;&gt;Variables&lt;/h3&gt;
+&lt;h3 id=&#34;variables:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Variables&lt;/h3&gt;
 
 &lt;p&gt;In Go &lt;code&gt;var&lt;/code&gt; start the definition of one or more variables with the type last.&lt;/p&gt;
 
@@ -197,7 +197,7 @@ println(&amp;quot;\(i) \(j) \(c) \(python) \(java)&amp;quot;)
 
 &lt;p&gt;in Go would be a compiler error. Type has to come last and apply to all variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_6&#34;&gt;Shorthand&lt;/h3&gt;
+&lt;h3 id=&#34;shorthand:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Shorthand&lt;/h3&gt;
 
 &lt;p&gt;In Go there is a shorthand notation using &lt;code&gt;:=&lt;/code&gt; when infering variables so you could write:&lt;/p&gt;
 
@@ -207,7 +207,7 @@ c, python, java := true, false, &amp;quot;no!&amp;quot;
 
 &lt;p&gt;There isn&amp;rsquo;t anything similar in Swift.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_7&#34;&gt;Type conversions&lt;/h3&gt;
+&lt;h3 id=&#34;type-conversions:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Type conversions&lt;/h3&gt;
 
 &lt;p&gt;Both Swift and Go are much more strict on type conversions than what is traditional for C/C++. Conversion from &lt;code&gt;int&lt;/code&gt; to &lt;code&gt;float&lt;/code&gt; won&amp;rsquo;t happen automatically.&lt;/p&gt;
 
@@ -247,7 +247,7 @@ z: Int = 5
 
 &lt;p&gt;Swift infers that the result of &lt;code&gt;sqrt&lt;/code&gt; has to be of type &lt;code&gt;Float&lt;/code&gt; if the input is of type &lt;code&gt;Float&lt;/code&gt;. You can&amp;rsquo;t quite do the same in Go since Go does not overload functions on types.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_8&#34;&gt;Structs&lt;/h3&gt;
+&lt;h3 id=&#34;structs:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Structs&lt;/h3&gt;
 
 &lt;p&gt;Both Go and Swift support structs. There meaning is quite different however, since Swift is more like C# in that it has the notion of both structs and classes to deal with the lack of pointers. In Go it is idiomatic to access variables directly without accessors.&lt;/p&gt;
 
@@ -287,7 +287,7 @@ println(v.x)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_9&#34;&gt;Swift inout and Go pointers&lt;/h3&gt;
+&lt;h3 id=&#34;swift-inout-and-go-pointers:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Swift inout and Go pointers&lt;/h3&gt;
 
 &lt;p&gt;Go has real pointers, but Swift allows you to things which makes it look as if it has pointers. Take this example of pointer usage in Go:&lt;/p&gt;
 
@@ -327,7 +327,7 @@ swapXY(p)
 
 &lt;p&gt;Go pointers can be passed around and stored like any other variable. This also displays so key design differences between Swift and Go. Swift is generally designed to make code safe and prevent you from accidentally doing something dangerous or wrong. Because you have to prefix with ampersand at the call site it will always be clear to the code reader when you are potentially modifying a struct. Go instead opts for simplicity by having one simple feature which has many use cases.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_10&#34;&gt;Classes&lt;/h3&gt;
+&lt;h3 id=&#34;classes:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Classes&lt;/h3&gt;
 
 &lt;p&gt;This naturally brings us to classes. Classes is the way Swift allows us to simulate some of the properties of pointers in Go. If we defined &lt;code&gt;Vertex&lt;/code&gt; as a class instead of a struct we could perform the &lt;code&gt;swapXY&lt;/code&gt; without using &lt;code&gt;inout&lt;/code&gt; because variables of class types are always pointers.&lt;/p&gt;
 
@@ -403,7 +403,7 @@ var v = Vertex(x:3, y:4)
 println(v.abs) // Looks like member variable access
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_11&#34;&gt;Swift Protocols and Go Interfaces&lt;/h3&gt;
+&lt;h3 id=&#34;swift-protocols-and-go-interfaces:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Swift Protocols and Go Interfaces&lt;/h3&gt;
 
 &lt;p&gt;Lack of classes does of course not mean that Go doesn&amp;rsquo;t support polymorphism. It does that using &lt;em&gt;interfaces&lt;/em&gt; which are quite similar to Swift &lt;em&gt;protocols&lt;/em&gt;. We don&amp;rsquo;t have to explicitly define that a struct implements an interface in Go, so if we define a interface like this:&lt;/p&gt;
 
@@ -461,7 +461,7 @@ $R0: Float = 5
 }    
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;toc_12&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&#34;conclusion:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;Go and Swift have a number of superficial similarities. So you can write code that looks almost identical and does the same thing but the way it works under the hood might be radically different. E.g. using pointers in Go and inout variables in Swift often looks almost identical but works very different.&lt;/p&gt;
 </description>

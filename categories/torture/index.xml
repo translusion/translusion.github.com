@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Torture on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/torture/index.xml</link>
+    <title>Torture on Trans lusion</title>
+    <link>http://localhost:1313/categories/torture/</link>
+    <description>Recent content in Torture on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Thu, 11 Dec 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Thu, 11 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/torture/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Why I don&#39;t believe in Torture</title>
-      <link>http://translusion.github.com/posts/torture/</link>
-      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/torture/</guid>
+      <link>http://localhost:1313/posts/torture/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/torture/</guid>
       <description>
 
 &lt;p&gt;This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it. It is much like free speech. If you argue free speech should only be allowed to those who don&amp;rsquo;t say nasty things, then it isn&amp;rsquo;t free speech.&lt;/p&gt;
@@ -36,7 +36,7 @@
 
 &lt;p&gt;Convictions based on the use of torture. They were not released until 1991, when it was uncovered how the police had manipulated evidence and tortured the suspects into confessions. No doubt the police thought they had the right guys. When it started becoming clear they were wrong they covered up. That is third problem with torture. If one ever makes a mistake in torture, authorities will attempt to cover up the truth because the truth will be too much of an embarrasment. Just like the catholic chrurch has covered up their abuses because what could be more embarrassing that the guardians of moral displaying imoral.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&#34;conclusion:8e3e3848c75d40eaae37bf7322309ce4&#34;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;So in short I believe torture is wrong because when we torture we create a lot of false positives which hides the actual truth. Secondly because the principle of innocence exists not to be nice to bad guys but because it is very hard to know whether you got the right guy. That is why we have courts, to determine innocence. It stands to reasons that the graver the accusation the stronger the legal protection should be as the moral cost of wrongefully convicting someone of mass murder or terrorism is very high. Sadly many seem to conclude opposite. The more terrible the accusation you are subject to the less legal protection you deserve. With this form of logic, going over the speed limit on the highway should give someone the strongest legal defence.&lt;/p&gt;
 </description>

@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Swift is Kotlin &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -72,7 +67,7 @@
 <li>Functional programming is used as a way to enhance the language were it makes sense but it isn&rsquo;t any central goal like in e.g. Clojure and Scala.</li>
 </ul>
 
-<h2 id="toc_0">Feature and Syntax similarities</h2>
+<h2 id="feature-and-syntax-similarities:3258c3e2e0b96cdabd99ff90bdbd02cd">Feature and Syntax similarities</h2>
 
 <p>Both place type information after the name of the identifier unlike C/C++, C# and Java. This is also similar to Go, Rust, Pascal etc. Kotlin:</p>
 
@@ -102,7 +97,7 @@
 }
 </code></pre>
 
-<h3 id="toc_1">Pattern matching</h3>
+<h3 id="pattern-matching:3258c3e2e0b96cdabd99ff90bdbd02cd">Pattern matching</h3>
 
 <p>Both do pattern matching in a smiliar manner, although different keywords is used. In Kotlin you write:</p>
 
@@ -145,7 +140,7 @@ default:
 }
 </code></pre>
 
-<h3 id="toc_2">Type casting</h3>
+<h3 id="type-casting:3258c3e2e0b96cdabd99ff90bdbd02cd">Type casting</h3>
 
 <p>Even type casting looks and behaves in the same way, and the both have Option types to avoid null pointer exceptions:</p>
 
@@ -159,7 +154,7 @@ val x : String? = y as? String // safe cast. Nil if not working
 let x : String? = y as? String
 </code></pre>
 
-<h3 id="toc_3">Enum types</h3>
+<h3 id="enum-types:3258c3e2e0b96cdabd99ff90bdbd02cd">Enum types</h3>
 
 <p>Enumerations are quite different. They have some overlapping functionality. Both allow you to do:</p>
 
@@ -237,7 +232,7 @@ case let .Error(error):
 }
 </code></pre>
 
-<h1 id="toc_4">Conclusion</h1>
+<h1 id="conclusion:3258c3e2e0b96cdabd99ff90bdbd02cd">Conclusion</h1>
 
 <p>I am not going to go through every feature, but it is clear when you look at how the languages work that there are a lot of similarities. In the regard that they are different I believe that is born out of the limitations set by each respective platform JVM or Objective-C runtime. Swift likely chose a more sofisticated enum type system with sum types to deal with the fact that exceptions can not easily be provided in a non GC language with Cocoa not being exception safe. I know there isn&rsquo;t an obvious connection here but I believe enum types will be used for building an error handling system in the future for Apple API&rsquo;s. Kotlin is more traditional in supporting exceptions which already works quite well on the JVM.</p>
 
@@ -266,5 +261,5 @@ case let .Error(error):
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

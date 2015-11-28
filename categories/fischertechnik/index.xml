@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Fischertechnik on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/fischertechnik/index.xml</link>
+    <title>Fischertechnik on Trans lusion</title>
+    <link>http://localhost:1313/categories/fischertechnik/</link>
+    <description>Recent content in Fischertechnik on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Sat, 03 May 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/fischertechnik/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fischertechnik</title>
-      <link>http://translusion.github.com/prototyping/fischertechnik/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/prototyping/fischertechnik/</guid>
+      <link>http://localhost:1313/prototyping/fischertechnik/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/prototyping/fischertechnik/</guid>
       <description>&lt;p&gt;A down side to using &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is that it is far less known than Lego. So there are less resources available online and you can&amp;rsquo;t just walk into any toy store and buy &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;However I personally think &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is the superior prototyping system. It works very similar to standard industrial prototyping systems based on &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt;.&lt;/p&gt;
@@ -22,6 +22,8 @@
 &lt;p&gt;Lego is well suited for building the same things that you would build with bricks such as houses and buildings. Lego technik or Mindstorm tries to expand on that by offering pieces which connect in a similar fashion as Meccano by having regularly spaced holes in the bricks.&lt;/p&gt;
 
 &lt;p&gt;A downside to that is that pieces can only be connected at fixed points. &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;Fischertechnik&lt;/a&gt; pieces on the other hand may be connected at any point. A standard building block can connect to another standard building block at any of the block&amp;rsquo;s six faces. That gives versatility which can not be matched by either Meccano or Lego. &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;Fischertechnik&lt;/a&gt; well suited for constructing machnines but poorly suited for making things resembling builds. Lego is better suited for this.&lt;/p&gt;
+
+&lt;p&gt;[openbeam]: &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;http://openbeamusa.com/index.php&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

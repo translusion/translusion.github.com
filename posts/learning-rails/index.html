@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title> Learning Web Development with Rails &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -61,7 +56,7 @@
 
 <p>Here are some of my notes from learning rails. I am following the course <a href="https://class.coursera.org/webapplications-001">Web Application Architectures</a> at <a href="https://www.coursera.org">Coursera</a>. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.</p>
 
-<h1 id="toc_0">Setup Project</h1>
+<h1 id="setup-project:f95b85540dcb9729df9393b529ccc85b">Setup Project</h1>
 
 <p>Have rails autogenerate a bunch of files for a project:</p>
 
@@ -117,7 +112,7 @@ first_comment = Comment.first
               DELETE /comments/:id(.:format)                     comments#destroy
 </code></pre>
 
-<h1 id="toc_1">Inspecting and Debugging</h1>
+<h1 id="inspecting-and-debugging:f95b85540dcb9729df9393b529ccc85b">Inspecting and Debugging</h1>
 
 <p>You can interact with your whole rails app from the command line. You don&rsquo;t need a browser running just run:</p>
 
@@ -152,7 +147,7 @@ first_comment = Comment.first
 
 <p>Great way to drill down into your objects and inspect them.  <code>pry</code> wans&rsquo;t covered in the course I just found that online.</p>
 
-<h1 id="toc_2">Databases and SQL</h1>
+<h1 id="databases-and-sql:f95b85540dcb9729df9393b529ccc85b">Databases and SQL</h1>
 
 <p>You don&rsquo;t setup the tables in the database yourself directly. Instead rails will generate a <code>schema.rb</code> file. Looking like:</p>
 
@@ -190,5 +185,5 @@ end
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Kotlin on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/categories/kotlin/index.xml</link>
+    <title>Kotlin on Trans lusion</title>
+    <link>http://localhost:1313/categories/kotlin/</link>
+    <description>Recent content in Kotlin on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Thu, 05 Jun 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Thu, 05 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>http://translusion.github.com/posts/swift-is-kotlin/</link>
-      <pubDate>Thu, 05 Jun 2014 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
+      <link>http://localhost:1313/posts/swift-is-kotlin/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/swift-is-kotlin/</guid>
       <description>
 
 &lt;p&gt;Around the internet people are saying Apple&amp;rsquo;s &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; has the &lt;code&gt;var&lt;/code&gt; keyword. But it means completely different things since &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; is statically typed and JavaScript is not.&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;li&gt;Functional programming is used as a way to enhance the language were it makes sense but it isn&amp;rsquo;t any central goal like in e.g. Clojure and Scala.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Feature and Syntax similarities&lt;/h2&gt;
+&lt;h2 id=&#34;feature-and-syntax-similarities:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Feature and Syntax similarities&lt;/h2&gt;
 
 &lt;p&gt;Both place type information after the name of the identifier unlike C/C++, C# and Java. This is also similar to Go, Rust, Pascal etc. Kotlin:&lt;/p&gt;
 
@@ -60,7 +60,7 @@
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_1&#34;&gt;Pattern matching&lt;/h3&gt;
+&lt;h3 id=&#34;pattern-matching:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Pattern matching&lt;/h3&gt;
 
 &lt;p&gt;Both do pattern matching in a smiliar manner, although different keywords is used. In Kotlin you write:&lt;/p&gt;
 
@@ -103,7 +103,7 @@ default:
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Type casting&lt;/h3&gt;
+&lt;h3 id=&#34;type-casting:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Type casting&lt;/h3&gt;
 
 &lt;p&gt;Even type casting looks and behaves in the same way, and the both have Option types to avoid null pointer exceptions:&lt;/p&gt;
 
@@ -117,7 +117,7 @@ val x : String? = y as? String // safe cast. Nil if not working
 let x : String? = y as? String
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Enum types&lt;/h3&gt;
+&lt;h3 id=&#34;enum-types:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Enum types&lt;/h3&gt;
 
 &lt;p&gt;Enumerations are quite different. They have some overlapping functionality. Both allow you to do:&lt;/p&gt;
 
@@ -195,7 +195,7 @@ case let .Error(error):
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;toc_4&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&#34;conclusion:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;I am not going to go through every feature, but it is clear when you look at how the languages work that there are a lot of similarities. In the regard that they are different I believe that is born out of the limitations set by each respective platform JVM or Objective-C runtime. Swift likely chose a more sofisticated enum type system with sum types to deal with the fact that exceptions can not easily be provided in a non GC language with Cocoa not being exception safe. I know there isn&amp;rsquo;t an obvious connection here but I believe enum types will be used for building an error handling system in the future for Apple API&amp;rsquo;s. Kotlin is more traditional in supporting exceptions which already works quite well on the JVM.&lt;/p&gt;
 

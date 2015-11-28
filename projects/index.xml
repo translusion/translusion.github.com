@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Projects on Trans lusion </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://translusion.github.com/projects/index.xml</link>
+    <title>Projects on Trans lusion</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Trans lusion</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Erik Engheim</author>
-    
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://translusion.github.com/projects/econom%20simulator/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      <author>Erik Engheim</author>
-      <guid>http://translusion.github.com/projects/econom%20simulator/</guid>
+      <link>http://localhost:1313/projects/econom%20simulator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/econom%20simulator/</guid>
       <description>
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Economics Simulator of Comparative Advantage, Trade and Production&lt;/h1&gt;
+&lt;h1 id=&#34;economics-simulator-of-comparative-advantage-trade-and-production:c422ad0206f0b09876a12ddf7b17795f&#34;&gt;Economics Simulator of Comparative Advantage, Trade and Production&lt;/h1&gt;
 
 &lt;p&gt;When you look around the world at different economies you see that a common pattern is that countries richly endowed with natural resources are often the least industrialized. While many countries or areas such as Japan, Singapore, Hong Kong and Switzerland with little resources of importance often have sophisticated industries.&lt;/p&gt;
 
@@ -25,7 +24,7 @@
 
 &lt;p&gt;My hypothesis is that given two producers $$ P_1 $$ and $$ P_2 $$, where $$ P_1 $$ has access to raw materials, while $$ P_2 $$ doesn&amp;rsquo;t have any resources but have to import, then over time $$ P_2 $$ will develop further than $$ P_1 $$. We assume that in the start there will be minor differences but due to comparative advantage each producer will double down on their particular advantage and thus the difference will grow bigger.&lt;/p&gt;
 
-&lt;h1 id=&#34;toc_1&#34;&gt;Description of the Model&lt;/h1&gt;
+&lt;h1 id=&#34;description-of-the-model:c422ad0206f0b09876a12ddf7b17795f&#34;&gt;Description of the Model&lt;/h1&gt;
 
 &lt;p&gt;A producer is a tuple&lt;/p&gt;
 
@@ -33,7 +32,7 @@
 
 &lt;p&gt;where $$ c_u $$ and $$ c_f $$ is unit cost and fixed cost for producing the output goods. $$ m $$ is the max production capacity of producer $$ P $$. $$ s $$ is the supply of output for sale. $$ p_u $$ is the unit price for the produced goods.&lt;/p&gt;
 
-&lt;p&gt;We assume production happens in iterations or turns so that $$ q&lt;em&gt;1 $$ quantity was produced after $$ q_0 $$ and $$ q_i $$ after $$ q&lt;/em&gt;{i - 1} $$.&lt;/p&gt;
+&lt;p&gt;We assume production happens in iterations or turns so that $$ q_1 $$ quantity was produced after $$ q_0 $$ and $$ q&lt;em&gt;i $$ after $$ q&lt;/em&gt;{i - 1} $$.&lt;/p&gt;
 
 &lt;p&gt;We want the following properties for our model. Production cost per unit $$ c_u $$ should fall when the number of units produced increase. So&lt;/p&gt;
 
@@ -47,17 +46,17 @@
 
 &lt;p&gt;That means we are either producing too much or charging too much so price $$ p $$ or produced quantity $$ q $$ should fall:&lt;/p&gt;
 
-&lt;p&gt;$$ p&lt;em&gt;{i+1} \leq p_i \lor q&lt;/em&gt;{+1} \leq q_i $$&lt;/p&gt;
+&lt;p&gt;$$ p_{i+1} \leq p&lt;em&gt;i \lor q&lt;/em&gt;{+1} \leq q_i $$&lt;/p&gt;
 
 &lt;p&gt;However if supply $$ s $$ keeps falling $$ s_{i+1} &amp;lt; s_i $$ then prices or production should be increasing:&lt;/p&gt;
 
-&lt;p&gt;$$ p&lt;em&gt;{i+1} \geq p_i \lor q&lt;/em&gt;{+1} \geq q_i $$&lt;/p&gt;
+&lt;p&gt;$$ p_{i+1} \geq p&lt;em&gt;i \lor q&lt;/em&gt;{+1} \geq q_i $$&lt;/p&gt;
 
 &lt;p&gt;However if production quantity $$ q $$ can not increase then only prices $$ p $$ need to increase.&lt;/p&gt;
 
 &lt;p&gt;$$ q&lt;em&gt;i = m \implies p&lt;/em&gt;{i+1} \geq p_i$$&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Determining correct output&lt;/h2&gt;
+&lt;h2 id=&#34;determining-correct-output:c422ad0206f0b09876a12ddf7b17795f&#34;&gt;Determining correct output&lt;/h2&gt;
 
 &lt;p&gt;A challenge with the model is that we are attempting to determine correct values for two variables production quantity $$ q $$ and price $$ p $$ based on just one input, the supply level $$ s $$. If a store is not clearing inventory then it could either be due to prices being too high or that one is making more than the market needs.&lt;/p&gt;
 

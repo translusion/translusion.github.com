@@ -3,6 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15-DEV" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -10,23 +11,17 @@
   <title>  &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="http://translusion.github.com/css/style.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
-  
-  
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
 </head>
 
 <body>
@@ -59,7 +54,7 @@
   <span class="post-date">Mon, Jan 1, 0001</span>
       
 
-<h1 id="toc_0">Economics Simulator of Comparative Advantage, Trade and Production</h1>
+<h1 id="economics-simulator-of-comparative-advantage-trade-and-production:c422ad0206f0b09876a12ddf7b17795f">Economics Simulator of Comparative Advantage, Trade and Production</h1>
 
 <p>When you look around the world at different economies you see that a common pattern is that countries richly endowed with natural resources are often the least industrialized. While many countries or areas such as Japan, Singapore, Hong Kong and Switzerland with little resources of importance often have sophisticated industries.</p>
 
@@ -67,7 +62,7 @@
 
 <p>My hypothesis is that given two producers $$ P_1 $$ and $$ P_2 $$, where $$ P_1 $$ has access to raw materials, while $$ P_2 $$ doesn&rsquo;t have any resources but have to import, then over time $$ P_2 $$ will develop further than $$ P_1 $$. We assume that in the start there will be minor differences but due to comparative advantage each producer will double down on their particular advantage and thus the difference will grow bigger.</p>
 
-<h1 id="toc_1">Description of the Model</h1>
+<h1 id="description-of-the-model:c422ad0206f0b09876a12ddf7b17795f">Description of the Model</h1>
 
 <p>A producer is a tuple</p>
 
@@ -75,7 +70,7 @@
 
 <p>where $$ c_u $$ and $$ c_f $$ is unit cost and fixed cost for producing the output goods. $$ m $$ is the max production capacity of producer $$ P $$. $$ s $$ is the supply of output for sale. $$ p_u $$ is the unit price for the produced goods.</p>
 
-<p>We assume production happens in iterations or turns so that $$ q<em>1 $$ quantity was produced after $$ q_0 $$ and $$ q_i $$ after $$ q</em>{i - 1} $$.</p>
+<p>We assume production happens in iterations or turns so that $$ q_1 $$ quantity was produced after $$ q_0 $$ and $$ q<em>i $$ after $$ q</em>{i - 1} $$.</p>
 
 <p>We want the following properties for our model. Production cost per unit $$ c_u $$ should fall when the number of units produced increase. So</p>
 
@@ -89,17 +84,17 @@
 
 <p>That means we are either producing too much or charging too much so price $$ p $$ or produced quantity $$ q $$ should fall:</p>
 
-<p>$$ p<em>{i+1} \leq p_i \lor q</em>{+1} \leq q_i $$</p>
+<p>$$ p_{i+1} \leq p<em>i \lor q</em>{+1} \leq q_i $$</p>
 
 <p>However if supply $$ s $$ keeps falling $$ s_{i+1} &lt; s_i $$ then prices or production should be increasing:</p>
 
-<p>$$ p<em>{i+1} \geq p_i \lor q</em>{+1} \geq q_i $$</p>
+<p>$$ p_{i+1} \geq p<em>i \lor q</em>{+1} \geq q_i $$</p>
 
 <p>However if production quantity $$ q $$ can not increase then only prices $$ p $$ need to increase.</p>
 
 <p>$$ q<em>i = m \implies p</em>{i+1} \geq p_i$$</p>
 
-<h2 id="toc_2">Determining correct output</h2>
+<h2 id="determining-correct-output:c422ad0206f0b09876a12ddf7b17795f">Determining correct output</h2>
 
 <p>A challenge with the model is that we are attempting to determine correct values for two variables production quantity $$ q $$ and price $$ p $$ based on just one input, the supply level $$ s $$. If a store is not clearing inventory then it could either be due to prices being too high or that one is making more than the market needs.</p>
 
@@ -137,5 +132,5 @@
 </div>
 </div>
 
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
 </html>
