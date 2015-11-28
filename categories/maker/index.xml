@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maker on Trans lusion</title>
-    <link>http://localhost:1313/categories/maker/</link>
+    <link>http://translusion.github.com/categories/maker/</link>
     <description>Recent content in Maker on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/maker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/maker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Debugging AVR projects</title>
-      <link>http://localhost:1313/posts/debugavrproject/</link>
+      <link>http://translusion.github.com/posts/debugavrproject/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/debugavrproject/</guid>
+      <guid>http://translusion.github.com/posts/debugavrproject/</guid>
       <description>
 
 &lt;p&gt;This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.&lt;/p&gt;
@@ -65,10 +65,10 @@ brge r16Greatest
     
     <item>
       <title>Development board for 8 pin AVR microcontrollers</title>
-      <link>http://localhost:1313/posts/avrdevboard/</link>
+      <link>http://translusion.github.com/posts/avrdevboard/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/avrdevboard/</guid>
+      <guid>http://translusion.github.com/posts/avrdevboard/</guid>
       <description>&lt;p&gt;I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.&lt;/p&gt;
 
 &lt;p&gt;The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13. You can get a tiny for around 20 Kr at e.g. &lt;a title=&#34;electrokit&#34; href=&#34;http://www.electrokit.com&#34;&gt;electrokit&lt;/a&gt; in sweden.&lt;/p&gt;
@@ -138,10 +138,10 @@ loop:
     
     <item>
       <title>Getting started with AVR programming</title>
-      <link>http://localhost:1313/posts/avr_without_arduino/</link>
+      <link>http://translusion.github.com/posts/avr_without_arduino/</link>
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/avr_without_arduino/</guid>
+      <guid>http://translusion.github.com/posts/avr_without_arduino/</guid>
       <description>
 
 &lt;h2 id=&#34;after-arduino:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;After Arduino&lt;/h2&gt;

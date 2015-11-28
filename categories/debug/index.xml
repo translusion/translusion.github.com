@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debug on Trans lusion</title>
-    <link>http://localhost:1313/categories/debug/</link>
+    <link>http://translusion.github.com/categories/debug/</link>
     <description>Recent content in Debug on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/debug/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/debug/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Debugging AVR projects</title>
-      <link>http://localhost:1313/posts/debugavrproject/</link>
+      <link>http://translusion.github.com/posts/debugavrproject/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/debugavrproject/</guid>
+      <guid>http://translusion.github.com/posts/debugavrproject/</guid>
       <description>
 
 &lt;p&gt;This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.&lt;/p&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Assembly on Trans lusion</title>
-    <link>http://localhost:1313/categories/assembly/</link>
+    <link>http://translusion.github.com/categories/assembly/</link>
     <description>Recent content in Assembly on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AVR Assembly programming on Mac OS X</title>
-      <link>http://localhost:1313/posts/avrassembly/</link>
+      <link>http://translusion.github.com/posts/avrassembly/</link>
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/avrassembly/</guid>
+      <guid>http://translusion.github.com/posts/avrassembly/</guid>
       <description>&lt;p&gt;When starting with out programming the &lt;a href=&#34;http://en.wikipedia.org/wiki/Atmel_AVR&#34;&gt;AVR&lt;/a&gt; microcontroller on OS X, you will probably start by using &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt; installs the AVR GNU assembler &lt;strong&gt;avr-as&lt;/strong&gt; described &lt;a href=&#34;http://www.nongnu.org/avr-libc/user-manual/assembler.html&#34;&gt;here&lt;/a&gt;. The assembly files typically end with &lt;strong&gt;.S&lt;/strong&gt;. You can invoke it through gcc with e.g.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S

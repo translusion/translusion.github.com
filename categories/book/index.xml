@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Book on Trans lusion</title>
-    <link>http://localhost:1313/categories/book/</link>
+    <link>http://translusion.github.com/categories/book/</link>
     <description>Recent content in Book on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 10 Nov 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/book/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>http://localhost:1313/posts/CEO%20Salaries/</link>
+      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/CEO%20Salaries/</guid>
+      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
       <description>
 
 &lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;

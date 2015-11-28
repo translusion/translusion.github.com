@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Trans lusion</title>
-    <link>http://localhost:1313/projects/</link>
+    <link>http://translusion.github.com/projects/</link>
     <description>Recent content in Projects on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://localhost:1313/projects/econom%20simulator/</link>
+      <link>http://translusion.github.com/projects/econom%20simulator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/econom%20simulator/</guid>
+      <guid>http://translusion.github.com/projects/econom%20simulator/</guid>
       <description>
 
 &lt;h1 id=&#34;economics-simulator-of-comparative-advantage-trade-and-production:c422ad0206f0b09876a12ddf7b17795f&#34;&gt;Economics Simulator of Comparative Advantage, Trade and Production&lt;/h1&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on Trans lusion</title>
-    <link>http://localhost:1313/categories/ruby/</link>
+    <link>http://translusion.github.com/categories/ruby/</link>
     <description>Recent content in Ruby on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 05 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Learning Web Development with Rails</title>
-      <link>http://localhost:1313/posts/learning-rails/</link>
+      <link>http://translusion.github.com/posts/learning-rails/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/learning-rails/</guid>
+      <guid>http://translusion.github.com/posts/learning-rails/</guid>
       <description>
 
 &lt;p&gt;Here are some of my notes from learning rails. I am following the course &lt;a href=&#34;https://class.coursera.org/webapplications-001&#34;&gt;Web Application Architectures&lt;/a&gt; at &lt;a href=&#34;https://www.coursera.org&#34;&gt;Coursera&lt;/a&gt;. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.&lt;/p&gt;

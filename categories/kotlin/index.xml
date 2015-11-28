@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kotlin on Trans lusion</title>
-    <link>http://localhost:1313/categories/kotlin/</link>
+    <link>http://translusion.github.com/categories/kotlin/</link>
     <description>Recent content in Kotlin on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>http://localhost:1313/posts/swift-is-kotlin/</link>
+      <link>http://translusion.github.com/posts/swift-is-kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/swift-is-kotlin/</guid>
+      <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
       <description>
 
 &lt;p&gt;Around the internet people are saying Apple&amp;rsquo;s &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; has the &lt;code&gt;var&lt;/code&gt; keyword. But it means completely different things since &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; is statically typed and JavaScript is not.&lt;/p&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fischertechnik on Trans lusion</title>
-    <link>http://localhost:1313/categories/fischertechnik/</link>
+    <link>http://translusion.github.com/categories/fischertechnik/</link>
     <description>Recent content in Fischertechnik on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/fischertechnik/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/fischertechnik/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fischertechnik</title>
-      <link>http://localhost:1313/prototyping/fischertechnik/</link>
+      <link>http://translusion.github.com/prototyping/fischertechnik/</link>
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/prototyping/fischertechnik/</guid>
+      <guid>http://translusion.github.com/prototyping/fischertechnik/</guid>
       <description>&lt;p&gt;A down side to using &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is that it is far less known than Lego. So there are less resources available online and you can&amp;rsquo;t just walk into any toy store and buy &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;However I personally think &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is the superior prototyping system. It works very similar to standard industrial prototyping systems based on &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt;.&lt;/p&gt;

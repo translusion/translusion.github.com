@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Trans lusion</title>
-    <link>http://localhost:1313/</link>
+    <link>http://translusion.github.com/</link>
     <description>Recent content on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Don&#39;t Starve Evolved Strategy</title>
-      <link>http://localhost:1313/posts/dont-starve-strategy/</link>
+      <link>http://translusion.github.com/posts/dont-starve-strategy/</link>
       <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/dont-starve-strategy/</guid>
+      <guid>http://translusion.github.com/posts/dont-starve-strategy/</guid>
       <description>
 
 &lt;p&gt;Almost a year ago I wrote about playing Don’t Starve. I’ve had long breaks from it but had a burst playing it again a lot lately.&lt;/p&gt;
@@ -114,10 +114,10 @@
     
     <item>
       <title>Don&#39;t Starve for PS4</title>
-      <link>http://localhost:1313/posts/dont-starve-review/</link>
+      <link>http://translusion.github.com/posts/dont-starve-review/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/dont-starve-review/</guid>
+      <guid>http://translusion.github.com/posts/dont-starve-review/</guid>
       <description>
 
 &lt;p&gt;I don&amp;rsquo;t play much computer games anymore. Family and small kids limits time, but equally important I simply don&amp;rsquo;t find them as fun anymore as I once did. Not long ago I got a Playstation 4 and I was eager to look at the beautiful graphics which could now be rendered. I got a bunch of third or first person shooters which all looked beautiful and amazing. But eventually they all ended up boring me. A problem is that most of the block buster games today are extremely bland. They don&amp;rsquo;t dare doing anything out of the ordinary and so they end up being very similar and they lack a personal touch or soul from lack of a better word. I&amp;rsquo;ve tried a few Indie games over the last few years such as &lt;a href=&#34;http://en.wikipedia.org/wiki/Machinarium&#34;&gt;Machinarium&lt;/a&gt;, Limbo, Minecraft and &lt;a href=&#34;http://en.wikipedia.org/wiki/CounterSpy_(video_game)&#34;&gt;CounterSpy&lt;/a&gt;. Lately I&amp;rsquo;ve played &lt;a href=&#34;http://en.wikipedia.org/wiki/Valiant_Hearts:_The_Great_War&#34;&gt;Vaiant Hearts&lt;/a&gt; which while not an Indie game feels a lot like one. Common for all these games is that they do not have mind blowing 3D graphics and animation. Yet they have a unique expression and feel which makes it feel more like what it was like playing games as a child.&lt;/p&gt;
@@ -226,10 +226,10 @@ But then try to burn down quite a large number of trees. Because you ought to bu
     
     <item>
       <title>Tricks in Julia</title>
-      <link>http://localhost:1313/posts/julia-tricks/</link>
+      <link>http://translusion.github.com/posts/julia-tricks/</link>
       <pubDate>Sun, 21 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/julia-tricks/</guid>
+      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
       <description>
 
 &lt;p&gt;After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:&lt;/p&gt;
@@ -445,10 +445,10 @@ FooBar
     
     <item>
       <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
-      <link>http://localhost:1313/posts/beautiful-julia/</link>
+      <link>http://translusion.github.com/posts/beautiful-julia/</link>
       <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/beautiful-julia/</guid>
+      <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
       <description>
 
 &lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;?&lt;/p&gt;
@@ -661,10 +661,10 @@ end
     
     <item>
       <title>Why I don&#39;t believe in Torture</title>
-      <link>http://localhost:1313/posts/torture/</link>
+      <link>http://translusion.github.com/posts/torture/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/torture/</guid>
+      <guid>http://translusion.github.com/posts/torture/</guid>
       <description>
 
 &lt;p&gt;This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it. It is much like free speech. If you argue free speech should only be allowed to those who don&amp;rsquo;t say nasty things, then it isn&amp;rsquo;t free speech.&lt;/p&gt;
@@ -694,10 +694,10 @@ end
     
     <item>
       <title>Dynamic Typing as a Paradigm</title>
-      <link>http://localhost:1313/posts/dynamic_typing_as_a_paradigm/</link>
+      <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</link>
       <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/dynamic_typing_as_a_paradigm/</guid>
+      <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>
 
 &lt;p&gt;The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post [Dynamic languages are static languages][dynisstatic] illustrates the misunderstanding very well.&lt;/p&gt;
@@ -794,10 +794,10 @@ points3d = Array(Point3D, 10)
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>http://localhost:1313/posts/CEO%20Salaries/</link>
+      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/CEO%20Salaries/</guid>
+      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
       <description>
 
 &lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;
@@ -840,10 +840,10 @@ points3d = Array(Point3D, 10)
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>http://localhost:1313/posts/swift_compared_to_python/</link>
+      <link>http://translusion.github.com/posts/swift_compared_to_python/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/swift_compared_to_python/</guid>
+      <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
       <description>
 
 &lt;p&gt;While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:&lt;/p&gt;
@@ -1125,10 +1125,10 @@ error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://localhost:1313/posts/a_comparison_of_go_and_swift/</link>
+      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
 &lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
@@ -1583,10 +1583,10 @@ $R0: Float = 5
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>http://localhost:1313/posts/swift-is-kotlin/</link>
+      <link>http://translusion.github.com/posts/swift-is-kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/swift-is-kotlin/</guid>
+      <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
       <description>
 
 &lt;p&gt;Around the internet people are saying Apple&amp;rsquo;s &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; has the &lt;code&gt;var&lt;/code&gt; keyword. But it means completely different things since &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; is statically typed and JavaScript is not.&lt;/p&gt;
@@ -1779,10 +1779,10 @@ case let .Error(error):
     
     <item>
       <title>Why the US can&#39;t teach the world</title>
-      <link>http://localhost:1313/posts/america-cant-teach-the-world/</link>
+      <link>http://translusion.github.com/posts/america-cant-teach-the-world/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/america-cant-teach-the-world/</guid>
+      <guid>http://translusion.github.com/posts/america-cant-teach-the-world/</guid>
       <description>
 
 &lt;p&gt;While the US isn&amp;rsquo;t the richest country in the world in per capita GDP, it is by far the richest large country. It can boast of impressive results in science and innovation. Does that mean that anyone whishing to obtain similar levels of prosperity have to follow the American model for economic system and organization of society? My short answer is &amp;ldquo;no&amp;rdquo;.&lt;/p&gt;
@@ -1805,10 +1805,10 @@ case let .Error(error):
     
     <item>
       <title>Why American states cannot be compared to European countries</title>
-      <link>http://localhost:1313/posts/europe-is-not-america/</link>
+      <link>http://translusion.github.com/posts/europe-is-not-america/</link>
       <pubDate>Tue, 03 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/europe-is-not-america/</guid>
+      <guid>http://translusion.github.com/posts/europe-is-not-america/</guid>
       <description>
 
 &lt;p&gt;It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc. The American retort would be that these countries are too small to make for a meaningful comparison and that the whole of America should be compared to the whole of Europe. The idea is that variations among American states is quite large just like variations between European countries. Thus American states could be compared to European countries.&lt;/p&gt;
@@ -1827,10 +1827,10 @@ case let .Error(error):
     
     <item>
       <title>Munching Data with Julia</title>
-      <link>http://localhost:1313/posts/munchingdata-julia/</link>
+      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
       <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/munchingdata-julia/</guid>
+      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently performed a survey at my work using &lt;a href=&#34;http://www.google.com/google-d-s/createforms.html&#34;&gt;Google form&lt;/a&gt;, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.&lt;/p&gt;
@@ -1961,10 +1961,10 @@ end
     
     <item>
       <title>Learning Web Development with Rails</title>
-      <link>http://localhost:1313/posts/learning-rails/</link>
+      <link>http://translusion.github.com/posts/learning-rails/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/learning-rails/</guid>
+      <guid>http://translusion.github.com/posts/learning-rails/</guid>
       <description>
 
 &lt;p&gt;Here are some of my notes from learning rails. I am following the course &lt;a href=&#34;https://class.coursera.org/webapplications-001&#34;&gt;Web Application Architectures&lt;/a&gt; at &lt;a href=&#34;https://www.coursera.org&#34;&gt;Coursera&lt;/a&gt;. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.&lt;/p&gt;
@@ -2081,10 +2081,10 @@ end
     
     <item>
       <title>Cryptography</title>
-      <link>http://localhost:1313/articles/cryptography/</link>
+      <link>http://translusion.github.com/articles/cryptography/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/articles/cryptography/</guid>
+      <guid>http://translusion.github.com/articles/cryptography/</guid>
       <description>
 
 &lt;p&gt;There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.&lt;/p&gt;
@@ -2093,11 +2093,11 @@ end
 
 &lt;p&gt;Plain text is encrypted using a method or algorithm called a &lt;em&gt;cipher&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a &lt;em&gt;secret key&lt;/em&gt; will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;asymetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Asymetric Encryption&lt;/h1&gt;
 
@@ -2112,7 +2112,7 @@ end
 
 &lt;p&gt;Usually there is no fundamental difference between a &lt;em&gt;public&lt;/em&gt; and &lt;em&gt;private&lt;/em&gt; key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.&lt;/p&gt;
 
@@ -2126,7 +2126,7 @@ end
 &lt;li&gt;Message digest&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same &lt;code&gt;digital fingerprint&lt;/code&gt;. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a &lt;strong&gt;sufficiently large number&lt;/strong&gt; of hashes so that collision is practically impossible.&lt;/p&gt;
 
@@ -2164,7 +2164,7 @@ end
 
 &lt;p&gt;To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders &lt;code&gt;private key&lt;/code&gt;. The resulting &lt;em&gt;digital signature&lt;/em&gt; could only have been created by someone knowing the &lt;code&gt;private key&lt;/code&gt;. This signature is attached to the message and sent to the receiver.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;receiver:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Receiver&lt;/h3&gt;
 

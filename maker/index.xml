@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Makers on Trans lusion</title>
-    <link>http://localhost:1313/maker/</link>
+    <link>http://translusion.github.com/maker/</link>
     <description>Recent content in Makers on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/maker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/maker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Prototyping</title>
-      <link>http://localhost:1313/maker/prototyping/</link>
+      <link>http://translusion.github.com/maker/prototyping/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/maker/prototyping/</guid>
+      <guid>http://translusion.github.com/maker/prototyping/</guid>
       <description>
 
 &lt;p&gt;Lets say you want to test out an idea for a robot car, DVD changing robot arm, automatic card sorter or something similar. Machining your own parts would be time consuming. So what are the options for rapid prototyping?&lt;/p&gt;
@@ -22,7 +22,7 @@
 
 &lt;p&gt;The best known option and a huge community&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/lego-rover.jpg&#34; alt=&#34;alt text&#34; title=&#34;Lego&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/lego-rover.jpg&#34; alt=&#34;alt text&#34; title=&#34;Lego&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Easy to find help and wide variety of parts. You can get hold of lego mindstorm in almost any toystore. The downside is that lego is its own world. Lego parts don&amp;rsquo;t mesh naturally with regular industrial components. You are typically limited to using parts made specifically for lego.
 &lt;hr&gt;&lt;/p&gt;
@@ -31,7 +31,7 @@
 
 &lt;p&gt;Readily available and works quite well with non meccano parts from industry&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/meccano-crane.jpg&#34; alt=&#34;alt text&#34; title=&#34;Meccano&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/meccano-crane.jpg&#34; alt=&#34;alt text&#34; title=&#34;Meccano&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Norway you can find Meccano at:&lt;/p&gt;
 
@@ -46,11 +46,11 @@
 &lt;p&gt;It also give a more solid construction, which you could keep as the final version if you want to.
 &lt;hr&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;fischertechnik-prototyping-fischertechnik:766e1ad3a2016679b54afacb946aeaad&#34;&gt;&lt;a href=&#34;http://localhost:1313/prototyping/fischertechnik&#34;&gt;Fischertechnik&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;fischertechnik-prototyping-fischertechnik:766e1ad3a2016679b54afacb946aeaad&#34;&gt;&lt;a href=&#34;http://translusion.github.com/prototyping/fischertechnik&#34;&gt;Fischertechnik&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Plastic parts like lego, but designed mainly for prototyping machines and engineering structures&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/fischertechnik-rover.jpg&#34; alt=&#34;Fischertechnik Rover&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/fischertechnik-rover.jpg&#34; alt=&#34;Fischertechnik Rover&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The way pieces are fitted together is very different from  Lego. It is similar to how industrial prototyping systems such as &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; works. In fact it can be combined with &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; aluminium T-slots. This makes the system one of the most flexible ones covered on this page. Unlike Lego and Meccano pieces do not need to be fitted together at fixed points. The main downside &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; is that:&lt;/p&gt;
 
@@ -65,7 +65,7 @@
 
 &lt;p&gt;A &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slot&lt;/a&gt; system for small hobby sized constructions&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/makerbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;MakerBeam&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/makerbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;MakerBeam&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; used in the industry is usually 20x20mm, which is impractical for a hobbyist. &lt;a href=&#34;http://www.makerbeam.eu&#34;&gt;MakerBeam&lt;/a&gt; is 10x10mm which is far more practical.&lt;/p&gt;
 
@@ -76,7 +76,7 @@
 
 &lt;p&gt;MakerBeam&amp;rsquo;s bigger brother&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/openbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;OpenBeam&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/openbeam.jpg&#34; alt=&#34;alt text&#34; title=&#34;OpenBeam&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At 15x15mm &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt; is the same size as a standard &lt;a href=&#34;http://www.fischertechnik.de/en/Home.aspx&#34;&gt;fischertechnik&lt;/a&gt; building block. &lt;a href=&#34;http://openbeamusa.com/index.php&#34;&gt;OpenBeam&lt;/a&gt;&amp;rsquo;s main advantage over other forms of &lt;a href=&#34;http://en.wikipedia.org/wiki/T-slot_nut&#34;&gt;T-slots&lt;/a&gt; is that they have been designed to be used with regular nuts and bolts. Other T-slot systems have custom nuts and bolts which are harder to get hold of and more expensive.&lt;/p&gt;
 </description>
@@ -84,10 +84,10 @@
     
     <item>
       <title>Tools</title>
-      <link>http://localhost:1313/maker/tools/</link>
+      <link>http://translusion.github.com/maker/tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/maker/tools/</guid>
+      <guid>http://translusion.github.com/maker/tools/</guid>
       <description>
 
 &lt;p&gt;Most of these tools you can get at stores such as:&lt;/p&gt;
@@ -119,32 +119,32 @@
 
 &lt;p&gt;Take off sharp edges or enlarge holes&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/deburringtool.jpg&#34; alt=&#34;Deburringtool&#34; /&gt;
-&lt;img src=&#34;http://localhost:1313/images/maker/tools/deburringtip.jpg&#34; alt=&#34;Deburringtip&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/tools/deburringtool.jpg&#34; alt=&#34;Deburringtool&#34; /&gt;
+&lt;img src=&#34;http://translusion.github.com/images/maker/tools/deburringtip.jpg&#34; alt=&#34;Deburringtip&#34; /&gt;
 When you drill a hole you can get a rough edge for the hole or the hold didn&amp;rsquo;t get quite large enough. Do deal with this you can use a deburring tool It can smoothen an edge or enlarge a hole slightly. Usually you buy these in kits because you need a different one depending on &lt;em&gt;material&lt;/em&gt; you want to deburr. I could be refered to as a &lt;em&gt;edge off&lt;/em&gt; tool rather than &lt;em&gt;deburring tool&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;taper-tool:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Taper Tool&lt;/h3&gt;
 
 &lt;p&gt;Make screw holes or turn a metal rod into a screw&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/tapwrenches.jpg&#34; alt=&#34;Tapwrenches&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/tools/tapwrenches.jpg&#34; alt=&#34;Tapwrenches&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you drill a hole it will be smooth inside so e.g. a machine screw won&amp;rsquo;t fasten in the hole. You need to cut a thread out of the side of the hole. This is called &amp;ldquo;tapping&amp;rdquo; and you do it by fastening a tap in a tap wrench (shown above):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/taper-pipe-taps-hcs-847.jpg&#34; alt=&#34;Taper Pipe Taps Hcs 847&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/tools/taper-pipe-taps-hcs-847.jpg&#34; alt=&#34;Taper Pipe Taps Hcs 847&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You then screw the tap into the hole by hand in similar fashion to how you screw a screw. When you are done, you have to unscrew it carefully avoiding to ruin the thread you just cut. To turn a smooth metal rod into a screw you perform &amp;ldquo;threading&amp;rdquo; on it using a die wrench.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/maker/tools/diewrench.jpg&#34; alt=&#34;Diewrench&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/maker/tools/diewrench.jpg&#34; alt=&#34;Diewrench&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Supplies</title>
-      <link>http://localhost:1313/maker/supplies/</link>
+      <link>http://translusion.github.com/maker/supplies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/maker/supplies/</guid>
+      <guid>http://translusion.github.com/maker/supplies/</guid>
       <description>
 
 &lt;p&gt;Materials are sheets, tubes, bars, extrusions etc made of plastic, metal, wood or rubber.&lt;/p&gt;
@@ -180,10 +180,10 @@ When you drill a hole you can get a rough edge for the hole or the hold didn&amp
     
     <item>
       <title>Mechanical Parts</title>
-      <link>http://localhost:1313/maker/mechanical/</link>
+      <link>http://translusion.github.com/maker/mechanical/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/maker/mechanical/</guid>
+      <guid>http://translusion.github.com/maker/mechanical/</guid>
       <description>
 
 &lt;p&gt;I am not aiming to give an exhaustive guide here. This is mainly to get you started. I will link to more in depth articles. The problem I am trying to address here is that when you start out you end up on a wild goose chase with google to find out stuff. I will focus on mentioning mistakes I&amp;rsquo;ve made which might aid in getting the right parts or using them correctly.&lt;/p&gt;

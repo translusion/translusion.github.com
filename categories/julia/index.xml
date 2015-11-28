@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Julia on Trans lusion</title>
-    <link>http://localhost:1313/categories/julia/</link>
+    <link>http://translusion.github.com/categories/julia/</link>
     <description>Recent content in Julia on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Dec 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/julia/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/julia/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tricks in Julia</title>
-      <link>http://localhost:1313/posts/julia-tricks/</link>
+      <link>http://translusion.github.com/posts/julia-tricks/</link>
       <pubDate>Sun, 21 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/julia-tricks/</guid>
+      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
       <description>
 
 &lt;p&gt;After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:&lt;/p&gt;
@@ -230,10 +230,10 @@ FooBar
     
     <item>
       <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
-      <link>http://localhost:1313/posts/beautiful-julia/</link>
+      <link>http://translusion.github.com/posts/beautiful-julia/</link>
       <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/beautiful-julia/</guid>
+      <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
       <description>
 
 &lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;?&lt;/p&gt;
@@ -446,10 +446,10 @@ end
     
     <item>
       <title>Munching Data with Julia</title>
-      <link>http://localhost:1313/posts/munchingdata-julia/</link>
+      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
       <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/munchingdata-julia/</guid>
+      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently performed a survey at my work using &lt;a href=&#34;http://www.google.com/google-d-s/createforms.html&#34;&gt;Google form&lt;/a&gt;, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.&lt;/p&gt;

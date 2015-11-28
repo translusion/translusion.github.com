@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Trans lusion</title>
-    <link>http://localhost:1313/articles/</link>
+    <link>http://translusion.github.com/articles/</link>
     <description>Recent content in Articles on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/articles/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Cryptography</title>
-      <link>http://localhost:1313/articles/cryptography/</link>
+      <link>http://translusion.github.com/articles/cryptography/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/articles/cryptography/</guid>
+      <guid>http://translusion.github.com/articles/cryptography/</guid>
       <description>
 
 &lt;p&gt;There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.&lt;/p&gt;
@@ -23,11 +23,11 @@
 
 &lt;p&gt;Plain text is encrypted using a method or algorithm called a &lt;em&gt;cipher&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a &lt;em&gt;secret key&lt;/em&gt; will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;asymetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Asymetric Encryption&lt;/h1&gt;
 
@@ -42,7 +42,7 @@
 
 &lt;p&gt;Usually there is no fundamental difference between a &lt;em&gt;public&lt;/em&gt; and &lt;em&gt;private&lt;/em&gt; key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.&lt;/p&gt;
 
@@ -56,7 +56,7 @@
 &lt;li&gt;Message digest&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same &lt;code&gt;digital fingerprint&lt;/code&gt;. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a &lt;strong&gt;sufficiently large number&lt;/strong&gt; of hashes so that collision is practically impossible.&lt;/p&gt;
 
@@ -94,7 +94,7 @@
 
 &lt;p&gt;To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders &lt;code&gt;private key&lt;/code&gt;. The resulting &lt;em&gt;digital signature&lt;/em&gt; could only have been created by someone knowing the &lt;code&gt;private key&lt;/code&gt;. This signature is attached to the message and sent to the receiver.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;receiver:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Receiver&lt;/h3&gt;
 

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Passwords on Trans lusion</title>
-    <link>http://localhost:1313/categories/passwords/</link>
+    <link>http://translusion.github.com/categories/passwords/</link>
     <description>Recent content in Passwords on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/passwords/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/passwords/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deterministic Password Generator</title>
-      <link>http://localhost:1313/posts/dulgt-intro/</link>
+      <link>http://translusion.github.com/posts/dulgt-intro/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/dulgt-intro/</guid>
+      <guid>http://translusion.github.com/posts/dulgt-intro/</guid>
       <description>
 
 &lt;p&gt;The heartbleed exploit made  me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.&lt;/p&gt;

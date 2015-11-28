@@ -11,9 +11,9 @@
   <title> Julia &middot; Trans lusion </title>
 
   
-  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="http://translusion.github.comcss/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.comcss/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.comcss/hyde.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://localhost:1313/categories/julia/index.xml" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+  <link href="http://translusion.github.com/categories/julia/index.xml" rel="alternate" type="application/rss+xml" title="Trans lusion" />
 </head>
 
 <body>
@@ -53,39 +53,39 @@
       
           <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/julia-tricks/'> Tricks in Julia</a> </h2>
+      <h2><a href='http://translusion.github.com/posts/julia-tricks/'> Tricks in Julia</a> </h2>
       <span class="post-date">Sun, Dec 21, 2014</span>
     </header>
 
     After doing various small Julia projects I&rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect: Parsing Strings Extract 3 numbers from a string into 3 variables: a, b, c = map(int, split(&quot;11 12 13&quot;)) Initialization There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.
     <footer>
-        <a href='http://localhost:1313/posts/julia-tricks/'><nobr>Read more →</nobr></a>
+        <a href='http://translusion.github.com/posts/julia-tricks/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/beautiful-julia/'> Beautiful Julia: Cool language constructs and Tricks for Beginners</a> </h2>
+      <h2><a href='http://translusion.github.com/posts/beautiful-julia/'> Beautiful Julia: Cool language constructs and Tricks for Beginners</a> </h2>
       <span class="post-date">Sun, Dec 14, 2014</span>
     </header>
 
     I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia? So without further ado, her are some examples. Reverse an iterable There are two ways of doing this julia&gt; a = [1, 2, 4] 3-element Array{Int64,1}: 1 2 4 The most obvious way is the reverse function julia&gt; reverse(a) 3-element Array{Int64,1}: 4 2 1 But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice julia&gt; a[end:-1:1] 3-element Array{Int64,1}: 4 2 1 This of course works for any types: julia&gt; reverse(b) (4,3,2) julia&gt; b[end:-1:1] (4,3,2) julia&gt; c = &quot;This is a string&quot; &quot;This is a string&quot; julia&gt; reverse(c) &quot;gnirts a si sihT&quot; Julia follows the Ruby convention of suffixing with !
     <footer>
-        <a href='http://localhost:1313/posts/beautiful-julia/'><nobr>Read more →</nobr></a>
+        <a href='http://translusion.github.com/posts/beautiful-julia/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
       
           <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/munchingdata-julia/'> Munching Data with Julia</a> </h2>
+      <h2><a href='http://translusion.github.com/posts/munchingdata-julia/'> Munching Data with Julia</a> </h2>
       <span class="post-date">Sun, May 11, 2014</span>
     </header>
 
     I&rsquo;ve recently performed a survey at my work using Google form, unfortunatle the data wasn&rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote. I chose to clean the data with the Julia programming language, which might not be the best choice for this sort of thing. Not because julia isn&rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster.
     <footer>
-        <a href='http://localhost:1313/posts/munchingdata-julia/'><nobr>Read more →</nobr></a>
+        <a href='http://translusion.github.com/posts/munchingdata-julia/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -93,6 +93,6 @@
     </ul>
   </div>
 
-<script data-no-instant>document.write('<script src="/livereload.js?mindelay=10"></' + 'script>')</script></body>
+</body>
 </html>
 

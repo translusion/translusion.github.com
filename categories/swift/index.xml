@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swift on Trans lusion</title>
-    <link>http://localhost:1313/categories/swift/</link>
+    <link>http://translusion.github.com/categories/swift/</link>
     <description>Recent content in Swift on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Nov 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/swift/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/swift/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>http://localhost:1313/posts/swift_compared_to_python/</link>
+      <link>http://translusion.github.com/posts/swift_compared_to_python/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/swift_compared_to_python/</guid>
+      <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
       <description>
 
 &lt;p&gt;While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:&lt;/p&gt;
@@ -296,10 +296,10 @@ error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://localhost:1313/posts/a_comparison_of_go_and_swift/</link>
+      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
 &lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
@@ -754,10 +754,10 @@ $R0: Float = 5
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>http://localhost:1313/posts/swift-is-kotlin/</link>
+      <link>http://translusion.github.com/posts/swift-is-kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/swift-is-kotlin/</guid>
+      <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
       <description>
 
 &lt;p&gt;Around the internet people are saying Apple&amp;rsquo;s &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; has the &lt;code&gt;var&lt;/code&gt; keyword. But it means completely different things since &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; is statically typed and JavaScript is not.&lt;/p&gt;

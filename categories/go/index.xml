@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on Trans lusion</title>
-    <link>http://localhost:1313/categories/go/</link>
+    <link>http://translusion.github.com/categories/go/</link>
     <description>Recent content in Go on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://translusion.github.com/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://localhost:1313/posts/a_comparison_of_go_and_swift/</link>
+      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>
 
 &lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
