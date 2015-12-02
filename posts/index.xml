@@ -6,8 +6,58 @@
     <description>Recent content in Posts on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://translusion.github.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Space 2.0</title>
+      <link>http://translusion.github.com/posts/whyspace/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/whyspace/</guid>
+      <description>
+
+&lt;p&gt;If you grew up in the 80s or early 90s like me, you might have had great hopes for space exploration. You dreamed of giant space colonies beyound the year 2000. But then you grow up and the year 2000 comes and passes. Yet another decade pass and you realize that space exploration is just a long list of broken dreams. We achieved so much leading up to the end of the 70s and then &lt;em&gt;nothing&lt;/em&gt;. Man has not ventured beyound &lt;a href=&#34;https://en.wikipedia.org/wiki/Low_Earth_orbit&#34;&gt;Low Earth Orbit&lt;/a&gt; in decades.&lt;/p&gt;
+
+&lt;p&gt;I lost interest in Space Exploration as I lost complete faith in humanities ability achieve anything in that area. Instead I was reduced to being excited about smart phones and iPads.&lt;/p&gt;
+
+&lt;p&gt;So why should you believe me, when I say it is different this time around. Companies like SpaceX and &lt;a href=&#34;https://www.blueorigin.com&#34;&gt;Blue Origin&lt;/a&gt; are perhaps the most visible indications that something is changing, but there are other companies like &lt;a href=&#34;http://magnaparva.com&#34;&gt;Magna Parva&lt;/a&gt;, &lt;a href=&#34;http://deepspaceindustries.com&#34;&gt;Deep Space Industries&lt;/a&gt;, &lt;a href=&#34;http://www.planetaryresources.com&#34;&gt;Planetary Resources&lt;/a&gt; signifying a change.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-significance-of-spacex:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;The Significance of SpaceX&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.spacex.com&#34;&gt;SpaceX&lt;/a&gt; Company founded by Elon Musk, is the harbinger of a new reality for space exploration, or what I would call Space 2.0. The Falcon 9 rocket can carry 13 150 Kg into low earth orbit at 61 million dollars. The Space Shuttle cost $500 to $700 million for a launch. Before SpaceX it cost roughly $20 000 to launch a Kg into space. With Falcon 9 this has been cut to about $5000. If SpaceX manage their ultimate goal for reusable rockets a lauch will cost around 6-7 million dollars. That means almost $500 per Kg. The planned larger rockets from SpaceX will reduce this further.&lt;/p&gt;
+
+&lt;p&gt;The point is that this is what really matters. As long as launch costs were so high space exploration was never going to take off. There was no way to create a Mars mission, lunar bases or massive space station with the launch costs we have been operating under. Imagine if launch all equipment for a Mars mission cost 20 billion and suddenly we can do it for 500 million then suddenly a Mars mission becomes economically and politically plausable.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-different-today:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;What is different today?&lt;/h2&gt;
+
+&lt;p&gt;Why are we seeing these changes today in space exploration. It is not just SpaceX but a lot of other companies making significant contributions. The key thing about Space 2.0 is that it is driven by private enterprise rather than Space 1.0 which was a race between super powers with enormous resources.&lt;/p&gt;
+
+&lt;p&gt;Today we got small space companies like &lt;a href=&#34;http://deepspaceindustries.com&#34;&gt;Deep Space Industries&lt;/a&gt; working on doing asteroid prospecting and mining which simply wasn&amp;rsquo;t possible before. It is the massive advances in computer technology and manufacturing technology like 3D printing etc which makes it possible for small teams to do what required enormous teams and massive financial backing in the past. Something only goverment could really do.&lt;/p&gt;
+
+&lt;p&gt;15 years ago or so I was keenly interested in electronics. When I came back to the field today I noticed some massive changes. Circuits which I used to build by assembling lots of components could now more cheaply and faster be done by adding a few components and a microcontroller. Micro controllers are essentially whole tiny computers on a chip that you can program. They have gotten so cheap now that building electronics circuts today is increasinly a programming issue rather than a hardware issue. This is reflected in the rise of the Maker movement with people building all sorts of projects with cheap microcontrollers like the Arduino or lately more real computers like the Rasberry Pi. The latest Rasberry Pi, &lt;a href=&#34;https://www.raspberrypi.org/blog/raspberry-pi-zero/&#34;&gt;Pi Zero&lt;/a&gt;, can be gotten as cheap as for 5 dollars. That is a computer more powerfull than anything anybody had at home in the 80s when I was a kid dreaming of space.&lt;/p&gt;
+
+&lt;p&gt;It is these kind of changes which makes it possible to build space equipment faster and also much smaller than before. Computers used to take up a lot of space in earlier space craft. An example of why size matters is the MX-1 Commercial Lunar Lander from &lt;a href=&#34;http://www.moonexpress.com/&#34;&gt;Moon Express&lt;/a&gt;, a private space startup company. This is actually a space craft but it is not bigger than a large coffetable. Getting something like that to the moon is obviously a lot easier than its bulky predecessors.&lt;/p&gt;
+
+&lt;p&gt;For a long time conservatism kept space companies from really utilizing these amazing improvements in computing power. SpaceX is one of the companies who actually just went ahead and tested their craft with regular off the shelf computer hardware. They found that regular compter hardware had gotten reliable enough for space.&lt;/p&gt;
+
+&lt;p&gt;But this is just part of the story. With the opporunity for private companies to do this kind of work comes the possibility for radically different organizational structure. Old space organiztions have old conservative structure. Companies like SpaceX and Blue Origin grew out of the silicon valley computer and software startup company culture of flat hierarchies and little bureacracy. They are used to moving fast and making quick decisions. With lower capital requitement also comes the opportunity to fund development in a radically different way.&lt;/p&gt;
+
+&lt;p&gt;The way NASA built things it got stupenously expensive. They used cost plus contracts which guaranteed subcontractors a profit no matter what the cost ended up being. This encouraged overly expensive designs. Relying on funding being okayed by politicians turned to whole thing into pork barrel politics, spreadng production all over the country hiking up the costs even higher.&lt;/p&gt;
+
+&lt;p&gt;SpaceX in contrast build everything in one location and have a clear incentive to do so as cheaply as possible. They have limited capital and can not afford to waste that.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-will-the-future-bring:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;What will the future bring?&lt;/h2&gt;
+
+&lt;p&gt;As long as space exploration was very expensive and not directly profitable in any way it was bound to happen at a snail pace. The pace of exploration of the new world by Europe really accelerated once there was clear economic opportunities. But along with the desire for profit this exploration also rested on mans strong desire to explore and discover. I think the brilliance of Elon Musk&amp;rsquo;s plan for coloniztion of Mars with SpaceX is that it rallies people behind a clear goal. People are going to be willing to make a lot of sacrifices to make this happen as long as it seems like a reachable goal.&lt;/p&gt;
+
+&lt;p&gt;If SpaceX start launching a number of rockets to colonize Mars this will also create a market for an outer space industry. At the moment deep space mining can&amp;rsquo;t profitably deliver goods to earth. However given high cost of launching things into space, there is a market for goods manufactured in space. A natural first candidate is rocket fuel. Mining companies could exploit a big Mars mission to get a market for their products. This will grow the space mining industry and allow private companies to expand and provide ever more space products.&lt;/p&gt;
+
+&lt;p&gt;The next step will be for a space industry to manufacture many of the structures for satelites in space and launch just small specialized components to be assembled in space. Once this is happening I think we will se a great acceleration in the space industry. When these companies can make good money they can expand their business and attract new companies to enter the market. It will also encourage more investors to invest as they see the potential.&lt;/p&gt;
+
+&lt;p&gt;I think in 2025 we are going to see the beginning of this new space age.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Don&#39;t Starve Evolved Strategy</title>
@@ -2076,115 +2126,6 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This ruby code will generate all the necessary SQL statements to actually create the database.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Deterministic Password Generator</title>
-      <link>http://translusion.github.com/posts/dulgt-intro/</link>
-      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/posts/dulgt-intro/</guid>
-      <description>
-
-&lt;p&gt;The heartbleed exploit made  me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.&lt;/p&gt;
-
-&lt;p&gt;So this has left me with desirng a better solution. Deterministic password generators seem attractive, but there is no one program that works exactly how I want it to work. But there are a of neat ideas out there.&lt;/p&gt;
-
-&lt;h1 id=&#34;existing-solutions:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Existing Solutions&lt;/h1&gt;
-
-&lt;h3 id=&#34;enigma:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Enigma&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/app/enigma/id527555438?mt=12&#34;&gt;Enigma&lt;/a&gt; looks pretty cool, but they had horrible customer support and have trouble with basic english. So not the kind of people I want to entrust with generating my passwords. Should I get a problem with their solution I need crystal clear communication. Also any solution should be open source, so you know exactly how the passwords are made and which makes it possible for you to roll your own solution should the company go belly up.&lt;/p&gt;
-
-&lt;h3 id=&#34;generator-without-single-point-of-failure:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Generator without Single Point of failure&lt;/h3&gt;
-
-&lt;p&gt;John Metta has some interesting &lt;a href=&#34;http://mettadore.com/ruby/secure-password-generator-as-manager-without-single-point-failure/&#34;&gt;ideas&lt;/a&gt; on how to do this, but he doesn&amp;rsquo;t have a product yet that he can vouch for. Anyway I&amp;rsquo;ll keep my eye on his progress.&lt;/p&gt;
-
-&lt;h3 id=&#34;pronouncable-passwords:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Pronouncable Passwords&lt;/h3&gt;
-
-&lt;p&gt;I kind of like pronounable passwords because they are far easier to remember. &lt;a href=&#34;http://passkool.sourceforge.net&#34;&gt;PassKool&lt;/a&gt; is a python script which uses this approach. However I have to check how safe this is. Making them pronounable of course reduces the search space for a hacker. [Passphrase FAQ][passphrasefaq] might be the place to learn how to do it.&lt;/p&gt;
-
-&lt;h1 id=&#34;what-i-want-in-a-solution:753dcd3f5663f51f68120136d6b0054c&#34;&gt;What I want in a Solution&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Open source&lt;/li&gt;
-&lt;li&gt;Based on well established standards which are can be verified to be safe without being a crypto expert.&lt;/li&gt;
-&lt;li&gt;Should be very easy to recreate the code for generating the passwords, should the original program get lost.&lt;/li&gt;
-&lt;li&gt;On multiple platforms. I want the tool accessible from my phone, desktop, browser and command line.&lt;/li&gt;
-&lt;li&gt;Stores a list of sites or places I have made passwords for and settings used, so I don&amp;rsquo;t forget that I actually have a password already for said site. I actually often forget that.&lt;/li&gt;
-&lt;li&gt;Should be easy to use. So I should mostly have to write a really easy password.&lt;/li&gt;
-&lt;li&gt;Paper backups. Should be easy to print out a piece of paper from the app containing key information. E.g. by using QR codes so it is really easy to restore a backup.&lt;/li&gt;
-&lt;li&gt;Should be secure, so that hackers can&amp;rsquo;t easily break my master password once they get hold of one of my passwords.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;(6) and (8) are obviously at odds with each other. My approach here would be to rely on certain assumptions:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;An attacker will most likely attack me online.&lt;/li&gt;
-&lt;li&gt;He will not break into my house.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So my current idea for a solution relies on the following:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;One simple password whic his what is mostly asked of me.&lt;/li&gt;
-&lt;li&gt;A hard to guess completely random component which I can not hope to remember. This will be stored on paper and will remain in memory for a limited amount of time. So occasionally it will need to be brought back using a QR code scanner e.g. Or if no camera is present with manual typing.&lt;/li&gt;
-&lt;li&gt;The on paper is encrypted with my simple password so that should somebody accidentally get hold of my paper backup then can&amp;rsquo;t use it unless they know something about hacking.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The security of the individual points can be tweaked. The assumption here is that ultimately nothing is completely secure. It is all about making it really inconveient for the hacker. If you don&amp;rsquo;t have important secrets or are not an important or wealthy person, we can assume that less security is needed, so that people may e.g. chose themselves whether the paper data should be encrypted and e.g. for how long the hard passwords should remain valid in memory. If your security needs are lower you could let the password stay indefintitly in memory. You could even store it permanently on disk.&lt;/p&gt;
-
-&lt;p&gt;There should be a lot of options to make sure the generator works for everyones needs.&lt;/p&gt;
-
-&lt;h2 id=&#34;technologies-i-should-probably-use:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Technologies I should probably use&lt;/h2&gt;
-
-&lt;p&gt;I should probably use &lt;a href=&#34;http://en.wikipedia.org/wiki/Hash-based_message_authentication_code&#34;&gt;HMAC&lt;/a&gt;(Hash-based message authentication code) because that is designed to hash using a secret key. Normally we hash like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message, salt)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With HMAC it is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message, salt, secret)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is better than doing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message || secret, salt)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where &lt;code&gt;||&lt;/code&gt; means concatenate. Apparently this is potentially exploitable because you can create the hash without knowing all of the separate parts.&lt;/p&gt;
-
-&lt;p&gt;But I don&amp;rsquo;t think HMAC is specifically design for generating passwords. So using &lt;code&gt;bcrypt&lt;/code&gt; or &lt;code&gt;scrypt&lt;/code&gt; might be better. Potentially I could combine them with HMAC in some way.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://golang.org/pkg/crypto/hmac/&#34;&gt;HMAC in standard Go package&lt;/a&gt; Takes as argument a hash function, key and message.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/go/source/browse/scrypt/scrypt.go?repo=crypto&#34;&gt;scrypt for Go&lt;/a&gt; It uses a password, salt, some parameter which specify CPU and memory usage to slow it down. We could perhaps input generated key from scrypt into HMAC&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/go/source/browse/?repo=crypto&#34;&gt;All crypto functions you might need in Go&lt;/a&gt; This contains bcrypt, blowfish, SHA3, PBKDF2 etc.&lt;br&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;list-of-existing-solutions:753dcd3f5663f51f68120136d6b0054c&#34;&gt;List of existing solutions&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.xanthir.com/password/&#34;&gt;xanthir.com&lt;/a&gt; Configure length, allowed characters. Poor security with SHA-1 hash&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://plevyak.com/dpg.html&#34;&gt;plevyak.com&lt;/a&gt; Skein-512 based. Looks promising with use of option distinguishing Information&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://supergenpass.com&#34;&gt;SuperGenPass&lt;/a&gt; Made to drop down from bookmarks and work on mobile homescreen. Easy to use but doesn&amp;rsquo;t seem to be based on generally accepted good practice. In source code it looks like MD5 or SHA1 is used with just 10 iterators. That seems like bad choices. Should be far more iterations and with a better hash function such as SHA2 or SHA3 or bcrypt.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.pwdhash.com&#34;&gt;Standford PwdHash&lt;/a&gt; Transparently converts a user password to a domain specific password. Is possibly using MD5 for hashing which is not desirably. Creator also reserves the right to change the tool.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://fuktommy.com/genpasswd/&#34;&gt;Fuktommy genpasswd&lt;/a&gt; A very simple version using SHA-1. Easy to read code. No iterations (no stretching) so poor security.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://passhash.connorhd.co.uk&#34;&gt;PassHash&lt;/a&gt; Very simple. Uses SHA246-HMAC, but likely no iterations.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ctrlq.org/passwords/&#34;&gt;Secure Passwords&lt;/a&gt; Clean design using bcrypt. A bit too simple perhaps, but with good help instructions.&lt;br&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;resources:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Resources&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://crackstation.net/hashing-security.htm&#34;&gt;crackstation&lt;/a&gt; Great info on hashing. E.g. on why you shouldn&amp;rsquo;t invent your own wacky hashing solutions by combining existig ones. Correct use of salt etc.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;[passphrasefaq]: &lt;a href=&#34;http://www.iusmentis.com/security/passphrasefaq/&#34;&gt;http://www.iusmentis.com/security/passphrasefaq/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
