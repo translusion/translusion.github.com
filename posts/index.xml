@@ -6,8 +6,32 @@
     <description>Recent content in Posts on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Dec 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://translusion.github.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The significance of intention in war</title>
+      <link>http://translusion.github.com/posts/military-intention/</link>
+      <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/military-intention/</guid>
+      <description>&lt;p&gt;Cenk Uygur of the Young Turks news show covered a &lt;a href=&#34;https://www.youtube.com/watch?v=tkBRVRBhSso&#34;&gt;debate&lt;/a&gt; between Sam Harris and Noam Chomsky which I found interesting. I will not repeat the whole debate here but instead add my own thoughts.&lt;/p&gt;
+
+&lt;p&gt;Personally I am somewhere between Sam Harris and Noam Chomsky in opinion although I definitely used to hold Sam Harris&amp;rsquo; opinion that we in the west are completely different from the terrorists in that we do not generally kill with intention. People who die, generally die due to collateral damage. Terrorists on the other hand intentionally kill civilians intentionally to achieve their aim.&lt;/p&gt;
+
+&lt;p&gt;I think that is an overly simplistic representation of the problem. Good intentions alone do not absolve you from responsibility. If you know your well intentions will invariable cause death and destruction to civilians, then you are not without guilt. If a terrorist is among a crowd of innocent civilians and you still bomb him killing civilians rather than waiting for another opportunity you are still immoral IMHO. The hypothetical perfect weapons doesn&amp;rsquo;t change this. Sure they would have just killed the terrorist with perfect weapons, however in this case they know civilians will die but still do it. The value of civilian lives has to be weighted against the importance of killing a civilian.&lt;/p&gt;
+
+&lt;p&gt;I think this is where I have changed. I used to believe western powers waged war in a much more honorable way only killing civilians when absolutely necessary. However it is becoming increasingly clear that there is very little consideration for saving civilian lives when the opportunity to kill a terrorist presents itself. The death of a terrorist is simply valued too high, while the value assigned to civilians seems terribly low.&lt;/p&gt;
+
+&lt;p&gt;The analogy with perfect weapons is completely flawed. Terrorism is an a strategy employed by militarily weak forces. They are incapable of hurting the military of their opponents in any meaningful way. That is why they employ terrorism instead. It is easier to hurt and injure civilians. If we consider the Basque, Catalan separatists, IRA, PLO, PKK and Jewish terrorist organizations like Irgun they have all used terrorism to attempt to force a militarily superior force to leave.&lt;/p&gt;
+
+&lt;p&gt;So contrary to what Sam Harris claims, if terrorists had perfect weapons they would have hit military targets alone as well. Also conventional forces frequently employ terrorism to force terrorists or guerrilla to stop. As Cenk Uygur mentions Israel frequently terrorize the Palestinian population after terror attacks for force them to stop terrorism. Donald Trump also recently advocated killing family members of civilians. The idea is presumably to discourage potential terrorist through threats against their family. Likewise the British terrorized civilians in Ireland to kill the support of the IRA.&lt;/p&gt;
+
+&lt;p&gt;So it is really hard to imagine what perfect weapons are. If perfect weapons can only kill slowly but accurately, that would still encourage both parties western or not to terrorize civilians. E.g. if perfect weapons could not kill terrorist fast enough, the west would easily start thinking like the USA in the Vietnam or Philippines or British in Ireland or South African Boer war to employ terrorist actions to intimidate the enemy into giving up.&lt;/p&gt;
+
+&lt;p&gt;So basically I think the west does have the moral upper hand in this war against terror, but I think the upper hand is not nearly has big as we like to imagine. Indiscriminate killing of civilians can&amp;rsquo;t be excused on the ground that we primarily intended to kill terrorists. Again and again we are chose strategies which put more civilians at risk to reduce the risk for western soldiers. A morally superior military force would put their own soldiers in higher danger to safe civilians.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Space 2.0</title>
@@ -2006,126 +2030,6 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Okay so we are good, except &lt;code&gt;date&lt;/code&gt; doesn&amp;rsquo;t take an array as argument. So we need to explode our array to function arguments with the &lt;code&gt;...&lt;/code&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Learning Web Development with Rails</title>
-      <link>http://translusion.github.com/posts/learning-rails/</link>
-      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/posts/learning-rails/</guid>
-      <description>
-
-&lt;p&gt;Here are some of my notes from learning rails. I am following the course &lt;a href=&#34;https://class.coursera.org/webapplications-001&#34;&gt;Web Application Architectures&lt;/a&gt; at &lt;a href=&#34;https://www.coursera.org&#34;&gt;Coursera&lt;/a&gt;. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.&lt;/p&gt;
-
-&lt;h1 id=&#34;setup-project:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Setup Project&lt;/h1&gt;
-
-&lt;p&gt;Have rails autogenerate a bunch of files for a project:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails new myproject
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This seems to be the way to create a new model class with corresponding table in database:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails generate scaffold comment post_id:integer body:text
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will to a whole bunch of things. A &lt;strong&gt;scaffold&lt;/strong&gt; from what I can understand is a collection of related:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Database table&lt;/li&gt;
-&lt;li&gt;Model class&lt;/li&gt;
-&lt;li&gt;Controller class&lt;/li&gt;
-&lt;li&gt;HTML template files representing view&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So I will get a table for my comment, a definition of a model class. Actually the model class won&amp;rsquo;t contain anything, but rails creates methods on it at runtime for me to access variables. That is part of &lt;code&gt;ActiveRecord&lt;/code&gt; from what I understand. One can call methods such as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a_comment     = Comment.new
-all_comments  = Comment.all
-first_comment = Comment.first
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and this will cause SQL statements to be formed fetching the data out from the underlying table.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; Comment.first
-    Comment Load (0.1ms)  
-    SELECT  &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot;   
-    ORDER BY &amp;quot;comments&amp;quot;.&amp;quot;id&amp;quot; ASC LIMIT 1
-    =&amp;gt; #&amp;lt;Comment 
-        id: 2, 
-        post_id: 1, 
-        body: &amp;quot;This is my first comment&amp;quot;, 
-        created_at: &amp;quot;2014-05-05 10:15:52&amp;quot;, 
-        updated_at: &amp;quot;2014-05-05 10:15:52&amp;quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I&amp;rsquo;ve taken the liberty to format the output for readability. The Controller objects are apparently supposed to be mediators like in Cocoa, but it seems to be used a bit different. They seem to provide the actions the user perform on an object from the user interface. We can use the &lt;code&gt;rake routes&lt;/code&gt; to find out what REST services are provided. Or probably this isn&amp;rsquo;t called REST but is just a bunch of URLs for performing different HTTP actions. But it seems to correspond to what is created in the controllers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rake routes
-       Prefix Verb   URI Pattern                                 Controller#Action
-     comments GET    /comments(.:format)                         comments#index
-              POST   /comments(.:format)                         comments#create
-  new_comment GET    /comments/new(.:format)                     comments#new
- edit_comment GET    /comments/:id/edit(.:format)                comments#edit
-      comment GET    /comments/:id(.:format)                     comments#show
-              PATCH  /comments/:id(.:format)                     comments#update
-              PUT    /comments/:id(.:format)                     comments#update
-              DELETE /comments/:id(.:format)                     comments#destroy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;inspecting-and-debugging:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Inspecting and Debugging&lt;/h1&gt;
-
-&lt;p&gt;You can interact with your whole rails app from the command line. You don&amp;rsquo;t need a browser running just run:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails console
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you can go ahead and call methods such as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a_comment     = Comment.new
-all_comments  = Comment.all
-first_comment = Comment.first
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;mentioned earlier. I recommend using &lt;code&gt;pry&lt;/code&gt; it is much better than the standard &lt;code&gt;irb&lt;/code&gt; which is a bit antiquated. Install with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gem install pry pry-doc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you can run the rails console with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ pry -r ./config/environment.rb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;pry&lt;/code&gt; let you do some neat things like &lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt; into classes or objects.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; cd 42.6
-1&amp;gt; round
-=&amp;gt; 42
-1&amp;gt; exit
-&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Great way to drill down into your objects and inspect them.  &lt;code&gt;pry&lt;/code&gt; wans&amp;rsquo;t covered in the course I just found that online.&lt;/p&gt;
-
-&lt;h1 id=&#34;databases-and-sql:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Databases and SQL&lt;/h1&gt;
-
-&lt;p&gt;You don&amp;rsquo;t setup the tables in the database yourself directly. Instead rails will generate a &lt;code&gt;schema.rb&lt;/code&gt; file. Looking like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ActiveRecord::Schema.define(version: 20140502112529) do
-
-  create_table &amp;quot;comments&amp;quot;, force: true do |t|
-    t.integer  &amp;quot;post_id&amp;quot;
-    t.text     &amp;quot;body&amp;quot;
-    t.datetime &amp;quot;created_at&amp;quot;
-    t.datetime &amp;quot;updated_at&amp;quot;
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This ruby code will generate all the necessary SQL statements to actually create the database.&lt;/p&gt;
 </description>
     </item>
     
