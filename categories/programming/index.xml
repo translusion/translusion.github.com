@@ -6,8 +6,184 @@
     <description>Recent content in Programming on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://translusion.github.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Julia One Liners compared to Scala</title>
+      <link>http://translusion.github.com/posts/julia-one-liners/</link>
+      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/julia-one-liners/</guid>
+      <description>
+
+&lt;p&gt;This was inspired by the blog post &lt;a href=&#34;https://mkaz.github.io/2011/05/31/10-scala-one-liners-to-impress-your-friends/&#34;&gt;10 Scala One Liners to Impress Your Friends&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-multiple-each-item-in-a-list-by-2:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;1. Multiple Each Item in a List by 2&lt;/h3&gt;
+
+&lt;p&gt;Original Scala version&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 10) map { _ * 2 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I think the Julia version is clearer. The &lt;code&gt;x-&amp;gt;2x&lt;/code&gt; notation for anonymous function looks very similar to regular mathematical notation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map(x-&amp;gt;2x, 1:10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-sum-a-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;2. Sum a List of Numbers&lt;/h3&gt;
+
+&lt;p&gt;Sums numbers from 1 to 1000 in Scala either by using &lt;code&gt;reduceLeft&lt;/code&gt; or &lt;code&gt;sum&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 1000).reduceLeft( _ + _ )
+(1 to 1000).sum
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Very similar in Julia, but the &lt;code&gt;reduce&lt;/code&gt; seems more elegant in that you don’t have to explicitly give the arguments to &lt;code&gt;+&lt;/code&gt;. &lt;code&gt;reduce&lt;/code&gt; takes a binary operator. So you just pass that. You don’t have to tell Julia how to add numbers with it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;reduce(+, 1:1000)
+sum(1:1000)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-verify-if-exists-in-a-string:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;3. Verify if Exists in a String&lt;/h3&gt;
+
+&lt;p&gt;Check if a word in a word list is present in a string.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val wordList = List(&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;)
+val tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
+
+(wordList.foldLeft(false)( _ || tweet.contains(_) ))
+wordList.exists(tweet.contains)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wordlist = [&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;]
+tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
+any(word-&amp;gt;contains(tweet, word), wordlist)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-read-in-a-file:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;4. Read in a File&lt;/h3&gt;
+
+&lt;p&gt;This is a line for reading a file as a string in Scala. While that is apparently impressive by Java standards it is rather verbose for other languages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val fileText = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).mkString
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Julia this would just be&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;filetext = readall(“data.txt”)`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is another Scala example of reading the file and turing every line into an element in list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val fileLines = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).getLines.toList
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument and provide that function with a stream object and then close the file after the function is finished. There are many functions like &lt;code&gt;readall&lt;/code&gt;, &lt;code&gt;readlines&lt;/code&gt; etc which takes streams as arguments. So you can write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;filelines = open(readlines, &amp;quot;data.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-happy-birthday-to-you:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;5. Happy Birthday to You!&lt;/h3&gt;
+
+&lt;p&gt;Here the Scala one ends up looking a bit better as Julia doesn’t have anything like &lt;code&gt;foreach&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 4).map { i =&amp;gt; &amp;quot;Happy Birthday &amp;quot; + (if (i == 3) &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot;) }.foreach { println }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Julia it is clearer to do it in two steps:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lines = map(1:4) do i 
+        &amp;quot;Happy Birthday &amp;quot; * 
+        if i == 3 &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot; end 
+end
+print(join(lines, &amp;quot;\n&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One thing to notice though is that you can write this stuff in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the &lt;code&gt;if&lt;/code&gt; statement, while Julia avoids this and use a single &lt;code&gt;end&lt;/code&gt; keyword instead.&lt;/p&gt;
+
+&lt;h3 id=&#34;6-filter-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;6. Filter list of numbers&lt;/h3&gt;
+
+&lt;p&gt;Partition a list of students into two categories.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val (passed, failed) = List(49, 58, 76, 82, 88, 90) partition ( _ &amp;gt; 60 )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is no function like partition in Julia so you would have to write this using multiple lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;grades = [49, 58, 76, 82, 88, 90]
+passed = filter(grade-&amp;gt;grade &amp;gt; 60, grades)
+failed = filter(grade-&amp;gt;grade &amp;lt;= 60, grades)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But of course nothing prevents us from defining a &lt;code&gt;partition&lt;/code&gt; function in Julia:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function partition{T}(p, xs::Vector{T})
+    as = Vector{T}()
+    bs = Vector{T}()
+    for x in xs
+        if p(x)
+            push!(as, x)
+        else
+            push!(bs, x)
+        end
+    end
+    (as, bs)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which then would allow us to do like in Scala:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;passed, failed = partition(grade-&amp;gt;grade &amp;gt; 60, grades)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;7-fetch-and-parse-an-xml-web-service:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;7. Fetch and Parse an XML web service&lt;/h3&gt;
+
+&lt;p&gt;Here’s an example fetching the Twitter search feed in Scala.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val results = XML.load(&amp;quot;http://search.twitter.com/search.atom?&amp;amp;q=scala&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I don’t know anything about XML stuff in Julia, so I will not attempt and alternative.&lt;/p&gt;
+
+&lt;h3 id=&#34;8-find-minimum-or-maximum-in-a-list:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;8. Find minimum (or maximum) in a List&lt;/h3&gt;
+
+&lt;p&gt;Another couple of examples using reduceLeft to iterate through a list and apply a function. Added simpler examples of the method min/max on the list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;List(14, 35, -7, 46, 98).reduceLeft ( _ min _ )
+List(14, 35, -7, 46, 98).min
+
+List(14, 35, -7, 46, 98).reduceLeft ( _ max _ )
+List(14, 35, -7, 46, 98).max
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again this is the sort of thing were Julia is very succinct.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;reduce(min, [14, 35, -7, 46, 98])
+min(14, 35, -7, 46, 98)
+
+reduce(max, [14, 35, -7, 46, 98])
+max(14, 35, -7, 46, 98)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;9-parallel-processing:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;9. Parallel Processing&lt;/h3&gt;
+
+&lt;p&gt;The following one-liner would give you parallel processing over the list in Scala.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val result = dataList.par.map( line =&amp;gt; processItem(line) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;10-sieve-of-eratosthenes:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;10. Sieve of Eratosthenes&lt;/h3&gt;
+
+&lt;p&gt;We got this crazy line from Scala, but no I am not going to figure out what this really does and rewrite it in Julia.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(n: Int) =&amp;gt; (2 to n) |&amp;gt; (r =&amp;gt; r.foldLeft(r.toSet)((ps, x) =&amp;gt; if (ps(x)) ps -- (x * x to n by x) else ps))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Perhaps one day when I am &lt;em&gt;very&lt;/em&gt; bored I’ll revisit this and update the blog.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Tricks in Julia</title>

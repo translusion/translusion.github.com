@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.15" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Julia One Liners compared to Scala &middot; Trans lusion </title>
+
+  
+  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
+  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Trans lusion</h1>
+      <p class="lead">
+       Erik Engheim&#39;s Projects and Articles 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/apps">Apps</a> </li>      
+      <li><a href="/maker">Maker</a> </li>
+      <li><a href="/articles">Articles</a> </li>                  
+      <li><a href="/posts">Blog</a> </li>      
+      
+    </ul>
+
+    <p>© Erik Engheim 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+<div class="post">
+  <h1>Julia One Liners compared to Scala</h1>
+  <span class="post-date">Wed, May 4, 2016</span>
+      
+
+<p>This was inspired by the blog post <a href="https://mkaz.github.io/2011/05/31/10-scala-one-liners-to-impress-your-friends/">10 Scala One Liners to Impress Your Friends</a>.</p>
+
+<h3 id="1-multiple-each-item-in-a-list-by-2:ae7a89fe0b43ee32899fb53a25a8c307">1. Multiple Each Item in a List by 2</h3>
+
+<p>Original Scala version</p>
+
+<pre><code>(1 to 10) map { _ * 2 }
+</code></pre>
+
+<p>I think the Julia version is clearer. The <code>x-&gt;2x</code> notation for anonymous function looks very similar to regular mathematical notation.</p>
+
+<pre><code>map(x-&gt;2x, 1:10)
+</code></pre>
+
+<h3 id="2-sum-a-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307">2. Sum a List of Numbers</h3>
+
+<p>Sums numbers from 1 to 1000 in Scala either by using <code>reduceLeft</code> or <code>sum</code>.</p>
+
+<pre><code>(1 to 1000).reduceLeft( _ + _ )
+(1 to 1000).sum
+</code></pre>
+
+<p>Very similar in Julia, but the <code>reduce</code> seems more elegant in that you don’t have to explicitly give the arguments to <code>+</code>. <code>reduce</code> takes a binary operator. So you just pass that. You don’t have to tell Julia how to add numbers with it.</p>
+
+<pre><code>reduce(+, 1:1000)
+sum(1:1000)
+</code></pre>
+
+<h3 id="3-verify-if-exists-in-a-string:ae7a89fe0b43ee32899fb53a25a8c307">3. Verify if Exists in a String</h3>
+
+<p>Check if a word in a word list is present in a string.</p>
+
+<pre><code>val wordList = List(&quot;scala&quot;, &quot;akka&quot;, &quot;play framework&quot;, &quot;sbt&quot;, &quot;typesafe&quot;)
+val tweet = &quot;This is an example tweet talking about scala and sbt.&quot;
+
+(wordList.foldLeft(false)( _ || tweet.contains(_) ))
+wordList.exists(tweet.contains)
+</code></pre>
+
+<p>Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia:</p>
+
+<pre><code>wordlist = [&quot;scala&quot;, &quot;akka&quot;, &quot;play framework&quot;, &quot;sbt&quot;, &quot;typesafe&quot;]
+tweet = &quot;This is an example tweet talking about scala and sbt.&quot;
+any(word-&gt;contains(tweet, word), wordlist)
+</code></pre>
+
+<h3 id="4-read-in-a-file:ae7a89fe0b43ee32899fb53a25a8c307">4. Read in a File</h3>
+
+<p>This is a line for reading a file as a string in Scala. While that is apparently impressive by Java standards it is rather verbose for other languages.</p>
+
+<pre><code>val fileText = io.Source.fromFile(&quot;data.txt&quot;).mkString
+</code></pre>
+
+<p>In Julia this would just be</p>
+
+<pre><code>filetext = readall(“data.txt”)`
+</code></pre>
+
+<p>There is another Scala example of reading the file and turing every line into an element in list.</p>
+
+<pre><code>val fileLines = io.Source.fromFile(&quot;data.txt&quot;).getLines.toList
+</code></pre>
+
+<p>This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument and provide that function with a stream object and then close the file after the function is finished. There are many functions like <code>readall</code>, <code>readlines</code> etc which takes streams as arguments. So you can write:</p>
+
+<pre><code>filelines = open(readlines, &quot;data.txt&quot;)
+</code></pre>
+
+<h3 id="5-happy-birthday-to-you:ae7a89fe0b43ee32899fb53a25a8c307">5. Happy Birthday to You!</h3>
+
+<p>Here the Scala one ends up looking a bit better as Julia doesn’t have anything like <code>foreach</code>:</p>
+
+<pre><code>(1 to 4).map { i =&gt; &quot;Happy Birthday &quot; + (if (i == 3) &quot;dear NAME&quot; else &quot;to You&quot;) }.foreach { println }
+</code></pre>
+
+<p>In Julia it is clearer to do it in two steps:</p>
+
+<pre><code>lines = map(1:4) do i 
+        &quot;Happy Birthday &quot; * 
+        if i == 3 &quot;dear NAME&quot; else &quot;to You&quot; end 
+end
+print(join(lines, &quot;\n&quot;))
+</code></pre>
+
+<p>One thing to notice though is that you can write this stuff in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the <code>if</code> statement, while Julia avoids this and use a single <code>end</code> keyword instead.</p>
+
+<h3 id="6-filter-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307">6. Filter list of numbers</h3>
+
+<p>Partition a list of students into two categories.</p>
+
+<pre><code>val (passed, failed) = List(49, 58, 76, 82, 88, 90) partition ( _ &gt; 60 )
+</code></pre>
+
+<p>There is no function like partition in Julia so you would have to write this using multiple lines:</p>
+
+<pre><code>grades = [49, 58, 76, 82, 88, 90]
+passed = filter(grade-&gt;grade &gt; 60, grades)
+failed = filter(grade-&gt;grade &lt;= 60, grades)
+</code></pre>
+
+<p>But of course nothing prevents us from defining a <code>partition</code> function in Julia:</p>
+
+<pre><code>function partition{T}(p, xs::Vector{T})
+    as = Vector{T}()
+    bs = Vector{T}()
+    for x in xs
+        if p(x)
+            push!(as, x)
+        else
+            push!(bs, x)
+        end
+    end
+    (as, bs)
+end
+</code></pre>
+
+<p>Which then would allow us to do like in Scala:</p>
+
+<pre><code>passed, failed = partition(grade-&gt;grade &gt; 60, grades)
+</code></pre>
+
+<h3 id="7-fetch-and-parse-an-xml-web-service:ae7a89fe0b43ee32899fb53a25a8c307">7. Fetch and Parse an XML web service</h3>
+
+<p>Here’s an example fetching the Twitter search feed in Scala.</p>
+
+<pre><code>val results = XML.load(&quot;http://search.twitter.com/search.atom?&amp;q=scala&quot;)
+</code></pre>
+
+<p>I don’t know anything about XML stuff in Julia, so I will not attempt and alternative.</p>
+
+<h3 id="8-find-minimum-or-maximum-in-a-list:ae7a89fe0b43ee32899fb53a25a8c307">8. Find minimum (or maximum) in a List</h3>
+
+<p>Another couple of examples using reduceLeft to iterate through a list and apply a function. Added simpler examples of the method min/max on the list.</p>
+
+<pre><code>List(14, 35, -7, 46, 98).reduceLeft ( _ min _ )
+List(14, 35, -7, 46, 98).min
+
+List(14, 35, -7, 46, 98).reduceLeft ( _ max _ )
+List(14, 35, -7, 46, 98).max
+</code></pre>
+
+<p>Again this is the sort of thing were Julia is very succinct.</p>
+
+<pre><code>reduce(min, [14, 35, -7, 46, 98])
+min(14, 35, -7, 46, 98)
+
+reduce(max, [14, 35, -7, 46, 98])
+max(14, 35, -7, 46, 98)
+</code></pre>
+
+<h3 id="9-parallel-processing:ae7a89fe0b43ee32899fb53a25a8c307">9. Parallel Processing</h3>
+
+<p>The following one-liner would give you parallel processing over the list in Scala.</p>
+
+<pre><code>val result = dataList.par.map( line =&gt; processItem(line) )
+</code></pre>
+
+<h3 id="10-sieve-of-eratosthenes:ae7a89fe0b43ee32899fb53a25a8c307">10. Sieve of Eratosthenes</h3>
+
+<p>We got this crazy line from Scala, but no I am not going to figure out what this really does and rewrite it in Julia.</p>
+
+<pre><code>(n: Int) =&gt; (2 to n) |&gt; (r =&gt; r.foldLeft(r.toSet)((ps, x) =&gt; if (ps(x)) ps -- (x * x to n by x) else ps))
+</code></pre>
+
+<p>Perhaps one day when I am <em>very</em> bored I’ll revisit this and update the blog.</p>
+
+      
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'translusion';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+      
+</div>
+</div>
+
+  </body>
+</html>

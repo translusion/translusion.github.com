@@ -6,8 +6,184 @@
     <description>Recent content in Posts on Trans lusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://translusion.github.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Julia One Liners compared to Scala</title>
+      <link>http://translusion.github.com/posts/julia-one-liners/</link>
+      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/julia-one-liners/</guid>
+      <description>
+
+&lt;p&gt;This was inspired by the blog post &lt;a href=&#34;https://mkaz.github.io/2011/05/31/10-scala-one-liners-to-impress-your-friends/&#34;&gt;10 Scala One Liners to Impress Your Friends&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-multiple-each-item-in-a-list-by-2:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;1. Multiple Each Item in a List by 2&lt;/h3&gt;
+
+&lt;p&gt;Original Scala version&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 10) map { _ * 2 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I think the Julia version is clearer. The &lt;code&gt;x-&amp;gt;2x&lt;/code&gt; notation for anonymous function looks very similar to regular mathematical notation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map(x-&amp;gt;2x, 1:10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-sum-a-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;2. Sum a List of Numbers&lt;/h3&gt;
+
+&lt;p&gt;Sums numbers from 1 to 1000 in Scala either by using &lt;code&gt;reduceLeft&lt;/code&gt; or &lt;code&gt;sum&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 1000).reduceLeft( _ + _ )
+(1 to 1000).sum
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Very similar in Julia, but the &lt;code&gt;reduce&lt;/code&gt; seems more elegant in that you don’t have to explicitly give the arguments to &lt;code&gt;+&lt;/code&gt;. &lt;code&gt;reduce&lt;/code&gt; takes a binary operator. So you just pass that. You don’t have to tell Julia how to add numbers with it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;reduce(+, 1:1000)
+sum(1:1000)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-verify-if-exists-in-a-string:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;3. Verify if Exists in a String&lt;/h3&gt;
+
+&lt;p&gt;Check if a word in a word list is present in a string.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val wordList = List(&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;)
+val tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
+
+(wordList.foldLeft(false)( _ || tweet.contains(_) ))
+wordList.exists(tweet.contains)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wordlist = [&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;]
+tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
+any(word-&amp;gt;contains(tweet, word), wordlist)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-read-in-a-file:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;4. Read in a File&lt;/h3&gt;
+
+&lt;p&gt;This is a line for reading a file as a string in Scala. While that is apparently impressive by Java standards it is rather verbose for other languages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val fileText = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).mkString
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Julia this would just be&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;filetext = readall(“data.txt”)`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is another Scala example of reading the file and turing every line into an element in list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val fileLines = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).getLines.toList
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument and provide that function with a stream object and then close the file after the function is finished. There are many functions like &lt;code&gt;readall&lt;/code&gt;, &lt;code&gt;readlines&lt;/code&gt; etc which takes streams as arguments. So you can write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;filelines = open(readlines, &amp;quot;data.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-happy-birthday-to-you:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;5. Happy Birthday to You!&lt;/h3&gt;
+
+&lt;p&gt;Here the Scala one ends up looking a bit better as Julia doesn’t have anything like &lt;code&gt;foreach&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(1 to 4).map { i =&amp;gt; &amp;quot;Happy Birthday &amp;quot; + (if (i == 3) &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot;) }.foreach { println }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In Julia it is clearer to do it in two steps:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lines = map(1:4) do i 
+        &amp;quot;Happy Birthday &amp;quot; * 
+        if i == 3 &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot; end 
+end
+print(join(lines, &amp;quot;\n&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One thing to notice though is that you can write this stuff in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the &lt;code&gt;if&lt;/code&gt; statement, while Julia avoids this and use a single &lt;code&gt;end&lt;/code&gt; keyword instead.&lt;/p&gt;
+
+&lt;h3 id=&#34;6-filter-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;6. Filter list of numbers&lt;/h3&gt;
+
+&lt;p&gt;Partition a list of students into two categories.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val (passed, failed) = List(49, 58, 76, 82, 88, 90) partition ( _ &amp;gt; 60 )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There is no function like partition in Julia so you would have to write this using multiple lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;grades = [49, 58, 76, 82, 88, 90]
+passed = filter(grade-&amp;gt;grade &amp;gt; 60, grades)
+failed = filter(grade-&amp;gt;grade &amp;lt;= 60, grades)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But of course nothing prevents us from defining a &lt;code&gt;partition&lt;/code&gt; function in Julia:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function partition{T}(p, xs::Vector{T})
+    as = Vector{T}()
+    bs = Vector{T}()
+    for x in xs
+        if p(x)
+            push!(as, x)
+        else
+            push!(bs, x)
+        end
+    end
+    (as, bs)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which then would allow us to do like in Scala:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;passed, failed = partition(grade-&amp;gt;grade &amp;gt; 60, grades)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;7-fetch-and-parse-an-xml-web-service:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;7. Fetch and Parse an XML web service&lt;/h3&gt;
+
+&lt;p&gt;Here’s an example fetching the Twitter search feed in Scala.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val results = XML.load(&amp;quot;http://search.twitter.com/search.atom?&amp;amp;q=scala&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I don’t know anything about XML stuff in Julia, so I will not attempt and alternative.&lt;/p&gt;
+
+&lt;h3 id=&#34;8-find-minimum-or-maximum-in-a-list:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;8. Find minimum (or maximum) in a List&lt;/h3&gt;
+
+&lt;p&gt;Another couple of examples using reduceLeft to iterate through a list and apply a function. Added simpler examples of the method min/max on the list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;List(14, 35, -7, 46, 98).reduceLeft ( _ min _ )
+List(14, 35, -7, 46, 98).min
+
+List(14, 35, -7, 46, 98).reduceLeft ( _ max _ )
+List(14, 35, -7, 46, 98).max
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again this is the sort of thing were Julia is very succinct.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;reduce(min, [14, 35, -7, 46, 98])
+min(14, 35, -7, 46, 98)
+
+reduce(max, [14, 35, -7, 46, 98])
+max(14, 35, -7, 46, 98)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;9-parallel-processing:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;9. Parallel Processing&lt;/h3&gt;
+
+&lt;p&gt;The following one-liner would give you parallel processing over the list in Scala.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;val result = dataList.par.map( line =&amp;gt; processItem(line) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;10-sieve-of-eratosthenes:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;10. Sieve of Eratosthenes&lt;/h3&gt;
+
+&lt;p&gt;We got this crazy line from Scala, but no I am not going to figure out what this really does and rewrite it in Julia.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(n: Int) =&amp;gt; (2 to n) |&amp;gt; (r =&amp;gt; r.foldLeft(r.toSet)((ps, x) =&amp;gt; if (ps(x)) ps -- (x * x to n by x) else ps))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Perhaps one day when I am &lt;em&gt;very&lt;/em&gt; bored I’ll revisit this and update the blog.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The significance of intention in war</title>
@@ -1896,140 +2072,6 @@ case let .Error(error):
 &lt;p&gt;This is frequently stated without much explanation. Lets look at it in more detail. Obviously a country of 1 can&amp;rsquo;t be compared to one with 1 million. One billionaire might move there and skew the results. Likewise very small countries like Luxemburg might create a tax heaven and have all rich people and banks move there and thus inflate GDP. Obviously such a tatic can&amp;rsquo;t be replicate at any scale. There can only be that much banking in the world. Kuwait is filthy rich because they have a tiny population relative to their vast oil reserves which may be extracted at a very low price. This policy can&amp;rsquo;t be replacated at a large scale to great prosperity either.&lt;/p&gt;
 
 &lt;p&gt;My point is that I believe to a certain degree small and large countries can be compared as long as the wealth of the small country isn&amp;rsquo;t caused by a sort of anomaly which can&amp;rsquo;t be replicated by larger countries or areas. Hong Kong and Singapore are not rich due to banking or oil but they are also atypical, by both serving as hub into much larger countries. Also we can&amp;rsquo;t turn every country into cities. But I would argue that there are successfull small European countries which could scale. There is really nothing odd about the propsperity of Nordic countries, Switzerland, the Netherlands etc. You might argue that Switzerland has an artificially inflated economy due to its large banking sector. However with 8 million people this effect greately reduced compared to Luxembourghs population of 0.5 million. Norway has oil and gas but is not as atypical as gulf states which derive 80% of their income from oil easily and cheaply extracted, while Norway is the other way around where the non-oil economy contributes to 80% of the GDP. Oil extraction in Norway is also expensive and technologically challenging. For Sweden, Denmark and Netherland e.g. I can&amp;rsquo;t think of anything atypical. They are not abound with any valuable resources, have inflated banking sectors or are city states serving as hubs for industry in a much larger area. Thus I don&amp;rsquo;t see any problem comparing these states to the whole of the US or individual states which are not atypical. E.g. New York serving as the finance hub for 300 million people is an anomaly. Their success can not be scaled and replicated across the rest of the country. Maryland benefits from proximity to the capital and all the federal jobs and largesse that follows.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Munching Data with Julia</title>
-      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
-      <description>
-
-&lt;p&gt;I&amp;rsquo;ve recently performed a survey at my work using &lt;a href=&#34;http://www.google.com/google-d-s/createforms.html&#34;&gt;Google form&lt;/a&gt;, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.&lt;/p&gt;
-
-&lt;p&gt;I chose to clean the data with &lt;a href=&#34;http://julialang.org&#34;&gt;the Julia programming language&lt;/a&gt;, which might not be the best choice for this sort of thing. Not because julia isn&amp;rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster. Unfortunately I am crappy at all 3. The data looked like this (anonymized):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;5/8/2014 10:32:14   spam@mycompany.no   Bonus   2,5%   40%       4,42%
-5/8/2014 10:35:03   bar@mycompany.no    Higher salary     2,9%   37,5%    3,9%
-5/8/2014 10:41:10   spam@mycompany.no   Bonus   2,5%   40%       4,42%
-5/8/2014 10:45:10   foo@mycompany.no    Higher salary    2,9%   37,5%    3,9%
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comma instead of dot for separating decimals.&lt;/p&gt;
-
-&lt;p&gt;So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example &lt;em&gt;spam&lt;/em&gt; voted twice. So the 1st line needs to be elimenated and the 3rd kept.&lt;/p&gt;
-
-&lt;h3 id=&#34;read-the-data:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Read the data&lt;/h3&gt;
-
-&lt;p&gt;First we read in our data. Indicating that data is separated with tab and that first line is a header:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(ourdata, header) = readdlm(&amp;quot;result.tsv&amp;quot;, &#39;\t&#39;, has_header=true)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This gives us a 2D array (matrix) which sounds neat. Well it is quite neat in a lot of ways. I can ask for e.g. the whole second column containing the email of the respondents with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ourdata[:,2]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If I instead wanted the 3rd row I could do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ourdata[3, :]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What is &lt;strong&gt;NOT neat&lt;/strong&gt; about it compared to the regular arrays within arrays found in languages such a python and ruby is that you can&amp;rsquo;t process this with a &lt;code&gt;foreach&lt;/code&gt; type of construct. Like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for row in ourdata
-   dostuff(row)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;row&lt;/code&gt; will in this case just be a substring and not an actual array object.&lt;/p&gt;
-
-&lt;h3 id=&#34;find-unique-rows:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Find unique rows&lt;/h3&gt;
-
-&lt;p&gt;Instead you have to iterate by index:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;byname = Dict{String, Any}()
-for i in 1:size(ourdata,1)
-    byname[ourdata[i, 2]] = ourdata[i, :]
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. &lt;code&gt;size(ourdata, 1)&lt;/code&gt; gives us the number of rows. &lt;code&gt;size(ourdata, 2)&lt;/code&gt; would have given number of columns. &lt;code&gt;length(ourdata)&lt;/code&gt; or &lt;code&gt;size(ourdata)&lt;/code&gt; would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&amp;rsquo;t apply.&lt;/p&gt;
-
-&lt;h3 id=&#34;count-each-line-matching-a-predicate:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Count each line matching a predicate&lt;/h3&gt;
-
-&lt;p&gt;So to check how many of our respondents wanted higher bonus we do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;count(values(byname)) do row
-    row[3] == &amp;quot;Bonus   2,5%   40%       4,42%&amp;quot;
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And to get those who want higher salary:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;count(values(byname)) do row
-    row[3] == &amp;quot;Higher salary    2,9%   37,5%    3,9%&amp;quot;
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;working-with-dates-in-julia:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Working with Dates in Julia&lt;/h3&gt;
-
-&lt;p&gt;When I first started looking at this problem, I thought I needed to work with dates, which wasn&amp;rsquo;t necessary because the data was already sorted by date and time, but if it wasn&amp;rsquo;t you need to get hold of the julia &lt;a href=&#34;https://github.com/karbarcca/Datetime.jl&#34;&gt;datetime package&lt;/a&gt;. There isn&amp;rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;5/8/2014 0:16:03
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Which isn&amp;rsquo;t the format the package deals with date and time. So here are some tricks for how to convert:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(d, t) = split(&amp;quot;5/8/2014 0:16:03&amp;quot;) # Put date in d, and time t
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can then turn this into a formate our date creation function &lt;code&gt;date&lt;/code&gt; wants:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;date(reverse(map(int, split(d, &#39;/&#39;)))...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;iteratively-creating-code-in-the-julia-repl:39090f6c1d52d850ae569d06cd709fcb&#34;&gt;Iteratively creating code in the Julia REPL&lt;/h3&gt;
-
-&lt;p&gt;That was a &lt;em&gt;mouthfull&lt;/em&gt;. Usually when writing lines like this I develop them interactively by starting with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; split(d, &#39;/&#39;)
-3-element Array{String,1}:
- &amp;quot;5&amp;quot;   
- &amp;quot;8&amp;quot;   
- &amp;quot;2014&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This looks like what I wanted, but the data is string and I need integers so I:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Hit arrow up button to get back &lt;code&gt;split&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Ctrl+A to go to start of line and write &lt;code&gt;map(int&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Ctrl+E to get to end of line and close it with &lt;code&gt;)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This gives me the next line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; map(int, split(d, &#39;/&#39;))
-3-element Array{Int64,1}:
-    5
-    8
- 2014
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Looks good, but not in reverse order compared to what &lt;code&gt;date&lt;/code&gt; wants. So we do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; reverse(map(int, split(d, &#39;/&#39;)))
-3-element Array{Int64,1}:
- 2014
-    8
-    5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Okay so we are good, except &lt;code&gt;date&lt;/code&gt; doesn&amp;rsquo;t take an array as argument. So we need to explode our array to function arguments with the &lt;code&gt;...&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
