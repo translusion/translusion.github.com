@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Translusion</title>
+    <link>http://translusion.github.com/categories/</link>
+    <description>Recent content in Categories on Translusion</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://translusion.github.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Julia</title>
+      <link>http://translusion.github.com/categories/julia/</link>
+      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/julia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>http://translusion.github.com/categories/programming/</link>
+      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Noam Chomsky</title>
+      <link>http://translusion.github.com/categories/noam-chomsky/</link>
+      <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/noam-chomsky/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Politics</title>
+      <link>http://translusion.github.com/categories/politics/</link>
+      <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sam Harris</title>
+      <link>http://translusion.github.com/categories/sam-harris/</link>
+      <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/sam-harris/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>War</title>
+      <link>http://translusion.github.com/categories/war/</link>
+      <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/war/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Space</title>
+      <link>http://translusion.github.com/categories/space/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpaceX</title>
+      <link>http://translusion.github.com/categories/spacex/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/spacex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Entertainment</title>
+      <link>http://translusion.github.com/categories/entertainment/</link>
+      <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/entertainment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video Games</title>
+      <link>http://translusion.github.com/categories/video-games/</link>
+      <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/video-games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://translusion.github.com/categories/python/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CIA</title>
+      <link>http://translusion.github.com/categories/cia/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/cia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Torture</title>
+      <link>http://translusion.github.com/categories/torture/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/torture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamic Typing</title>
+      <link>http://translusion.github.com/categories/dynamic-typing/</link>
+      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/dynamic-typing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Static Typing</title>
+      <link>http://translusion.github.com/categories/static-typing/</link>
+      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/static-typing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>http://translusion.github.com/categories/book/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Economics</title>
+      <link>http://translusion.github.com/categories/economics/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/economics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>http://translusion.github.com/categories/swift/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>http://translusion.github.com/categories/go/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>http://translusion.github.com/categories/kotlin/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Europe</title>
+      <link>http://translusion.github.com/categories/europe/</link>
+      <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/europe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>US</title>
+      <link>http://translusion.github.com/categories/us/</link>
+      <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Datascience</title>
+      <link>http://translusion.github.com/categories/datascience/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/datascience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Datetime.jl</title>
+      <link>http://translusion.github.com/categories/datetime.jl/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/datetime.jl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Googleforms</title>
+      <link>http://translusion.github.com/categories/googleforms/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/googleforms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>http://translusion.github.com/categories/rails/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>http://translusion.github.com/categories/ruby/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://translusion.github.com/categories/web/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>http://translusion.github.com/categories/cryptography/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Login</title>
+      <link>http://translusion.github.com/categories/login/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/login/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Passwords</title>
+      <link>http://translusion.github.com/categories/passwords/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/passwords/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project</title>
+      <link>http://translusion.github.com/categories/project/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fischertechnik</title>
+      <link>http://translusion.github.com/categories/fischertechnik/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/fischertechnik/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prototyping</title>
+      <link>http://translusion.github.com/categories/prototyping/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/prototyping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AVR</title>
+      <link>http://translusion.github.com/categories/avr/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/avr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debug</title>
+      <link>http://translusion.github.com/categories/debug/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electronics</title>
+      <link>http://translusion.github.com/categories/electronics/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/electronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maker</title>
+      <link>http://translusion.github.com/categories/maker/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/maker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Assembly</title>
+      <link>http://translusion.github.com/categories/assembly/</link>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arduino</title>
+      <link>http://translusion.github.com/categories/arduino/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/arduino/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

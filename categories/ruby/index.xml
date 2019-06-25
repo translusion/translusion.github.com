@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ruby on Trans lusion</title>
+    <title>Ruby on Translusion</title>
     <link>http://translusion.github.com/categories/ruby/</link>
-    <description>Recent content in Ruby on Trans lusion</description>
+    <description>Recent content in Ruby on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Mon, 05 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Learning Web Development with Rails</title>
@@ -15,118 +17,9 @@
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/learning-rails/</guid>
-      <description>
-
-&lt;p&gt;Here are some of my notes from learning rails. I am following the course &lt;a href=&#34;https://class.coursera.org/webapplications-001&#34;&gt;Web Application Architectures&lt;/a&gt; at &lt;a href=&#34;https://www.coursera.org&#34;&gt;Coursera&lt;/a&gt;. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.&lt;/p&gt;
-
-&lt;h1 id=&#34;setup-project:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Setup Project&lt;/h1&gt;
-
-&lt;p&gt;Have rails autogenerate a bunch of files for a project:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails new myproject
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This seems to be the way to create a new model class with corresponding table in database:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails generate scaffold comment post_id:integer body:text
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will to a whole bunch of things. A &lt;strong&gt;scaffold&lt;/strong&gt; from what I can understand is a collection of related:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Database table&lt;/li&gt;
-&lt;li&gt;Model class&lt;/li&gt;
-&lt;li&gt;Controller class&lt;/li&gt;
-&lt;li&gt;HTML template files representing view&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So I will get a table for my comment, a definition of a model class. Actually the model class won&amp;rsquo;t contain anything, but rails creates methods on it at runtime for me to access variables. That is part of &lt;code&gt;ActiveRecord&lt;/code&gt; from what I understand. One can call methods such as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a_comment     = Comment.new
-all_comments  = Comment.all
-first_comment = Comment.first
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and this will cause SQL statements to be formed fetching the data out from the underlying table.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; Comment.first
-    Comment Load (0.1ms)  
-    SELECT  &amp;quot;comments&amp;quot;.* FROM &amp;quot;comments&amp;quot;   
-    ORDER BY &amp;quot;comments&amp;quot;.&amp;quot;id&amp;quot; ASC LIMIT 1
-    =&amp;gt; #&amp;lt;Comment 
-        id: 2, 
-        post_id: 1, 
-        body: &amp;quot;This is my first comment&amp;quot;, 
-        created_at: &amp;quot;2014-05-05 10:15:52&amp;quot;, 
-        updated_at: &amp;quot;2014-05-05 10:15:52&amp;quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I&amp;rsquo;ve taken the liberty to format the output for readability. The Controller objects are apparently supposed to be mediators like in Cocoa, but it seems to be used a bit different. They seem to provide the actions the user perform on an object from the user interface. We can use the &lt;code&gt;rake routes&lt;/code&gt; to find out what REST services are provided. Or probably this isn&amp;rsquo;t called REST but is just a bunch of URLs for performing different HTTP actions. But it seems to correspond to what is created in the controllers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rake routes
-       Prefix Verb   URI Pattern                                 Controller#Action
-     comments GET    /comments(.:format)                         comments#index
-              POST   /comments(.:format)                         comments#create
-  new_comment GET    /comments/new(.:format)                     comments#new
- edit_comment GET    /comments/:id/edit(.:format)                comments#edit
-      comment GET    /comments/:id(.:format)                     comments#show
-              PATCH  /comments/:id(.:format)                     comments#update
-              PUT    /comments/:id(.:format)                     comments#update
-              DELETE /comments/:id(.:format)                     comments#destroy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;inspecting-and-debugging:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Inspecting and Debugging&lt;/h1&gt;
-
-&lt;p&gt;You can interact with your whole rails app from the command line. You don&amp;rsquo;t need a browser running just run:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ rails console
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you can go ahead and call methods such as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a_comment     = Comment.new
-all_comments  = Comment.all
-first_comment = Comment.first
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;mentioned earlier. I recommend using &lt;code&gt;pry&lt;/code&gt; it is much better than the standard &lt;code&gt;irb&lt;/code&gt; which is a bit antiquated. Install with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gem install pry pry-doc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you can run the rails console with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ pry -r ./config/environment.rb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;pry&lt;/code&gt; let you do some neat things like &lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt; into classes or objects.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; cd 42.6
-1&amp;gt; round
-=&amp;gt; 42
-1&amp;gt; exit
-&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Great way to drill down into your objects and inspect them.  &lt;code&gt;pry&lt;/code&gt; wans&amp;rsquo;t covered in the course I just found that online.&lt;/p&gt;
-
-&lt;h1 id=&#34;databases-and-sql:f95b85540dcb9729df9393b529ccc85b&#34;&gt;Databases and SQL&lt;/h1&gt;
-
-&lt;p&gt;You don&amp;rsquo;t setup the tables in the database yourself directly. Instead rails will generate a &lt;code&gt;schema.rb&lt;/code&gt; file. Looking like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ActiveRecord::Schema.define(version: 20140502112529) do
-
-  create_table &amp;quot;comments&amp;quot;, force: true do |t|
-    t.integer  &amp;quot;post_id&amp;quot;
-    t.text     &amp;quot;body&amp;quot;
-    t.datetime &amp;quot;created_at&amp;quot;
-    t.datetime &amp;quot;updated_at&amp;quot;
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This ruby code will generate all the necessary SQL statements to actually create the database.&lt;/p&gt;
-</description>
+      <description>Here are some of my notes from learning rails. I am following the course Web Application Architectures at Coursera. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.
+Setup Project Have rails autogenerate a bunch of files for a project:
+$ rails new myproject  This seems to be the way to create a new model class with corresponding table in database:</description>
     </item>
     
   </channel>

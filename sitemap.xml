@@ -1,134 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>http://translusion.github.com/</loc>
     <lastmod>2016-05-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/julia-one-liners/</loc>
-    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/military-intention/</loc>
-    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/whyspace/</loc>
-    <lastmod>2015-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/dont-starve-strategy/</loc>
-    <lastmod>2015-11-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/dont-starve-review/</loc>
-    <lastmod>2014-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/julia-tricks/</loc>
-    <lastmod>2014-12-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/beautiful-julia/</loc>
-    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/torture/</loc>
-    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</loc>
-    <lastmod>2014-12-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/CEO%20Salaries/</loc>
-    <lastmod>2014-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/swift_compared_to_python/</loc>
-    <lastmod>2014-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</loc>
-    <lastmod>2014-07-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/swift-is-kotlin/</loc>
-    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/america-cant-teach-the-world/</loc>
-    <lastmod>2014-06-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/europe-is-not-america/</loc>
-    <lastmod>2014-06-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/munchingdata-julia/</loc>
-    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/learning-rails/</loc>
-    <lastmod>2014-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/articles/cryptography/</loc>
-    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/dulgt-intro/</loc>
-    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/prototyping/fischertechnik/</loc>
-    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/debugavrproject/</loc>
-    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/avrdevboard/</loc>
-    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/avrassembly/</loc>
-    <lastmod>2013-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/posts/avr_without_arduino/</loc>
-    <lastmod>2013-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/projects/econom%20simulator/</loc>
   </url>
   
   <url>
@@ -148,7 +24,425 @@
   </url>
   
   <url>
-    <loc>http://translusion.github.com/apps/QRude/</loc>
+    <loc>http://translusion.github.com/apps/qrude/</loc>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/julia/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/julia-one-liners/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/programming/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/noam-chomsky/</loc>
+    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/politics/</loc>
+    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/sam-harris/</loc>
+    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/military-intention/</loc>
+    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/war/</loc>
+    <lastmod>2015-12-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/space/</loc>
+    <lastmod>2015-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/whyspace/</loc>
+    <lastmod>2015-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/spacex/</loc>
+    <lastmod>2015-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/dont-starve-strategy/</loc>
+    <lastmod>2015-11-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/entertainment/</loc>
+    <lastmod>2015-11-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/video-games/</loc>
+    <lastmod>2015-11-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/dont-starve-review/</loc>
+    <lastmod>2014-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/julia-tricks/</loc>
+    <lastmod>2014-12-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/beautiful-julia/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/python/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/cia/</loc>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/torture/</loc>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/torture/</loc>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/dynamic-typing/</loc>
+    <lastmod>2014-12-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</loc>
+    <lastmod>2014-12-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/static-typing/</loc>
+    <lastmod>2014-12-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/book/</loc>
+    <lastmod>2014-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/economics/</loc>
+    <lastmod>2014-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/ceo-salaries/</loc>
+    <lastmod>2014-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/swift_compared_to_python/</loc>
+    <lastmod>2014-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/swift/</loc>
+    <lastmod>2014-11-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</loc>
+    <lastmod>2014-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/go/</loc>
+    <lastmod>2014-07-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/kotlin/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/swift-is-kotlin/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/europe/</loc>
+    <lastmod>2014-06-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/us/</loc>
+    <lastmod>2014-06-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/america-cant-teach-the-world/</loc>
+    <lastmod>2014-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/europe-is-not-america/</loc>
+    <lastmod>2014-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/datascience/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/datetime.jl/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/googleforms/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/munchingdata-julia/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/learning-rails/</loc>
+    <lastmod>2014-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/rails/</loc>
+    <lastmod>2014-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/ruby/</loc>
+    <lastmod>2014-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/web/</loc>
+    <lastmod>2014-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/articles/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/cryptography/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/articles/cryptography/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/dulgt-intro/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/login/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/passwords/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/project/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/fischertechnik/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/prototyping/fischertechnik/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/prototyping/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/prototyping/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/avr/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/debug/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/debugavrproject/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/avrdevboard/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/electronics/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/maker/</loc>
+    <lastmod>2013-03-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/avrassembly/</loc>
+    <lastmod>2013-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/assembly/</loc>
+    <lastmod>2013-03-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/arduino/</loc>
+    <lastmod>2013-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/posts/avr_without_arduino/</loc>
+    <lastmod>2013-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/apps/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/projects/econom-simulator/</loc>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/maker/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/projects/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

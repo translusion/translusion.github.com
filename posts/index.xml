@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Trans lusion</title>
+    <title>Posts on Translusion</title>
     <link>http://translusion.github.com/posts/</link>
-    <description>Recent content in Posts on Trans lusion</description>
+    <description>Recent content in Posts on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Julia One Liners compared to Scala</title>
@@ -15,174 +17,10 @@
       <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/julia-one-liners/</guid>
-      <description>
-
-&lt;p&gt;This was inspired by the blog post &lt;a href=&#34;https://mkaz.github.io/2011/05/31/10-scala-one-liners-to-impress-your-friends/&#34;&gt;10 Scala One Liners to Impress Your Friends&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;1-multiple-each-item-in-a-list-by-2:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;1. Multiple Each Item in a List by 2&lt;/h3&gt;
-
-&lt;p&gt;Original Scala version&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(1 to 10) map { _ * 2 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I think the Julia version is clearer. The &lt;code&gt;x-&amp;gt;2x&lt;/code&gt; notation for anonymous function looks very similar to regular mathematical notation.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;map(x-&amp;gt;2x, 1:10)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;2-sum-a-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;2. Sum a List of Numbers&lt;/h3&gt;
-
-&lt;p&gt;Sums numbers from 1 to 1000 in Scala either by using &lt;code&gt;reduceLeft&lt;/code&gt; or &lt;code&gt;sum&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(1 to 1000).reduceLeft( _ + _ )
-(1 to 1000).sum
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Very similar in Julia, but the &lt;code&gt;reduce&lt;/code&gt; seems more elegant in that you don’t have to explicitly give the arguments to &lt;code&gt;+&lt;/code&gt;. &lt;code&gt;reduce&lt;/code&gt; takes a binary operator. So you just pass that. You don’t have to tell Julia how to add numbers with it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;reduce(+, 1:1000)
-sum(1:1000)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;3-verify-if-exists-in-a-string:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;3. Verify if Exists in a String&lt;/h3&gt;
-
-&lt;p&gt;Check if a word in a word list is present in a string.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val wordList = List(&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;)
-val tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
-
-(wordList.foldLeft(false)( _ || tweet.contains(_) ))
-wordList.exists(tweet.contains)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wordlist = [&amp;quot;scala&amp;quot;, &amp;quot;akka&amp;quot;, &amp;quot;play framework&amp;quot;, &amp;quot;sbt&amp;quot;, &amp;quot;typesafe&amp;quot;]
-tweet = &amp;quot;This is an example tweet talking about scala and sbt.&amp;quot;
-any(word-&amp;gt;contains(tweet, word), wordlist)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;4-read-in-a-file:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;4. Read in a File&lt;/h3&gt;
-
-&lt;p&gt;This is a line for reading a file as a string in Scala. While that is apparently impressive by Java standards it is rather verbose for other languages.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val fileText = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).mkString
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Julia this would just be&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;filetext = readall(“data.txt”)`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is another Scala example of reading the file and turing every line into an element in list.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val fileLines = io.Source.fromFile(&amp;quot;data.txt&amp;quot;).getLines.toList
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument and provide that function with a stream object and then close the file after the function is finished. There are many functions like &lt;code&gt;readall&lt;/code&gt;, &lt;code&gt;readlines&lt;/code&gt; etc which takes streams as arguments. So you can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;filelines = open(readlines, &amp;quot;data.txt&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;5-happy-birthday-to-you:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;5. Happy Birthday to You!&lt;/h3&gt;
-
-&lt;p&gt;Here the Scala one ends up looking a bit better as Julia doesn’t have anything like &lt;code&gt;foreach&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(1 to 4).map { i =&amp;gt; &amp;quot;Happy Birthday &amp;quot; + (if (i == 3) &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot;) }.foreach { println }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Julia it is clearer to do it in two steps:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lines = map(1:4) do i 
-        &amp;quot;Happy Birthday &amp;quot; * 
-        if i == 3 &amp;quot;dear NAME&amp;quot; else &amp;quot;to You&amp;quot; end 
-end
-print(join(lines, &amp;quot;\n&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;One thing to notice though is that you can write this stuff in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the &lt;code&gt;if&lt;/code&gt; statement, while Julia avoids this and use a single &lt;code&gt;end&lt;/code&gt; keyword instead.&lt;/p&gt;
-
-&lt;h3 id=&#34;6-filter-list-of-numbers:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;6. Filter list of numbers&lt;/h3&gt;
-
-&lt;p&gt;Partition a list of students into two categories.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val (passed, failed) = List(49, 58, 76, 82, 88, 90) partition ( _ &amp;gt; 60 )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is no function like partition in Julia so you would have to write this using multiple lines:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;grades = [49, 58, 76, 82, 88, 90]
-passed = filter(grade-&amp;gt;grade &amp;gt; 60, grades)
-failed = filter(grade-&amp;gt;grade &amp;lt;= 60, grades)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But of course nothing prevents us from defining a &lt;code&gt;partition&lt;/code&gt; function in Julia:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function partition{T}(p, xs::Vector{T})
-    as = Vector{T}()
-    bs = Vector{T}()
-    for x in xs
-        if p(x)
-            push!(as, x)
-        else
-            push!(bs, x)
-        end
-    end
-    (as, bs)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Which then would allow us to do like in Scala:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;passed, failed = partition(grade-&amp;gt;grade &amp;gt; 60, grades)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;7-fetch-and-parse-an-xml-web-service:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;7. Fetch and Parse an XML web service&lt;/h3&gt;
-
-&lt;p&gt;Here’s an example fetching the Twitter search feed in Scala.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val results = XML.load(&amp;quot;http://search.twitter.com/search.atom?&amp;amp;q=scala&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I don’t know anything about XML stuff in Julia, so I will not attempt and alternative.&lt;/p&gt;
-
-&lt;h3 id=&#34;8-find-minimum-or-maximum-in-a-list:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;8. Find minimum (or maximum) in a List&lt;/h3&gt;
-
-&lt;p&gt;Another couple of examples using reduceLeft to iterate through a list and apply a function. Added simpler examples of the method min/max on the list.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;List(14, 35, -7, 46, 98).reduceLeft ( _ min _ )
-List(14, 35, -7, 46, 98).min
-
-List(14, 35, -7, 46, 98).reduceLeft ( _ max _ )
-List(14, 35, -7, 46, 98).max
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Again this is the sort of thing were Julia is very succinct.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;reduce(min, [14, 35, -7, 46, 98])
-min(14, 35, -7, 46, 98)
-
-reduce(max, [14, 35, -7, 46, 98])
-max(14, 35, -7, 46, 98)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;9-parallel-processing:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;9. Parallel Processing&lt;/h3&gt;
-
-&lt;p&gt;The following one-liner would give you parallel processing over the list in Scala.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val result = dataList.par.map( line =&amp;gt; processItem(line) )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;10-sieve-of-eratosthenes:ae7a89fe0b43ee32899fb53a25a8c307&#34;&gt;10. Sieve of Eratosthenes&lt;/h3&gt;
-
-&lt;p&gt;We got this crazy line from Scala, but no I am not going to figure out what this really does and rewrite it in Julia.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(n: Int) =&amp;gt; (2 to n) |&amp;gt; (r =&amp;gt; r.foldLeft(r.toSet)((ps, x) =&amp;gt; if (ps(x)) ps -- (x * x to n by x) else ps))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Perhaps one day when I am &lt;em&gt;very&lt;/em&gt; bored I’ll revisit this and update the blog.&lt;/p&gt;
-</description>
+      <description>This was inspired by the blog post 10 Scala One Liners to Impress Your Friends.
+1. Multiple Each Item in a List by 2 Original Scala version
+(1 to 10) map { _ * 2 }  I think the Julia version is clearer. The x-&amp;gt;2x notation for anonymous function looks very similar to regular mathematical notation.
+map(x-&amp;gt;2x, 1:10)  2. Sum a List of Numbers Sums numbers from 1 to 1000 in Scala either by using reduceLeft or sum.</description>
     </item>
     
     <item>
@@ -191,22 +29,8 @@ max(14, 35, -7, 46, 98)
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/military-intention/</guid>
-      <description>&lt;p&gt;Cenk Uygur of the Young Turks news show covered a &lt;a href=&#34;https://www.youtube.com/watch?v=tkBRVRBhSso&#34;&gt;debate&lt;/a&gt; between Sam Harris and Noam Chomsky which I found interesting. I will not repeat the whole debate here but instead add my own thoughts.&lt;/p&gt;
-
-&lt;p&gt;Personally I am somewhere between Sam Harris and Noam Chomsky in opinion although I definitely used to hold Sam Harris&amp;rsquo; opinion that we in the west are completely different from the terrorists in that we do not generally kill with intention. People who die, generally die due to collateral damage. Terrorists on the other hand intentionally kill civilians intentionally to achieve their aim.&lt;/p&gt;
-
-&lt;p&gt;I think that is an overly simplistic representation of the problem. Good intentions alone do not absolve you from responsibility. If you know your well intentions will invariable cause death and destruction to civilians, then you are not without guilt. If a terrorist is among a crowd of innocent civilians and you still bomb him killing civilians rather than waiting for another opportunity you are still immoral IMHO. The hypothetical perfect weapons doesn&amp;rsquo;t change this. Sure they would have just killed the terrorist with perfect weapons, however in this case they know civilians will die but still do it. The value of civilian lives has to be weighted against the importance of killing a civilian.&lt;/p&gt;
-
-&lt;p&gt;I think this is where I have changed. I used to believe western powers waged war in a much more honorable way only killing civilians when absolutely necessary. However it is becoming increasingly clear that there is very little consideration for saving civilian lives when the opportunity to kill a terrorist presents itself. The death of a terrorist is simply valued too high, while the value assigned to civilians seems terribly low.&lt;/p&gt;
-
-&lt;p&gt;The analogy with perfect weapons is completely flawed. Terrorism is an a strategy employed by militarily weak forces. They are incapable of hurting the military of their opponents in any meaningful way. That is why they employ terrorism instead. It is easier to hurt and injure civilians. If we consider the Basque, Catalan separatists, IRA, PLO, PKK and Jewish terrorist organizations like Irgun they have all used terrorism to attempt to force a militarily superior force to leave.&lt;/p&gt;
-
-&lt;p&gt;So contrary to what Sam Harris claims, if terrorists had perfect weapons they would have hit military targets alone as well. Also conventional forces frequently employ terrorism to force terrorists or guerrilla to stop. As Cenk Uygur mentions Israel frequently terrorize the Palestinian population after terror attacks for force them to stop terrorism. Donald Trump also recently advocated killing family members of civilians. The idea is presumably to discourage potential terrorist through threats against their family. Likewise the British terrorized civilians in Ireland to kill the support of the IRA.&lt;/p&gt;
-
-&lt;p&gt;So it is really hard to imagine what perfect weapons are. If perfect weapons can only kill slowly but accurately, that would still encourage both parties western or not to terrorize civilians. E.g. if perfect weapons could not kill terrorist fast enough, the west would easily start thinking like the USA in the Vietnam or Philippines or British in Ireland or South African Boer war to employ terrorist actions to intimidate the enemy into giving up.&lt;/p&gt;
-
-&lt;p&gt;So basically I think the west does have the moral upper hand in this war against terror, but I think the upper hand is not nearly has big as we like to imagine. Indiscriminate killing of civilians can&amp;rsquo;t be excused on the ground that we primarily intended to kill terrorists. Again and again we are chose strategies which put more civilians at risk to reduce the risk for western soldiers. A morally superior military force would put their own soldiers in higher danger to safe civilians.&lt;/p&gt;
-</description>
+      <description>Cenk Uygur of the Young Turks news show covered a debate between Sam Harris and Noam Chomsky which I found interesting. I will not repeat the whole debate here but instead add my own thoughts.
+Personally I am somewhere between Sam Harris and Noam Chomsky in opinion although I definitely used to hold Sam Harris&amp;rsquo; opinion that we in the west are completely different from the terrorists in that we do not generally kill with intention.</description>
     </item>
     
     <item>
@@ -215,48 +39,7 @@ max(14, 35, -7, 46, 98)
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/whyspace/</guid>
-      <description>
-
-&lt;p&gt;If you grew up in the 80s or early 90s like me, you might have had great hopes for space exploration. You dreamed of giant space colonies beyound the year 2000. But then you grow up and the year 2000 comes and passes. Yet another decade pass and you realize that space exploration is just a long list of broken dreams. We achieved so much leading up to the end of the 70s and then &lt;em&gt;nothing&lt;/em&gt;. Man has not ventured beyound &lt;a href=&#34;https://en.wikipedia.org/wiki/Low_Earth_orbit&#34;&gt;Low Earth Orbit&lt;/a&gt; in decades.&lt;/p&gt;
-
-&lt;p&gt;I lost interest in Space Exploration as I lost complete faith in humanities ability achieve anything in that area. Instead I was reduced to being excited about smart phones and iPads.&lt;/p&gt;
-
-&lt;p&gt;So why should you believe me, when I say it is different this time around. Companies like SpaceX and &lt;a href=&#34;https://www.blueorigin.com&#34;&gt;Blue Origin&lt;/a&gt; are perhaps the most visible indications that something is changing, but there are other companies like &lt;a href=&#34;http://magnaparva.com&#34;&gt;Magna Parva&lt;/a&gt;, &lt;a href=&#34;http://deepspaceindustries.com&#34;&gt;Deep Space Industries&lt;/a&gt;, &lt;a href=&#34;http://www.planetaryresources.com&#34;&gt;Planetary Resources&lt;/a&gt; signifying a change.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-significance-of-spacex:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;The Significance of SpaceX&lt;/h2&gt;
-
-&lt;p&gt;The &lt;a href=&#34;http://www.spacex.com&#34;&gt;SpaceX&lt;/a&gt; Company founded by Elon Musk, is the harbinger of a new reality for space exploration, or what I would call Space 2.0. The Falcon 9 rocket can carry 13 150 Kg into low earth orbit at 61 million dollars. The Space Shuttle cost $500 to $700 million for a launch. Before SpaceX it cost roughly $20 000 to launch a Kg into space. With Falcon 9 this has been cut to about $5000. If SpaceX manage their ultimate goal for reusable rockets a lauch will cost around 6-7 million dollars. That means almost $500 per Kg. The planned larger rockets from SpaceX will reduce this further.&lt;/p&gt;
-
-&lt;p&gt;The point is that this is what really matters. As long as launch costs were so high space exploration was never going to take off. There was no way to create a Mars mission, lunar bases or massive space station with the launch costs we have been operating under. Imagine if launch all equipment for a Mars mission cost 20 billion and suddenly we can do it for 500 million then suddenly a Mars mission becomes economically and politically plausable.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-different-today:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;What is different today?&lt;/h2&gt;
-
-&lt;p&gt;Why are we seeing these changes today in space exploration. It is not just SpaceX but a lot of other companies making significant contributions. The key thing about Space 2.0 is that it is driven by private enterprise rather than Space 1.0 which was a race between super powers with enormous resources.&lt;/p&gt;
-
-&lt;p&gt;Today we got small space companies like &lt;a href=&#34;http://deepspaceindustries.com&#34;&gt;Deep Space Industries&lt;/a&gt; working on doing asteroid prospecting and mining which simply wasn&amp;rsquo;t possible before. It is the massive advances in computer technology and manufacturing technology like 3D printing etc which makes it possible for small teams to do what required enormous teams and massive financial backing in the past. Something only goverment could really do.&lt;/p&gt;
-
-&lt;p&gt;15 years ago or so I was keenly interested in electronics. When I came back to the field today I noticed some massive changes. Circuits which I used to build by assembling lots of components could now more cheaply and faster be done by adding a few components and a microcontroller. Micro controllers are essentially whole tiny computers on a chip that you can program. They have gotten so cheap now that building electronics circuts today is increasinly a programming issue rather than a hardware issue. This is reflected in the rise of the Maker movement with people building all sorts of projects with cheap microcontrollers like the Arduino or lately more real computers like the Rasberry Pi. The latest Rasberry Pi, &lt;a href=&#34;https://www.raspberrypi.org/blog/raspberry-pi-zero/&#34;&gt;Pi Zero&lt;/a&gt;, can be gotten as cheap as for 5 dollars. That is a computer more powerfull than anything anybody had at home in the 80s when I was a kid dreaming of space.&lt;/p&gt;
-
-&lt;p&gt;It is these kind of changes which makes it possible to build space equipment faster and also much smaller than before. Computers used to take up a lot of space in earlier space craft. An example of why size matters is the MX-1 Commercial Lunar Lander from &lt;a href=&#34;http://www.moonexpress.com/&#34;&gt;Moon Express&lt;/a&gt;, a private space startup company. This is actually a space craft but it is not bigger than a large coffetable. Getting something like that to the moon is obviously a lot easier than its bulky predecessors.&lt;/p&gt;
-
-&lt;p&gt;For a long time conservatism kept space companies from really utilizing these amazing improvements in computing power. SpaceX is one of the companies who actually just went ahead and tested their craft with regular off the shelf computer hardware. They found that regular compter hardware had gotten reliable enough for space.&lt;/p&gt;
-
-&lt;p&gt;But this is just part of the story. With the opporunity for private companies to do this kind of work comes the possibility for radically different organizational structure. Old space organiztions have old conservative structure. Companies like SpaceX and Blue Origin grew out of the silicon valley computer and software startup company culture of flat hierarchies and little bureacracy. They are used to moving fast and making quick decisions. With lower capital requitement also comes the opportunity to fund development in a radically different way.&lt;/p&gt;
-
-&lt;p&gt;The way NASA built things it got stupenously expensive. They used cost plus contracts which guaranteed subcontractors a profit no matter what the cost ended up being. This encouraged overly expensive designs. Relying on funding being okayed by politicians turned to whole thing into pork barrel politics, spreadng production all over the country hiking up the costs even higher.&lt;/p&gt;
-
-&lt;p&gt;SpaceX in contrast build everything in one location and have a clear incentive to do so as cheaply as possible. They have limited capital and can not afford to waste that.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-will-the-future-bring:4b206ce8a1daf541d2c2f995f2b519ff&#34;&gt;What will the future bring?&lt;/h2&gt;
-
-&lt;p&gt;As long as space exploration was very expensive and not directly profitable in any way it was bound to happen at a snail pace. The pace of exploration of the new world by Europe really accelerated once there was clear economic opportunities. But along with the desire for profit this exploration also rested on mans strong desire to explore and discover. I think the brilliance of Elon Musk&amp;rsquo;s plan for coloniztion of Mars with SpaceX is that it rallies people behind a clear goal. People are going to be willing to make a lot of sacrifices to make this happen as long as it seems like a reachable goal.&lt;/p&gt;
-
-&lt;p&gt;If SpaceX start launching a number of rockets to colonize Mars this will also create a market for an outer space industry. At the moment deep space mining can&amp;rsquo;t profitably deliver goods to earth. However given high cost of launching things into space, there is a market for goods manufactured in space. A natural first candidate is rocket fuel. Mining companies could exploit a big Mars mission to get a market for their products. This will grow the space mining industry and allow private companies to expand and provide ever more space products.&lt;/p&gt;
-
-&lt;p&gt;The next step will be for a space industry to manufacture many of the structures for satelites in space and launch just small specialized components to be assembled in space. Once this is happening I think we will se a great acceleration in the space industry. When these companies can make good money they can expand their business and attract new companies to enter the market. It will also encourage more investors to invest as they see the potential.&lt;/p&gt;
-
-&lt;p&gt;I think in 2025 we are going to see the beginning of this new space age.&lt;/p&gt;
-</description>
+      <description>If you grew up in the 80s or early 90s like me, you might have had great hopes for space exploration. You dreamed of giant space colonies beyound the year 2000. But then you grow up and the year 2000 comes and passes. Yet another decade pass and you realize that space exploration is just a long list of broken dreams. We achieved so much leading up to the end of the 70s and then nothing.</description>
     </item>
     
     <item>
@@ -265,101 +48,8 @@ max(14, 35, -7, 46, 98)
       <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dont-starve-strategy/</guid>
-      <description>
-
-&lt;p&gt;Almost a year ago I wrote about playing Don’t Starve. I’ve had long breaks from it but had a burst playing it again a lot lately.&lt;/p&gt;
-
-&lt;p&gt;So I wanted to write an updated strategy guide now that I feel I am a much better Don’t Starve Player. Surviving any number of days in Don’t Starve doesn’t seem that difficult anymore. Don’t Starve Reign of Giants is a bit trickier to not screw up though.&lt;/p&gt;
-
-&lt;h2 id=&#34;key-insights-after-playing-longer:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Key insights after playing longer&lt;/h2&gt;
-
-&lt;p&gt;After playing a while there are a number of things I have realized which was not so clear when playing early on. My main error playing previously was establishing a base too early.&lt;/p&gt;
-
-&lt;p&gt;When you start you should really spend a lot of time roaming the map figuring out where stuff is and pick up as much stuff as possible on the way. Often it is better to just make a torch and keep moving rather than putting up a fireplace. You got to keep moving in the beginning to cover as much map as possible.&lt;/p&gt;
-
-&lt;h2 id=&#34;first-six-days:657039ec309e4747d970f59d2ebd9e92&#34;&gt;First Six Days&lt;/h2&gt;
-
-&lt;p&gt;Here are my early steps:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Grass, twigs, flint, berries and carrots are first priority. You need to be able to make a torch when night comes.&lt;/li&gt;
-&lt;li&gt;If you get enough flint make an axe and a pick axe. Chop down trees on the way as you explore. If too little flint make a pick axe and rely on getting  more flint by crushing some stones.&lt;/li&gt;
-&lt;li&gt;Explore actively by moving along coast line. That is to be able to build an overview for later so you know where all the biomes are and the area they cover. So basically move a lot on the biome borders rather than the middle.&lt;/li&gt;
-&lt;li&gt;Keep moving at night with torch. Put aside roughly six days for exploration. I seldom find that I managed to find all the biomes I need to find in less time.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Beefalo, Spiders, Pig houses and Spiders are high on my priority list of things to find. But my first priority is usually to find a rock biome. I find that one usually needs quite a lot of rocks and they aren’t easily accessible from where you usually end up placing your base. Thus you need to really pile up on rocks once you find a rock biome. This is what I do when I find a rock biome:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Stay the night with a fireplace to get as much time as possible there.&lt;/li&gt;
-&lt;li&gt;Crush stones all day to get at least 10 gold and two slots full with rocks.&lt;/li&gt;
-&lt;li&gt;At night build science machine. Not putting up base but having a back back early and a shovel is key.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The last point needs elaboration. When you roam around the map you will find lots of useful things which will end up being too far away from your base you create later. So you want to be able to pick up as much of that stuff as possible before you establish your base. But without a back pack you are very limited in how much stuff you can bring. You are also vulnerable in the start with no spear or armor. So I just built a temporary science machine in rock biome so I can build:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Back pack&lt;/li&gt;
-&lt;li&gt;Spear&lt;/li&gt;
-&lt;li&gt;Armor&lt;/li&gt;
-&lt;li&gt;Shovel&lt;/li&gt;
-&lt;li&gt;Hammer&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Often I also end up building all sorts of other things like alchemy engine, chest, croc pot etc but without placing them. Then I can just place them when I establish my actual base.&lt;/p&gt;
-
-&lt;p&gt;Getting a shovel early is probably not obvious why is such a big deal.  The key to survival in the game is to have as much resource locally as possible without having to run around like crazy chicken every day trying to get it. So you need to dig up stuff with your shovel and plant it in your base later.&lt;/p&gt;
-
-&lt;p&gt;So while I explore I dig up bushes, grass and twigs. I want around 8-10 bushes, grass and twigs in my base at least. Probably more of the latter.&lt;/p&gt;
-
-&lt;p&gt;When I am done collecting stones I hammer down my science machine. I will never need having a science machine in a rock biome.&lt;/p&gt;
-
-&lt;h2 id=&#34;establishing-a-camp:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Establishing a Camp&lt;/h2&gt;
-
-&lt;p&gt;I usually aim for base located close to a spider den and not too far away from Beefalo. Earlier I was really into rabbit holes but as I evolved my playing I actually don’t care about rabbits at all anymore.&lt;/p&gt;
-
-&lt;p&gt;The reason is that my early playing was based on gathering 4 rabbits for making meatballs. Especially as a way of surviving winter.&lt;/p&gt;
-
-&lt;p&gt;Spider dens are better I think. You can place traps close to then den and also just whack the spiders with a spear. Single spiders are easy to kill with a spear. Once you start hitting them they can’t hurt you as they get stunned. Spider dens are more useful than rabbit holes because it gives you super important spider silk and meat.&lt;/p&gt;
-
-&lt;p&gt;Since I dig up a bunch of berry bushes and plan them near the base I can use 3 berries together with 1 monster meat to make meat balls as my first dish.&lt;/p&gt;
-
-&lt;p&gt;Berries wont grow without fertilizing when you plant them. You could solve that by picking up lots of berries and carrots as you initially move around the map. The stuff you don’t get time to eat will eventually rot and you can use the rot to fertilize.&lt;/p&gt;
-
-&lt;p&gt;The key thing about not being too far from Beefalo is that you use them as your defense against hounds. Rather than building elaborate traps and walls I just run to the Beefalo herds when the hounds come and the Beefalo kill them easily. Beefalo also give access to poop so you can build farms. I only build the advance farms. Usually 4-5 farms is enough. That will easily make more vegetables than you can consume for croc pot dishes before it rots until you get a ice box.&lt;/p&gt;
-
-&lt;h3 id=&#34;what-to-build:657039ec309e4747d970f59d2ebd9e92&#34;&gt;What to build&lt;/h3&gt;
-
-&lt;p&gt;Croc pot and meat dryers are important to get as early as possible since if you follow my strategy using monster meat from spiders you can&amp;rsquo;t eat it directly throwing without taking sanity hit. So before building your based while roaming around, you should have built a torch and burned down some forrest to get a bunch of charcoal.&lt;/p&gt;
-
-&lt;p&gt;Until you get gears so you can build a fridge. You need to use som strategies for preserving food through the winter. This wont work for Reign of Giants. Meat drying on a rack will not spoil so you can store meat indefinitly by just having a bunch of racks. Also food not harvested from farms or croc pots wont spoil. So if you got the resources building multiple croc pots can be a good idea. This requires a lot of rock, that is why collecting as much rock as possible when you are in the rock biome is so important.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-animals:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Use animals&lt;/h2&gt;
-
-&lt;p&gt;One of the key things to advance your game is to learn to use animals like pigs, beefalo and rock lobsters. Beefalo can give you a lot of meat for winter, but killing them yourself can be hard. The strategy is to just give monster meat to pigs and get them to follow you. Then you attack a Beefal and run away, letting the pigs do the fighting for you. Either the Beefal or pigs die. Either way you benefit. Pigs give you meat or skin which is usefull for lots of stuff like fotball helmet, umbrella etc. Pigs are not as great against hounds as they can&amp;rsquo;t protect you against hound attacks at night. But Beefalo and rock lobster can.&lt;/p&gt;
-
-&lt;p&gt;Another great way of killing hounds that I have used is to have a base relatively close to killer bees. There are some areas on the map that will have lots of killer bees. Just run up there when the hounds come there and they will make short work of hounds.&lt;/p&gt;
-
-&lt;p&gt;Usually where I build a camp there are no pig village, so I knock down the pig heads on touch stones to get enough materials to build two pig houses close to my base. But not too close. Keep in mind they turn into werepigs on full moon and attack you if you are too close. Pig village is usefull to have extra man power when you need to attack beehives, beefalo, big spider dens etc. They are also a great way to cut down lots of forrest quickly as pigs will help you with that.&lt;/p&gt;
-
-&lt;h2 id=&#34;surviving-winter:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Surviving winter&lt;/h2&gt;
-
-&lt;p&gt;Before winter arrives around day 20 you got to make some important preparations. If you have put your base close to spiders you will have enough spider webs to make a winter hat. All you need to do is shear some beefallo once while they sleep to get the rest of the requirements. But this isn&amp;rsquo;t a must. I prefer the heat stone. Again this is why you need lots of rocks so you are sure to be able to make a heat stone. Make this well ahead of winter to you don&amp;rsquo;t forget it and suddenly don&amp;rsquo;t have enough rocks.&lt;/p&gt;
-
-&lt;p&gt;2-3 days before winter &lt;strong&gt;don&amp;rsquo;t&lt;/strong&gt; harvest your berries and vegtables from farms. You need to keep this as your winter storage food. Try keeping this as backup and get food in other ways for as long as possible. Keep getting monster meat and pick up mushrooms or berries farther away from the base as you roam. Mix in croc pot for meatballs.&lt;/p&gt;
-
-&lt;h2 id=&#34;surviving-deerclops:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Surviving Deerclops&lt;/h2&gt;
-
-&lt;p&gt;The first winter you probably wont have gotten time to make all the stuff to kill a deerclops. You will need a pan flute, sleeping dart or a blue staf as well as gun powder. I never get time for that on first winter. So the safest way I find is to simply build two bases. When the deerclops comes I can just run to the other base and continue life there. A few days later I can go back and fix the old base. An alternative strategy is to load up on food and move out in the wild on day 29-32. So when the deerclops comes you are out roaming. Like you can be going around setting up temporary fires and exploring the map these days.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-i-deal-with-sanity:657039ec309e4747d970f59d2ebd9e92&#34;&gt;How I deal with sanity&lt;/h2&gt;
-
-&lt;p&gt;Dried meat from say beefalo or rabbits help. But often I simply build a tent and sleep in that if it gets too bad. Otherwise I always try stackign up on green mushrooms as they help a lot when cocked. If you can building two beeboxes you get plenty of honey for winter which can be used for taffy which helps on sanity. If you don&amp;rsquo;t build a base near a spider den from the start. You wont get enough spider webs early on to catch bees. My first games without bases near spider dens I never managed to build beeboxes until right before winter started which meant I hardly managed to accumulate any honey. But if you do it early and make sure you plant a bunch of flowers near the boxes by catching butterflies then you can produce quite a lot of honey before winter. That can be used for making honey ham, honey nuggets and taffy. That takes care of hunger, health and sanity. So that is a great solution.&lt;/p&gt;
-
-&lt;h1 id=&#34;final-words:657039ec309e4747d970f59d2ebd9e92&#34;&gt;Final words&lt;/h1&gt;
-
-&lt;p&gt;Using your time well is key in Don&amp;rsquo;t Starve. You don&amp;rsquo;t have a lot of time to do all you need to do. So using it effectively from the start makes sure you survive and can get more relaxed later. Try to cook food and build structures at night when you can&amp;rsquo;t do much else. Actively collect stuff on the day. Make sure you plant trees, twigs and grass next to base so you can collect lots of stuff fast. Consider setting aside whole days for collecting one particular resource like wood, stone or grass. Utilize golden pick axes, pigs etc to get resource gathering going faster. If just exploring consider using a torch at night to continue moving around. Better to collect resources on day than explore too much since at night you can easily run around with a torch but not collect anything.&lt;/p&gt;
-</description>
+      <description>Almost a year ago I wrote about playing Don’t Starve. I’ve had long breaks from it but had a burst playing it again a lot lately.
+So I wanted to write an updated strategy guide now that I feel I am a much better Don’t Starve Player. Surviving any number of days in Don’t Starve doesn’t seem that difficult anymore. Don’t Starve Reign of Giants is a bit trickier to not screw up though.</description>
     </item>
     
     <item>
@@ -368,110 +58,7 @@ max(14, 35, -7, 46, 98)
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dont-starve-review/</guid>
-      <description>
-
-&lt;p&gt;I don&amp;rsquo;t play much computer games anymore. Family and small kids limits time, but equally important I simply don&amp;rsquo;t find them as fun anymore as I once did. Not long ago I got a Playstation 4 and I was eager to look at the beautiful graphics which could now be rendered. I got a bunch of third or first person shooters which all looked beautiful and amazing. But eventually they all ended up boring me. A problem is that most of the block buster games today are extremely bland. They don&amp;rsquo;t dare doing anything out of the ordinary and so they end up being very similar and they lack a personal touch or soul from lack of a better word. I&amp;rsquo;ve tried a few Indie games over the last few years such as &lt;a href=&#34;http://en.wikipedia.org/wiki/Machinarium&#34;&gt;Machinarium&lt;/a&gt;, Limbo, Minecraft and &lt;a href=&#34;http://en.wikipedia.org/wiki/CounterSpy_(video_game)&#34;&gt;CounterSpy&lt;/a&gt;. Lately I&amp;rsquo;ve played &lt;a href=&#34;http://en.wikipedia.org/wiki/Valiant_Hearts:_The_Great_War&#34;&gt;Vaiant Hearts&lt;/a&gt; which while not an Indie game feels a lot like one. Common for all these games is that they do not have mind blowing 3D graphics and animation. Yet they have a unique expression and feel which makes it feel more like what it was like playing games as a child.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Don&#39;t_Starve&#34;&gt;Don&amp;rsquo;t Starve&lt;/a&gt; is that sort of game. It has a quirky and charming style. The story is quite weird, but that is also what makes it endearing. You play a gentleman scientist named Wilson in a sort of Victorian looking fantasy world. Actually as you play you can unlock at number of other odd and funny characters. It is a sort of sandbox game, somewhat similar to Minecraft. You got to gather resource and stay alive. What sets &lt;a href=&#34;http://en.wikipedia.org/wiki/Don&#39;t_Starve&#34;&gt;Don&amp;rsquo;t Starve&lt;/a&gt; apart is that it is really difficult. In Minecraft you can pretty much live as long as you like. While Minecraft is fun, it does at times start feeling pointless, because you are building and building but there isn&amp;rsquo;t much of a goal.&lt;/p&gt;
-
-&lt;p&gt;With &lt;a href=&#34;http://en.wikipedia.org/wiki/Don&#39;t_Starve&#34;&gt;Don&amp;rsquo;t Starve&lt;/a&gt; you balance at the edge of survival. It isn&amp;rsquo;t like you are near dying every day (there is a night and day cycle like Minecraft), but you will die down the road if you are not strategic about how you spend your time. &lt;a href=&#34;http://en.wikipedia.org/wiki/Don&#39;t_Starve&#34;&gt;Don&amp;rsquo;t Starve&lt;/a&gt; has seasons which you have to prepare for. First time I played I was not prepared for winter. I had no winter clothes or heated stone to carry. My storage of food was low. That kills you quickly in winter because your character can not move around very far in winter without some means of keeping warm. That makes it really hard to get hold of food and materials. In winter things don&amp;rsquo;t grow so you need to stack up food or create a system for catching e.g. rabits and dry the meat. The second problem are monsters such as the hounds which arrive with about 6 day intervals. If you are not prepared for them with weapons, armour, escape route etc they will overwhelm you. All of this makes Don&amp;rsquo;t Starve a rather frustrating experience. Play for hours and your character stays alive 30 days and then you make some wrong step and die. You have to do it all over again. You curse the game and tell yourself you are never going to play it again. But of course you come back. That is beauty of it. A lot less frustrating games will not keep you comming back, because the allure of Don&amp;rsquo;t Starve is thinking if you are just smarter about how you manage your resource you can last some more days. Thus the number of days you last becomes a metric for how well you play. What I think is cool about this is that you start thinking a lot about optimal strategies, like what resources you should gather first. What to build and in what order. Things that normally don&amp;rsquo;t matter anything in sandbox games were you an just save and keep going forever. This makes Don&amp;rsquo;t starve feel more like a game than a toy.&lt;/p&gt;
-
-&lt;h1 id=&#34;my-strategy-so-far:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;My strategy so far&lt;/h1&gt;
-
-&lt;p&gt;This is how I play the game based on not being that sofisticated, and I assume it is a style it is easy for any player to copy.&lt;/p&gt;
-
-&lt;p&gt;When I start I gather grass, twigs and flint stones. That is high priority because you need these things for almost anything. With twigs and flint stones you can then make an axe and cut down wood. You ought to do this early so you have some wood for the night. This allows you to create a fire place.&lt;/p&gt;
-
-&lt;p&gt;My second focus is picking up carrots and berries as I come across them. You need some stash of food as you can&amp;rsquo;t produce anything from farms or any facilities in the start and you want a buffer to allow yourself to roam for specific resources later. A couple of things I learned from playing a number of times about food like berries and carrots:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Don&amp;rsquo;t eat them right away as you go. Even if you hunger is low, try to wait until it is night time and you put up your fire place. Most gives more benefits when cooked, so you waste less of it. But if often lasts shorter, so just cook it when you intend to eat it.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You can collect too much. Food spoils over time. So it might end up rotting before you get to eat it. So don&amp;rsquo;t collec much more than 10 - 15 carrots and berries at any time.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;find-out-where-the-most-important-things-are:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Find out where the most important things are&lt;/h2&gt;
-
-&lt;p&gt;When I got the basics covered I try to cover a lot of area to get an idea where everything is. That is because to be successfull you need quite a variation of resources. Walking or roads make it quicker to cover large areas and get an idea of where you can get different things. Here are some things I think are important to locate in order of importance:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A plain with rabbit holes. I always put my camp in such an area so I can catch rabbits in the winter for food as almost nothing grows in winter and you can&amp;rsquo;t afford to roam very far to get hold of resources.&lt;/li&gt;
-&lt;li&gt;An area with lots of rocks, where I can get stones and gold. Without stones you can&amp;rsquo;t build a more permanent fire place which you should use for your permanent base. You also need gold to build a science machine which allows you to invent things.&lt;/li&gt;
-&lt;li&gt;Beefalo plains. The Beefalo leaves poop around which you can use to create farms and fertilize grass and berry bushes.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Until I&amp;rsquo;ve gotten hold of gold and stone I will keep moving around and create simple fireplaces for the night. Often usefull to put up the fire place close to usefull resources so you can spend the night cutting down trees or rocks. In Don&amp;rsquo;t Starve it is always wise to spend all your time as usefull as possible.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-base:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Create a base&lt;/h2&gt;
-
-&lt;p&gt;When I got gold I will put up a fire place made of rocks in a rabbit area. E.g. close to 2-3 rabbit holes. Often the areas with a lot of gold and stone are far away from the rabbit area so I will make sure to load up on a lot of rocks and gold before leaving the area. Maybe spending a whole day there. Otherwise you will waste time going back and forth. One way to cut down on the travel time is to utilize worm holes, which move you fast from one place to another. But they drain some sanity so they should not be overused.&lt;/p&gt;
-
-&lt;p&gt;Then I build a science machine and collect enough grass to build 2-3 rabbit traps which I place on top of 2-3 rabbit holes. This provides a steady provision of rabbit meat. I find that building more is a waste of time, because you spend so much time looking for stuff in the start that you don&amp;rsquo;t have time to manage a lot of rabbit traps. Usually I build an alchemy engine fairly shortly after.&lt;/p&gt;
-
-&lt;p&gt;A backpack is also smart to build early so you can carry more stuff back when you roam around.&lt;/p&gt;
-
-&lt;h3 id=&#34;don-t-collect-carrots-close-to-the-base:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Don&amp;rsquo;t collect carrots close to the base&lt;/h3&gt;
-
-&lt;p&gt;As I mentioned before collecting too much food is pointless as it will spoil.  What I try to avoid is collecting too much food close to my base. Berries  are okay as they regrow. Same with mushrooms, but carrots don&amp;rsquo;t, so leave them close to the base as that allows you to preserve food for the winter.&lt;/p&gt;
-
-&lt;h3 id=&#34;prepare-for-farming-early:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Prepare for farming early&lt;/h3&gt;
-
-&lt;p&gt;One of my first mistakes building my base is that I prepared for farming hapazardly. By farming I mean collecting a large number of trees, grass and twig plants close to the base so you can collect those resource efficiently without much travel. As soon as you got a science machine and rabbit traps in place you should build a shovel. So in the early days when you roam a lot around to find stuff you should gather twigs, grass and berries by using the shovel. That way you get the resource and the plant, which you can later plant outside your base. These are distant places you are likely not going to visit much later so it is okay to strip them of resources. Grass, trees and berry bushes close to your base might be usefull to keep to have access to them later. Berry bushes and grass which is uprooted is not immediatly usefull once you have planted them. They need to be fertilized first by poop from e.g. pigs or Beefalo. Twigs is great because they regrow quite fast and require no fertilization. So focus on those intially as planting them next to your base allows you to waste less time picking them in the wild.&lt;/p&gt;
-
-&lt;h3 id=&#34;don-t-waste-timber-on-heating:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Don&amp;rsquo;t waste timber on heating&lt;/h3&gt;
-
-&lt;p&gt;Timber is usefull for so many things that it is stupid to waste it on fueling your camp fire. Build a Pitchfork early and use it to dig up lots of turfs from the ground. This is a fairly quick process so it is a nice way of building up a lot of fuel for your fire quickly.&lt;/p&gt;
-
-&lt;h3 id=&#34;burn-down-a-lot-of-forrest-for-charcoal:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Burn down a lot of forrest for charcoal&lt;/h3&gt;
-
-&lt;p&gt;Fire easily spreads in forrests so cut down some trees strategically to limit the fires spread.
-But then try to burn down quite a large number of trees. Because you ought to build at least 3-4 drying racks for meat and one crock pot. That means 12-14 burned down trees. Getting this is important for two reasons:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Make Meatballs in crockpot. Meatballs is a great way of satisfying hunger and it is easy to make. Throw in at least one meat and then pretty much anything else: carrots, berries or mushrooms. If you cook and eat individually 4 pieces or berries, carrot or rabbit meat it will satisfy 50 hunger points. While meatballs satisfy 62.5, so meatballs is like getting an extra item for free. Although minor it also does give sanity and health boost. Something the mention ingredients hardly do.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Drying racks allow you to dry meat which is really crucial for getting through winter, since tried meat lasts 20 days and it restores quite a lot of sanity and health.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Crock pot allows you to utilize mushrooms. Mushrooms have all kinds of negative side effects to using them for meatballs is a great way of using them.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So preparing for winter I dry a lot of meat and try to use berries or carrots with one meat piece to cook meatballs. Monster meat is also something you can easily end up with a lot of fighting spiders e.g. Meatballs is a good way of getting rid of this meat for something usefull as eating it in other forms affects sanity or health.&lt;/p&gt;
-
-&lt;h3 id=&#34;farms:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Farms&lt;/h3&gt;
-
-&lt;p&gt;With poop you can build farms. I don&amp;rsquo;t know what the optimal is but I build around 3 advance farms. Since they are of no use in winter I don&amp;rsquo;t think putting a lot of effort into getting lots of them for the first winter is worth it. I usually leave vegtables grown at start of winter in the fields to preserve them. There is not point in harvesting them as nothing new can be grown then.&lt;/p&gt;
-
-&lt;p&gt;With vegtables I have a few simple rules:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;If it is carrots it goes to meatball making.&lt;/li&gt;
-&lt;li&gt;Corn I eat raw as it is.&lt;/li&gt;
-&lt;li&gt;Most other things I cook and eat as they are. You lose their value by throwing them in the meatballs.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There is a lot more smart things you can do but I think it gets complicated to keep track of what you should do with everything. Pumpkins you could possibly use to make cookies e.g. But then you need honey.&lt;/p&gt;
-
-&lt;h3 id=&#34;spiders-and-webs:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Spiders and webs&lt;/h3&gt;
-
-&lt;p&gt;Lots of really usefull stuff needs spider webs (or silk as the game calls it), so getting hold of that is really usefull. Ideally your base isn&amp;rsquo;t far away from spider webs. An alternative is to find a level 3 spider den and destroy it. That gives you a spider egg which you can plant close to your base to get access to spiders which you can use to obtain monster meat, spider webs etc. A strategy I use for taking spider is to bring a couple of rabbit traps. They will also trap spiders. So when getting a flock of spiders running after me I can have some of them  get caught in the traps, so there are few enough left for me to bash with the spear.&lt;/p&gt;
-
-&lt;p&gt;Why silk is important:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You can hardly make any kind of winter clothes without silk. This is important to manage winter.&lt;/li&gt;
-&lt;li&gt;Making a bug net to catch bees or butter flies. I used to think this was important to have beeboxes and get honey for the winter. Unfortunatly it seems hard to get all this in place for the first winter. I manage to build the beebox usually but only have a shot at one harvest before winter is upon me.&lt;/li&gt;
-&lt;li&gt;Creating a fishing rod to fish. It is possible to get more fish before winter, which allows you to create fish sticks. Usefull foods since one of the ingredients are twigs which you can easily mass produce early from digging them up and planting them by your base. I don&amp;rsquo;t know how to fish though without risking getting attack by frogs though.&lt;/li&gt;
-&lt;li&gt;No magic without silk. You need the tophat for creating your first magic structure which requies silk to be made.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;preparing-for-winter:d79b3ab3c7190e6b999f5b8bc7e84063&#34;&gt;Preparing for winter&lt;/h2&gt;
-
-&lt;p&gt;So before winter comes you should have a number of traps producing rabbits on a regular basis and 3-4 drying racks and a crock pot. Use chests to store as much food as possible. Stack up some berries and carrots to mix with the meat to make meatballs. And super super important make sure you have built a &lt;a href=&#34;http://dont-starve-game.wikia.com/wiki/Thermal_Stone&#34;&gt;Thermal Stone&lt;/a&gt; early. It requires 10 stones, 1 pick axe and flint. It is easy to end up not having 10 stones so to avoid forgetting to save 10 stones I try to build thermal stone as soon as I have 10 stones and don&amp;rsquo;t need to build anything else really crucial. The stone can be heated up by the fireplace and allow you to stay out longer.&lt;/p&gt;
-
-&lt;p&gt;Also make sure you got plenty of grass to be able to replace worn out rabbit traps and to be able to build straw matts to sleep unless you managed to get enough silk to build a tent. I always get killed by the Deerclops comming around day &lt;sup&gt;31&lt;/sup&gt;&amp;frasl;&lt;sub&gt;32&lt;/sub&gt;. So up to that day I keep building straw matts and collect food. Lots of jerky. I use the straw matts to sleep through the night from day 30 or 31. Deer clops can&amp;rsquo;t come at night when you sleep. It sucks if he comes at day time too, but then you have a chance of running away more easily and establish a base somewhere else.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been killed so many times fighting him that I think the safest bet to not waste your time is to run away. He wont follow. But make sure you get as much food as possible and basic building materials and run away. I tap the right fire button to allow me to organize my inventory without time passing so I can make sure I have full overview of all the resources I have. There needs to be stones for a fireplace and woods for a temporary one. At least 10 Turf for fuel. Lots of grass to build new rabbit traps. Flint and twigs to build any necessary tools. Ideally you should have charcoal so you can get some drying racks up quickly. If I got these things then just run far away to some other rabbit plains and setup a new base. Remember you just got to make it to day 36, because then summer is back and the Deerclop will be gone. You can then return to your old base and rebuild it.&lt;/p&gt;
-</description>
+      <description>I don&amp;rsquo;t play much computer games anymore. Family and small kids limits time, but equally important I simply don&amp;rsquo;t find them as fun anymore as I once did. Not long ago I got a Playstation 4 and I was eager to look at the beautiful graphics which could now be rendered. I got a bunch of third or first person shooters which all looked beautiful and amazing. But eventually they all ended up boring me.</description>
     </item>
     
     <item>
@@ -480,217 +67,9 @@ But then try to burn down quite a large number of trees. Because you ought to bu
       <pubDate>Sun, 21 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/julia-tricks/</guid>
-      <description>
-
-&lt;p&gt;After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:&lt;/p&gt;
-
-&lt;h3 id=&#34;parsing-strings:59bb671a63313562ed2551763f52b78c&#34;&gt;Parsing Strings&lt;/h3&gt;
-
-&lt;p&gt;Extract 3 numbers from a string into 3 variables:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;a, b, c = map(int, split(&amp;quot;11 12 13&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;initialization:59bb671a63313562ed2551763f52b78c&#34;&gt;Initialization&lt;/h3&gt;
-
-&lt;p&gt;There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; type Point
-    x::Int
-    y::Int
-  end
-
-&amp;gt; points = fill(Point(0, 0), 4)
-4-element Array{Point,1}:
- Point(0,0)
- Point(0,0)
- Point(0,0)
- Point(0,0)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That looks all fine, until you make a change and get this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; points[2].x = 20
-&amp;gt; points
-4-element Array{Point,1}:
- Point(20,0)
- Point(20,0)
- Point(20,0)
- Point(20,0)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That was probably not as expected. The reason for this is that references to the created &lt;code&gt;Point&lt;/code&gt; object in fill is copied not the values themselves. So what we actually got to do is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;points = [Point(0, 0) for _ in 1:4]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;integers:59bb671a63313562ed2551763f52b78c&#34;&gt;Integers&lt;/h2&gt;
-
-&lt;p&gt;There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; typemax(Int8)
-127
-&amp;gt; typemax(Uint8)
-0xff # which is 255 decimal
-&amp;gt; typemin(Int8)
--128
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;One also has to remember that Julia integers do not get promoted to larger values when overflowing. So e.g. taking the factorial of a really big number like 100 requires using &lt;code&gt;BigInt&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; &amp;gt; factorial(BigInt(25))
- 15511210043330985984000000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;division:59bb671a63313562ed2551763f52b78c&#34;&gt;Division&lt;/h3&gt;
-
-&lt;p&gt;One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; 10 / 6
-1.6666666666666667
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Which has of course the minor inaccuracies of floating point arithmetic. If you want accurate results you can compute fractions with the &lt;code&gt;//&lt;/code&gt; division operator:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; a = 10 // 6
-5//3
-&amp;gt; a.num
-5
-&amp;gt; a.div
-3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you want to work with C/C++ style division then we use the &lt;code&gt;div&lt;/code&gt;, &lt;code&gt;rem&lt;/code&gt; and &lt;code&gt;mod&lt;/code&gt; functions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; div(10, 6)
-1
-&amp;gt; rem(10, 6)
-4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;C/C++ style remainder&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; 10 % 6
-4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Modulus is not quite the same as remaineder. E.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; rem(-21, 4)
--1
-&amp;gt; mod(-21, 4)
-3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With modulus we can imagine doing calculations on a clock.&lt;/p&gt;
-
-&lt;h3 id=&#34;reading-files:59bb671a63313562ed2551763f52b78c&#34;&gt;Reading files&lt;/h3&gt;
-
-&lt;p&gt;Julia has some nice ways you can compose functions to read files.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lines = open(readlines, &amp;quot;myfile.txt&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This corresponds to writing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = open(&amp;quot;myfile.txt&amp;quot;)
-lines = readlines(f)
-close(f)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With the julia &lt;code&gt;do end&lt;/code&gt; syntax sugar you can use this to conveniently read a file and not forget to close it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;open(&amp;quot;myfile.txt&amp;quot;) do f
-   println(readline(f))     # print out first line in file
-end                         # file stream automatically closes here
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;working-with-dates:59bb671a63313562ed2551763f52b78c&#34;&gt;Working with dates&lt;/h3&gt;
-
-&lt;p&gt;This is just to show how to deal with a common case:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; using Dates
-&amp;gt; (date, time) = split(&amp;quot;5/8/2014 0:16:03&amp;quot;)
-2-element Array{SubString{ASCIIString},1}:
- &amp;quot;5/8/2014&amp;quot;
- &amp;quot;0:16:03&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then as shown before we can unpack an array into separate variables like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; year, month, day = reverse(map(int, split(date, &#39;/&#39;)))
-3-element Array{Int64,1}:
- 2014
-    8
-    5
-&amp;gt; date = Date(year, month, day)
-2014-08-05
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You could also do this in one go by unpacking an array into function arguments using &lt;code&gt;...&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; Date(reverse(map(int, split(date, &#39;/&#39;)))...)
-2014-08-05
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;enumeration:59bb671a63313562ed2551763f52b78c&#34;&gt;Enumeration&lt;/h3&gt;
-
-&lt;p&gt;Regular enumeration in Julia is straightforward but it might not be obvious how you enumerate over both values and keys or indicies in an array or dictionary:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; for (index, value) in enumerate([&amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;, &amp;quot;three&amp;quot;])
-           println(index, &amp;quot;: &amp;quot;, value)
-       end
-1: one
-2: two
-3: three
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;accessing-fields-of-a-type:59bb671a63313562ed2551763f52b78c&#34;&gt;Accessing fields of a type&lt;/h3&gt;
-
-&lt;p&gt;The syntax for accessing fields known at compile time is similar in Julia as in most other languages with Algol syntax:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type FooBar
-    foo::Int64
-    bar::String
-end
-
-&amp;gt; a = FooBar(42, &amp;quot;The answer to everything&amp;quot;)
-&amp;gt; a.bar
-&amp;quot;The answer to everything&amp;quot;
-&amp;gt; a.foo
-42
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However accessing fields not known at compile time is different. Imagine the user inputs the name of a field to access or the names of fields are read of a file. Unlike Ruby and Python, Julia&amp;rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; a.(:bar)
-&amp;quot;The answer to everything&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you only got the name of a field as a string you can do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; a.(symbol(&amp;quot;bar&amp;quot;))
-&amp;quot;The answer to everything&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To find out what fields actually exist you can use &lt;code&gt;names&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; names(FooBar)
-2-element Array{Symbol,1}:
- :foo
- :bar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Alternatively if you got an instance you can see both the name of the fields and their values with &lt;code&gt;dump&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; dump(a)
-FooBar 
-  foo: Int64 42
-  bar: ASCIIString &amp;quot;The answer to everything&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Most of these code snippets or approaches I picked up from doing small things like implement an algorithm in &lt;a href=&#34;https://projecteuler.net&#34;&gt;project Euler&lt;/a&gt;. I hope to write some bigger piece of code and see how Julia stacks up and how well suited Julia is for more software engineering type of challenges.&lt;/p&gt;
-</description>
+      <description>After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:
+Parsing Strings Extract 3 numbers from a string into 3 variables:
+a, b, c = map(int, split(&amp;quot;11 12 13&amp;quot;))  Initialization There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.</description>
     </item>
     
     <item>
@@ -699,214 +78,10 @@ FooBar
       <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
-      <description>
-
-&lt;p&gt;I just read &lt;a href=&#34;http://www.hackerearth.com/notes/praveen97uma/beautiful-python-some-cool-language-constructs-and-tricks-for-beginners/&#34;&gt;this blog&lt;/a&gt; about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt;?&lt;/p&gt;
-
-&lt;p&gt;So without further ado, her are some examples.&lt;/p&gt;
-
-&lt;h3 id=&#34;reverse-an-iterable:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Reverse an iterable&lt;/h3&gt;
-
-&lt;p&gt;There are two ways of doing this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; julia&amp;gt; a = [1, 2, 4]
- 3-element Array{Int64,1}:
-  1
-  2
-  4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The most obvious way is the &lt;code&gt;reverse&lt;/code&gt; function&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; julia&amp;gt; reverse(a)
- 3-element Array{Int64,1}:
-  4
-  2
-  1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; julia&amp;gt; a[end:-1:1]
- 3-element Array{Int64,1}:
-  4
-  2
-  1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This of course works for any types:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; reverse(b)
-(4,3,2)
-
-julia&amp;gt; b[end:-1:1]
-(4,3,2)
-
-julia&amp;gt; c = &amp;quot;This is a string&amp;quot;
-&amp;quot;This is a string&amp;quot;
-
-julia&amp;gt; reverse(c)
-&amp;quot;gnirts a si sihT&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Julia follows the Ruby convention of suffixing with &lt;code&gt;!&lt;/code&gt; if the function is mutating, so we can be confident these functions created copies.&lt;/p&gt;
-
-&lt;h3 id=&#34;swapping-the-values-of-two-variables:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Swapping the values of two variables&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; a, b = 1, 2
-(1,2)
-
-julia&amp;gt; a, b = b, a
-(2,1)
-
-julia&amp;gt; a
-2
-
-julia&amp;gt; b
-1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the python example, the author Praveen Kumar disassembled the Python code to demonstrate how it worked by showing the bytecode. That will be quite different for &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt; as Julia JITs different implementations based on the types of arguments. That is why Julia is so fast. E.g. when we define a function that swaps in Julia we get a generic function which will be specialized when called by the Just in Time compiler:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; foo(a, b) = a, b = b, a
-foo (generic function with 1 method)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So when dumping the assembly with &lt;code&gt;code_native&lt;/code&gt; we have to specify what the types of arguments  will be as second argument:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; code_native(foo, (Int, Int))
-    .section    __TEXT,__text,regular,pure_instructions
-Filename: none
-Source line: 1
-    push    RBP
-    mov RBP, RSP
-Source line: 1
-    movq    XMM1, RDI
-    movq    XMM0, RSI
-    punpcklqdq  XMM0, XMM1      ## xmm0 = xmm0[0],xmm1[0]
-    pop RBP
-    ret
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If we want the bytecode like Python we get something that I consider less readable as it is LLVM based which contains a lot of type information to be able to generate efficient machien code output:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; code_llvm(foo, (Int, Int))
-
-define &amp;lt;2 x i64&amp;gt; @&amp;quot;julia_foo;20220&amp;quot;(i64, i64) {
-top:
-  %2 = insertelement &amp;lt;2 x i64&amp;gt; undef, i64 %1, i32 0, !dbg !1422, !julia_type !1423
-  %3 = insertelement &amp;lt;2 x i64&amp;gt; %2, i64 %0, i32 1, !dbg !1422, !julia_type !1423
-  ret &amp;lt;2 x i64&amp;gt; %3, !dbg !1422
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This isn&amp;rsquo;t obviously readable so we need to consult the &lt;a href=&#34;http://llvm.org/releases/2.6/docs/LangRef.html&#34;&gt;LLVM reference&lt;/a&gt; manual. &lt;a href=&#34;http://llvm.org/releases/2.6/docs/LangRef.html#i_insertelement&#34;&gt;insertelement&lt;/a&gt; is instruction which insert an element into a vector at given index.&lt;/p&gt;
-
-&lt;p&gt;First part &lt;code&gt;&amp;lt;2 x i64&amp;gt;&lt;/code&gt; is a type annotation saying we are operating on a 2 element 64 bit integer vector.&lt;/p&gt;
-
-&lt;p&gt;First argument is the vector register to operate on. In the first case that is &lt;code&gt;undef&lt;/code&gt; while in the next line it is &lt;code&gt;%2&lt;/code&gt;, which is where the result of the first line was put.&lt;/p&gt;
-
-&lt;p&gt;Second argument &lt;code&gt;i64 %1&lt;/code&gt; says we are inserting a 64 bit integer element. Where is given in third argument: &lt;code&gt;i32 0&lt;/code&gt;. Insert at index 0 (given as a 32 bit integer).&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll leave it as a readers excercise to figure out exactly how this performs a swap as going into the nitty bitty details of this was not the intention of this blog post.&lt;/p&gt;
-
-&lt;h3 id=&#34;enumerate:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Enumerate&lt;/h3&gt;
-
-&lt;p&gt;Interestingly the &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt; approach for iterating over both index and value is almost identical to that of Python:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; for (index, value) in enumerate([&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;, &amp;quot;zoo&amp;quot;])
-         println(index, &amp;quot; &amp;quot; , value)
-       end
-1 foo
-2 bar
-3 zoo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;splitting-a-string-into-a-list-of-words-and-joining-them-back:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;Splitting a string into a list of words and joining them back&lt;/h3&gt;
-
-&lt;p&gt;Splitting and joining is similar to Python except Julia isn&amp;rsquo;t really object oriented so function name comes first as Julia uses multiple dispatch to decide which implementation to call.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; b = split(&amp;quot;This is a string&amp;quot;)
-4-element Array{SubString{ASCIIString},1}:
- &amp;quot;This&amp;quot;  
- &amp;quot;is&amp;quot;    
- &amp;quot;a&amp;quot;     
- &amp;quot;string&amp;quot;
-
-julia&amp;gt; join(b, &amp;quot; &amp;quot;)
-&amp;quot;This is a string&amp;quot;
-
-julia&amp;gt; join(b, &amp;quot;, &amp;quot;)
-&amp;quot;This, is, a, string&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Nesting functions call is sometimes hard to read, so Julia offers the &lt;code&gt;|&amp;gt;&lt;/code&gt; operator to write the code in similar sequence as with object oriented languages .e.g:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; &amp;quot;This is a string&amp;quot; |&amp;gt; split |&amp;gt; join
-&amp;quot;Thisisastring&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-comprehensions:cd102e3cfa31e3f431f8e244b481d2f3&#34;&gt;List Comprehensions&lt;/h3&gt;
-
-&lt;p&gt;The traditional imperative way transforming on list to a new one is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; M = String[]
-0-element Array{String,1}
-
-julia&amp;gt; for word in L
-           push!(M, word[1:3])
-       end
-
-julia&amp;gt; M
-4-element Array{String,1}:
- &amp;quot;Jul&amp;quot;
- &amp;quot;mak&amp;quot;
- &amp;quot;peo&amp;quot;
- &amp;quot;lov&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Quite similar to the Python example except Julia lists havea type so you have to specify that it is a String. You can create a python like array but then you need to specify that it takes any element:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; M = Any[]
-0-element Array{Any,1}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With list comperhensions you can do this more elegantly with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; M = [word[1:3] for word in L]
-4-element Array{Any,1}:
- &amp;quot;Jul&amp;quot;
- &amp;quot;mak&amp;quot;
- &amp;quot;peo&amp;quot;
- &amp;quot;lov&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However for &lt;a href=&#34;http://julialang.org&#34;&gt;Julia&lt;/a&gt; it would be more idiomatic to express what you are doing. E.g. in this case we are mapping from one array to another which we can express like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;julia&amp;gt; M = map(word -&amp;gt;  word[1:3], L)
-4-element Array{ASCIIString,1}:
- &amp;quot;Jul&amp;quot;
- &amp;quot;mak&amp;quot;
- &amp;quot;peo&amp;quot;
- &amp;quot;lov&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If we want to filter a list by producing a new list containg only the elements with length greater than 5 we would do it like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for word in L
-  if length(word) &amp;gt; 5
-    push!(M, word)
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With Python we could solve this with a list comperhension however with Julia you have to explicity state that you are filtering:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;M = filter(word -&amp;gt; length(word) &amp;gt; 5, L)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The reason for this is that Julia has bultin support for multidimensional arrays, given that it was designed for scientific computing where this is important. There is no natural way to filter a multi dimensional array, as e.g. every row in a matrix needs to have the same number of columns.&lt;/p&gt;
-</description>
+      <description>I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia?
+So without further ado, her are some examples.
+Reverse an iterable There are two ways of doing this
+ julia&amp;gt; a = [1, 2, 4] 3-element Array{Int64,1}: 1 2 4  The most obvious way is the reverse function</description>
     </item>
     
     <item>
@@ -915,31 +90,7 @@ end
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/torture/</guid>
-      <description>
-
-&lt;p&gt;This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it. It is much like free speech. If you argue free speech should only be allowed to those who don&amp;rsquo;t say nasty things, then it isn&amp;rsquo;t free speech.&lt;/p&gt;
-
-&lt;p&gt;Anyway the two common assumptions proponents of torture of terrorists indulge in is:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;That you are always able to tell whether the terrorist is telling the truth or not.&lt;/li&gt;
-&lt;li&gt;That you know that you got the right guy.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In a realistic scenario you don&amp;rsquo;t know who knows what. Say you got 10 terror suspects and one of them knows where the next attack is going to be. You don&amp;rsquo;t know who knows however and when you ask each of them, they all refuse to tell you. So you decide to torture every one of them to force them to talk. Now everyone of them wants to get away from the pain so they say whatever they think you want to hear. 9 of them has to invent something, because there is only 1 who actually knows. Problem is that now you have 10 different answers to your question.&lt;/p&gt;
-
-&lt;p&gt;So the problem is that even if we assumed torture made people tell the truth if they know it, it wont help because the whole torture approach is producing so many false answers that you can&amp;rsquo;t tell when you got the right answer.&lt;/p&gt;
-
-&lt;p&gt;Then there is silly assumption that the authorities can really know for sure whether they got the right person or not. As the Senate Committee&amp;rsquo;s Report on CIA&amp;rsquo;s use of torture details, one often apperhended innocents. In fact 20% of those detained did not even meet CIA&amp;rsquo;s own criteria for being detained.&lt;/p&gt;
-
-&lt;p&gt;A great example of this is &lt;a href=&#34;http://en.wikipedia.org/wiki/Guildford_Four_and_Maguire_Seven#Guildford_Four&#34;&gt;&amp;ldquo;Guildford Four and Maguire Seven&amp;rdquo;&lt;/a&gt; who were convicted of the Guildford pub bombings of 5 October 1974. This later formed the basis of the famous movie &amp;ldquo;In the name of my father&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Convictions based on the use of torture. They were not released until 1991, when it was uncovered how the police had manipulated evidence and tortured the suspects into confessions. No doubt the police thought they had the right guys. When it started becoming clear they were wrong they covered up. That is third problem with torture. If one ever makes a mistake in torture, authorities will attempt to cover up the truth because the truth will be too much of an embarrasment. Just like the catholic chrurch has covered up their abuses because what could be more embarrassing that the guardians of moral displaying imoral.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion:8e3e3848c75d40eaae37bf7322309ce4&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;So in short I believe torture is wrong because when we torture we create a lot of false positives which hides the actual truth. Secondly because the principle of innocence exists not to be nice to bad guys but because it is very hard to know whether you got the right guy. That is why we have courts, to determine innocence. It stands to reasons that the graver the accusation the stronger the legal protection should be as the moral cost of wrongefully convicting someone of mass murder or terrorism is very high. Sadly many seem to conclude opposite. The more terrible the accusation you are subject to the less legal protection you deserve. With this form of logic, going over the speed limit on the highway should give someone the strongest legal defence.&lt;/p&gt;
-</description>
+      <description>This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it.</description>
     </item>
     
     <item>
@@ -948,144 +99,17 @@ end
       <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
-      <description>
-
-&lt;p&gt;The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post [Dynamic languages are static languages][dynisstatic] illustrates the misunderstanding very well.&lt;/p&gt;
-
-&lt;p&gt;I think part of the problem is that when trying to articulate what the advantages of dynamic languages are it is easy to get very vague. So I am trying another approach.&lt;/p&gt;
-
-&lt;h2 id=&#34;dynamic-typing-as-a-paradigm:971ba13e9010bce2001cf2f689aed692&#34;&gt;Dynamic typing as a paradigm&lt;/h2&gt;
-
-&lt;p&gt;In this post I will start by claiming that it is not so much about static vs dynamic languages but rather about two different paradigmes or approaches to programming. Much the same way as it can be argued that Object Oriented programming is a paradigme rather than a feature of a programming language. Many of you might already be familier with Object Oriented Programming in C. That is quite popular on Linux in the &lt;a href=&#34;http://www.gtk.org&#34;&gt;Gtk toolkit&lt;/a&gt; used on the Gnome desktop. Of course C as a language was not designed for this sort of programming the way say Java or Smalltalk was designed for it.&lt;/p&gt;
-
-&lt;p&gt;The same argument could be made about static vs dynamic typing. You could write in a dynamic style in statically typed language. I&amp;rsquo;ve done that plenty of times. GUI based programming is often a good example. Static typing isn&amp;rsquo;t very well suited for this task and thus we got things like &lt;a href=&#34;http://qt-project.org&#34;&gt;Qt&lt;/a&gt; a C++ GUI toolkit which added a preprocessor which gave dynamic featues to C++. Objective-C did much the same earlier by adding dynamic features to C.&lt;/p&gt;
-
-&lt;h2 id=&#34;objects-as-hashtables:971ba13e9010bce2001cf2f689aed692&#34;&gt;Objects as Hashtables&lt;/h2&gt;
-
-&lt;p&gt;So how would you program in a more dynamic fashion in a statically typed language? One way which I have used a lot myself is to use hash tables more to define your objects rather than classes. This is essentially what an object is in Python or Ruby. In C++ or Java you could store your date in a hash table and create a number of functions or methods to manipulate this hash table much the same way as you create classes with corresponding methods. But why would you do that? You lose type safety. Of course but you also gain something:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You can easily iterate over the member of your object. Handy when applying a transformation to all members such as serializing them to disk, or duplicating them.&lt;/li&gt;
-&lt;li&gt;You can add members at runtime.&lt;/li&gt;
-&lt;li&gt;You can give rich meta data descriptions available at runtime for dynamic creation of e.g. GUIs.&lt;/li&gt;
-&lt;li&gt;It can solve complicated problems with defining a proper taxonomy. Usually in Object Oriented programming we try to reuse code by creating an inheritance hierarchy so that we can share the implementation of methods which work in similar ways across types which are similar to each other. However a such a taxonomy might not always be easy to define. With hashtables it is easy to write a function which works on hash tables with different number of members as long as they share a common minimum of members that the function operates on.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The latter point was realized in &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; when they allowed satisfying interfaces implicitly. Point 3 allows creating such things as the &lt;em&gt;Predicate Editor&lt;/em&gt; found in Cocoa. One can imagine creating descriptions of each property saying what unit the property is in e.g. meters, kilo grams etc and what are legal value ranges. This can then be used to derive a GUI that allows viewing or editing corresponding objects. Visualization pipelines such as the &lt;a href=&#34;http://www.vtk.org&#34;&gt;Visualization Toolkit&lt;/a&gt; works along simular lines. You can at runtime connect algorithms sort of like Unix pipelines. To support an editor which lets humans connect different algorithms there needs to be a way to query each potential component in the pipeline and ask what sort of inputs and outputs they require. A compiler can&amp;rsquo;t check this sort of type information. First because it varies with the application domain what a type specifies and it needs to be determined at runtime for interactive usage.&lt;/p&gt;
-
-&lt;p&gt;So a hash table with a bunch of functions is a way to simulate dynamic typing in a staticly typed languge, but thinking dynamic is more fundamental than that.&lt;/p&gt;
-
-&lt;h2 id=&#34;pascal-vs-c:971ba13e9010bce2001cf2f689aed692&#34;&gt;Pascal vs C&lt;/h2&gt;
-
-&lt;p&gt;To illustrate the problem with strict typing I will go all the way back to Pascal. Pascal failed and C succeeded much because of Pascal&amp;rsquo;s embrace of the static typing over practicality mentality. Brian W. Kernighan wrote an article in 1981 called &lt;a href=&#34;http://www.lysator.liu.se/c/bwk-on-pascal.html&#34;&gt;Why Pascal is Not My Favorite Programming Language&lt;/a&gt; which illustrates many of these problems. In one of his examples he says:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If one declares&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt; var     arr10 : array [1..10] of integer;
-         arr20 : array [1..20] of integer;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;then arr10 and arr20 are arrays of 10 and 20 integers respectively.  Suppose we want to write a procedure &amp;lsquo;sort&amp;rsquo; to sort an integer array.  Because arr10 and arr20 have different types, it is not possible to write a single procedure that will sort them both.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This might sound laughable by todays standards, but although it is perhaps and extreme example it is really just a variation of the same problem that one will often encounter with the static typing approach. Static typing allows the compiler to catch many mistakes you do before the code runs. Making the array lenght part of its type meant you would be less likely to get out of bounds errors or pass arrays of the wrong length around. But it also made it hard to reuse code and write generic functions.&lt;/p&gt;
-
-&lt;h2 id=&#34;3d-graphics-and-opengl:971ba13e9010bce2001cf2f689aed692&#34;&gt;3D Graphics and OpenGL&lt;/h2&gt;
-
-&lt;p&gt;When writing graphics code it would be tempting to make everything into types in much the same manner as Pascal. One might argue that a point in 2D space should be different from a point in 3D space or even 4D space. We could write types like this (julia syntax):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Point2D
-  x :: Float64
-  y :: Float64
-end
-
-type Point3D
-  x :: Float64
-  y :: Float64
-  z :: Float64
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We could then create array of 10 point objects like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;points2d = Array(Poin2D, 10)
-points3d = Array(Point3D, 10)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Perhaps we want to perform rotation or translation of all these points with a matrix. The problem that now arises is much the same as with Pascal. If we define a function which transforms an array of points using a matrix:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function transform(matrix :: Matrix, points :: Vector{Point2D})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then this can not be reused for an array of &lt;code&gt;Point3D&lt;/code&gt; points. Thus we get pascal style code duplication. Mathematically speaking matrix muliplication is a generic operation which we can write an algorithm for which perform the operation a matrix of any size. If we do not treat our points as types like &lt;code&gt;Point2D&lt;/code&gt; and &lt;code&gt;Point3D&lt;/code&gt; but just as arrays of numbers then we can transform an array of 10 2D points by just treating it as a matrix with 2 rows and 10 columns. &lt;code&gt;Point3D&lt;/code&gt; would be a matrix of 3 rows and 10 columns. This allows us to reuse standard fast matrix multiplication functions.&lt;/p&gt;
-
-&lt;p&gt;OpenGL is a good example of this practice. There are no types for matricies or vectors. They are just arrays of numbers. This allows us to reuse OpenGL function for many cases.&lt;/p&gt;
-
-&lt;h2 id=&#34;large-scale-programs:971ba13e9010bce2001cf2f689aed692&#34;&gt;Large Scale Programs&lt;/h2&gt;
-
-&lt;p&gt;I hope that these simple examples in the small with Pascal arrays and matricies and vectors in 3D programming will allow you to get an intuition about how these problems also exist at a larger scale in most statically typed programs. When a large piece of software gets developed over many years by many different teams and pieces get bought and integrated there will be a lot of types which are similar but not quite the same, but which non the less needs to work together. We can imagine them like our 2D and 3D points. When they are separate types we will need to write a lot of conversion code to be able to reuse algorithms created for another type of object, or to be able to write some shared algorithm.&lt;/p&gt;
-
-&lt;p&gt;With the dynamic approach this sort of problem usually disappear. That is the reason why glue languages are usually dynamic languages. Connecting different pieces of software that was not designed for each other gets quite tricky with a static language which insists on knowing everything about types at compile time. A concrete example of this is why a REPL for a statically typed language never can work as well as one for a dynamically typed one.&lt;/p&gt;
-
-&lt;p&gt;In a dynamic language you can make structural changes at runtime. You can add or remove member variables of methods at runtime. That is fine because that does not change the type. For a statically typed language this poses a problem, since by adding or removing members you are changing the static type which all previous code was dependent on. The assumptions the compiler previously had about how to handle your types, would no longer be true and can thus not be allowed.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion:971ba13e9010bce2001cf2f689aed692&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Not having done any research on this I can only speculate. But my speculation is that statically typed languages mainly work for medium sized programs while dynamic typing works for the small and high level. As your program grows it can get easier to mix up your types when you only use dynamic typing. So for larger size static typing has some advantages. However as a program gets even larger one gets into the problem of having to deal with many parts that were not designed for each other. This is where the flexibility of dynamically typed languages gains ground again.&lt;/p&gt;
-
-&lt;p&gt;So perhaps a usefull design is to have chunks of statically typed code fittet together with a dynamically typed language which orchastrates everything at a high level.&lt;/p&gt;
-
-&lt;p&gt;[dynisstatic]: &lt;a href=&#34;https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/&#34;&gt;https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.</description>
     </item>
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>http://translusion.github.com/posts/CEO%20Salaries/</link>
+      <link>http://translusion.github.com/posts/ceo-salaries/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/CEO%20Salaries/</guid>
-      <description>
-
-&lt;p&gt;A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.&lt;/p&gt;
-
-&lt;p&gt;Michael B. Dorff shows in his book &amp;ldquo;Indispensable and Other Myths&amp;rdquo; how the &amp;ldquo;market&amp;rdquo; for CEOs isn&amp;rsquo;t really a market. The most refreshing thing about the book I think is that he shows how essentially both sides of the debate about CEO salaries are quite wrong. The salaries are not determined by some highly efficient market which pays for talent, nor is it some sort of conspiracy to get as much money as possible.&lt;/p&gt;
-
-&lt;p&gt;In a way Michael B. Dorff&amp;rsquo;s explanation for CEO salaries reminds me of &lt;a href=&#34;http://en.wikipedia.org/wiki/Hanlon&#39;s_razor&#34;&gt;Hanlon&amp;rsquo;s razor&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Never attribute to malice that which is adequately explained by stupidity.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;CEO pay is high essentially because everybody in charge of deciding CEO pay believes both that CEOs matter a lot to the fortunes of a company and that performance based pay is really effective for the sort of work a CEO does. The problem is turns out is that there isn&amp;rsquo;t really any evidence for any of this and the evidence that does exist typically shows no correlation or negative correlation.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-did-it-all-start:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;How did it all start?&lt;/h2&gt;
-
-&lt;p&gt;It all essentially started with the economists Michael Jensen and William Meckling in the mid 1970s. They produced an extremely influential paper that argued that CEOs needed to get their pay tied to company performance to align themselves with the interests of the shareholders. Only problem was that this idea was based on flimsy evidence at the time and has never since been proven. Yet the intuinitive appeal was so strong that this idea soon spread to the boardrooms.&lt;/p&gt;
-
-&lt;p&gt;The other problem is that board members easily get too carried away with increasing CEO compensation when hiring because there is strong belief that it is vital for the success of the company to get the very best CEO money can buy. Yet studies by Gabaix and Lanier, who were in favor of performance based pay showed that the difference between the best CEO and the 250th best was 0.016 percent. Meaning if one replaced the 250th best CEO with the best, then the companies market capitalization would grow by 0.016 percent. That is just small of a difference to expect that a board member can spot such minute difference between two CEOs.&lt;/p&gt;
-
-&lt;p&gt;So why do they keep doing it? One of the effects Michael B. Dorff talks about is one similar to the one where you find that if you ask every driver about how good they are, then 90 percent will say they are better than the average. That is mathematically impossible. Board members are no better. They will typically believe they are above average and that they have superior ability to spot a good CEO.&lt;/p&gt;
-
-&lt;h2 id=&#34;incentive-based-pay-doesn-t-work-for-intellectual-tasks:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Incentive based pay doesn&amp;rsquo;t work for intellectual tasks&lt;/h2&gt;
-
-&lt;p&gt;Michael B. Dorff goes on to discuss a number of studies which shows that while performance based pay usually works with repetitive non-intelectual tasks it generally doesn&amp;rsquo;t work for more intelectually challenging work. And even when it works, it has so many side effects that it is often not worth it. One exampe he mentions is &lt;a href=&#34;http://hbswk.hbs.edu/item/3424.html&#34;&gt;HP&amp;rsquo;s experiments&lt;/a&gt; with performance based pay in the 90s.&lt;/p&gt;
-
-&lt;p&gt;Incentive based pay reduced learning and mobility between teams. Team members became too focused on the metrics being measured at the detriment of everything else. When teams exceeded expectations according to metrics that would eventually force management to increase the requirements to meet the goals to get costs under control. However that would often cause resentment because employees now struggled with achieving what they had normally achieved. This issues led to management having to spend an exorbiant amount of time on tweaking and modifying incentives. In the end they concluded it was not worth it and all the branches of HP which had introduced performance based pay had abandoned it within 3 years.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion:a48a7daa7268d7826a4d5a6edbfb41af&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;When reading &amp;ldquo;Indispensable and Other Myths&amp;rdquo; I can&amp;rsquo;t help but thinking that the reason we are so stuck with these approaches that doesn&amp;rsquo;t work like excessive CEO pay is that we are too eager to trust common sense. It makes common sense that performance based pay works and that CEOs are important. Perhaps it is worth remembering one of Albert Einstein&amp;rsquo;s quotes:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Common sense is the collection of prejudices acquired by age eighteen.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In reasoning about the very large or the very small like galaxies or sub atomic particles our common sense is of no help because our brains developed never having to deal with object of this size. It is also well known that we are notoriously horrible about having an intuition about probablity and statistics which are quite fundamental to studying anything like society, economics or CEO pay.&lt;/p&gt;
-</description>
+      <guid>http://translusion.github.com/posts/ceo-salaries/</guid>
+      <description>A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.
+Michael B. Dorff shows in his book &amp;ldquo;Indispensable and Other Myths&amp;rdquo; how the &amp;ldquo;market&amp;rdquo; for CEOs isn&amp;rsquo;t really a market. The most refreshing thing about the book I think is that he shows how essentially both sides of the debate about CEO salaries are quite wrong.</description>
     </item>
     
     <item>
@@ -1094,283 +118,8 @@ points3d = Array(Point3D, 10)
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
-      <description>
-
-&lt;p&gt;While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 2 + 3
-5
-&amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5
-7
-&amp;gt;&amp;gt;&amp;gt; 3.5 * 2
-7.0
-&amp;gt;&amp;gt;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can do much the same with Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  1&amp;gt; 2 + 3
-$R0: Int = 5
-  2&amp;gt; 10 + 2 - 5
-$R1: Int = 7
-  3&amp;gt; 3.5 * 2
-$R2: Double = 7
-  4&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Although this is quite similar, we can already get a hint here that Swift is different and cares a lot more about type. Along with all results we can see that Swift derives the type of the result. Swift is however a lot stricter language. In Python I can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x = 4
-&amp;gt;&amp;gt;&amp;gt; y = 5
-&amp;gt;&amp;gt;&amp;gt; z = x + y
-&amp;gt;&amp;gt;&amp;gt; z
-9
-&amp;gt;&amp;gt;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Despite the fact that &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; and &lt;code&gt;z&lt;/code&gt; does not exist already. By assigning we created them. So there is no way to avoid having the accident of thinking you are assigning to a new variable when in fact you are overwriting the value of an existing one. In Swift if we try this we get:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    4&amp;gt; x = 4
-error: use of unresolved identifier &#39;x&#39;
-x = 4
-^
-
-    4&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Instead we have to write &lt;code&gt;var&lt;/code&gt; to indicate we are creating a new variable:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 4&amp;gt; var x = 4
-x: Int = 4
-  5&amp;gt; var y = 5
-y: Int = 5
-  6&amp;gt; var z = x + y
-z: Int = 9
-  7&amp;gt;    
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can assign new values to these&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    7&amp;gt; x = 30
-    8&amp;gt; x
-$R3: Int = 30
-    9&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However if we made the variable constant by using &lt;code&gt;let&lt;/code&gt; we could not:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 12&amp;gt; let x = 4
-x: Int = 4
- 13&amp;gt; x = 5
-error: cannot assign to &#39;let&#39; value &#39;x&#39;
-x = 5
-~ ^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift is also a lot more strict about not mixing types. While you can do this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;     13&amp;gt; 2.3 + 3
-$R4: Double = 5.2999999999999998
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can&amp;rsquo;t do this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 14&amp;gt; let x = 2.3
-x: Double = 2.2999999999999998
- 15&amp;gt; let y = 3
-y: Int = 3
- 16&amp;gt; x + y
-error: cannot invoke &#39;+&#39; with an argument list of type &#39;(Double, Int)&#39;
-x + y
-~~^~~
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You will have to explicitly convert the values:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 17&amp;gt; x + Double(y)
-$R6: Double = 5.2999999999999998
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;type-annotation:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Type annotation&lt;/h2&gt;
-
-&lt;p&gt;Sometimes Swift will not be able to guess what type you wanted a variable to be. E.g. Swift could not know that &lt;code&gt;3&lt;/code&gt; was supposed to be a &lt;code&gt;Double&lt;/code&gt;. But what you can do is either write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  1&amp;gt; let y = 3.0
-y: Double = 3 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or you could annotate the variable y with the type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  2&amp;gt; let y : Double = 3
-y: Double = 3 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;arrays-and-dictionaries:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Arrays and Dictionaries&lt;/h2&gt;
-
-&lt;p&gt;One of the nice things about Python the batteries included approach. We get usefull data types like arrays and dictionaries built into the language. So we can easily create arrays and dictionaries and manipulate them:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; numbers = [2, 4, 6, 8]
-&amp;gt;&amp;gt;&amp;gt; squared = map(lambda x: x*x, numbers)
-&amp;gt;&amp;gt;&amp;gt; squared[0:3]
-[4, 16, 36] 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift follows a similar philosophy and allows you to create collections of objects with succint syntax:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  4&amp;gt; let numbers = [2, 4, 6, 8] 
-numbers: [Int] = 4 values {
-  [0] = 2
-  [1] = 4
-  [2] = 6
-  [3] = 8
-}
-  5&amp;gt; let squared = map(numbers, {x in x*x}) 
-squared: [Int] = 4 values {
-  [0] = 4
-  [1] = 16
-  [2] = 36
-  [3] = 64
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see this is very similar. But Swift has a number of alternative ways to do this with ruby inspired syntax sugar:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  8&amp;gt; let squared = map(numbers) {x in x*x}
-squared: [Int] = 4 values {
-  [0] = 4
-  [1] = 16
-  [2] = 36
-  [3] = 64
-}
-  9&amp;gt; let squared = numbers.map {x in x*x} 
-squared: [Int] = 4 values {
-  [0] = 4
-  [1] = 16
-  [2] = 36
-  [3] = 64
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To slice arrays we can either do that with a closed &lt;code&gt;...&lt;/code&gt; or open interval &lt;code&gt;..&amp;lt;&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  6&amp;gt; squared[0...3]
-$R0: Slice&amp;lt;Int&amp;gt; = 4 values {
-  [0] = 4
-  [1] = 16
-  [2] = 36
-  [3] = 64
-}
-  7&amp;gt; squared[0..&amp;lt;3]
-$R1: Slice&amp;lt;Int&amp;gt; = 3 values {
-  [0] = 4
-  [1] = 16
-  [2] = 36
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;functions:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Functions&lt;/h2&gt;
-
-&lt;p&gt;With python you can easily create a function like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def add(a, b):
-    return a + b
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However that is not going to work in Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 21&amp;gt; func add(a, b) { 
- 22.     return a + b 
- 23. }    
-error: use of undeclared type &#39;a&#39;
-func add(a, b) {
-         ^
-error: use of undeclared type &#39;b&#39;
-func add(a, b) {
-            ^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Because Swift needs to know what the type of your variables are. Unlike like our previous example where we assigned a value right away, there is no way for Swift to know what the type of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; is going to be. It can&amp;rsquo;t infer it, so we have annotate the variables:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func add(a: Int, b: Int) -&amp;gt; Int {
-    return a + b
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But this has some limitations compared to the Python example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 4&amp;gt; add(2, 3)
-$R0: Int = 5
-  5&amp;gt; add(2.0, 3.3)
-error: cannot convert the expression&#39;s type &#39;(FloatLiteralConvertible, FloatLiteralConvertible)&#39; to type &#39;Int&#39;
-add(2.0, 3.3)
-^~~~~~~~~~~~~
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;generics:202d4a02dbc032c9d4c6628af62032bb&#34;&gt;Generics&lt;/h2&gt;
-
-&lt;p&gt;Python allowed us to use any type of number, but now we have limited ourselves to integers. We can&amp;rsquo;t e.g. use float values. The Swift solution for this is Generics as found in C#, Java and many other languages. If this had been C++ I could have written something like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func add&amp;lt;T&amp;gt;(a: T, b: T) -&amp;gt; T {
-    return a + b
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To indicate that &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; can be of any type but they have to be of the same type &lt;code&gt;T&lt;/code&gt;. Likewise with the result. However this would give us the error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;error: cannot invoke &#39;+&#39; with an argument list of type &#39;(T, T)&#39;
-return a + b
-       ~~^~~
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The reason being that an arbitrary type &lt;code&gt;T&lt;/code&gt; doesn&amp;rsquo;t support adding. C++ solves this problem by checking every use of &lt;code&gt;add()&lt;/code&gt; in the program and making sure only types which support &lt;code&gt;+&lt;/code&gt; is provided as arguments. But that is actually a terrible solution as it produces errors inside the function at the offending line. Thus users of a third party library has to understand how a third party function is implemented. So the Swift way of doing this is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func add&amp;lt;T: Addable&amp;gt;(a: T, b: T) -&amp;gt; T {
-    return a + b
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To indicate that that the type &lt;code&gt;T&lt;/code&gt; has to implement the protocol &lt;code&gt;Addable&lt;/code&gt;. A protocol is like a C# or Java interface. It lists functions which any class which wants to adhere to the protocol has to implement. In this case we say that &lt;code&gt;T&lt;/code&gt; has to be of a type that support the &lt;code&gt;+&lt;/code&gt; operator. Unfortunatly no &lt;code&gt;Addable&lt;/code&gt; protocol exists in Swift. In fact Swift is at the moment quite lacking in protocols. The whole Swift standard library is quite tiny at the momment. So the above code will give the error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    error: use of undeclared type &#39;Addable&#39;
-func add&amp;lt;T: Addable&amp;gt;(a: T, b: T) -&amp;gt; T {
-            ^~~~~~~ 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Thus we have to specify the &lt;code&gt;Addable&lt;/code&gt; protocol ourselves:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;protocol Addable {
-    func +(a: Self, b: Self) -&amp;gt; Self
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The use of &lt;code&gt;Self&lt;/code&gt; looks strange. Self is a sort of placeholder for the type of the object the method is being invoked on. So e.g. when &lt;code&gt;+&lt;/code&gt; is being invoked on an &lt;code&gt;Int&lt;/code&gt; object then &lt;code&gt;Self&lt;/code&gt; is the same as &lt;code&gt;Int&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now we have the protocol but that only takes us half way. No concrete type is actually implementing this protocol. If this was Java or C++ that would be the end of this, because we would have had to implement our own number types somehow. Existing types can&amp;rsquo;t implement a new interface. Except in Swift you can. We can add methods to existing types or have existing types implement new protocols through extensions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;extension Int: Addable {}
-extension Double: Addable {}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This specifies that &lt;code&gt;Int&lt;/code&gt; and &lt;code&gt;Double&lt;/code&gt; implements &lt;code&gt;Addable&lt;/code&gt;. Notice we don&amp;rsquo;t have to actually implement any methods ourselves because &lt;code&gt;Int&lt;/code&gt; and &lt;code&gt;Double&lt;/code&gt; already have the &lt;code&gt;+&lt;/code&gt; method/operator. Now we can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  1&amp;gt; add(1, 2)
-$R0: (Int) = 4
-  2&amp;gt; add(2.0, 3.0)
-$R1: (Double) = 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However if we use a &lt;code&gt;Float&lt;/code&gt; we get:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  3&amp;gt; let x : Float = 2
-x: Float = 2
-  4&amp;gt; let y : Float = 3
-y: Float = 3 
-  5&amp;gt; add(x, y)
-error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We get an error because we have not specified that &lt;code&gt;Float&lt;/code&gt; implements our &lt;code&gt;Addable&lt;/code&gt; protocol.&lt;/p&gt;
-</description>
+      <description>While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:
+&amp;gt;&amp;gt;&amp;gt; 2 + 3 5 &amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5 7 &amp;gt;&amp;gt;&amp;gt; 3.5 * 2 7.0 &amp;gt;&amp;gt;&amp;gt;  We can do much the same with Swift:</description>
     </item>
     
     <item>
@@ -1379,456 +128,7 @@ error: Type &#39;Float&#39; does not conform to protocol &#39;Addable&#39;
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
-      <description>
-
-&lt;p&gt;One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it. It will take longer time to make up an opinion about Swift.&lt;/p&gt;
-
-&lt;h3 id=&#34;hello-world:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Hello world&lt;/h3&gt;
-
-&lt;p&gt;The Go tour starts with the infamous &amp;ldquo;Hello world&amp;rdquo; program:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;package main
-
-import &amp;quot;fmt&amp;quot;
-
-func main() {
-    fmt.Println(&amp;quot;Hello, 世界&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see below Swift looks very similar at first glance. Although &lt;code&gt;main&lt;/code&gt; doesn&amp;rsquo;t have any special meaning. It is just a function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import Foundation
-
-func main() {
-    println(&amp;quot;Hello, 世界&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So we should rather replace the code with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import Foundation
-
-println(&amp;quot;Hello, 世界&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;import:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Import&lt;/h3&gt;
-
-&lt;p&gt;In Go one divides the code into lots of small packages, which you can import as shown in the tour example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;package main
-
-import (
-    &amp;quot;fmt&amp;quot;
-    &amp;quot;math/rand&amp;quot;
-)
-
-func main() {
-    fmt.Println(&amp;quot;My favorite number is&amp;quot;, rand.Intn(10))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With Swift we typically import large frameworks containg a number of libraries. For just simple math libraries &lt;code&gt;Foundation&lt;/code&gt; or &lt;code&gt;Cocoa&lt;/code&gt; isn&amp;rsquo;t needed. You can import e.g. the &lt;code&gt;Darwin&lt;/code&gt; framework.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import Darwin
-
-let favorite = rand() % 10
-println(&amp;quot;My favorite number is&amp;quot;, favorite)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;functions:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Functions&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;func add(x int, y int) int {
-    return x + y
-}
-
-func main() {
-    fmt.Println(add(42, 13))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift is similar placing type info last instead of traditional C/C++ way of putting type first.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func add(x: Int, y: Int) -&amp;gt; Int {
-    return x + y
-}
-
-
-println(add(42, 13))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;multiple-results:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Multiple results&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;func swap(x, y string) (string, string) {
-    return y, x
-}
-
-func main() {
-    a, b := swap(&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;)
-    fmt.Println(a, b)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift doesn&amp;rsquo;t really return multiple values like Go functions but instead returns tuples which lets you accomplish basically the same thing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func swap(x: String, y: String) -&amp;gt; (String, String) {
-    return (y, x)
-}
-
-var (a, b) = swap(&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;)
-println(&amp;quot;\(a) \(b)&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Another minor difference is that Swift can do &lt;code&gt;println(a)&lt;/code&gt; but not &lt;code&gt;println(a, b)&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;named-results:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Named results&lt;/h3&gt;
-
-&lt;p&gt;You can name the results in both Go and Swift but the meaning is very different, because Go has multiple return variables and Swift has tuples instead. In the Go example &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; can be assigned to directly:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func split(sum int) (x, y int) {
-    x = sum * 4 / 9
-    y = sum - x
-    return
-}
-
-func main() {
-    fmt.Println(split(17))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can&amp;rsquo;t do that in Swift, because naming here has a different meaning. What you are doing is naming the entries in the tupple so, that you can refer to the entries later. It is sort of like making a struct on the fly.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func split(sum: Int) -&amp;gt; (x: Int, y: Int) {
-    var x = sum * 4 / 9
-    var y = sum - x
-    return (x, y)
-}
-
-var result = split(17)
-
-println(result.x)
-println(result.y)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;variables:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Variables&lt;/h3&gt;
-
-&lt;p&gt;In Go &lt;code&gt;var&lt;/code&gt; start the definition of one or more variables with the type last.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var i int
-var c, python, java bool
-
-func main() {
-    fmt.Println(i, c, python, java)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift is similar, except in Swift variables are never automatically initialized to 0 or false like in Go. If a variable is not initialized it is undefined and you are not allowed to use it. So you  must assign to it before you can read from it. Also multiple assignment relies on the tuple concept.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var i: Int
-var c, python, java: Bool
-var (c, python, java) = (false, false, false)
-
-println(&amp;quot;\(c) \(python) \(java)&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So when doing initialization Go and Swift look more similar:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var i, j int = 1, 2
-var c, python, java = true, false, &amp;quot;no!&amp;quot;
-
-func main() {
-    fmt.Println(i, j, c, python, java)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With the difference that type annotations work a bit different. If you want every variable in the tupple to be of type &lt;code&gt;Int&lt;/code&gt; you have to specify that for each individual variable.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var (i: Int, j: Int)  = (1, 2)
-var (c, python, java) = (true, false, &amp;quot;no!&amp;quot;)
-
-println(&amp;quot;\(i) \(j) \(c) \(python) \(java)&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The tradeoff here is that that allows you to chose which variables you want infered and which ones you want to specify. So with Swift you could write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var (i: Float, j)  = (1, 2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;which would turn &lt;code&gt;i&lt;/code&gt; into a floating point number while &lt;code&gt;j&lt;/code&gt; would be infered to be an integer. Writing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var i Float64, j  = 1, 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;in Go would be a compiler error. Type has to come last and apply to all variables.&lt;/p&gt;
-
-&lt;h3 id=&#34;shorthand:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Shorthand&lt;/h3&gt;
-
-&lt;p&gt;In Go there is a shorthand notation using &lt;code&gt;:=&lt;/code&gt; when infering variables so you could write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;k := 3
-c, python, java := true, false, &amp;quot;no!&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There isn&amp;rsquo;t anything similar in Swift.&lt;/p&gt;
-
-&lt;h3 id=&#34;type-conversions:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Type conversions&lt;/h3&gt;
-
-&lt;p&gt;Both Swift and Go are much more strict on type conversions than what is traditional for C/C++. Conversion from &lt;code&gt;int&lt;/code&gt; to &lt;code&gt;float&lt;/code&gt; won&amp;rsquo;t happen automatically.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var x, y int = 3, 4
-var f float64 = math.Sqrt(float64(x*x + y*y))
-var z int = int(f)
-fmt.Println(x, y, z)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift works similar:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var (x : Int, y : Int) = (3, 4)
-var f : Float = sqrt(Float(x*x + y*y))
-var z : Int = Int(f)
-println(&amp;quot;\(x) \(y) \(z)&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Both Swift and Go can treat primitive types as first class citizens. You can create a type from a e.g. an &lt;code&gt;int&lt;/code&gt; in Go and add method to it. Swift is slightly different in this regard in that the most primitive types are not exposed directly. &lt;code&gt;Int&lt;/code&gt;, &lt;code&gt;Float&lt;/code&gt; etc are really structs which may contain methods. Conversion from say &lt;code&gt;Float&lt;/code&gt; to &lt;code&gt;Int&lt;/code&gt; isn&amp;rsquo;t built into the language but rather exploits one of the initializer methods on the &lt;code&gt;Int&lt;/code&gt; type that takes a &lt;code&gt;Float&lt;/code&gt; as an argument.&lt;/p&gt;
-
-&lt;p&gt;The example above could also be simplified. We don&amp;rsquo;t need to write types as often. Here is an example from a Swift REPL session, demonstrating this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ swift
-Welcome to Swift!  Type :help for assistance.
-  1&amp;gt; var (x, y) = (3, 4)
-x: Int = 3
-y: Int = 4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see the REPL will inform us that it infered the &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; to be of type &lt;code&gt;Int&lt;/code&gt;. Regular math functions such as &lt;code&gt;sqrt&lt;/code&gt; is in the &lt;em&gt;Darwin&lt;/em&gt; package.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  2&amp;gt; import Darwin
-  3&amp;gt; var f = sqrt(Float(x*x + y*y)) 
-f: (Float) = 5
-  4&amp;gt; var z = Int(f)
-z: Int = 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift infers that the result of &lt;code&gt;sqrt&lt;/code&gt; has to be of type &lt;code&gt;Float&lt;/code&gt; if the input is of type &lt;code&gt;Float&lt;/code&gt;. You can&amp;rsquo;t quite do the same in Go since Go does not overload functions on types.&lt;/p&gt;
-
-&lt;h3 id=&#34;structs:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Structs&lt;/h3&gt;
-
-&lt;p&gt;Both Go and Swift support structs. There meaning is quite different however, since Swift is more like C# in that it has the notion of both structs and classes to deal with the lack of pointers. In Go it is idiomatic to access variables directly without accessors.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Vertex struct {
-    X int
-    Y int
-}
-
-func main() {
-    v := Vertex{1, 2}
-    v.X = 4
-    fmt.Println(v.X)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Swift we can&amp;rsquo;t access member variables directly. Although the code looks almost identical Swift always creates accessors conceptually. In machine code it might of course perform a direct access.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;struct Vertex {
-  var x : Int
-  var y : Int
-}
-
-var v = Vertex(x: 1, y: 2)
-v.x = 4
-println(v.x)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Swift initializers we also have to give the names of the arguments. With Go this is optional. The Go code could have been written like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;v := Vertex{X: 1, Y: 2}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A significant conceptual difference is that in Swift creating any object requires running an initializer function. In the Go example the data structure is just initialized directly. No function call is done. If you want an initialiser function for &lt;code&gt;Vertex&lt;/code&gt; objects in Go you have to write a free function explicity:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func NewVertex(x, y int) Vertex {
-  return Vertex{x, y}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;swift-inout-and-go-pointers:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Swift inout and Go pointers&lt;/h3&gt;
-
-&lt;p&gt;Go has real pointers, but Swift allows you to things which makes it look as if it has pointers. Take this example of pointer usage in Go:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func swapXY(v *Vertex) {
-    tmp := v.X
-    v.X = v.Y
-    v.Y = tmp
-}
-
-v := Vertex{1, 2}
-swapXY(&amp;amp;v) // v becomes Vertex{2, 1}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can do almost exactly the same in Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func swapXY(inout v: Vertex) {
-   var tmp = v.x 
-   v.x = v.y 
-   v.y = tmp 
-} 
-
-var v = Vertex(x: 1, y: 2)
-swapXY(&amp;amp;v)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However except for when using unsafe features you can&amp;rsquo;t represent an inout function argument as a separate variable in Swift code the ampersand, only makes sense in the context of calling a function. So this will NOT work in Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var p = &amp;amp;v // error: type &#39;inout Vertex&#39; of variable is not materializable
-swapXY(p)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However Go has real pointers which allows you to write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;p := &amp;amp;v
-swapXY(p)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Go pointers can be passed around and stored like any other variable. This also displays so key design differences between Swift and Go. Swift is generally designed to make code safe and prevent you from accidentally doing something dangerous or wrong. Because you have to prefix with ampersand at the call site it will always be clear to the code reader when you are potentially modifying a struct. Go instead opts for simplicity by having one simple feature which has many use cases.&lt;/p&gt;
-
-&lt;h3 id=&#34;classes:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Classes&lt;/h3&gt;
-
-&lt;p&gt;This naturally brings us to classes. Classes is the way Swift allows us to simulate some of the properties of pointers in Go. If we defined &lt;code&gt;Vertex&lt;/code&gt; as a class instead of a struct we could perform the &lt;code&gt;swapXY&lt;/code&gt; without using &lt;code&gt;inout&lt;/code&gt; because variables of class types are always pointers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Vertex {
-  var x : Int
-  var y : Int
-
-  // classes don&#39;t have initializers automatically made
-  init(x: Int, y: Int) {
-    self.x = x
-    self.y = y
-  }
-}
-
-// this works because v is now essentially a pointer
-func swapXY(v: Vertex) {
-   var tmp = v.x 
-   v.x = v.y 
-   v.y = tmp 
-}
-
-var v = Vertex(x: 1, y: 2)
-swapXY(v) // Becomes Vertex(2, 1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So Swift structs allow us to use variables as values. Meaning they get copied with every assignment (except when using &lt;code&gt;inout&lt;/code&gt; arguments) while classes let use variables as pointers (assignment does not cause a copy). With Go we can manage with just &lt;code&gt;struct&lt;/code&gt; because we can make pointers to values using the ampersand operator.&lt;/p&gt;
-
-&lt;p&gt;Other than that Swift classes works much the same as classes in other languages. It is what allows us to support implementation inheritance. Go does not support implementation inheritance. Go is not alone in this regard new languages like Clojure and Rust also tries to avoid inheritance. For Swift that was not an option as one of the important design goals was to be able to smoothly interface with Objective-C and existing Cocoa libraries which use inheritance hierarchies heavily.&lt;/p&gt;
-
-&lt;p&gt;Both Swift and Go allows you to specify methods on structs:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Vertex struct {
-    X, Y float64
-}
-
-func (v Vertex) Abs() float64 {
-    return math.Sqrt(v.X*v.X + v.Y*v.Y)
-}
-
-func main() {
-    v := Vertex{3, 4}
-    fmt.Println(v.Abs())
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Go the methods are placed outside the struct, while in Swift they must be inside. To Go approach makes it easy to split method definitions over several files. You can achieve the same in Swift using class extensions.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;struct Vertex {
-  var x : Float
-  var y : Float
-
-  func abs() -&amp;gt; Float {
-    return sqrt(x*x + y*y)
-  }
-}
-
-var v = Vertex(x:3, y:4)
-println(v.abs())
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However in Swift it would be more idiomatic to treat the length of a vertex as a calculated property. To do that the code becomes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;struct Vertex {
-  var x : Float
-  var y : Float
-
-  var abs : Float {
-    return sqrt(x*x + y*y)
-  }
-}
-
-var v = Vertex(x:3, y:4)
-println(v.abs) // Looks like member variable access
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;swift-protocols-and-go-interfaces:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Swift Protocols and Go Interfaces&lt;/h3&gt;
-
-&lt;p&gt;Lack of classes does of course not mean that Go doesn&amp;rsquo;t support polymorphism. It does that using &lt;em&gt;interfaces&lt;/em&gt; which are quite similar to Swift &lt;em&gt;protocols&lt;/em&gt;. We don&amp;rsquo;t have to explicitly define that a struct implements an interface in Go, so if we define a interface like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Abser interface {
-    Abs() float64
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can automatically use &lt;code&gt;Vertex&lt;/code&gt; with it since it has a &lt;code&gt;Abs()&lt;/code&gt; method even if &lt;code&gt;Vertex&lt;/code&gt; came from a third party library we didn&amp;rsquo;t own and couldn&amp;rsquo;t modify.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func main() {
-    var a Abser
-    v := Vertex{3, 4}
-    a = v
-
-    fmt.Println(a.Abs()) // displays 5
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Even though Swift does not allow classes or struct to implicitly implement a protocol like Go, it does still allow us to make third party classes and struct implement protocols they were never designed for. If we write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;protocol Abser { 
-  var abs : Float { get }
-}
-
-var v : Abser = Vertex(x:3, y:4)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We will get the error&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;type &amp;lsquo;Vertex&amp;rsquo; does not conform to protocol &amp;lsquo;Abser&amp;rsquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;So we can&amp;rsquo;t do like Go, but we can tell Swift that &lt;code&gt;Vertex&lt;/code&gt; implements &lt;code&gt;Abser&lt;/code&gt; using a class extension (or perhaps we should call it struct extension in this case). Here is an excerpt from a Swift REPL session demonstrating that:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 13&amp;gt; extension Vertex : Abser { 
- 14. }    
- 15&amp;gt; var v : Abser = Vertex(x:3, y:4) 
-v: Vertex = {
-  x = 3
-  y = 4
-}
- 16&amp;gt; v.abs
-$R0: Float = 5
- 17&amp;gt;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If our &lt;code&gt;Vertex&lt;/code&gt; class had not already implemented &lt;code&gt;abs&lt;/code&gt; we could have added it with the class extension:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;extension Vertex : Abser {
-    var abs : Float {
-      return sqrt(x*x + y*y)
-    }    
-}    
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;conclusion:9abb9ee4300cdd8e97474ebf0d072fc6&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Go and Swift have a number of superficial similarities. So you can write code that looks almost identical and does the same thing but the way it works under the hood might be radically different. E.g. using pointers in Go and inout variables in Swift often looks almost identical but works very different.&lt;/p&gt;
-</description>
+      <description>One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it.</description>
     </item>
     
     <item>
@@ -1837,194 +137,8 @@ $R0: Float = 5
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
-      <description>
-
-&lt;p&gt;Around the internet people are saying Apple&amp;rsquo;s &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; has the &lt;code&gt;var&lt;/code&gt; keyword. But it means completely different things since &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; is statically typed and JavaScript is not.&lt;/p&gt;
-
-&lt;p&gt;Anyway being generally curious about programming languages I could see similarities in &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; with &lt;a href=&#34;http://www.rust-lang.org&#34;&gt;Rust&lt;/a&gt;, &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt;, Scala and Ruby. However all these languages differ from Swift in quite a number of ways.&lt;/p&gt;
-
-&lt;p&gt;But if you actually really want find a language that is close to &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt;, I don&amp;rsquo;t know of anything closer than &lt;a href=&#34;http://kotlin.jetbrains.org&#34;&gt;Kotlin&lt;/a&gt; developed by JetBrains. They both seem to have many of the same goals:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Both want to integrate very well with their respective platform. Kotlin with Java and Swift with Objective-C. Unlike Scala which seems more focused on the idea of briding OO and functional programming.&lt;/li&gt;
-&lt;li&gt;IDE support seems important. JetBrains want a language that works well with their IDE. Apple wants something that works well with xCode. Great tools is created in lockstep like e.g. Swift Playground. Rust and Scala e.g. are not heavily tool focused.&lt;/li&gt;
-&lt;li&gt;Simplicity and familiarity are important goals. There are more sofisticated languages out there than &lt;a href=&#34;http://kotlin.jetbrains.org&#34;&gt;Kotlin&lt;/a&gt; and &lt;a href=&#34;https://developer.apple.com/swift/&#34;&gt;Swift&lt;/a&gt; such as Scala, Rust and Haskell. But learning these languages fully requires a lot more effort.&lt;/li&gt;
-&lt;li&gt;Functional programming is used as a way to enhance the language were it makes sense but it isn&amp;rsquo;t any central goal like in e.g. Clojure and Scala.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;feature-and-syntax-similarities:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Feature and Syntax similarities&lt;/h2&gt;
-
-&lt;p&gt;Both place type information after the name of the identifier unlike C/C++, C# and Java. This is also similar to Go, Rust, Pascal etc. Kotlin:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fun sum(a : Int, b : Int) : Int { 
-  return a + b 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func sum(a : Int, b : Int) -&amp;gt; Int { 
-  return a + b 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Syntax for ranges and for loops is similar:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for (index in 1...5) {
-    println(&amp;quot;$(index) times 5 is $(index * 5)&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for index in 1...5 {
-    println(&amp;quot;\(index) times 5 is \(index * 5)&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;pattern-matching:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Pattern matching&lt;/h3&gt;
-
-&lt;p&gt;Both do pattern matching in a smiliar manner, although different keywords is used. In Kotlin you write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;when (count) {
-in 0 -&amp;gt;
-    naturalCount = &amp;quot;no&amp;quot;
-in 1...3 -&amp;gt;
-    naturalCount = &amp;quot;a few&amp;quot;
-in 4...9 -&amp;gt;
-    naturalCount = &amp;quot;several&amp;quot;
-in 10...99 -&amp;gt;
-    naturalCount = &amp;quot;tens of&amp;quot;
-in 100...999 -&amp;gt;
-    naturalCount = &amp;quot;hundreds of&amp;quot;
-in 1000...999_999 -&amp;gt;
-    naturalCount = &amp;quot;thousands of&amp;quot;
-else -&amp;gt;
-    naturalCount = &amp;quot;millions and millions of&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note this is slightly wrong since I don&amp;rsquo;t believe Kotlin support &lt;code&gt;...&lt;/code&gt;. Just &lt;code&gt;..&lt;/code&gt;. But it isn&amp;rsquo;t that important with respect to showing the similarities and different between the pattern matching syntax.
-Which in Swift turns into:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;when (count) {
-c 0:
-    naturalCount = &amp;quot;no&amp;quot;
-case 1...3:
-    naturalCount = &amp;quot;a few&amp;quot;
-case 4...9:
-    naturalCount = &amp;quot;several&amp;quot;
-case 10...99:
-    naturalCount = &amp;quot;tens of&amp;quot;
-case 100...999:
-    naturalCount = &amp;quot;hundreds of&amp;quot;
-case 1000...999_999:
-    naturalCount = &amp;quot;thousands of&amp;quot;
-default:
-    naturalCount = &amp;quot;millions and millions of&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;type-casting:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Type casting&lt;/h3&gt;
-
-&lt;p&gt;Even type casting looks and behaves in the same way, and the both have Option types to avoid null pointer exceptions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;val x : String = y as String   // unsafe case. May throw exception.
-val x : String? = y as? String // safe cast. Nil if not working
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let x : String = y as String
-let x : String? = y as? String
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;enum-types:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Enum types&lt;/h3&gt;
-
-&lt;p&gt;Enumerations are quite different. They have some overlapping functionality. Both allow you to do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;enum class Direction { 
-  NORTH 
-  SOUTH 
-  WEST 
-  EAST 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Swift:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;enum  Direction { 
-  case NORTH, SOUTH, WEST, EAST 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But for more advance case Kotlin and Swift enums look quite different. I don&amp;rsquo;t understand either of them well enough to reason whether they actually represent the same thing deep down or if they are fundamentally different although I lean towards the latter. In Kotlin you can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;enum class Color(val rgb : Int) { 
-  RED : Color(0xFF0000) 
-  GREEN : Color(0x00FF00) 
-  BLUE : Color(0x0000FF) 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Swift my impression is that enums are not really objects in the normal sense. I believe technically they are called a sum type, which is also called a variant in some languages. You can reproduce the Kotlin example in a bit clunky way:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;struct Color {
-    var red : Int
-    var green : Int
-    var blue : Int
-}
-
-enum ColorEnum {
-    case RED, GREEN, BLUE
-    var value : Color {
-        switch self {
-        case .RED:
-             return Color(red: 1, green: 0, blue: 0)
-        case .BLUE:
-            return Color(red: 0, green: 0, blue: 1)
-        case .GREEN:
-            return Color(red: 0, green: 1, blue: 0)
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But I believe the more appropriate Swift way of doing it is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;enum  Color { 
-  RED  (0xFF, 0x00, 0x00) 
-  GREEN(0x00, 0xFF, 0x00) 
-  BLUE (0x00, 0x00, 0xFF) 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Which works better for pattern matching in &lt;code&gt;switch-case&lt;/code&gt; statements. The advantage of the Swift approach is that it allows us to define variants:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;enum ServerResponse {
-  case Result(String, String)
-  case Error(String)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So you can easily define results from functions which are either a value or error object but which the user is forced to extract with pattern matching using &lt;code&gt;switch&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;switch fetchSunriseAndSunsetTimes() {
-case let .Result(sunrise, sunset):
-    let serverResponse = &amp;quot;Sunrise is at \(sunrise) and sunset is at \(sunset).&amp;quot;
-case let .Error(error):
-    let serverResponse = &amp;quot;Failure...  \(error)&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;conclusion:3258c3e2e0b96cdabd99ff90bdbd02cd&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;I am not going to go through every feature, but it is clear when you look at how the languages work that there are a lot of similarities. In the regard that they are different I believe that is born out of the limitations set by each respective platform JVM or Objective-C runtime. Swift likely chose a more sofisticated enum type system with sum types to deal with the fact that exceptions can not easily be provided in a non GC language with Cocoa not being exception safe. I know there isn&amp;rsquo;t an obvious connection here but I believe enum types will be used for building an error handling system in the future for Apple API&amp;rsquo;s. Kotlin is more traditional in supporting exceptions which already works quite well on the JVM.&lt;/p&gt;
-
-&lt;p&gt;Swift also needed away to deal with the peculiar naming of method in iOS where each argument has a name. Cocoa programming is also frequently uses plain C structs for things such as points, rectangles etc. Thus this is explicitly supported in Swift as value types. Java has had no support for this traditionally and thus it is probably harder to get value types to interact with Java API&amp;rsquo;s. Hence Kotlin has omitted value types.&lt;/p&gt;
-
-&lt;p&gt;One advantage I can see from an iOS developers point of view is that I ocassionally work on Android development and if Kotlin is well supported on Android then it will make switching between iOS and Android development a smaller overhead languagewise. iOS and Android APIs are of course quite different but it might be possible to write model objects which are quite similar. Perhaps one can create tools which translate between Swift and Kotlin code as long as one stay with a common subset of functionality. The main problem with writing library code which could be shared is that a Swift API will not use exceptions for error handling but likely enum types. Kotlin APIs will likely rely on exceptions. So it is not possible to write shared functionality without sacrificing benefits on one of the platforms.&lt;/p&gt;
-</description>
+      <description>Around the internet people are saying Apple&amp;rsquo;s Swift looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and Swift has the var keyword. But it means completely different things since Swift is statically typed and JavaScript is not.
+Anyway being generally curious about programming languages I could see similarities in Swift with Rust, Go, Scala and Ruby. However all these languages differ from Swift in quite a number of ways.</description>
     </item>
     
     <item>
@@ -2033,24 +147,8 @@ case let .Error(error):
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/america-cant-teach-the-world/</guid>
-      <description>
-
-&lt;p&gt;While the US isn&amp;rsquo;t the richest country in the world in per capita GDP, it is by far the richest large country. It can boast of impressive results in science and innovation. Does that mean that anyone whishing to obtain similar levels of prosperity have to follow the American model for economic system and organization of society? My short answer is &amp;ldquo;no&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;The US is an outlier which has too many advantages not related to the organization of its economy or society. Advantages which can not be replicated anywhere else in the world. The US has enjoyed close to 150 years without any destructive wars on its land. Much of the rest of the advance world has suffered multiple destructive wars settings back the countries decades. America also enjoys an abundance of natural resources and huge amounts of fertile land available to each citizen. Agricultural land may not be that important today, but 150 years ago when America started surpassing other wealthy nations this was a large benefit. With so much cheap and fertile land American&amp;rsquo;s could afford to waste land in order to safe labour, thus greatly increasing productivity in a way unavailable to the rest of the world. When industrialization started America could benefit from large coal reserves, water power. Later the economy could be fueled by large reserves of oil. Other advance nations usually did not have these resources available within their own borders in large quantities except coal.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-problem-with-comparing-the-us-to-europe-or-japan:b84da3975729363ad9c91adf1294f61e&#34;&gt;The problem with comparing the US to Europe or Japan&lt;/h2&gt;
-
-&lt;p&gt;Even if we disregarded these benefits or resources, absence of war, large quantities of cheap land etc, there are other factors which make comparisons deceiving. Europeans have different preferences than Americans. They prefer leisure over money. Thus a large part of the difference in GDP numbers between the US and European states is due to Americans working far more hours. American GDP growth numbers often look impressive. However the American population increases much faster than the European and Japanese e.g. In terms of GDP growth per capita Japan has actually outperformed the US for the last decade, since they have a shrinking population and will actually obtain per capita growth with much lower overal GDP growth.&lt;/p&gt;
-
-&lt;p&gt;And then there is the problem calculating and comparing GDP numbers. Finding the GDP is difficult by itself. Adjusting GDP at PPP might be even more difficult. Consumption patterns and prices are quite different between America, Europe and Japan. Europeans often spend more money on traveling than Japanese and Americans. American&amp;rsquo;s seem more conserned with quantity of stuff than quality than Japanese and Europeans. That is likely a natural result of having much less space. Europeans and especially Japanese can&amp;rsquo;t accumulate a lot of stuff in their house because they don&amp;rsquo;t have the space. Italians might buy fewer but more expensive clothes than Americans. Likewise American restaurants seem very eager to point out the amount of food you get.&lt;/p&gt;
-
-&lt;p&gt;If you look at wealth indicators such as average house size, number of home  appliances, TVs etc American&amp;rsquo;s will clearly come out on top. The problem with such comparisons is that they don&amp;rsquo;t offer any lessons to the rest of the world with respect to the possible superiority of American economic model. If American society was completely replicated in Japan, then houses and number of appliances would not magically increase to American levels. There is just not enough space in Japan. Houses would be much more expensive regardless of economic system. This is a matter of geography rather than economic model. If you live on tiny space you are not going to fill your appartment with 4 TVs as might be fairly common in the US, so house size affects many other aspects of life.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-can-be-compared:b84da3975729363ad9c91adf1294f61e&#34;&gt;What can be compared&lt;/h2&gt;
-
-&lt;p&gt;I don&amp;rsquo;t think it is possible to make comparison over very short term or comparison of absolute numbers because the potential in each country or region is tied to so many factors outside of political control, such as geography natural occurence of resources etc. However I do think one can compare trends. If one country stops growing while another starts a growth acceleraton after policy changes then it is natural to compare the effectiveness of each of these policies. Likewise it should be possible to compare health care. Living in a country with a lot of space or little space should not affect your health to a large degree.&lt;/p&gt;
-</description>
+      <description>While the US isn&amp;rsquo;t the richest country in the world in per capita GDP, it is by far the richest large country. It can boast of impressive results in science and innovation. Does that mean that anyone whishing to obtain similar levels of prosperity have to follow the American model for economic system and organization of society? My short answer is &amp;ldquo;no&amp;rdquo;.
+The US is an outlier which has too many advantages not related to the organization of its economy or society.</description>
     </item>
     
     <item>
@@ -2059,20 +157,77 @@ case let .Error(error):
       <pubDate>Tue, 03 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/europe-is-not-america/</guid>
-      <description>
-
-&lt;p&gt;It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc. The American retort would be that these countries are too small to make for a meaningful comparison and that the whole of America should be compared to the whole of Europe. The idea is that variations among American states is quite large just like variations between European countries. Thus American states could be compared to European countries.&lt;/p&gt;
-
-&lt;p&gt;Except this is a completely flawed analogy. American states operate under largely the same laws and regulations. They are inhabited by people with similar values and habits. All accross America people speak almost the same. The borders are completely porus and people move frequently from one state to another. It could not be more opposite in Europe. There are vast variations in laws, values habits and language spoken. Even within individual countries in Europe variations are frequently larger than across the whole of the US. In many countries different regions people speak quite different languages or dialects and have different traditions and customs. Belgium is essentially two different countries a French speaking Walonia and dutch speaking Flandern. Likewise Switzerland is like an amalgation of many small countries with different languages and laws.&lt;/p&gt;
-
-&lt;p&gt;To speak of a European system is thus pointless. Comparing the whole of Europe to the US, makes no more sense than comparing the combination of Northern Europe and Northern States  with the combination of Southern States and Souther Europe. &amp;ldquo;Look how poor the south is doing. They have lower GDP than the North. They need to change their policy and laws!&amp;rdquo; It should be obvious to anybody that such a comparison in meaningless. Yet people seem to think that it makes sense when it applies to the whole of Europe. Greek society is no more similar to Norwegian society than New York.&lt;/p&gt;
-
-&lt;h1 id=&#34;why-can-t-you-compare-a-small-country-to-a-large:7a9ffb669dc15890050116c774182095&#34;&gt;Why can&amp;rsquo;t you compare a small country to a large?&lt;/h1&gt;
-
-&lt;p&gt;This is frequently stated without much explanation. Lets look at it in more detail. Obviously a country of 1 can&amp;rsquo;t be compared to one with 1 million. One billionaire might move there and skew the results. Likewise very small countries like Luxemburg might create a tax heaven and have all rich people and banks move there and thus inflate GDP. Obviously such a tatic can&amp;rsquo;t be replicate at any scale. There can only be that much banking in the world. Kuwait is filthy rich because they have a tiny population relative to their vast oil reserves which may be extracted at a very low price. This policy can&amp;rsquo;t be replacated at a large scale to great prosperity either.&lt;/p&gt;
-
-&lt;p&gt;My point is that I believe to a certain degree small and large countries can be compared as long as the wealth of the small country isn&amp;rsquo;t caused by a sort of anomaly which can&amp;rsquo;t be replicated by larger countries or areas. Hong Kong and Singapore are not rich due to banking or oil but they are also atypical, by both serving as hub into much larger countries. Also we can&amp;rsquo;t turn every country into cities. But I would argue that there are successfull small European countries which could scale. There is really nothing odd about the propsperity of Nordic countries, Switzerland, the Netherlands etc. You might argue that Switzerland has an artificially inflated economy due to its large banking sector. However with 8 million people this effect greately reduced compared to Luxembourghs population of 0.5 million. Norway has oil and gas but is not as atypical as gulf states which derive 80% of their income from oil easily and cheaply extracted, while Norway is the other way around where the non-oil economy contributes to 80% of the GDP. Oil extraction in Norway is also expensive and technologically challenging. For Sweden, Denmark and Netherland e.g. I can&amp;rsquo;t think of anything atypical. They are not abound with any valuable resources, have inflated banking sectors or are city states serving as hubs for industry in a much larger area. Thus I don&amp;rsquo;t see any problem comparing these states to the whole of the US or individual states which are not atypical. E.g. New York serving as the finance hub for 300 million people is an anomaly. Their success can not be scaled and replicated across the rest of the country. Maryland benefits from proximity to the capital and all the federal jobs and largesse that follows.&lt;/p&gt;
-</description>
+      <description>It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc.</description>
+    </item>
+    
+    <item>
+      <title>Munching Data with Julia</title>
+      <link>http://translusion.github.com/posts/munchingdata-julia/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
+      <description>I&amp;rsquo;ve recently performed a survey at my work using Google form, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.
+I chose to clean the data with the Julia programming language, which might not be the best choice for this sort of thing. Not because julia isn&amp;rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster.</description>
+    </item>
+    
+    <item>
+      <title>Learning Web Development with Rails</title>
+      <link>http://translusion.github.com/posts/learning-rails/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/learning-rails/</guid>
+      <description>Here are some of my notes from learning rails. I am following the course Web Application Architectures at Coursera. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.
+Setup Project Have rails autogenerate a bunch of files for a project:
+$ rails new myproject  This seems to be the way to create a new model class with corresponding table in database:</description>
+    </item>
+    
+    <item>
+      <title>Deterministic Password Generator</title>
+      <link>http://translusion.github.com/posts/dulgt-intro/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/dulgt-intro/</guid>
+      <description>The heartbleed exploit made me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.</description>
+    </item>
+    
+    <item>
+      <title>Debugging AVR projects</title>
+      <link>http://translusion.github.com/posts/debugavrproject/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/debugavrproject/</guid>
+      <description>This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.
+Continuity Buzzer When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course).</description>
+    </item>
+    
+    <item>
+      <title>Development board for 8 pin AVR microcontrollers</title>
+      <link>http://translusion.github.com/posts/avrdevboard/</link>
+      <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/avrdevboard/</guid>
+      <description>I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.
+The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13.</description>
+    </item>
+    
+    <item>
+      <title>AVR Assembly programming on Mac OS X</title>
+      <link>http://translusion.github.com/posts/avrassembly/</link>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/avrassembly/</guid>
+      <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
+avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with AVR programming</title>
+      <link>http://translusion.github.com/posts/avr_without_arduino/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/avr_without_arduino/</guid>
+      <description>After Arduino So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.
+Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller.</description>
     </item>
     
   </channel>

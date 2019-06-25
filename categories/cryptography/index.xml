@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cryptography on Trans lusion</title>
+    <title>Cryptography on Translusion</title>
     <link>http://translusion.github.com/categories/cryptography/</link>
-    <description>Recent content in Cryptography on Trans lusion</description>
+    <description>Recent content in Cryptography on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Cryptography</title>
@@ -15,91 +17,7 @@
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/articles/cryptography/</guid>
-      <description>
-
-&lt;p&gt;There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.&lt;/p&gt;
-
-&lt;h1 id=&#34;symetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Symetric Encryption&lt;/h1&gt;
-
-&lt;p&gt;Plain text is encrypted using a method or algorithm called a &lt;em&gt;cipher&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a &lt;em&gt;secret key&lt;/em&gt; will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;asymetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Asymetric Encryption&lt;/h1&gt;
-
-&lt;p&gt;Key distribution becomes a big problem with symetric encryption. To be on the safe side you have to distribute a different key to everyone you communicate with some they can&amp;rsquo;t read each others messages. This becomes a maintenance nightmare.&lt;/p&gt;
-
-&lt;p&gt;It also requires a secure channel to send someone your secret encryption key. Thus &lt;em&gt;public key encryption&lt;/em&gt; or &lt;em&gt;asymetric encryption&lt;/em&gt; was developed. With &lt;em&gt;public key encryptin&lt;/em&gt; we use two keys:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Public key. Which is not secret. It can be shared with anyone. Think of it as a padlock.&lt;/li&gt;
-&lt;li&gt;Private key. Should be kept secret and never shared. Think of it as the key to the padlock.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually there is no fundamental difference between a &lt;em&gt;public&lt;/em&gt; and &lt;em&gt;private&lt;/em&gt; key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.&lt;/p&gt;
-
-&lt;h1 id=&#34;hashes:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Hashes&lt;/h1&gt;
-
-&lt;p&gt;Data is transformed using a &lt;code&gt;hash function&lt;/code&gt; into something we can either call:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A hash&lt;/li&gt;
-&lt;li&gt;Digital fingerprint&lt;/li&gt;
-&lt;li&gt;Message digest&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same &lt;code&gt;digital fingerprint&lt;/code&gt;. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a &lt;strong&gt;sufficiently large number&lt;/strong&gt; of hashes so that collision is practically impossible.&lt;/p&gt;
-
-&lt;p&gt;E.g. an attacker can&amp;rsquo;t trivially create a bogus message with the same hash as the valid message unless trial and error is performed, which would be impractical if the number of possible hashes is very large.&lt;/p&gt;
-
-&lt;p&gt;Hashes are used with digital signatures to &lt;strong&gt;compress&lt;/strong&gt; a message so we only have small amounts of data to encrypt and decrypt.&lt;/p&gt;
-
-&lt;h2 id=&#34;usage-of-hash-functions:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Usage of Hash Functions&lt;/h2&gt;
-
-&lt;p&gt;Hash function have a wide variety of applications, which might not be immediatly obvious:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Store passwords safely (e.g. Unix password file)&lt;/li&gt;
-&lt;li&gt;Create encryption keys&lt;/li&gt;
-&lt;li&gt;Deterministic password generation&lt;/li&gt;
-&lt;li&gt;Cheaply check over the network if two files or parts of a file are equal&lt;/li&gt;
-&lt;li&gt;Create a fingerprint for a public key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The properties of hashes that make them usefull for all these tasks is that when hashing something you lose information, so it is impossible to recreate the original message from a hash. This is used in a Unix login system to store passwords as hashes. A login is then performed by hashing the users provided password and comparing it to a hashed password in the password file. This way if a hacker is able to get hold of the password file there is no way to decrypt the file and see all the passwords in plaintext. He or she has to find the password through brute force.&lt;/p&gt;
-
-&lt;p&gt;You can use this property to combine simple passwords with other information to create strong passwords. E.g. if you concatinate &amp;ldquo;pass123&amp;rdquo; and &amp;ldquo;amazon&amp;rdquo; as you login password for amazon this will produce a string full of giberish.&lt;/p&gt;
-
-&lt;h3 id=&#34;different-algorithms-for-different-usage:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Different algorithms for different Usage&lt;/h3&gt;
-
-&lt;p&gt;The desired properties of the hashing function used will vary depending on application. If you want to compare two files on separat locations on a network you want to be able to hash the content of the files &lt;strong&gt;fast&lt;/strong&gt;, before you transmit the hash to compare the files.&lt;/p&gt;
-
-&lt;p&gt;But if you derive a password or a key using a hash you probably want it to be &lt;strong&gt;slow&lt;/strong&gt;, because you want a brute force attack to be time consuming.&lt;/p&gt;
-
-&lt;h1 id=&#34;digital-signatures:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Digital Signatures&lt;/h1&gt;
-
-&lt;p&gt;The sender sends a message to a receiver in plain text. But the sender attached a &lt;em&gt;digital signature&lt;/em&gt; to the message to prove he/she wrote the message.&lt;/p&gt;
-
-&lt;h3 id=&#34;sender:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Sender&lt;/h3&gt;
-
-&lt;p&gt;To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders &lt;code&gt;private key&lt;/code&gt;. The resulting &lt;em&gt;digital signature&lt;/em&gt; could only have been created by someone knowing the &lt;code&gt;private key&lt;/code&gt;. This signature is attached to the message and sent to the receiver.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;receiver:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Receiver&lt;/h3&gt;
-
-&lt;p&gt;The receiver decrypts (3) the signature using the sendes &lt;em&gt;public key&lt;/em&gt;. The resulting digest is compared (4) to the digest the receiver computes by hashing the received message. If they are equal, it is proof that the creator of the message could only have been someone knowing the corresponding &lt;em&gt;private key&lt;/em&gt;.&lt;/p&gt;
-</description>
+      <description>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</description>
     </item>
     
     <item>
@@ -108,107 +26,7 @@
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dulgt-intro/</guid>
-      <description>
-
-&lt;p&gt;The heartbleed exploit made  me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.&lt;/p&gt;
-
-&lt;p&gt;So this has left me with desirng a better solution. Deterministic password generators seem attractive, but there is no one program that works exactly how I want it to work. But there are a of neat ideas out there.&lt;/p&gt;
-
-&lt;h1 id=&#34;existing-solutions:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Existing Solutions&lt;/h1&gt;
-
-&lt;h3 id=&#34;enigma:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Enigma&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/app/enigma/id527555438?mt=12&#34;&gt;Enigma&lt;/a&gt; looks pretty cool, but they had horrible customer support and have trouble with basic english. So not the kind of people I want to entrust with generating my passwords. Should I get a problem with their solution I need crystal clear communication. Also any solution should be open source, so you know exactly how the passwords are made and which makes it possible for you to roll your own solution should the company go belly up.&lt;/p&gt;
-
-&lt;h3 id=&#34;generator-without-single-point-of-failure:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Generator without Single Point of failure&lt;/h3&gt;
-
-&lt;p&gt;John Metta has some interesting &lt;a href=&#34;http://mettadore.com/ruby/secure-password-generator-as-manager-without-single-point-failure/&#34;&gt;ideas&lt;/a&gt; on how to do this, but he doesn&amp;rsquo;t have a product yet that he can vouch for. Anyway I&amp;rsquo;ll keep my eye on his progress.&lt;/p&gt;
-
-&lt;h3 id=&#34;pronouncable-passwords:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Pronouncable Passwords&lt;/h3&gt;
-
-&lt;p&gt;I kind of like pronounable passwords because they are far easier to remember. &lt;a href=&#34;http://passkool.sourceforge.net&#34;&gt;PassKool&lt;/a&gt; is a python script which uses this approach. However I have to check how safe this is. Making them pronounable of course reduces the search space for a hacker. [Passphrase FAQ][passphrasefaq] might be the place to learn how to do it.&lt;/p&gt;
-
-&lt;h1 id=&#34;what-i-want-in-a-solution:753dcd3f5663f51f68120136d6b0054c&#34;&gt;What I want in a Solution&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Open source&lt;/li&gt;
-&lt;li&gt;Based on well established standards which are can be verified to be safe without being a crypto expert.&lt;/li&gt;
-&lt;li&gt;Should be very easy to recreate the code for generating the passwords, should the original program get lost.&lt;/li&gt;
-&lt;li&gt;On multiple platforms. I want the tool accessible from my phone, desktop, browser and command line.&lt;/li&gt;
-&lt;li&gt;Stores a list of sites or places I have made passwords for and settings used, so I don&amp;rsquo;t forget that I actually have a password already for said site. I actually often forget that.&lt;/li&gt;
-&lt;li&gt;Should be easy to use. So I should mostly have to write a really easy password.&lt;/li&gt;
-&lt;li&gt;Paper backups. Should be easy to print out a piece of paper from the app containing key information. E.g. by using QR codes so it is really easy to restore a backup.&lt;/li&gt;
-&lt;li&gt;Should be secure, so that hackers can&amp;rsquo;t easily break my master password once they get hold of one of my passwords.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;(6) and (8) are obviously at odds with each other. My approach here would be to rely on certain assumptions:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;An attacker will most likely attack me online.&lt;/li&gt;
-&lt;li&gt;He will not break into my house.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So my current idea for a solution relies on the following:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;One simple password whic his what is mostly asked of me.&lt;/li&gt;
-&lt;li&gt;A hard to guess completely random component which I can not hope to remember. This will be stored on paper and will remain in memory for a limited amount of time. So occasionally it will need to be brought back using a QR code scanner e.g. Or if no camera is present with manual typing.&lt;/li&gt;
-&lt;li&gt;The on paper is encrypted with my simple password so that should somebody accidentally get hold of my paper backup then can&amp;rsquo;t use it unless they know something about hacking.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The security of the individual points can be tweaked. The assumption here is that ultimately nothing is completely secure. It is all about making it really inconveient for the hacker. If you don&amp;rsquo;t have important secrets or are not an important or wealthy person, we can assume that less security is needed, so that people may e.g. chose themselves whether the paper data should be encrypted and e.g. for how long the hard passwords should remain valid in memory. If your security needs are lower you could let the password stay indefintitly in memory. You could even store it permanently on disk.&lt;/p&gt;
-
-&lt;p&gt;There should be a lot of options to make sure the generator works for everyones needs.&lt;/p&gt;
-
-&lt;h2 id=&#34;technologies-i-should-probably-use:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Technologies I should probably use&lt;/h2&gt;
-
-&lt;p&gt;I should probably use &lt;a href=&#34;http://en.wikipedia.org/wiki/Hash-based_message_authentication_code&#34;&gt;HMAC&lt;/a&gt;(Hash-based message authentication code) because that is designed to hash using a secret key. Normally we hash like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message, salt)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With HMAC it is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message, salt, secret)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is better than doing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;digest = hash(message || secret, salt)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where &lt;code&gt;||&lt;/code&gt; means concatenate. Apparently this is potentially exploitable because you can create the hash without knowing all of the separate parts.&lt;/p&gt;
-
-&lt;p&gt;But I don&amp;rsquo;t think HMAC is specifically design for generating passwords. So using &lt;code&gt;bcrypt&lt;/code&gt; or &lt;code&gt;scrypt&lt;/code&gt; might be better. Potentially I could combine them with HMAC in some way.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://golang.org/pkg/crypto/hmac/&#34;&gt;HMAC in standard Go package&lt;/a&gt; Takes as argument a hash function, key and message.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/go/source/browse/scrypt/scrypt.go?repo=crypto&#34;&gt;scrypt for Go&lt;/a&gt; It uses a password, salt, some parameter which specify CPU and memory usage to slow it down. We could perhaps input generated key from scrypt into HMAC&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/go/source/browse/?repo=crypto&#34;&gt;All crypto functions you might need in Go&lt;/a&gt; This contains bcrypt, blowfish, SHA3, PBKDF2 etc.&lt;br&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;list-of-existing-solutions:753dcd3f5663f51f68120136d6b0054c&#34;&gt;List of existing solutions&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.xanthir.com/password/&#34;&gt;xanthir.com&lt;/a&gt; Configure length, allowed characters. Poor security with SHA-1 hash&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://plevyak.com/dpg.html&#34;&gt;plevyak.com&lt;/a&gt; Skein-512 based. Looks promising with use of option distinguishing Information&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://supergenpass.com&#34;&gt;SuperGenPass&lt;/a&gt; Made to drop down from bookmarks and work on mobile homescreen. Easy to use but doesn&amp;rsquo;t seem to be based on generally accepted good practice. In source code it looks like MD5 or SHA1 is used with just 10 iterators. That seems like bad choices. Should be far more iterations and with a better hash function such as SHA2 or SHA3 or bcrypt.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.pwdhash.com&#34;&gt;Standford PwdHash&lt;/a&gt; Transparently converts a user password to a domain specific password. Is possibly using MD5 for hashing which is not desirably. Creator also reserves the right to change the tool.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://fuktommy.com/genpasswd/&#34;&gt;Fuktommy genpasswd&lt;/a&gt; A very simple version using SHA-1. Easy to read code. No iterations (no stretching) so poor security.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://passhash.connorhd.co.uk&#34;&gt;PassHash&lt;/a&gt; Very simple. Uses SHA246-HMAC, but likely no iterations.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ctrlq.org/passwords/&#34;&gt;Secure Passwords&lt;/a&gt; Clean design using bcrypt. A bit too simple perhaps, but with good help instructions.&lt;br&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;resources:753dcd3f5663f51f68120136d6b0054c&#34;&gt;Resources&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://crackstation.net/hashing-security.htm&#34;&gt;crackstation&lt;/a&gt; Great info on hashing. E.g. on why you shouldn&amp;rsquo;t invent your own wacky hashing solutions by combining existig ones. Correct use of salt etc.&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;[passphrasefaq]: &lt;a href=&#34;http://www.iusmentis.com/security/passphrasefaq/&#34;&gt;http://www.iusmentis.com/security/passphrasefaq/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>The heartbleed exploit made me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.</description>
     </item>
     
   </channel>

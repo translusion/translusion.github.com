@@ -1,71 +1,177 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.15" />
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Dynamic languages could be better understood by considering dynamic typing as a way of programming.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Dynamic Typing as a Paradigm • Translusion'>
+<meta property='og:description' content='Dynamic languages could be better understood by considering dynamic typing as a way of programming.'>
+<meta property='og:url' content='http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/'>
+<meta property='og:site_name' content='Translusion'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2014-12-08T00:00:00Z'/><meta property='article:modified_time' content='2014-12-08T00:00:00Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+  <title>Dynamic Typing as a Paradigm • Translusion</title>
+  <link rel='canonical' href='http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.6a060eb7.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
 
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Dynamic Typing as a Paradigm &middot; Trans lusion </title>
-
-  
-  <link rel="stylesheet" href="http://translusion.github.com/css/poole.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/syntax.css">
-  <link rel="stylesheet" href="http://translusion.github.com/css/hyde.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="Trans lusion" />
 </head>
+<body class='page type-posts has-sidebar'>
 
-<body>
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
 
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>Trans lusion</h1>
-      <p class="lead">
-       Erik Engheim&#39;s Projects and Articles 
-      </p>
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
     </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Translusion
+      </a>
+    </h2>
+    <div class='desc'>
+    Erik Engheim&#39;s Projects and Articles
+    </div>
+  </header>
 
-    <ul class="sidebar-nav">
-      <li><a href="/">Home</a> </li>
-      <li><a href="/apps">Apps</a> </li>      
-      <li><a href="/maker">Maker</a> </li>
-      <li><a href="/articles">Articles</a> </li>                  
-      <li><a href="/posts">Blog</a> </li>      
-      
-    </ul>
+</section>
+</div>
 
-    <p>© Erik Engheim 2016. All rights reserved.</p>
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'></a>
+      </li><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/posts/'>Blog</a>
+      </li><li class='item'>
+        <a href='/articles/'>Articles</a>
+      </li><li class='item'>
+        <a href='/maker/'>Maker</a>
+      </li><li class='item'>
+        <a href='/apps/'>Apps</a>
+      </li><li class='item'>
+        <a href='/projects/'>Projects</a>
+      </li><li class='item'>
+        <a href='https://github.com/ordovician'>Repo</a>
+      </li></ul>
   </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'></a></li><li><a href='/posts/'>Posts</a></li><li><span>Dynamic Typing as a Paradigm</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Translusion</p><p class='desc site-desc'>Erik Engheim&#39;s Projects and Articles</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Dynamic Typing as a Paradigm</h1>
+      
+<p class='desc'>Dynamic languages could be better understood by considering dynamic typing as a way of programming.</p>
+
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2014-12-08T00:00:00Z'>2014, Dec 08</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+8 mins read
+</span>
+
+
 </div>
 
 
-    <div class="content container">
-<div class="post">
-  <h1>Dynamic Typing as a Paradigm</h1>
-  <span class="post-date">Mon, Dec 8, 2014</span>
-      
+  </div>
+</header>
 
-<p>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post [Dynamic languages are static languages][dynisstatic] illustrates the misunderstanding very well.</p>
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post <a href="https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/" target="_blank">Dynamic languages are static languages</a> illustrates the misunderstanding very well.</p>
 
 <p>I think part of the problem is that when trying to articulate what the advantages of dynamic languages are it is easy to get very vague. So I am trying another approach.</p>
 
-<h2 id="dynamic-typing-as-a-paradigm:971ba13e9010bce2001cf2f689aed692">Dynamic typing as a paradigm</h2>
+<h2 id="dynamic-typing-as-a-paradigm">Dynamic typing as a paradigm</h2>
 
-<p>In this post I will start by claiming that it is not so much about static vs dynamic languages but rather about two different paradigmes or approaches to programming. Much the same way as it can be argued that Object Oriented programming is a paradigme rather than a feature of a programming language. Many of you might already be familier with Object Oriented Programming in C. That is quite popular on Linux in the <a href="http://www.gtk.org">Gtk toolkit</a> used on the Gnome desktop. Of course C as a language was not designed for this sort of programming the way say Java or Smalltalk was designed for it.</p>
+<p>In this post I will start by claiming that it is not so much about static vs dynamic languages but rather about two different paradigmes or approaches to programming. Much the same way as it can be argued that Object Oriented programming is a paradigme rather than a feature of a programming language. Many of you might already be familier with Object Oriented Programming in C. That is quite popular on Linux in the <a href="http://www.gtk.org" target="_blank">Gtk toolkit</a> used on the Gnome desktop. Of course C as a language was not designed for this sort of programming the way say Java or Smalltalk was designed for it.</p>
 
-<p>The same argument could be made about static vs dynamic typing. You could write in a dynamic style in statically typed language. I&rsquo;ve done that plenty of times. GUI based programming is often a good example. Static typing isn&rsquo;t very well suited for this task and thus we got things like <a href="http://qt-project.org">Qt</a> a C++ GUI toolkit which added a preprocessor which gave dynamic featues to C++. Objective-C did much the same earlier by adding dynamic features to C.</p>
+<p>The same argument could be made about static vs dynamic typing. You could write in a dynamic style in statically typed language. I&rsquo;ve done that plenty of times. GUI based programming is often a good example. Static typing isn&rsquo;t very well suited for this task and thus we got things like <a href="http://qt-project.org" target="_blank">Qt</a> a C++ GUI toolkit which added a preprocessor which gave dynamic featues to C++. Objective-C did much the same earlier by adding dynamic features to C.</p>
 
-<h2 id="objects-as-hashtables:971ba13e9010bce2001cf2f689aed692">Objects as Hashtables</h2>
+<h2 id="objects-as-hashtables">Objects as Hashtables</h2>
 
 <p>So how would you program in a more dynamic fashion in a statically typed language? One way which I have used a lot myself is to use hash tables more to define your objects rather than classes. This is essentially what an object is in Python or Ruby. In C++ or Java you could store your date in a hash table and create a number of functions or methods to manipulate this hash table much the same way as you create classes with corresponding methods. But why would you do that? You lose type safety. Of course but you also gain something:</p>
 
@@ -76,13 +182,13 @@
 <li>It can solve complicated problems with defining a proper taxonomy. Usually in Object Oriented programming we try to reuse code by creating an inheritance hierarchy so that we can share the implementation of methods which work in similar ways across types which are similar to each other. However a such a taxonomy might not always be easy to define. With hashtables it is easy to write a function which works on hash tables with different number of members as long as they share a common minimum of members that the function operates on.</li>
 </ol>
 
-<p>The latter point was realized in <a href="https://golang.org">Go</a> when they allowed satisfying interfaces implicitly. Point 3 allows creating such things as the <em>Predicate Editor</em> found in Cocoa. One can imagine creating descriptions of each property saying what unit the property is in e.g. meters, kilo grams etc and what are legal value ranges. This can then be used to derive a GUI that allows viewing or editing corresponding objects. Visualization pipelines such as the <a href="http://www.vtk.org">Visualization Toolkit</a> works along simular lines. You can at runtime connect algorithms sort of like Unix pipelines. To support an editor which lets humans connect different algorithms there needs to be a way to query each potential component in the pipeline and ask what sort of inputs and outputs they require. A compiler can&rsquo;t check this sort of type information. First because it varies with the application domain what a type specifies and it needs to be determined at runtime for interactive usage.</p>
+<p>The latter point was realized in <a href="https://golang.org" target="_blank">Go</a> when they allowed satisfying interfaces implicitly. Point 3 allows creating such things as the <em>Predicate Editor</em> found in Cocoa. One can imagine creating descriptions of each property saying what unit the property is in e.g. meters, kilo grams etc and what are legal value ranges. This can then be used to derive a GUI that allows viewing or editing corresponding objects. Visualization pipelines such as the <a href="http://www.vtk.org" target="_blank">Visualization Toolkit</a> works along simular lines. You can at runtime connect algorithms sort of like Unix pipelines. To support an editor which lets humans connect different algorithms there needs to be a way to query each potential component in the pipeline and ask what sort of inputs and outputs they require. A compiler can&rsquo;t check this sort of type information. First because it varies with the application domain what a type specifies and it needs to be determined at runtime for interactive usage.</p>
 
 <p>So a hash table with a bunch of functions is a way to simulate dynamic typing in a staticly typed languge, but thinking dynamic is more fundamental than that.</p>
 
-<h2 id="pascal-vs-c:971ba13e9010bce2001cf2f689aed692">Pascal vs C</h2>
+<h2 id="pascal-vs-c">Pascal vs C</h2>
 
-<p>To illustrate the problem with strict typing I will go all the way back to Pascal. Pascal failed and C succeeded much because of Pascal&rsquo;s embrace of the static typing over practicality mentality. Brian W. Kernighan wrote an article in 1981 called <a href="http://www.lysator.liu.se/c/bwk-on-pascal.html">Why Pascal is Not My Favorite Programming Language</a> which illustrates many of these problems. In one of his examples he says:</p>
+<p>To illustrate the problem with strict typing I will go all the way back to Pascal. Pascal failed and C succeeded much because of Pascal&rsquo;s embrace of the static typing over practicality mentality. Brian W. Kernighan wrote an article in 1981 called <a href="http://www.lysator.liu.se/c/bwk-on-pascal.html" target="_blank">Why Pascal is Not My Favorite Programming Language</a> which illustrates many of these problems. In one of his examples he says:</p>
 
 <blockquote>
 <p>If one declares</p>
@@ -98,7 +204,7 @@
 
 <p>This might sound laughable by todays standards, but although it is perhaps and extreme example it is really just a variation of the same problem that one will often encounter with the static typing approach. Static typing allows the compiler to catch many mistakes you do before the code runs. Making the array lenght part of its type meant you would be less likely to get out of bounds errors or pass arrays of the wrong length around. But it also made it hard to reuse code and write generic functions.</p>
 
-<h2 id="3d-graphics-and-opengl:971ba13e9010bce2001cf2f689aed692">3D Graphics and OpenGL</h2>
+<h2 id="3d-graphics-and-opengl">3D Graphics and OpenGL</h2>
 
 <p>When writing graphics code it would be tempting to make everything into types in much the same manner as Pascal. One might argue that a point in 2D space should be different from a point in 3D space or even 4D space. We could write types like this (julia syntax):</p>
 
@@ -129,7 +235,7 @@ points3d = Array(Point3D, 10)
 
 <p>OpenGL is a good example of this practice. There are no types for matricies or vectors. They are just arrays of numbers. This allows us to reuse OpenGL function for many cases.</p>
 
-<h2 id="large-scale-programs:971ba13e9010bce2001cf2f689aed692">Large Scale Programs</h2>
+<h2 id="large-scale-programs">Large Scale Programs</h2>
 
 <p>I hope that these simple examples in the small with Pascal arrays and matricies and vectors in 3D programming will allow you to get an intuition about how these problems also exist at a larger scale in most statically typed programs. When a large piece of software gets developed over many years by many different teams and pieces get bought and integrated there will be a lot of types which are similar but not quite the same, but which non the less needs to work together. We can imagine them like our 2D and 3D points. When they are separate types we will need to write a lot of conversion code to be able to reuse algorithms created for another type of object, or to be able to write some shared algorithm.</p>
 
@@ -137,34 +243,119 @@ points3d = Array(Point3D, 10)
 
 <p>In a dynamic language you can make structural changes at runtime. You can add or remove member variables of methods at runtime. That is fine because that does not change the type. For a statically typed language this poses a problem, since by adding or removing members you are changing the static type which all previous code was dependent on. The assumptions the compiler previously had about how to handle your types, would no longer be true and can thus not be allowed.</p>
 
-<h2 id="conclusion:971ba13e9010bce2001cf2f689aed692">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 
 <p>Not having done any research on this I can only speculate. But my speculation is that statically typed languages mainly work for medium sized programs while dynamic typing works for the small and high level. As your program grows it can get easier to mix up your types when you only use dynamic typing. So for larger size static typing has some advantages. However as a program gets even larger one gets into the problem of having to deal with many parts that were not designed for each other. This is where the flexibility of dynamically typed languages gains ground again.</p>
 
 <p>So perhaps a usefull design is to have chunks of statically typed code fittet together with a dynamically typed language which orchastrates everything at a high level.</p>
 
-<p>[dynisstatic]: <a href="https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/">https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/</a></p>
-
-      
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost") 
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'translusion';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
-      
-</div>
 </div>
 
-  </body>
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/dynamic-typing/'>Dynamic Typing</a>, <a class='category' href='/categories/static-typing/'>Static Typing</a>, <a class='category' href='/categories/programming/'>Programming</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/ceo-salaries/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Indispensable and Other Myths</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/posts/torture/'>
+        <span class='screen-reader-text'>Next post: </span>Why I don&#39;t believe in Torture<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/ordovician' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/erikengheim' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:erik.engheim@mac.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/erik-engheim-b8831917' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://www.youtube.com/channel/UC66PjfTxpg19YCGPUOLzyOg' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Youtube account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p>© Erik Engheim 2016. All rights reserved.</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.67d669ac.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
 </html>
+

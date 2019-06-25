@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Articles on Trans lusion</title>
+    <title>Articles on Translusion</title>
     <link>http://translusion.github.com/articles/</link>
-    <description>Recent content in Articles on Trans lusion</description>
+    <description>Recent content in Articles on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/articles/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/articles/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Cryptography</title>
@@ -15,91 +17,7 @@
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/articles/cryptography/</guid>
-      <description>
-
-&lt;p&gt;There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.&lt;/p&gt;
-
-&lt;h1 id=&#34;symetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Symetric Encryption&lt;/h1&gt;
-
-&lt;p&gt;Plain text is encrypted using a method or algorithm called a &lt;em&gt;cipher&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/cipher.svg&#34; alt=&#34;Cipher&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Typically the method can be used for both encryption and decryption. With the early approaches, the cipher had to be kept secret, because anybody who knew the cipher could decrypt the secret message. So one realized that a &lt;em&gt;secret key&lt;/em&gt; will have to be used, so that if the if the secret methods of information exchange was broken would would only have to replace the key and not the cipher.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/symetricencryption.svg&#34; alt=&#34;Symetric&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;asymetric-encryption:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Asymetric Encryption&lt;/h1&gt;
-
-&lt;p&gt;Key distribution becomes a big problem with symetric encryption. To be on the safe side you have to distribute a different key to everyone you communicate with some they can&amp;rsquo;t read each others messages. This becomes a maintenance nightmare.&lt;/p&gt;
-
-&lt;p&gt;It also requires a secure channel to send someone your secret encryption key. Thus &lt;em&gt;public key encryption&lt;/em&gt; or &lt;em&gt;asymetric encryption&lt;/em&gt; was developed. With &lt;em&gt;public key encryptin&lt;/em&gt; we use two keys:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Public key. Which is not secret. It can be shared with anyone. Think of it as a padlock.&lt;/li&gt;
-&lt;li&gt;Private key. Should be kept secret and never shared. Think of it as the key to the padlock.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually there is no fundamental difference between a &lt;em&gt;public&lt;/em&gt; and &lt;em&gt;private&lt;/em&gt; key. It is only their usage which determines which one is public and which one is private. One can use both for encryption  and decryption.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/asymetricencryption.svg&#34; alt=&#34;Asymetric&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The image above shows the typical usage. But one could reverse it and use the private key for encryption and the public key for decryption. This is utilized for digital signatures.&lt;/p&gt;
-
-&lt;h1 id=&#34;hashes:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Hashes&lt;/h1&gt;
-
-&lt;p&gt;Data is transformed using a &lt;code&gt;hash function&lt;/code&gt; into something we can either call:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A hash&lt;/li&gt;
-&lt;li&gt;Digital fingerprint&lt;/li&gt;
-&lt;li&gt;Message digest&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/hashfunc.svg&#34; alt=&#34;Hashing&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A hash function is different from a cipher in that it only goes one way. Multiple messages may be turned into the same &lt;code&gt;digital fingerprint&lt;/code&gt;. If we only need to decide whether two messages are equal we can compare just the hashes if there exists a &lt;strong&gt;sufficiently large number&lt;/strong&gt; of hashes so that collision is practically impossible.&lt;/p&gt;
-
-&lt;p&gt;E.g. an attacker can&amp;rsquo;t trivially create a bogus message with the same hash as the valid message unless trial and error is performed, which would be impractical if the number of possible hashes is very large.&lt;/p&gt;
-
-&lt;p&gt;Hashes are used with digital signatures to &lt;strong&gt;compress&lt;/strong&gt; a message so we only have small amounts of data to encrypt and decrypt.&lt;/p&gt;
-
-&lt;h2 id=&#34;usage-of-hash-functions:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Usage of Hash Functions&lt;/h2&gt;
-
-&lt;p&gt;Hash function have a wide variety of applications, which might not be immediatly obvious:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Store passwords safely (e.g. Unix password file)&lt;/li&gt;
-&lt;li&gt;Create encryption keys&lt;/li&gt;
-&lt;li&gt;Deterministic password generation&lt;/li&gt;
-&lt;li&gt;Cheaply check over the network if two files or parts of a file are equal&lt;/li&gt;
-&lt;li&gt;Create a fingerprint for a public key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The properties of hashes that make them usefull for all these tasks is that when hashing something you lose information, so it is impossible to recreate the original message from a hash. This is used in a Unix login system to store passwords as hashes. A login is then performed by hashing the users provided password and comparing it to a hashed password in the password file. This way if a hacker is able to get hold of the password file there is no way to decrypt the file and see all the passwords in plaintext. He or she has to find the password through brute force.&lt;/p&gt;
-
-&lt;p&gt;You can use this property to combine simple passwords with other information to create strong passwords. E.g. if you concatinate &amp;ldquo;pass123&amp;rdquo; and &amp;ldquo;amazon&amp;rdquo; as you login password for amazon this will produce a string full of giberish.&lt;/p&gt;
-
-&lt;h3 id=&#34;different-algorithms-for-different-usage:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Different algorithms for different Usage&lt;/h3&gt;
-
-&lt;p&gt;The desired properties of the hashing function used will vary depending on application. If you want to compare two files on separat locations on a network you want to be able to hash the content of the files &lt;strong&gt;fast&lt;/strong&gt;, before you transmit the hash to compare the files.&lt;/p&gt;
-
-&lt;p&gt;But if you derive a password or a key using a hash you probably want it to be &lt;strong&gt;slow&lt;/strong&gt;, because you want a brute force attack to be time consuming.&lt;/p&gt;
-
-&lt;h1 id=&#34;digital-signatures:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Digital Signatures&lt;/h1&gt;
-
-&lt;p&gt;The sender sends a message to a receiver in plain text. But the sender attached a &lt;em&gt;digital signature&lt;/em&gt; to the message to prove he/she wrote the message.&lt;/p&gt;
-
-&lt;h3 id=&#34;sender:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Sender&lt;/h3&gt;
-
-&lt;p&gt;To accomplish this, the message is (1) hashed to a digest (hash). The digest is (2) encrypted using the senders &lt;code&gt;private key&lt;/code&gt;. The resulting &lt;em&gt;digital signature&lt;/em&gt; could only have been created by someone knowing the &lt;code&gt;private key&lt;/code&gt;. This signature is attached to the message and sent to the receiver.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://translusion.github.com/images/articles/crypto/digitalsigning.svg&#34; alt=&#34;Digital Signature&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;receiver:cc06946d1ae9135e11410dec4a30523b&#34;&gt;Receiver&lt;/h3&gt;
-
-&lt;p&gt;The receiver decrypts (3) the signature using the sendes &lt;em&gt;public key&lt;/em&gt;. The resulting digest is compared (4) to the digest the receiver computes by hashing the received message. If they are equal, it is proof that the creator of the message could only have been someone knowing the corresponding &lt;em&gt;private key&lt;/em&gt;.&lt;/p&gt;
-</description>
+      <description>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</description>
     </item>
     
   </channel>

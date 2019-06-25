@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Assembly on Trans lusion</title>
+    <title>Assembly on Translusion</title>
     <link>http://translusion.github.com/categories/assembly/</link>
-    <description>Recent content in Assembly on Trans lusion</description>
+    <description>Recent content in Assembly on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Tue, 05 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>AVR Assembly programming on Mac OS X</title>
@@ -15,23 +17,8 @@
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/avrassembly/</guid>
-      <description>&lt;p&gt;When starting with out programming the &lt;a href=&#34;http://en.wikipedia.org/wiki/Atmel_AVR&#34;&gt;AVR&lt;/a&gt; microcontroller on OS X, you will probably start by using &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt; installs the AVR GNU assembler &lt;strong&gt;avr-as&lt;/strong&gt; described &lt;a href=&#34;http://www.nongnu.org/avr-libc/user-manual/assembler.html&#34;&gt;here&lt;/a&gt;. The assembly files typically end with &lt;strong&gt;.S&lt;/strong&gt;. You can invoke it through gcc with e.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will assemble the file &lt;em&gt;ledflash.S &lt;/em&gt;for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.&lt;/p&gt;
-
-&lt;p&gt;Fortunatly if you look around you can find the open source [avra][avra] assembler. A problem when first googling is that an older assembler &lt;strong&gt;tavrasm&lt;/strong&gt; will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.&lt;/p&gt;
-
-&lt;p&gt;[avra][avra] is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the &lt;a title=&#34;vAVRdiasm&#34; href=&#34;https://github.com/vsergeev/vAVRdisasm&#34;&gt;vAVRdiasm&lt;/a&gt; to diassemble the .hex file and see that you get back something that looks like what you put in ;-)&lt;/p&gt;
-
-&lt;p&gt;There is also a TextMate &lt;a title=&#34;avr-assembly bundle&#34; href=&#34;https://github.com/mherb/avr-assembly.tmbundle&#34;&gt;bundle avr-assembly&lt;/a&gt; which you can install which makes it possible to have syntax highlight for your AVR assemble programming.&lt;/p&gt;
-
-&lt;p&gt;As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.&lt;/p&gt;
-
-&lt;p&gt;[avra]: &lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;http://avra.sourceforge.net&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
+avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
     </item>
     
   </channel>

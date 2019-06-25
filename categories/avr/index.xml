@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Avr on Trans lusion</title>
+    <title>AVR on Translusion</title>
     <link>http://translusion.github.com/categories/avr/</link>
-    <description>Recent content in Avr on Trans lusion</description>
+    <description>Recent content in AVR on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 24 Mar 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://translusion.github.com/categories/avr/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://translusion.github.com/categories/avr/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Debugging AVR projects</title>
@@ -15,52 +17,8 @@
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/debugavrproject/</guid>
-      <description>
-
-&lt;p&gt;This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.&lt;/p&gt;
-
-&lt;h3 id=&#34;continuity-buzzer:74dff3665e3fddb522f926261929c9f4&#34;&gt;Continuity Buzzer&lt;/h3&gt;
-
-&lt;p&gt;When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course). If it measured around 0 ohm I knew I had a connection. Only recently I got a much nicere multimeter and I discovered how much faster you can do this with a continuity buzzer. It works pretty much the same as my old approach. I can still see the resistance in ohms. However it also gives off a beep each time resistance is zero. I didn&amp;rsquo;t realize how usefull that was until I started checking my circuits for problems. You can just move your test probes along quickly without every moving your eyes away from the circuit and just listen for the buzz. I was surprised by how much faster I could check lots of lines on my circuit.&lt;/p&gt;
-
-&lt;p&gt;On my prototype board were I just built a development board for 8 pin AVR microcontrollers (see previous post) I was often not sure if my soldering was good or if I had connected everything correctly. The board was a mess of cables so it was easy to forget connections which I did. With the continuity buzzer my approach was to first place one test probe on ground and then move the second one along every point of the circuit which is supposed to be connected to ground and listen for a beep. Then I repeat the same procedure for Vcc.&lt;/p&gt;
-
-&lt;h3 id=&#34;printf-type-debugging-on-a-microcontroller:74dff3665e3fddb522f926261929c9f4&#34;&gt;Printf type debugging on a Microcontroller&lt;/h3&gt;
-
-&lt;p&gt;When developing software I would use one of my LEDs for debugging. So e.g. if I wrote a program where you could adjust the frequency of the blinking of the green LED, then I would use the yellow LED for debugging. I would write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sbi PINB, PB1 ;flip yellow LED
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To flip the LED from on to off or off to on. Writing 1 to the input register, as opposed to the output register does that. I would move this line around in the program to make sure that I hit the appropriate section of code when I expected. A limiting factor is that you can not keep this line in a lot of places, because you can not distinguish between them. This is not as problematic as it sounds, since the programs you write on a ATtiny13 in assembly will probably be quit small. If you write larger programs I recommend using the Arudino instead or investing in a proper development board from ATMEL. I did all my development using TextMate 2.0 with an AVR assembly bundle. I then had a hotkey for building and one for uploading. It worked quite well.&lt;/p&gt;
-
-&lt;h3 id=&#34;clock-signal-mistakes:74dff3665e3fddb522f926261929c9f4&#34;&gt;Clock signal mistakes&lt;/h3&gt;
-
-&lt;p&gt;When creating the hardware, by far the mistake which cost me the most time was mixing up CLKI and SCK (pin 2 and 7) on the AVR. I thought I should use CLKI for the clock pin 3 on the ISP6 connector. Then nothing works and you get the same error message from avrdude as you would have gotten if no cable was connected. Actually avrdude gives the same error for almost anything it seems. Other than that most of my mistakes were in software.&lt;/p&gt;
-
-&lt;h3 id=&#34;messing-up-unsigned-arithmetic:74dff3665e3fddb522f926261929c9f4&#34;&gt;Messing up unsigned arithmetic&lt;/h3&gt;
-
-&lt;p&gt;You really ought to get a grasp of unsigned aritmetic. Since you typically work with 8bit values you often have to use unsigned numbers to be able to have numbers in the range 0 to 255 and not just -128 to 127. When branching you should then not use instructions such as:
-&lt;ul&gt;
-    &lt;li&gt;&lt;span style=&#34;line-height:13px;&#34;&gt;BRLT (&lt;strong&gt;BR&lt;/strong&gt;anch if &lt;strong&gt;L&lt;/strong&gt;ower &lt;strong&gt;T&lt;/strong&gt;han)&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;BRGE (&lt;strong&gt;BR&lt;/strong&gt;anch if &lt;b&gt;G&lt;/b&gt;reater or&lt;b&gt; E&lt;/b&gt;qual)&lt;/li&gt;
-    &lt;li&gt;BRMI (&lt;strong&gt;BR&lt;/strong&gt;anch if &lt;b&gt;MI&lt;/b&gt;nus)&lt;/li&gt;
-&lt;/ul&gt;
-These instructions will typically treat the numbers in the comparisons or arithmetic instructions preceding them as signed numbers with range -128 to 127. The problem with that is that if you write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ldi r16, 128
-cpi r16, 127
-brge r16Greatest
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You might expect this code to branch to &lt;em&gt;r16Greatest, &lt;/em&gt;since 128 &amp;gt; 127. But it wont because BRGE is treating the numbers as signed. Then 128 is -128, and -128 &amp;lt; 127, so there will be no branching.&lt;/p&gt;
-
-&lt;h3 id=&#34;understanding-timers:74dff3665e3fddb522f926261929c9f4&#34;&gt;Understanding timers&lt;/h3&gt;
-
-&lt;p&gt;My second big misunderstanding was the timer/counter system. Register TCNT0 counts upwards constantly and you can use it as a sort of timer or to generate PWM signals on the output. One way of using it is to toggle an output pin OC0B (PB1) or OC0A (PB0) whenever I/O register TCNT0 is equal to I/O register OCR0B or OCR0A. You can configure this in one of the timer controll registers. So far so good. The problem arose when using something called CTC mode. When using CTC, the TCNT0 register will be reset to 0 each time TCNT0 equals OCR0A. The last part is the imporant. You can only use OCR0A for this purpose on ATtiny13. When TCNT0 equals OCR0B it will toggle the OC0B pin if you have enabled that but it will never reset TCNT0. There is no way of configuring that.&lt;/p&gt;
-
-&lt;p&gt;The implication of that is also that you can not blink your LEDs at different frequency, but you may blink them out of phase, since OCR0B need not be the same as OCR0A. When I first set this up I did not understand this difference so I wrote a value into OCR0B thinking that would affect the frequency of LED blinking. I did not get any blinking at all. Just a steady light because OCR0A was 0, since it was never set. Thus when TCNT0 got reset it immediatly got the same values as OCR0A again. When turning on interrupts, this had the effect of making the interrupt only fire once.&lt;/p&gt;
-</description>
+      <description>This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.
+Continuity Buzzer When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course).</description>
     </item>
     
     <item>
@@ -69,71 +27,8 @@ brge r16Greatest
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/avrdevboard/</guid>
-      <description>&lt;p&gt;I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.&lt;/p&gt;
-
-&lt;p&gt;The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13. You can get a tiny for around 20 Kr at e.g. &lt;a title=&#34;electrokit&#34; href=&#34;http://www.electrokit.com&#34;&gt;electrokit&lt;/a&gt; in sweden.&lt;/p&gt;
-
-&lt;p&gt;Lots of projects such as motor controllers with buttons or a dial for controlling speed does not need anything more than a tiny13, and a small program. My first problem however hooking up the circuit below to program one of my tiny13s, is that it is easy to connect the cables to the programmer wrong.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0648.jpg&#34;&gt;&lt;img id=&#34;i-179&#34; class=&#34; wp-image&#34; title=&#34;ATtiny13 development breadboard&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0648.jpg?w=650&#34; alt=&#34;ATtiny13 development breadboard&#34; width=&#34;650&#34; height=&#34;365&#34; /&gt;&lt;/a&gt; Development board for AVR ATtiny13 microcontroller on breadboard, connected to a AVR-ISP500 programmer from Olimex. Pin 2 and 7 are connected to push buttons, which will pull the pins LOW when pushed (will connect to GND). Pin 6 and 5 drive a yellow and green LED through 2 transistors. The two transistors and 22K Ohm resistors are there to avoid interfering with the programmer, since it uses those pins for MISO and MOSI.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;The example above is not too bad because I used colored wires with one female and one male end. Thus I could connect the female end directly to the output of the programmer and the male end into the breadboard. But if you have to connect into the connector of a ISP6 cable then it is easy to get the pin numbering wrong.&lt;/p&gt;
-
-&lt;p&gt;So that is why I build the above curcuit first on a breadboard, tested it and then built it on the prototype board below.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0653.jpg&#34;&gt;&lt;img id=&#34;i-216&#34; class=&#34; wp-image&#34; title=&#34;ATtiny13 development board&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0653.jpg?w=650&#34; alt=&#34;ATtiny13 development board&#34; width=&#34;650&#34; height=&#34;427&#34; /&gt;&lt;/a&gt; Pin 2 and 7 are connected to push buttons, which will pull the pins LOW when pushed (will connect to GND). Pin 6 and 5 drive a yellow and green LED through two 2N2222 transistors. Potentiometer is connected to pin 3. Red LED indicates that our LM7805 voltage regulator is delivering power. On the bottom right there is a ISP6 connector for in system programming.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;It has a ISP6 connector (black 2x3 pins). With this there is only one way to connect the cable from your programmer, so it is very quick to connect your 8 pin AVR microcontroller to a programmer. A lot of devboards contains the bare minimum of components. I wanted to be able to test most of my ideas and programs directly on my development board without having the move the chip to another circuit to do actual work.&lt;/p&gt;
-
-&lt;p&gt;So my development board has the following inputs and outputs which I believe I will typically be using for most projects:
-&lt;ul&gt;
-    &lt;li&gt;&lt;span style=&#34;line-height: 14px;&#34;&gt;2 outputs connected to a green and yellow LED. These are connect to pins which can do PWM, since I will need that for motor controller programs.&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;2 digital inputs connected to push buttons. Assume pullup resistor is enabled.&lt;/li&gt;
-    &lt;li&gt;1 analog input connected to a potentiometer.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;caption id=&#34;&#34; align=&#34;alignnone&#34; width=&#34;650&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/tiny13-programmer_bb.png&#34;&gt;&lt;img id=&#34;i-236&#34; class=&#34; wp-image&#34; title=&#34;Partlist for attiny13 devboard&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/tiny13-programmer_bb.png?w=650&#34; alt=&#34;partlist&#34; width=&#34;650&#34; height=&#34;304&#34; /&gt;&lt;/a&gt; 10uF, 100uF capacitor handling 25V. 10K potentiometer. Two 2N2222 transistors. 3 push buttons (one for reset not shown). 3 regular LEDs as shown. 1 switch for power. LM7805 voltage regulator (+5V out). Restors as shown.&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;If figured I would to projects with blinking LEDs, dimmers or motor controllers. All that will require PWM. Hence pin 6 and 5 were selected for output.&lt;/p&gt;
-
-&lt;p&gt;In the design it is worth nothing that the outputs of the AVR chip do not power the green and yellow LED directly. The reason for that is that pin 6 and 5 are used for in system programming, and are thus connected to our programmer.&lt;/p&gt;
-
-&lt;p&gt;Connecting LEDs directly to these same pins as used by the programmer could interfere with its operation. &lt;a title=&#34;Atmel AVR042: AVR Hardware Design Considerations&#34; href=&#34;http://www.atmel.com/images/doc2521.pdf&#34;&gt;ATMELs datasheets&lt;/a&gt;(page 6) says you should put in a series resistor between the load and the AVR. 10K would be a good value. I put in 22K and a transistor so very little current or voltage drop will happen to drive the LEDs.&lt;/p&gt;
-
-&lt;p&gt;I can program the AVR without any external power because the AVR-ISP500 programmer I use delivers power to the AVR through pin 2 of ISP6 connector. With the transistors I am also able to program it while external power is connected and the circuit is running. This makes development a lot faster, because I do not need to unplug anything to test the circuit, or plug in anythin to transfer an updated version of my program.&lt;/p&gt;
-
-&lt;p&gt;Here is a very simple program I ran on it to make one of the LEDs blink. I will not explain the program here, because it is just something for you to try, to make sure it works.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  .include &amp;quot;tn13def.inc&amp;quot;
-  .def a = r16
-  .org 0000
-   rjmp Reset
-
-Reset:
-   ;define output
-   sbi DDRB, PB0
-   sbi DDRB, PB1
-   cbi PORTB, PB0 ;turn off LED
-   cbi PORTB, PB1
-
-   ;set prescaler to divide clock freq by 1024. 
-   ;each count is about 0.8ms at 1.2MHz
-   ldi a, 1&amp;lt;&amp;lt;CS02 | 1&amp;lt;&amp;lt;CS00
-   out TCCR0B, a
-
-   ;set blink frequency
-   ldi a, 250
-   out OCR0A, a
-   ldi a, 250
-   out OCR0B, a
-
-   ;set CTC mode (clear timer/counter on compare)
-   ldi a, 1&amp;lt;&amp;lt;WGM01 | 1&amp;lt;&amp;lt;COM0B0 | 1&amp;lt;&amp;lt;COM0A0 
-   out TCCR0A, a 
-loop:
-   nop
-   rjmp loop
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.
+The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13.</description>
     </item>
     
     <item>
@@ -142,23 +37,8 @@ loop:
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/avrassembly/</guid>
-      <description>&lt;p&gt;When starting with out programming the &lt;a href=&#34;http://en.wikipedia.org/wiki/Atmel_AVR&#34;&gt;AVR&lt;/a&gt; microcontroller on OS X, you will probably start by using &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. &lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt; installs the AVR GNU assembler &lt;strong&gt;avr-as&lt;/strong&gt; described &lt;a href=&#34;http://www.nongnu.org/avr-libc/user-manual/assembler.html&#34;&gt;here&lt;/a&gt;. The assembly files typically end with &lt;strong&gt;.S&lt;/strong&gt;. You can invoke it through gcc with e.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.S
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will assemble the file &lt;em&gt;ledflash.S &lt;/em&gt;for the AVR microcontroller unit (MCU) ATtiny13. The problem with this assembler is that it does not use the same directives as the the official ATMEL  assembler. Most example code and tutorials you can find online is written according to the ATMEL assembler.&lt;/p&gt;
-
-&lt;p&gt;Fortunatly if you look around you can find the open source [avra][avra] assembler. A problem when first googling is that an older assembler &lt;strong&gt;tavrasm&lt;/strong&gt; will more likely pop up first in your search. Ignore this one. It does not seem to be maintained.&lt;/p&gt;
-
-&lt;p&gt;[avra][avra] is newer and is very  easy to compile yourself. There are no dependencies. You just have to give a list of files to gcc or clang to compile it. To check that everything has been assembled correctly you can use the &lt;a title=&#34;vAVRdiasm&#34; href=&#34;https://github.com/vsergeev/vAVRdisasm&#34;&gt;vAVRdiasm&lt;/a&gt; to diassemble the .hex file and see that you get back something that looks like what you put in ;-)&lt;/p&gt;
-
-&lt;p&gt;There is also a TextMate &lt;a title=&#34;avr-assembly bundle&#34; href=&#34;https://github.com/mherb/avr-assembly.tmbundle&#34;&gt;bundle avr-assembly&lt;/a&gt; which you can install which makes it possible to have syntax highlight for your AVR assemble programming.&lt;/p&gt;
-
-&lt;p&gt;As a final note, be aware that you have to fiddle a little bit with all of this software. A lot of stuff did not work exactly as the manual said. It is usually just very minor adjustments to make it work. E.g. the TextMate bundle instructions gave the wrong path to bundles for TextMate2.&lt;/p&gt;
-
-&lt;p&gt;[avra]: &lt;a href=&#34;http://avra.sourceforge.net&#34;&gt;http://avra.sourceforge.net&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
+avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
     </item>
     
     <item>
@@ -167,94 +47,8 @@ loop:
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/avr_without_arduino/</guid>
-      <description>
-
-&lt;h2 id=&#34;after-arduino:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;After Arduino&lt;/h2&gt;
-
-&lt;p&gt;So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.&lt;/p&gt;
-
-&lt;p&gt;Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller. If you want to program an AVR chip directly without having all the Arduino infrastructure, then you need a piece of hardware called a programmer and software such as AVRdude.&lt;/p&gt;
-
-&lt;p&gt;The problem getting started with this is that the information related to it is scattered all around the internet. This is my attempt to collect it all in one guide.&lt;/p&gt;
-
-&lt;h3 id=&#34;what-software-to-get:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;What  software to get&lt;/h3&gt;
-
-&lt;p&gt;First get &lt;a title=&#34;CrossPack&#34; href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt;CrossPack&lt;/a&gt;. It is a collection of tools for programming AVR chips on OS X. The most important part being &lt;a title=&#34;AVRDUDE&#34; href=&#34;http://www.nongnu.org/avrdude/&#34;&gt;AVRDUDE&lt;/a&gt;. The next thing you need to do is bookmark &lt;a title=&#34;Fuse Calc&#34; href=&#34;http://www.engbedded.com/fusecalc&#34;&gt;AVR fuse calculator&lt;/a&gt;. When programming AVR there are something called fuse bits. There are bits which you store in flash memory which affect how the AVR chip will work. It is important to not screw up these settings because if you do it wrong you might not be able to program it again. The fuse bits can be used to set the way the AVR chip should be programmed.&lt;/p&gt;
-
-&lt;h3 id=&#34;hardware:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Hardware&lt;/h3&gt;
-
-&lt;p&gt;When developing electronics projects I prefer to have the important data sheets printed out. So I recommend printing out the &lt;a href=&#34;http://www.atmel.com/Images/doc2535.pdf&#34;&gt;ATtiny13 datasheet&lt;/a&gt; found at atmel.com. And if you like me use the &lt;a href=&#34;https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/&#34;&gt;AVR-ISP500 programmer&lt;/a&gt; from Olimex get its &lt;a href=&#34;https://www.olimex.com/Products/AVR/Programmers/AVR-ISP500/resources/AVR-ISP500.pdf&#34;&gt;manual&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now I am not going to repeat all the great information found in all these data sheets and manual, but I will try to fill in the blanks. Connecting all this information to get you to program your AVR chip is not always straight forward.&lt;/p&gt;
-
-&lt;h2 id=&#34;setting-up-the-software:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Setting up the software&lt;/h2&gt;
-
-&lt;p&gt;Follow the&lt;a href=&#34;http://www.obdev.at/products/crosspack/index.html&#34;&gt; tutorial at CrossPack&lt;/a&gt;. You then get a Makefile containing these settings:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEVICE = atmega8
-CLOCK = 8000000
-PROGRAMMER = #-c stk500v2 -P avrdoper
-OBJECTS = main.o
-FUSES = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The problem is figuring what these settings should be for your device. You can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;avrdude -c stk500v2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To  get a list over supported AVR chips, or parts as AVRDUDE will refer to them. But really the easiest way to write the DEVICE name is to just write the name of the chip is small letters. So ATtiny13 becomes &lt;em&gt;attiny13. &lt;/em&gt;I actually have a ATtiny13V, but you should not add the V. It is not really a significantly different model.&lt;/p&gt;
-
-&lt;p&gt;The next problem is specifying the programmer. This can be confusing. You do not actually write &lt;em&gt;AVR-ISP500&lt;/em&gt;, even though that is what you have. What matters is the protocol. The &lt;em&gt;AVR-ISP500 &lt;/em&gt;uses the STK500v2 protocol, so that is what matters to AVRDUDE. This is probably because mutliple manufactureres probably make programmers which act the same, but they need to be given unqiue names to distinguish each product.&lt;/p&gt;
-
-&lt;p&gt;Now you might think that you should supply &lt;code&gt;avrdoper&lt;/code&gt; to the &lt;code&gt;-P&lt;/code&gt; argument. But that is for another programmer implementing the STK500v2 protocol. If the programmer acted as a regular USB devices you could just write &lt;code&gt;-P USB&lt;/code&gt;. But AVR-ISP500 uses a serial port over USB. I do not really know what that means. It is sort of like emulating a serial port over USB. So this serial port only exists logically on your Mac not physically. This gives problems when trying to find it on your Mac. You can write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls /dev/cu.*
-/dev/cu.Bluetooth-Modem    /dev/cu.Bluetooth-PDA-Sync
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to get a list of serial devices. Unfortunatly our serial device is not there. That is because it is logical and created on the fly. So you have to actually plug in your &lt;em&gt;AVR-ISP500&lt;/em&gt; into the USB port before it pops up in the list. The name will be different for different computers. On my computer it shows up as &lt;code&gt;/dev/cu.usbmodemfa121&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now the final setting to figure out are the fuses. I got mine from chapter 1, page 28 of the book &lt;a title=&#34;tiny AVR projects&#34; href=&#34;http://www.amazon.com/tinyAVR-Microcontroller-Projects-Evil-Genius/dp/0071744541&#34;&gt;tinyAVR Microcontroller Projects for the Evil Genius&lt;/a&gt;. They set high fuse to 0xFF and low fuse to 0x73. Those bits will mean different things for different AVR chips. To find out what it means go to the &lt;a href=&#34;http://www.engbedded.com/fusecalc&#34;&gt;AVR Fuse Calculator&lt;/a&gt; chose your AVR chip. In my case ATtiny13. Scroll down past all the individual fuse bits and input the high and low fuse bits 0xFF and 0x73. That means we do not enable any of the high bits because, you need to set a bit to 0 to enable it. On the low bits we enable SPIEN, SUT1 and SUT0. The important part is that we enable the SPIEN bit, because that is what allows us to program the AVR chip using a serial interface called SPI. That is what AVR-ISP500 uses. So the important section in my Makefile ended up being changed to:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEVICE = attiny13
-CLOCK = 8000000
-PROGRAMMER = -c stk500v2 -P /dev/cu.usbmodemfa121
-OBJECTS = main.o
-FUSES = -U lfuse:w:0x73:m -U hfuse:w:0xff:m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we got the software configured. What is left is getting the hardware configured.&lt;/p&gt;
-
-&lt;h2 id=&#34;configure-the-hardware:ce54b2126f2778a22eac2dacc40dfaa1&#34;&gt;Configure the Hardware&lt;/h2&gt;
-
-&lt;p&gt;Before going into details, let me just tell you that hooking up the programmer to your AVR chip is a lot easier than I thought at first. You do not really need to put in any extra components: capacitors, resistors etc. You do not even need to supply a power source. The programmer will give you everything including power through its cable.&lt;/p&gt;
-
-&lt;p&gt;Just put your AVR chip down on the breadboard. Look at your AVR-ISP500 manual and your ATtiny13 datasheet and make sure you connect the 6 pins from your programmer to the right 6 pins on your AVR chip. Here are some tips for each pin:
-&lt;ol&gt;
-    &lt;li&gt;&lt;span style=&#34;line-height: 14px;&#34;&gt;Serial input (abbriviated MISO) goes from pin 1 on programmer to pin 6 on ATtiny13&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;Target VCC is the same as VCC on your AVR chip. This is how the chip gets power.&lt;/li&gt;
-    &lt;li&gt;Serial clock connects to pin 7 on AVR&lt;/li&gt;
-    &lt;li&gt;Serial output (MOSI) to pin 5&lt;/li&gt;
-    &lt;li&gt;Target reset connects to pin 1 on your ATtiny, which is the reset pin. When it goes LOW it will reset the chip. E.g. starting program over again.&lt;/li&gt;
-    &lt;li&gt;Ground (GND). Connect to pin 4, which is GND on the AVR.&lt;/li&gt;
-&lt;/ol&gt;
-The Olimex AVR-ISP500 manual shows pictures of the connectors to help you identify where the individual pins are. I am using narrow cable with 6 pins on the right side on the image below.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0553.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-4 aligncenter&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0553.jpg?w=300&#34; alt=&#34;IMG_0553&#34; width=&#34;300&#34; height=&#34;218&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If you pull out the cable it is easy to compare with the Olimex manual.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;attachment_5&#34; align=&#34;aligncenter&#34; width=&#34;213&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0559.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-5&#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0559.jpg?w=213&#34; alt=&#34;AVR-ISP500 USB based AVR programmer from Olimex, implementing STK500v2 protocol&#34; width=&#34;213&#34; height=&#34;300&#34; /&gt;&lt;/a&gt; AVR-ISP500 USB based AVR programmer from Olimex, implementing STK500v2 protocol&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;A thing to note about the cable is the pins get turn upside down. So if you turn the programmer so that &lt;strong&gt;pin 1 is at the lower left&lt;/strong&gt; as shown in the manual, it will be the &lt;strong&gt;upper left&lt;/strong&gt; at the end of the cable. In the picture below I have turned the plug so that the the &lt;strong&gt;red&lt;/strong&gt; cable is actually &lt;strong&gt;pin 2&lt;/strong&gt; and the &lt;strong&gt;yellow&lt;/strong&gt; cable below is&lt;strong&gt; pin 1&lt;/strong&gt;. If in doubt measure resistance with your multi meter at both ends, to make sure you are not mixing up which pin is which. If you guessed right, there should be approximatly zero resistance measured.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;attachment_6&#34; align=&#34;aligncenter&#34; width=&#34;300&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0549.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-6 &#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0549.jpg?w=300&#34; alt=&#34;IMG_0549&#34; width=&#34;300&#34; height=&#34;231&#34; /&gt;&lt;/a&gt; Yellow: MISO, Red: Vcc, Orange: SCK, Blue: MOSI, Green: Reset, White: GND&lt;/caption&gt;&lt;/p&gt;
-
-&lt;p&gt;Below you can see how I connected all the pins from the programmer to the chip. This is the simple project from chapter 1 of the Evil Genius book. But the important thing here is how the cables are connected from the programmer to the ATtiny13 chip, because that is all you need. You do not need the LEDs, buttons, resitors and capacitor I put in.&lt;/p&gt;
-
-&lt;p&gt;&lt;caption id=&#34;attachment_7&#34; align=&#34;aligncenter&#34; width=&#34;300&#34;&gt;&lt;a href=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0560.jpg&#34;&gt;&lt;img class=&#34; wp-image-7 &#34; src=&#34;http://pluggerogkontakter.files.wordpress.com/2013/03/img_0560.jpg?w=300&#34; alt=&#34;IMG_0560&#34; width=&#34;300&#34; height=&#34;176&#34; /&gt;&lt;/a&gt; Simple setup from Evil Genius book. Allows us to turn on toggle to LEDs with push buttons.&lt;/caption&gt;&lt;/p&gt;
-</description>
+      <description>After Arduino So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.
+Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller.</description>
     </item>
     
   </channel>
