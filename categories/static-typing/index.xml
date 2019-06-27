@@ -6,7 +6,7 @@
     <description>Recent content in Static Typing on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 08 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/categories/static-typing/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Dynamic Typing as a Paradigm</title>
       <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</link>
-      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.</description>

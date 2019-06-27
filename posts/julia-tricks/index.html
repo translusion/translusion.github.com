@@ -2,14 +2,14 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Usefull tricks in Julia'>
+<meta name='description' content='Usefull tricks in Julia for dealing with numbers, strings, dates and more.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Tricks in Julia • Translusion'>
-<meta property='og:description' content='Usefull tricks in Julia'>
+<meta property='og:description' content='Usefull tricks in Julia for dealing with numbers, strings, dates and more.'>
 <meta property='og:url' content='http://translusion.github.com/posts/julia-tricks/'>
 <meta property='og:site_name' content='Translusion'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2014-12-21T00:00:00Z'/><meta property='article:modified_time' content='2014-12-21T00:00:00Z'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2019-06-25T00:00:00Z'/><meta property='article:modified_time' content='2019-06-25T00:00:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.6" />
 
@@ -120,7 +120,7 @@
     <div class='header-info'>
       <h1 class='title'>Tricks in Julia</h1>
       
-<p class='desc'>Usefull tricks in Julia</p>
+<p class='desc'>Usefull tricks in Julia for dealing with numbers, strings, dates and more.</p>
 
 
     </div>
@@ -134,7 +134,7 @@
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2014-12-21T00:00:00Z'>2014, Dec 21</time>
+  <time class='entry-date' datetime='2019-06-25T00:00:00Z'>2019, Jun 25</time>
 </span>
 
   
@@ -166,31 +166,30 @@
 <h3 id="parsing-strings">Parsing Strings</h3>
 
 <p>Extract 3 numbers from a string into 3 variables:</p>
-
-<pre><code>a, b, c = map(int, split(&quot;11 12 13&quot;))
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">a, b, c <span style="color:#f92672">=</span> parse<span style="color:#f92672">.</span>(<span style="color:#66d9ef">Int</span>, split(<span style="color:#e6db74">&#34;11 12 13&#34;</span>))</code></pre></div>
+<p>This requires some explanation. <code>parse(Int, s)</code> will parse a single string <code>s</code> as a number. However when you call <code>parse.(Int, [&quot;11&quot;, &quot;12&quot;, &quot;13&quot;])</code>, the dot causes <code>parse</code> to be called for every element of the array.</p>
 
 <h3 id="initialization">Initialization</h3>
 
 <p>There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.</p>
 
-<pre><code>&gt; type Point
-    x::Int
-    y::Int
-  end
+<pre><code>julia&gt; mutable struct Point
+         x::Int
+         y::Int
+       end
 
-&gt; points = fill(Point(0, 0), 4)
-4-element Array{Point,1}:
- Point(0,0)
- Point(0,0)
- Point(0,0)
- Point(0,0)
+julia&gt; points = fill(Point(0, 0), 4)
+    4-element Array{Point,1}:
+     Point(0,0)
+     Point(0,0)
+     Point(0,0)
+     Point(0,0)
 </code></pre>
 
 <p>That looks all fine, until you make a change and get this:</p>
 
-<pre><code>&gt; points[2].x = 20
-&gt; points
+<pre><code>julia&gt; points[2].x = 20
+julia&gt; points
 4-element Array{Point,1}:
  Point(20,0)
  Point(20,0)
@@ -207,17 +206,19 @@
 
 <p>There are a lot of issues with just dealing with something simple as integers. First of all how do yo get the min and max values of the integers you are using:</p>
 
-<pre><code>&gt; typemax(Int8)
+<pre><code>julia&gt; typemax(Int8)
 127
-&gt; typemax(Uint8)
+
+julia&gt; typemax(UInt8)
 0xff # which is 255 decimal
-&gt; typemin(Int8)
+
+julia&gt; typemin(Int8)
 -128
 </code></pre>
 
 <p>One also has to remember that Julia integers do not get promoted to larger values when overflowing. So e.g. taking the factorial of a really big number like 100 requires using <code>BigInt</code>:</p>
 
-<pre><code> &gt; factorial(BigInt(25))
+<pre><code> julia&gt; factorial(BigInt(25))
  15511210043330985984000000
 </code></pre>
 
@@ -225,39 +226,43 @@
 
 <p>One thing I got confused by being more used to C/C++ is how division works in Julia. There are several ways of doing it depending on what you want. Using integers in division does not produce integers automatically. The default is to give floating point answer:</p>
 
-<pre><code>&gt; 10 / 6
+<pre><code>julia&gt; 10 / 6
 1.6666666666666667
 </code></pre>
 
 <p>Which has of course the minor inaccuracies of floating point arithmetic. If you want accurate results you can compute fractions with the <code>//</code> division operator:</p>
 
-<pre><code>&gt; a = 10 // 6
+<pre><code>julia&gt; a = 10 // 6
 5//3
-&gt; a.num
+
+julia&gt; numerator(a)
 5
-&gt; a.div
+
+julia&gt; denominator(a)
 3
 </code></pre>
 
 <p>If you want to work with C/C++ style division then we use the <code>div</code>, <code>rem</code> and <code>mod</code> functions:</p>
 
-<pre><code>&gt; div(10, 6)
+<pre><code>julia&gt; div(10, 6)
 1
+
 &gt; rem(10, 6)
 4
 </code></pre>
 
 <p>C/C++ style remainder</p>
 
-<pre><code>&gt; 10 % 6
+<pre><code>julia&gt; 10 % 6
 4
 </code></pre>
 
 <p>Modulus is not quite the same as remaineder. E.g.</p>
 
-<pre><code>&gt; rem(-21, 4)
+<pre><code>julia&gt; rem(-21, 4)
 -1
-&gt; mod(-21, 4)
+
+julia&gt; mod(-21, 4)
 3
 </code></pre>
 
@@ -266,30 +271,22 @@
 <h3 id="reading-files">Reading files</h3>
 
 <p>Julia has some nice ways you can compose functions to read files.</p>
-
-<pre><code>lines = open(readlines, &quot;myfile.txt&quot;)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">lines <span style="color:#f92672">=</span> open(readlines, <span style="color:#e6db74">&#34;myfile.txt&#34;</span>)</code></pre></div>
 <p>This corresponds to writing:</p>
-
-<pre><code>f = open(&quot;myfile.txt&quot;)
-lines = readlines(f)
-close(f)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;myfile.txt&#34;</span>)
+lines <span style="color:#f92672">=</span> readlines(f)
+close(f)</code></pre></div>
 <p>With the julia <code>do end</code> syntax sugar you can use this to conveniently read a file and not forget to close it:</p>
-
-<pre><code>open(&quot;myfile.txt&quot;) do f
-   println(readline(f))     # print out first line in file
-end                         # file stream automatically closes here
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">open(<span style="color:#e6db74">&#34;myfile.txt&#34;</span>) <span style="color:#66d9ef">do</span> f
+   println(readline(f))     <span style="color:#75715e"># print out first line in file</span>
+<span style="color:#66d9ef">end</span>                         <span style="color:#75715e"># file stream automatically closes here</span></code></pre></div>
 <h3 id="working-with-dates">Working with dates</h3>
 
 <p>This is just to show how to deal with a common case:</p>
 
-<pre><code>&gt; using Dates
-&gt; (date, time) = split(&quot;5/8/2014 0:16:03&quot;)
+<pre><code>julia&gt; using Dates
+
+julia&gt; (date, time) = split(&quot;5/8/2014 0:16:03&quot;)
 2-element Array{SubString{ASCIIString},1}:
  &quot;5/8/2014&quot;
  &quot;0:16:03&quot; 
@@ -297,18 +294,19 @@ end                         # file stream automatically closes here
 
 <p>Then as shown before we can unpack an array into separate variables like this:</p>
 
-<pre><code>&gt; year, month, day = reverse(map(int, split(date, '/')))
+<pre><code>julia&gt; y, m, d = reverse(parse.(Int, split(date, '/')))
 3-element Array{Int64,1}:
  2014
     8
     5
-&gt; date = Date(year, month, day)
+
+julia&gt; date = Date(y, m, d)
 2014-08-05
 </code></pre>
 
 <p>You could also do this in one go by unpacking an array into function arguments using <code>...</code>:</p>
 
-<pre><code>&gt; Date(reverse(map(int, split(date, '/')))...)
+<pre><code>julia&gt; Date(reverse(parse.(Int, split(date, '/')))...)
 2014-08-05
 </code></pre>
 
@@ -327,45 +325,43 @@ end                         # file stream automatically closes here
 <h3 id="accessing-fields-of-a-type">Accessing fields of a type</h3>
 
 <p>The syntax for accessing fields known at compile time is similar in Julia as in most other languages with Algol syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">struct</span> FooBar
+	foo<span style="color:#f92672">::</span><span style="color:#66d9ef">Int64</span>
+	bar<span style="color:#f92672">::</span>String
+<span style="color:#66d9ef">end</span></code></pre></div>
+<pre><code>julia&gt; a = FooBar(42, &quot;The answer to everything&quot;)
 
-<pre><code>type FooBar
-    foo::Int64
-    bar::String
-end
-
-&gt; a = FooBar(42, &quot;The answer to everything&quot;)
-&gt; a.bar
+julia&gt; a.bar
 &quot;The answer to everything&quot;
-&gt; a.foo
+
+julia&gt; a.foo
 42
 </code></pre>
 
 <p>However accessing fields not known at compile time is different. Imagine the user inputs the name of a field to access or the names of fields are read of a file. Unlike Ruby and Python, Julia&rsquo;s objects are not implemented as hashtables. So accessing fields given a name is a bit different:</p>
 
-<pre><code>&gt; a.(:bar)
+<pre><code>julia&gt; getfield(a, :bar)
 &quot;The answer to everything&quot;
 </code></pre>
 
 <p>If you only got the name of a field as a string you can do:</p>
 
-<pre><code>&gt; a.(symbol(&quot;bar&quot;))
+<pre><code>julia&gt; getfield(a, Symbol(&quot;bar&quot;))
 &quot;The answer to everything&quot;
 </code></pre>
 
 <p>To find out what fields actually exist you can use <code>names</code>:</p>
 
-<pre><code>&gt; names(FooBar)
-2-element Array{Symbol,1}:
- :foo
- :bar
+<pre><code>julia&gt; fieldnames(FooBar)
+(:foo, :bar)
 </code></pre>
 
 <p>Alternatively if you got an instance you can see both the name of the fields and their values with <code>dump</code>:</p>
 
-<pre><code>&gt; dump(a)
-FooBar 
+<pre><code>julia&gt; dump(a)
+FooBar
   foo: Int64 42
-  bar: ASCIIString &quot;The answer to everything&quot;
+  bar: String &quot;The answer to everything&quot;
 </code></pre>
 
 <p>Most of these code snippets or approaches I picked up from doing small things like implement an algorithm in <a href="https://projecteuler.net" target="_blank">project Euler</a>. I hope to write some bigger piece of code and see how Julia stacks up and how well suited Julia is for more software engineering type of challenges.</p>
@@ -389,7 +385,7 @@ FooBar
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/posts/beautiful-julia/'>
+      <a href='/posts/munchingdata-julia/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -397,10 +393,10 @@ FooBar
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Beautiful Julia: Cool language constructs and Tricks for Beginners</a>
+        <span class='screen-reader-text'>Previous post: </span>Munching Data with Julia</a>
     </div><div class='next-entry sep-before'>
-      <a href='/posts/dont-starve-review/'>
-        <span class='screen-reader-text'>Next post: </span>Don&#39;t Starve for PS4<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+      <a href='/posts/beautiful-julia/'>
+        <span class='screen-reader-text'>Next post: </span>Beautiful Julia: Cool Language Constructs and Tricks for Beginners<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>

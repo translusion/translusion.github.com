@@ -6,15 +6,15 @@
     <description>Recent content in Python on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
+      <title>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</title>
       <link>http://translusion.github.com/posts/beautiful-julia/</link>
-      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
       <description>I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia?

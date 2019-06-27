@@ -9,7 +9,7 @@
 <meta property='og:description' content='A comparison of one liners in Scala and how they would look in Julia.'>
 <meta property='og:url' content='http://translusion.github.com/posts/julia-one-liners/'>
 <meta property='og:site_name' content='Translusion'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2016-05-04T00:00:00Z'/><meta property='article:modified_time' content='2016-05-04T00:00:00Z'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2019-06-26T00:00:00Z'/><meta property='article:modified_time' content='2019-06-26T00:00:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.6" />
 
@@ -134,7 +134,7 @@
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2016-05-04T00:00:00Z'>2016, May 04</time>
+  <time class='entry-date' datetime='2019-06-26T00:00:00Z'>2019, Jun 26</time>
 </span>
 
   
@@ -145,7 +145,7 @@
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-4 mins read
+5 mins read
 </span>
 
 
@@ -166,167 +166,122 @@
 <h3 id="1-multiple-each-item-in-a-list-by-2">1. Multiple Each Item in a List by 2</h3>
 
 <p>Original Scala version</p>
-
-<pre><code>(1 to 10) map { _ * 2 }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">10</span><span style="color:#f92672">)</span> map <span style="color:#f92672">{</span> <span style="color:#66d9ef">_</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">}</span></code></pre></div>
 <p>I think the Julia version is clearer. The <code>x-&gt;2x</code> notation for anonymous function looks very similar to regular mathematical notation.</p>
-
-<pre><code>map(x-&gt;2x, 1:10)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">map(x<span style="color:#f92672">-&gt;</span><span style="color:#ae81ff">2</span>x, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>)</code></pre></div>
 <h3 id="2-sum-a-list-of-numbers">2. Sum a List of Numbers</h3>
 
 <p>Sums numbers from 1 to 1000 in Scala either by using <code>reduceLeft</code> or <code>sum</code>.</p>
-
-<pre><code>(1 to 1000).reduceLeft( _ + _ )
-(1 to 1000).sum
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">1000</span><span style="color:#f92672">).</span>reduceLeft<span style="color:#f92672">(</span> <span style="color:#66d9ef">_</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">_</span> <span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">1000</span><span style="color:#f92672">).</span>sum</code></pre></div>
 <p>Very similar in Julia, but the <code>reduce</code> seems more elegant in that you don’t have to explicitly give the arguments to <code>+</code>. <code>reduce</code> takes a binary operator. So you just pass that. You don’t have to tell Julia how to add numbers with it.</p>
-
-<pre><code>reduce(+, 1:1000)
-sum(1:1000)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">reduce(<span style="color:#f92672">+</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1000</span>)
+sum(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1000</span>)</code></pre></div>
 <h3 id="3-verify-if-exists-in-a-string">3. Verify if Exists in a String</h3>
 
 <p>Check if a word in a word list is present in a string.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> wordList <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;scala&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;akka&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;play framework&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;sbt&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;typesafe&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> tweet <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;This is an example tweet talking about scala and sbt.&#34;</span>
 
-<pre><code>val wordList = List(&quot;scala&quot;, &quot;akka&quot;, &quot;play framework&quot;, &quot;sbt&quot;, &quot;typesafe&quot;)
-val tweet = &quot;This is an example tweet talking about scala and sbt.&quot;
-
-(wordList.foldLeft(false)( _ || tweet.contains(_) ))
-wordList.exists(tweet.contains)
-</code></pre>
-
-<p>Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia:</p>
-
-<pre><code>wordlist = [&quot;scala&quot;, &quot;akka&quot;, &quot;play framework&quot;, &quot;sbt&quot;, &quot;typesafe&quot;]
-tweet = &quot;This is an example tweet talking about scala and sbt.&quot;
-any(word-&gt;contains(tweet, word), wordlist)
-</code></pre>
-
+<span style="color:#f92672">(</span>wordList<span style="color:#f92672">.</span>foldLeft<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)(</span> <span style="color:#66d9ef">_</span> <span style="color:#f92672">||</span> tweet<span style="color:#f92672">.</span>contains<span style="color:#f92672">(</span><span style="color:#66d9ef">_</span><span style="color:#f92672">)</span> <span style="color:#f92672">))</span>
+wordList<span style="color:#f92672">.</span>exists<span style="color:#f92672">(</span>tweet<span style="color:#f92672">.</span>contains<span style="color:#f92672">)</span></code></pre></div>
+<p>Here I really think the Scala version is rather cryptic. I can not really guess how this works without learning more about Scala. In Julia I would take another approach. This treats the tweet and the wordlist as two sets of words and perform a set intersection <code>∩</code> on them:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#f92672">!</span>isempty(split(tweet) <span style="color:#f92672">∩</span> wordlist)</code></pre></div>
 <h3 id="4-read-in-a-file">4. Read in a File</h3>
 
 <p>This is a line for reading a file as a string in Scala. While that is apparently impressive by Java standards it is rather verbose for other languages.</p>
-
-<pre><code>val fileText = io.Source.fromFile(&quot;data.txt&quot;).mkString
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> fileText <span style="color:#66d9ef">=</span> io<span style="color:#f92672">.</span><span style="color:#a6e22e">Source</span><span style="color:#f92672">.</span>fromFile<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data.txt&#34;</span><span style="color:#f92672">).</span>mkString</code></pre></div>
 <p>In Julia this would just be</p>
-
-<pre><code>filetext = readall(“data.txt”)`
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">filetext <span style="color:#f92672">=</span> read(“data<span style="color:#f92672">.</span>txt”, String)</code></pre></div>
 <p>There is another Scala example of reading the file and turing every line into an element in list.</p>
-
-<pre><code>val fileLines = io.Source.fromFile(&quot;data.txt&quot;).getLines.toList
-</code></pre>
-
-<p>This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument and provide that function with a stream object and then close the file after the function is finished. There are many functions like <code>readall</code>, <code>readlines</code> etc which takes streams as arguments. So you can write:</p>
-
-<pre><code>filelines = open(readlines, &quot;data.txt&quot;)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> fileLines <span style="color:#66d9ef">=</span> io<span style="color:#f92672">.</span><span style="color:#a6e22e">Source</span><span style="color:#f92672">.</span>fromFile<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data.txt&#34;</span><span style="color:#f92672">).</span>getLines<span style="color:#f92672">.</span>toList</code></pre></div>
+<p>This is also the sort of thing that is trivial in Julia. Julia’s file open command can take a function as an argument. <code>open</code> gives this function a stream object and then close the file after the function is finished. There are many functions like <code>readline</code>, <code>readlines</code>, <code>read</code> etc which takes streams as arguments. So you can write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">filelines <span style="color:#f92672">=</span> open(readlines, <span style="color:#e6db74">&#34;data.txt&#34;</span>)</code></pre></div>
 <h3 id="5-happy-birthday-to-you">5. Happy Birthday to You!</h3>
 
-<p>Here the Scala one ends up looking a bit better as Julia doesn’t have anything like <code>foreach</code>:</p>
+<p>The Scala way of doing this is honestly a bit Rube Goldberg&rsquo;ish. It is a convoluted way of solving something rather simple:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">4</span><span style="color:#f92672">).</span>map <span style="color:#f92672">{</span> i <span style="color:#66d9ef">=&gt;</span> <span style="color:#e6db74">&#34;Happy Birthday &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;dear NAME&#34;</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;to You&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}.</span>foreach <span style="color:#f92672">{</span> println <span style="color:#f92672">}</span></code></pre></div>
+<p>The most straighforward way of doing this in Julia would be:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>
+   println(<span style="color:#e6db74">&#34;Happy Birtday &#34;</span>, i <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;dear NAME&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;to You&#34;</span>)
+<span style="color:#66d9ef">end</span></code></pre></div>
+<p>However if one wants to solve the problem more in the Scala fashion, you could write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">lines <span style="color:#f92672">=</span> map(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">do</span> i
+           <span style="color:#e6db74">&#34;Happy Birtday &#34;</span> <span style="color:#f92672">*</span> (i <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;dear NAME&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;to You&#34;</span>)
+       <span style="color:#66d9ef">end</span>
+foreach(println,  lines)</code></pre></div>
+<p>You could do this with one line, but I split it in two lines for the sake of clarity.</p>
 
-<pre><code>(1 to 4).map { i =&gt; &quot;Happy Birthday &quot; + (if (i == 3) &quot;dear NAME&quot; else &quot;to You&quot;) }.foreach { println }
-</code></pre>
-
-<p>In Julia it is clearer to do it in two steps:</p>
-
-<pre><code>lines = map(1:4) do i 
-        &quot;Happy Birthday &quot; * 
-        if i == 3 &quot;dear NAME&quot; else &quot;to You&quot; end 
-end
-print(join(lines, &quot;\n&quot;))
-</code></pre>
-
-<p>One thing to notice though is that you can write this stuff in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the <code>if</code> statement, while Julia avoids this and use a single <code>end</code> keyword instead.</p>
+<p>One thing to notice is that you can write code in Julia with a lot less clutter of parenthesis and curly braces. In Scala need 4 parenthesis for the <code>if</code> statement, while Julia avoids this and use a single <code>end</code> keyword instead.</p>
 
 <h3 id="6-filter-list-of-numbers">6. Filter list of numbers</h3>
 
 <p>Partition a list of students into two categories.</p>
-
-<pre><code>val (passed, failed) = List(49, 58, 76, 82, 88, 90) partition ( _ &gt; 60 )
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> <span style="color:#f92672">(</span>passed<span style="color:#f92672">,</span> failed<span style="color:#f92672">)</span> <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">49</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">58</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">76</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">82</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">88</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">90</span><span style="color:#f92672">)</span> partition <span style="color:#f92672">(</span> <span style="color:#66d9ef">_</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">)</span></code></pre></div>
 <p>There is no function like partition in Julia so you would have to write this using multiple lines:</p>
-
-<pre><code>grades = [49, 58, 76, 82, 88, 90]
-passed = filter(grade-&gt;grade &gt; 60, grades)
-failed = filter(grade-&gt;grade &lt;= 60, grades)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">grades <span style="color:#f92672">=</span> [<span style="color:#ae81ff">49</span>, <span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">76</span>, <span style="color:#ae81ff">82</span>, <span style="color:#ae81ff">88</span>, <span style="color:#ae81ff">90</span>]
+passed <span style="color:#f92672">=</span> filter(grade<span style="color:#f92672">-&gt;</span>grade <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span>, grades)
+failed <span style="color:#f92672">=</span> filter(grade<span style="color:#f92672">-&gt;</span>grade <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">60</span>, grades)</code></pre></div>
 <p>But of course nothing prevents us from defining a <code>partition</code> function in Julia:</p>
-
-<pre><code>function partition{T}(p, xs::Vector{T})
-    as = Vector{T}()
-    bs = Vector{T}()
-    for x in xs
-        if p(x)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">function</span> partition{T}(p, xs<span style="color:#f92672">::</span><span style="color:#66d9ef">Vector</span>{T})
+    as <span style="color:#f92672">=</span> T[]
+    bs <span style="color:#f92672">=</span> T[]
+    <span style="color:#66d9ef">for</span> x <span style="color:#66d9ef">in</span> xs
+        <span style="color:#66d9ef">if</span> p(x)
             push!(as, x)
-        else
+        <span style="color:#66d9ef">else</span>
             push!(bs, x)
-        end
-    end
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
     (as, bs)
-end
-</code></pre>
-
+<span style="color:#66d9ef">end</span></code></pre></div>
 <p>Which then would allow us to do like in Scala:</p>
-
-<pre><code>passed, failed = partition(grade-&gt;grade &gt; 60, grades)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">passed, failed <span style="color:#f92672">=</span> partition(grade<span style="color:#f92672">-&gt;</span>grade <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span>, grades)</code></pre></div>
 <h3 id="7-fetch-and-parse-an-xml-web-service">7. Fetch and Parse an XML web service</h3>
 
 <p>Here’s an example fetching the Twitter search feed in Scala.</p>
-
-<pre><code>val results = XML.load(&quot;http://search.twitter.com/search.atom?&amp;q=scala&quot;)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> results <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">XML</span><span style="color:#f92672">.</span>load<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://search.twitter.com/search.atom?&amp;q=scala&#34;</span><span style="color:#f92672">)</span></code></pre></div>
 <p>I don’t know anything about XML stuff in Julia, so I will not attempt and alternative.</p>
 
 <h3 id="8-find-minimum-or-maximum-in-a-list">8. Find minimum (or maximum) in a List</h3>
 
 <p>Another couple of examples using reduceLeft to iterate through a list and apply a function. Added simpler examples of the method min/max on the list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">14</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">35</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">46</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">98</span><span style="color:#f92672">).</span>reduceLeft <span style="color:#f92672">(</span> <span style="color:#66d9ef">_</span> min <span style="color:#66d9ef">_</span> <span style="color:#f92672">)</span>
+<span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">14</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">35</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">46</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">98</span><span style="color:#f92672">).</span>min
 
-<pre><code>List(14, 35, -7, 46, 98).reduceLeft ( _ min _ )
-List(14, 35, -7, 46, 98).min
-
-List(14, 35, -7, 46, 98).reduceLeft ( _ max _ )
-List(14, 35, -7, 46, 98).max
-</code></pre>
-
+<span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">14</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">35</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">46</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">98</span><span style="color:#f92672">).</span>reduceLeft <span style="color:#f92672">(</span> <span style="color:#66d9ef">_</span> max <span style="color:#66d9ef">_</span> <span style="color:#f92672">)</span>
+<span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">14</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">35</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">46</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">98</span><span style="color:#f92672">).</span>max</code></pre></div>
 <p>Again this is the sort of thing were Julia is very succinct.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">reduce(min, [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">35</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">98</span>])
+min(<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">35</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">98</span>)
 
-<pre><code>reduce(min, [14, 35, -7, 46, 98])
-min(14, 35, -7, 46, 98)
-
-reduce(max, [14, 35, -7, 46, 98])
-max(14, 35, -7, 46, 98)
-</code></pre>
-
+reduce(max, [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">35</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">98</span>])
+max(<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">35</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">98</span>)</code></pre></div>
 <h3 id="9-parallel-processing">9. Parallel Processing</h3>
 
 <p>The following one-liner would give you parallel processing over the list in Scala.</p>
-
-<pre><code>val result = dataList.par.map( line =&gt; processItem(line) )
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> result <span style="color:#66d9ef">=</span> dataList<span style="color:#f92672">.</span>par<span style="color:#f92672">.</span>map<span style="color:#f92672">(</span> line <span style="color:#66d9ef">=&gt;</span> processItem<span style="color:#f92672">(</span>line<span style="color:#f92672">)</span> <span style="color:#f92672">)</span></code></pre></div>
+<p>Parallel processing works quite different in Julia, so for this particular example, there is no elegant solution. You would do something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">result <span style="color:#f92672">=</span> zeros(<span style="color:#66d9ef">Int</span>, length(dataList))
+<span style="color:#a6e22e">@threads</span> <span style="color:#66d9ef">for</span> (i, line) <span style="color:#66d9ef">in</span> enumerate(dataList)
+    result[i] <span style="color:#f92672">=</span> processItem(line)
+<span style="color:#66d9ef">end</span></code></pre></div>
 <h3 id="10-sieve-of-eratosthenes">10. Sieve of Eratosthenes</h3>
 
 <p>We got this crazy line from Scala, but no I am not going to figure out what this really does and rewrite it in Julia.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#f92672">(</span>n<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> to n<span style="color:#f92672">)</span> <span style="color:#f92672">|&gt;</span> <span style="color:#f92672">(</span>r <span style="color:#66d9ef">=&gt;</span> r<span style="color:#f92672">.</span>foldLeft<span style="color:#f92672">(</span>r<span style="color:#f92672">.</span>toSet<span style="color:#f92672">)((</span>ps<span style="color:#f92672">,</span> x<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ps<span style="color:#f92672">(</span>x<span style="color:#f92672">))</span> ps <span style="color:#f92672">--</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">*</span> x to n by x<span style="color:#f92672">)</span> <span style="color:#66d9ef">else</span> ps<span style="color:#f92672">))</span></code></pre></div>
+<p>Perhaps one day when I am <em>very</em> bored I’ll revisit this and update the blog. Here is an example from <a href="https://riptutorial.com/julia-lang/example/13313/sieve-of-eratosthenes" target="_blank">RIP tutorial</a> on how to do it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">iscoprime(P, i) <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>any(x <span style="color:#f92672">-&gt;</span> i <span style="color:#f92672">%</span> x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>, P)
 
-<pre><code>(n: Int) =&gt; (2 to n) |&gt; (r =&gt; r.foldLeft(r.toSet)((ps, x) =&gt; if (ps(x)) ps -- (x * x to n by x) else ps))
-</code></pre>
-
-<p>Perhaps one day when I am <em>very</em> bored I’ll revisit this and update the blog.</p>
-
+<span style="color:#66d9ef">function</span> sieve(n)
+    P <span style="color:#f92672">=</span> <span style="color:#66d9ef">Int</span>[]
+    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>n
+        <span style="color:#66d9ef">if</span> iscoprime(P, i)
+            push!(P, i)
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+    P
+<span style="color:#66d9ef">end</span></code></pre></div>
 </div>
 
   
@@ -346,7 +301,7 @@ max(14, 35, -7, 46, 98)
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/posts/military-intention/'>
+      <a href='/posts/beautiful-julia/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -354,7 +309,7 @@ max(14, 35, -7, 46, 98)
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>The significance of intention in war</a>
+        <span class='screen-reader-text'>Previous post: </span>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</a>
     </div></div>
 </nav>
 

@@ -5,15 +5,15 @@
 <meta name='description' content='Examples of Julia language constructs based of similarly named Python blog.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Beautiful Julia: Cool language constructs and Tricks for Beginners • Translusion'>
+<meta property='og:title' content='Beautiful Julia: Cool Language Constructs and Tricks for Beginners • Translusion'>
 <meta property='og:description' content='Examples of Julia language constructs based of similarly named Python blog.'>
 <meta property='og:url' content='http://translusion.github.com/posts/beautiful-julia/'>
 <meta property='og:site_name' content='Translusion'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2014-12-14T00:00:00Z'/><meta property='article:modified_time' content='2014-12-14T00:00:00Z'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2019-06-25T00:00:00Z'/><meta property='article:modified_time' content='2019-06-25T00:00:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.6" />
 
-  <title>Beautiful Julia: Cool language constructs and Tricks for Beginners • Translusion</title>
+  <title>Beautiful Julia: Cool Language Constructs and Tricks for Beginners • Translusion</title>
   <link rel='canonical' href='http://translusion.github.com/posts/beautiful-julia/'>
   
   
@@ -99,7 +99,7 @@
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'></a></li><li><a href='/posts/'>Posts</a></li><li><span>Beautiful Julia: Cool language constructs and Tricks for Beginners</span></li></ol>
+      <ol><li><a href='/'></a></li><li><a href='/posts/'>Posts</a></li><li><span>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -118,7 +118,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Beautiful Julia: Cool language constructs and Tricks for Beginners</h1>
+      <h1 class='title'>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</h1>
       
 <p class='desc'>Examples of Julia language constructs based of similarly named Python blog.</p>
 
@@ -134,7 +134,7 @@
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2014-12-14T00:00:00Z'>2014, Dec 14</time>
+  <time class='entry-date' datetime='2019-06-25T00:00:00Z'>2019, Jun 25</time>
 </span>
 
   
@@ -187,19 +187,22 @@
 
 <p>But we can also do something similar to the Python example, exept Julia requires you to be a bit more explicit about the start and end of the slice</p>
 
-<pre><code> julia&gt; a[end👎1]
- 3-element Array{Int64,1}:
-  4
-  2
-  1
+<pre><code>julia&gt; a[end:-1:1]
+3-element Array{Int64,1}:
+ 4
+ 2
+ 1
 </code></pre>
 
 <p>This of course works for any types:</p>
 
-<pre><code>julia&gt; reverse(b)
+<pre><code>julia&gt; b = (2, 3, 4)
+(2, 3, 4)
+
+julia&gt; reverse(b)
 (4,3,2)
 
-julia&gt; b[end👎1]
+julia&gt; b[end:-1:1]
 (4,3,2)
 
 julia&gt; c = &quot;This is a string&quot;
@@ -236,39 +239,36 @@ foo (generic function with 1 method)
 
 <pre><code>julia&gt; code_native(foo, (Int, Int))
     .section    __TEXT,__text,regular,pure_instructions
-Filename: none
-Source line: 1
-    push    RBP
-    mov RBP, RSP
-Source line: 1
-    movq    XMM1, RDI
-    movq    XMM0, RSI
-    punpcklqdq  XMM0, XMM1      ## xmm0 = xmm0[0],xmm1[0]
-    pop RBP
-    ret
+; ┌ @ REPL[61]:1 within `foo'
+    decl    %eax
+    movl    %edx, (%edi)
+    decl    %eax
+    movl    %esi, 8(%edi)
+    decl    %eax
+    movl    %edi, %eax
+    retl
+    nopl    (%eax,%eax)
+; └
 </code></pre>
 
 <p>If we want the bytecode like Python we get something that I consider less readable as it is LLVM based which contains a lot of type information to be able to generate efficient machien code output:</p>
 
 <pre><code>julia&gt; code_llvm(foo, (Int, Int))
 
-define &lt;2 x i64&gt; @&quot;julia_foo;20220&quot;(i64, i64) {
+;  @ REPL[61]:1 within `foo'
+define void @julia_foo_12498([2 x i64]* noalias nocapture sret, i64, i64) {
 top:
-  %2 = insertelement &lt;2 x i64&gt; undef, i64 %1, i32 0, !dbg !1422, !julia_type !1423
-  %3 = insertelement &lt;2 x i64&gt; %2, i64 %0, i32 1, !dbg !1422, !julia_type !1423
-  ret &lt;2 x i64&gt; %3, !dbg !1422
+  %.sroa.0.0..sroa_idx = getelementptr inbounds [2 x i64], [2 x i64]* %0, i64 0, i64 0
+  store i64 %2, i64* %.sroa.0.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds [2 x i64], [2 x i64]* %0, i64 0, i64 1
+  store i64 %1, i64* %.sroa.2.0..sroa_idx1, align 8
+  ret void
 }
 </code></pre>
 
-<p>This isn&rsquo;t obviously readable so we need to consult the <a href="http://llvm.org/releases/2.6/docs/LangRef.html" target="_blank">LLVM reference</a> manual. <a href="http://llvm.org/releases/2.6/docs/LangRef.html#i_insertelement" target="_blank">insertelement</a> is instruction which insert an element into a vector at given index.</p>
+<p>This isn&rsquo;t obviously readable so we need to consult the <a href="http://llvm.org/releases/2.6/docs/LangRef.html" target="_blank">LLVM reference</a> manual.</p>
 
-<p>First part <code>&lt;2 x i64&gt;</code> is a type annotation saying we are operating on a 2 element 64 bit integer vector.</p>
-
-<p>First argument is the vector register to operate on. In the first case that is <code>undef</code> while in the next line it is <code>%2</code>, which is where the result of the first line was put.</p>
-
-<p>Second argument <code>i64 %1</code> says we are inserting a 64 bit integer element. Where is given in third argument: <code>i32 0</code>. Insert at index 0 (given as a 32 bit integer).</p>
-
-<p>I&rsquo;ll leave it as a readers excercise to figure out exactly how this performs a swap as going into the nitty bitty details of this was not the intention of this blog post.</p>
+<p>But a few tips to get you going. The <code>i64</code> you see dotted around is 64-bit integer type annotation. The <code>%1</code> and <code>%2</code> refers to the function arguments. They are numbered rather than using name aliases.</p>
 
 <h3 id="enumerate">Enumerate</h3>
 
@@ -287,7 +287,7 @@ top:
 <p>Splitting and joining is similar to Python except Julia isn&rsquo;t really object oriented so function name comes first as Julia uses multiple dispatch to decide which implementation to call.</p>
 
 <pre><code>julia&gt; b = split(&quot;This is a string&quot;)
-4-element Array{SubString{ASCIIString},1}:
+4-element Array{SubString{String},1}:
  &quot;This&quot;  
  &quot;is&quot;    
  &quot;a&quot;     
@@ -325,7 +325,7 @@ julia&gt; M
  &quot;lov&quot;
 </code></pre>
 
-<p>Quite similar to the Python example except Julia lists havea type so you have to specify that it is a String. You can create a python like array but then you need to specify that it takes any element:</p>
+<p>Quite similar to the Python example except Julia lists have a type so you have to specify that it is a String. You can create a python like array but then you need to specify that it takes any element:</p>
 
 <pre><code>julia&gt; M = Any[]
 0-element Array{Any,1}
@@ -344,7 +344,7 @@ julia&gt; M
 <p>However for <a href="http://julialang.org" target="_blank">Julia</a> it would be more idiomatic to express what you are doing. E.g. in this case we are mapping from one array to another which we can express like this:</p>
 
 <pre><code>julia&gt; M = map(word -&gt;  word[1:3], L)
-4-element Array{ASCIIString,1}:
+4-element Array{String,1}:
  &quot;Jul&quot;
  &quot;mak&quot;
  &quot;peo&quot;
@@ -353,19 +353,15 @@ julia&gt; M
 
 <p>If we want to filter a list by producing a new list containg only the elements with length greater than 5 we would do it like this:</p>
 
-<pre><code>for word in L
-  if length(word) &gt; 5
-    push!(M, word)
-  end
-end
+<pre><code>[word for word in L if length(word) &gt; 5]
 </code></pre>
 
-<p>With Python we could solve this with a list comperhension however with Julia you have to explicity state that you are filtering:</p>
+<p>This is using a conditional array comperhension. However you can also use the <code>filter</code> function.</p>
 
 <pre><code>M = filter(word -&gt; length(word) &gt; 5, L)
 </code></pre>
 
-<p>The reason for this is that Julia has bultin support for multidimensional arrays, given that it was designed for scientific computing where this is important. There is no natural way to filter a multi dimensional array, as e.g. every row in a matrix needs to have the same number of columns.</p>
+<p>When dealing with multidemensional arrays there is not obvious way of doing this. You would likely take an imperative approach.</p>
 
 </div>
 
@@ -386,7 +382,7 @@ end
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/posts/torture/'>
+      <a href='/posts/julia-tricks/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -394,10 +390,10 @@ end
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Why I don&#39;t believe in Torture</a>
+        <span class='screen-reader-text'>Previous post: </span>Tricks in Julia</a>
     </div><div class='next-entry sep-before'>
-      <a href='/posts/julia-tricks/'>
-        <span class='screen-reader-text'>Next post: </span>Tricks in Julia<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+      <a href='/posts/julia-one-liners/'>
+        <span class='screen-reader-text'>Next post: </span>Julia One Liners compared to Scala<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>

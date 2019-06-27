@@ -9,7 +9,7 @@
 <meta property='og:description' content='How to process data from in tables from e.g. surveys using the Julia programming language.'>
 <meta property='og:url' content='http://translusion.github.com/posts/munchingdata-julia/'>
 <meta property='og:site_name' content='Translusion'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2014-05-11T00:00:00Z'/><meta property='article:modified_time' content='2014-05-11T00:00:00Z'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2019-06-24T00:00:00Z'/><meta property='article:modified_time' content='2019-06-24T00:00:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.55.6" />
 
@@ -134,7 +134,7 @@
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2014-05-11T00:00:00Z'>2014, May 11</time>
+  <time class='entry-date' datetime='2019-06-24T00:00:00Z'>2019, Jun 24</time>
 </span>
 
   
@@ -161,37 +161,31 @@
   <div class='container entry-content'>
   
 
-<p>I&rsquo;ve recently performed a survey at my work using <a href="http://www.google.com/google-d-s/createforms.html" target="_blank">Google form</a>, unfortunatle the data wasn&rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.</p>
+<p>I&rsquo;ve recently performed a survey at my work using <a href="http://www.google.com/google-d-s/createforms.html" target="_blank">Google form</a>, unfortunately the data wasn&rsquo;t usable right out of the box, because my company allowed people to register an answer multiple times. However a person should only be allowed to vote once.</p>
 
 <p>I chose to clean the data with <a href="http://julialang.org" target="_blank">the Julia programming language</a>, which might not be the best choice for this sort of thing. Not because julia isn&rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster. Unfortunately I am crappy at all 3. The data looked like this (anonymized):</p>
 
-<pre><code>5/8/2014 10:32:14   spam@mycompany.no   Bonus   2,5%   40%       4,42%
-5/8/2014 10:35:03   bar@mycompany.no    Higher salary     2,9%   37,5%    3,9%
-5/8/2014 10:41:10   spam@mycompany.no   Bonus   2,5%   40%       4,42%
-5/8/2014 10:45:10   foo@mycompany.no    Higher salary    2,9%   37,5%    3,9%
+<pre><code>5/8/2014 10:32:14   spam@mycompany.no   Bonus   2,5%    40% 4,42%
+5/8/2014 10:35:03   bar@mycompany.no    Higher salary   2,9%    37,5%   3,9%
+5/8/2014 10:41:10   spam@mycompany.no   Bonus   2,5%    40% 4,42%
+5/8/2014 10:45:10   foo@mycompany.no    Higher salary   2,9%    37,5%   3,9%
 </code></pre>
 
-<p>I exported it with tab as separator since some of the columns used comma in the text. In Europe we often use comma instead of dot for separating decimals.</p>
+<p>We were voting on how to distribute money available to give us higher salary or bonus. The percentages shown in the last column is just a description of what higher salary or bonus means in terms of actual concrete allocation to 3 different areas.</p>
 
-<p>So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example <em>spam</em> voted twice. So the 1st line needs to be elimenated and the 3rd kept.</p>
+<p>The file was exported with tab as separator since some of the columns used comma in the text. In Europe we often use comma instead of dot for separating decimals.</p>
+
+<p>So the task was to eliminate to double or more votes, keeping only the most recent choice. So e.g. in our example <em>spam@mycompany.no</em> voted twice. So the 1st line needs to be elimenated and the 3rd kept (most recent choice by spam).</p>
 
 <h3 id="read-the-data">Read the data</h3>
 
 <p>First we read in our data. Indicating that data is separated with tab and that first line is a header:</p>
-
-<pre><code>(ourdata, header) = readdlm(&quot;result.tsv&quot;, '\t', has_header=true)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> DelimitedFiles
+ourdata, header <span style="color:#f92672">=</span> readdlm(<span style="color:#e6db74">&#34;result.tsv&#34;</span>, <span style="color:#e6db74">&#39;\t&#39;</span>, has_header<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>)</code></pre></div>
 <p>This gives us a 2D array (matrix) which sounds neat. Well it is quite neat in a lot of ways. I can ask for e.g. the whole second column containing the email of the respondents with:</p>
-
-<pre><code>ourdata[:,2]
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">ourdata[<span style="color:#f92672">:</span>,<span style="color:#ae81ff">2</span>]</code></pre></div>
 <p>If I instead wanted the 3rd row I could do:</p>
-
-<pre><code>ourdata[3, :]
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">ourdata[<span style="color:#ae81ff">3</span>, <span style="color:#f92672">:</span>]</code></pre></div>
 <p>What is <strong>NOT neat</strong> about it compared to the regular arrays within arrays found in languages such a python and ruby is that you can&rsquo;t process this with a <code>foreach</code> type of construct. Like this:</p>
 
 <pre><code>for row in ourdata
@@ -204,31 +198,22 @@ end
 <h3 id="find-unique-rows">Find unique rows</h3>
 
 <p>Instead you have to iterate by index:</p>
-
-<pre><code>byname = Dict{String, Any}()
-for i in 1:size(ourdata,1)
-    byname[ourdata[i, 2]] = ourdata[i, :]
-end
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">byname <span style="color:#f92672">=</span> <span style="color:#66d9ef">Dict</span>{String, <span style="color:#66d9ef">Any</span>}()
+<span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>size(ourdata,<span style="color:#ae81ff">1</span>)
+    byname[ourdata[i, <span style="color:#ae81ff">2</span>]] <span style="color:#f92672">=</span> ourdata[i, <span style="color:#f92672">:</span>]
+<span style="color:#66d9ef">end</span></code></pre></div>
 <p>What we are doing here is to record each line on email. Thus only the last line for a given email get stored. Previous duplicated gets discareded. Just what we want. <code>size(ourdata, 1)</code> gives us the number of rows. <code>size(ourdata, 2)</code> would have given number of columns. <code>length(ourdata)</code> or <code>size(ourdata)</code> would not have worked because this is not an array of arrays. So your usual python or ruby reflexes don&rsquo;t apply.</p>
 
 <h3 id="count-each-line-matching-a-predicate">Count each line matching a predicate</h3>
 
 <p>So to check how many of our respondents wanted higher bonus we do:</p>
-
-<pre><code>count(values(byname)) do row
-    row[3] == &quot;Bonus   2,5%   40%       4,42%&quot;
-end
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">count(values(byname)) <span style="color:#66d9ef">do</span> row
+    row[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Bonus&#34;</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 <p>And to get those who want higher salary:</p>
-
-<pre><code>count(values(byname)) do row
-    row[3] == &quot;Higher salary    2,9%   37,5%    3,9%&quot;
-end
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">count(values(byname)) <span style="color:#66d9ef">do</span> row
+    row[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Higher salary&#34;</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 <h3 id="working-with-dates-in-julia">Working with Dates in Julia</h3>
 
 <p>When I first started looking at this problem, I thought I needed to work with dates, which wasn&rsquo;t necessary because the data was already sorted by date and time, but if it wasn&rsquo;t you need to get hold of the julia <a href="https://github.com/karbarcca/Datetime.jl" target="_blank">datetime package</a>. There isn&rsquo;t anything builtin to deal with dates. Here are some practical examples on how to use it. Our data had date and time like this:</p>
@@ -237,15 +222,10 @@ end
 </code></pre>
 
 <p>Which isn&rsquo;t the format the package deals with date and time. So here are some tricks for how to convert:</p>
-
-<pre><code>(d, t) = split(&quot;5/8/2014 0:16:03&quot;) # Put date in d, and time t
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">d, t <span style="color:#f92672">=</span> split(<span style="color:#e6db74">&#34;5/8/2014 0:16:03&#34;</span>) <span style="color:#75715e"># Put date in d, and time t</span></code></pre></div>
 <p>We can then turn this into a formate our date creation function <code>date</code> wants:</p>
-
-<pre><code>date(reverse(map(int, split(d, '/')))...)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Dates
+<span style="color:#66d9ef">Date</span>(reverse(parse<span style="color:#f92672">.</span>(<span style="color:#66d9ef">Int</span>, split(d, <span style="color:#e6db74">&#39;/&#39;</span>)))<span style="color:#f92672">...</span>)</code></pre></div>
 <h3 id="iteratively-creating-code-in-the-julia-repl">Iteratively creating code in the Julia REPL</h3>
 
 <p>That was a <em>mouthfull</em>. Usually when writing lines like this I develop them interactively by starting with:</p>
@@ -261,13 +241,13 @@ end
 
 <ul>
 <li>Hit arrow up button to get back <code>split</code></li>
-<li>Ctrl+A to go to start of line and write <code>map(int</code></li>
+<li>Ctrl+A to go to start of line and write <code>parse.(Int</code></li>
 <li>Ctrl+E to get to end of line and close it with <code>)</code></li>
 </ul>
 
 <p>This gives me the next line:</p>
 
-<pre><code>julia&gt; map(int, split(d, '/'))
+<pre><code>julia&gt; parse.(Int, split(d, '/'))
 3-element Array{Int64,1}:
     5
     8
@@ -276,14 +256,14 @@ end
 
 <p>Looks good, but not in reverse order compared to what <code>date</code> wants. So we do:</p>
 
-<pre><code>julia&gt; reverse(map(int, split(d, '/')))
+<pre><code>julia&gt; reverse(parse.(Int, split(d, '/')))
 3-element Array{Int64,1}:
  2014
     8
     5
 </code></pre>
 
-<p>Okay so we are good, except <code>date</code> doesn&rsquo;t take an array as argument. So we need to explode our array to function arguments with the <code>...</code>.</p>
+<p>Okay so we are good, except <code>Date</code> doesn&rsquo;t take an array as argument. So we need to explode our array to function arguments with the <code>...</code>.</p>
 
 </div>
 
@@ -304,7 +284,7 @@ end
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/posts/learning-rails/'>
+      <a href='/posts/dynamic_typing_as_a_paradigm/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -312,10 +292,10 @@ end
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Learning Web Development with Rails</a>
+        <span class='screen-reader-text'>Previous post: </span>Dynamic Typing as a Paradigm</a>
     </div><div class='next-entry sep-before'>
-      <a href='/posts/europe-is-not-america/'>
-        <span class='screen-reader-text'>Next post: </span>Why American states cannot be compared to European countries<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+      <a href='/posts/julia-tricks/'>
+        <span class='screen-reader-text'>Next post: </span>Tricks in Julia<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>

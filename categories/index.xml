@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Julia</title>
       <link>http://translusion.github.com/categories/julia/</link>
-      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/categories/julia/</guid>
       <description></description>
@@ -23,9 +23,63 @@
     <item>
       <title>Programming</title>
       <link>http://translusion.github.com/categories/programming/</link>
-      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://translusion.github.com/categories/python/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Datascience</title>
+      <link>http://translusion.github.com/categories/datascience/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/datascience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Datetime.jl</title>
+      <link>http://translusion.github.com/categories/datetime.jl/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/datetime.jl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Googleforms</title>
+      <link>http://translusion.github.com/categories/googleforms/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/googleforms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamic Typing</title>
+      <link>http://translusion.github.com/categories/dynamic-typing/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/dynamic-typing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Static Typing</title>
+      <link>http://translusion.github.com/categories/static-typing/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/categories/static-typing/</guid>
       <description></description>
     </item>
     
@@ -102,15 +156,6 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>http://translusion.github.com/categories/python/</link>
-      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>CIA</title>
       <link>http://translusion.github.com/categories/cia/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
@@ -125,24 +170,6 @@
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/categories/torture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dynamic Typing</title>
-      <link>http://translusion.github.com/categories/dynamic-typing/</link>
-      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/dynamic-typing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Static Typing</title>
-      <link>http://translusion.github.com/categories/static-typing/</link>
-      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/static-typing/</guid>
       <description></description>
     </item>
     
@@ -206,33 +233,6 @@
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/categories/us/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Datascience</title>
-      <link>http://translusion.github.com/categories/datascience/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/datascience/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Datetime.jl</title>
-      <link>http://translusion.github.com/categories/datetime.jl/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/datetime.jl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Googleforms</title>
-      <link>http://translusion.github.com/categories/googleforms/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/categories/googleforms/</guid>
       <description></description>
     </item>
     

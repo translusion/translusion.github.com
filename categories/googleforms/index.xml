@@ -6,7 +6,7 @@
     <description>Recent content in Googleforms on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 11 May 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/categories/googleforms/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,10 @@
     <item>
       <title>Munching Data with Julia</title>
       <link>http://translusion.github.com/posts/munchingdata-julia/</link>
-      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/munchingdata-julia/</guid>
-      <description>I&amp;rsquo;ve recently performed a survey at my work using Google form, unfortunatle the data wasn&amp;rsquo;t usable right out of the box, because it my company allowed people to register an answer multiple times, but one person should just have one vote.
+      <description>I&amp;rsquo;ve recently performed a survey at my work using Google form, unfortunately the data wasn&amp;rsquo;t usable right out of the box, because my company allowed people to register an answer multiple times. However a person should only be allowed to vote once.
 I chose to clean the data with the Julia programming language, which might not be the best choice for this sort of thing. Not because julia isn&amp;rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster.</description>
     </item>
     

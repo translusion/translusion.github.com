@@ -6,7 +6,7 @@
     <description>Recent content in Programming on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 May 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,30 +14,19 @@
     <item>
       <title>Julia One Liners compared to Scala</title>
       <link>http://translusion.github.com/posts/julia-one-liners/</link>
-      <pubDate>Wed, 04 May 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/julia-one-liners/</guid>
       <description>This was inspired by the blog post 10 Scala One Liners to Impress Your Friends.
 1. Multiple Each Item in a List by 2 Original Scala version
-(1 to 10) map { _ * 2 }  I think the Julia version is clearer. The x-&amp;gt;2x notation for anonymous function looks very similar to regular mathematical notation.
-map(x-&amp;gt;2x, 1:10)  2. Sum a List of Numbers Sums numbers from 1 to 1000 in Scala either by using reduceLeft or sum.</description>
+(1 to 10) map { _ * 2 } I think the Julia version is clearer. The x-&amp;gt;2x notation for anonymous function looks very similar to regular mathematical notation.
+map(x-&amp;gt;2x, 1:10) 2. Sum a List of Numbers Sums numbers from 1 to 1000 in Scala either by using reduceLeft or sum.</description>
     </item>
     
     <item>
-      <title>Tricks in Julia</title>
-      <link>http://translusion.github.com/posts/julia-tricks/</link>
-      <pubDate>Sun, 21 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
-      <description>After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:
-Parsing Strings Extract 3 numbers from a string into 3 variables:
-a, b, c = map(int, split(&amp;quot;11 12 13&amp;quot;))  Initialization There are some gotchas with Julia initialization if you come from C/C++ background although this should not be so odd to Python or Ruby developers.</description>
-    </item>
-    
-    <item>
-      <title>Beautiful Julia: Cool language constructs and Tricks for Beginners</title>
+      <title>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</title>
       <link>http://translusion.github.com/posts/beautiful-julia/</link>
-      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/beautiful-julia/</guid>
       <description>I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia?
@@ -47,9 +36,20 @@ Reverse an iterable There are two ways of doing this
     </item>
     
     <item>
+      <title>Tricks in Julia</title>
+      <link>http://translusion.github.com/posts/julia-tricks/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/julia-tricks/</guid>
+      <description>After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:
+Parsing Strings Extract 3 numbers from a string into 3 variables:
+a, b, c = parse.(Int, split(&amp;#34;11 12 13&amp;#34;)) This requires some explanation. parse(Int, s) will parse a single string s as a number. However when you call parse.(Int, [&amp;quot;11&amp;quot;, &amp;quot;12&amp;quot;, &amp;quot;13&amp;quot;]), the dot causes parse to be called for every element of the array.</description>
+    </item>
+    
+    <item>
       <title>Dynamic Typing as a Paradigm</title>
       <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</link>
-      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.</description>
