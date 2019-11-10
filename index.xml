@@ -6,7 +6,7 @@
     <description>Recent content on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://translusion.github.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -61,6 +61,16 @@ Byggmakker Byggmakker is a usefull place to get tools, screws, nuts, bolts and w
       
       <guid>http://translusion.github.com/apps/qrude/</guid>
       <description>Current QRude is a simple QR Code scanner which is aimed at batch processing QR codes. The intention is to develop it into an app which can be paired up with OS X apps which needs to scan QR codes or bar codes. Example of usage is e.g. scanning bar codes on books to compose a list of ISBN numbers of books. But my intention for creating this app was to use it for scanning security related info stored on a QR code.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t Starve Together Noob Advice</title>
+      <link>http://translusion.github.com/posts/dont-starve-together-donts/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/posts/dont-starve-together-donts/</guid>
+      <description>I have been writing about Don&amp;rsquo;t Starve before, but after watching a number of videos of Mubo Jumbo (known for MineCraft videos) and Grian play Don&amp;rsquo;t Starve Together I realize there are a lot of things even fairly experienced players have noe clue about, which makes their game significantly harder than it needs to be.
+So in this post I would like to go through some of the mistakes Mubo Jumbo and Grian make while playing Don&amp;rsquo;t Starve Together, while giving them some advice on how to improve their game.</description>
     </item>
     
     <item>
