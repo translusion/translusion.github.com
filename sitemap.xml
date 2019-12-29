@@ -4,7 +4,7 @@
   
   <url>
     <loc>http://translusion.github.com/</loc>
-    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-29T20:17:40+01:00</lastmod>
   </url>
   
   <url>
@@ -28,8 +28,25 @@
   </url>
   
   <url>
+    <loc>http://translusion.github.com/articles/</loc>
+    <lastmod>2019-12-29T20:17:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://translusion.github.com/categories/</loc>
-    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-29T20:17:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/articles/fluidics/</loc>
+    <lastmod>2019-12-29T20:17:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/categories/fluidics/</loc>
+    <lastmod>2019-12-29T20:17:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -300,12 +317,6 @@
   <url>
     <loc>http://translusion.github.com/categories/web/</loc>
     <lastmod>2014-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://translusion.github.com/articles/</loc>
-    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
