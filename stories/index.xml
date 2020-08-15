@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stories on Translusion</title>
+    <link>http://translusion.github.com/stories/</link>
+    <description>Recent content in Stories on Translusion</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
+    
+	<atom:link href="http://translusion.github.com/stories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Space</title>
+      <link>http://translusion.github.com/stories/space/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/stories/space/</guid>
+      <description>I have written a number of space themed stories. I am trying to appeal to those new to the field and who are curious. So I have tried to write some friendly explanations of how a rocket engine works. What makes a good rocket fuel. Some of the background for these more education articles is to make it easier for people who are excited about what is going on at SpaceX, Blue Origin, NASA, Rockets Labs and other places and want to understand more of the terminology.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>http://translusion.github.com/stories/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/stories/machine-learning/</guid>
+      <description>I have written a number of space themed stories. I am trying to appeal to those new to the field and who are curious. So I have tried to write some friendly explanations of how a rocket engine works. What makes a good rocket fuel. Some of the background for these more education articles is to make it easier for people who are excited about what is going on at SpaceX, Blue Origin, NASA, Rockets Labs and other places and want to understand more of the terminology.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -28,6 +28,14 @@
   </url>
   
   <url>
+    <loc>http://translusion.github.com/stories/space/</loc>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/stories/machine-learning/</loc>
+  </url>
+  
+  <url>
     <loc>http://translusion.github.com/articles/</loc>
     <lastmod>2019-12-29T20:17:40+01:00</lastmod>
     <priority>0</priority>
@@ -461,6 +469,11 @@
   
   <url>
     <loc>http://translusion.github.com/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/stories/</loc>
     <priority>0</priority>
   </url>
   
