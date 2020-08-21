@@ -11,12 +11,13 @@
     
     
     <item>
-      <title>Space</title>
-      <link>http://translusion.github.com/stories/space/</link>
+      <title>Programming</title>
+      <link>http://translusion.github.com/stories/programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/stories/space/</guid>
-      <description>I have written a number of space themed stories. I am trying to appeal to those new to the field and who are curious. So I have tried to write some friendly explanations of how a rocket engine works. What makes a good rocket fuel. Some of the background for these more education articles is to make it easier for people who are excited about what is going on at SpaceX, Blue Origin, NASA, Rockets Labs and other places and want to understand more of the terminology.</description>
+      <guid>http://translusion.github.com/stories/programming/</guid>
+      <description>I write mostly about different programming languages, tools for developers, various software libraries and to some extent about software engineering.
+Software Engineering  To Hell With Setters and Getters. A discussion of why setters and getter functions are often overused and used wrong in object-oriented software. The Many Advantages of Dynamic Languages. An explanation of how the language becomes your tool when using a dynamic language for software development. Why Use a Dynamic Language over a Statically Typed One?</description>
     </item>
     
     <item>
@@ -40,6 +41,15 @@ Flux Machine Learning Library  Gentle Introduction to Machine Learning.</descrip
       <description>Economics and politics has been a hot topic ever since the 2008 financial crisis. Increasingly more people are asking question about whether our current economic and political system works for the benefit of its citizens.
 I am trying to give a Scandinavian and social democratic perspective on a lot of these issues.
 Especially for people on the political left who want to learn more about economics, it is hard to not get a very libertarian or conservative view presented if you are reading in English.</description>
+    </item>
+    
+    <item>
+      <title>Space</title>
+      <link>http://translusion.github.com/stories/space/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/stories/space/</guid>
+      <description>I have written a number of space themed stories. I am trying to appeal to those new to the field and who are curious. So I have tried to write some friendly explanations of how a rocket engine works. What makes a good rocket fuel. Some of the background for these more education articles is to make it easier for people who are excited about what is going on at SpaceX, Blue Origin, NASA, Rockets Labs and other places and want to understand more of the terminology.</description>
     </item>
     
   </channel>
