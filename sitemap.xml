@@ -32,11 +32,23 @@
   </url>
   
   <url>
+    <loc>http://translusion.github.com/favorites/books/</loc>
+  </url>
+  
+  <url>
     <loc>http://translusion.github.com/stories/machine-learning/</loc>
   </url>
   
   <url>
     <loc>http://translusion.github.com/stories/economics/</loc>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/favorites/movies/</loc>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/favorites/youtube/</loc>
   </url>
   
   <url>
@@ -467,6 +479,11 @@
   
   <url>
     <loc>http://translusion.github.com/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://translusion.github.com/favorites/</loc>
     <priority>0</priority>
   </url>
   
