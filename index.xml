@@ -74,6 +74,16 @@ Software Engineering  To Hell With Setters and Getters. A discussion of why sett
     </item>
     
     <item>
+      <title>Computers</title>
+      <link>http://translusion.github.com/stories/computers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/stories/computers/</guid>
+      <description>A lot of my articles are about how various parts of a computer in particular microprocessors work. A lot of this is aimed towards beginners. I also write about what is special about emerging new technologies from companies such as Apple of new standards such as RISC-V.
+Apple  Why Is Apple’s M1 Chip So Fast?. My most popular story ever. It is a userfriendly but in depth guide to why the Apple M1 chip is so fast.</description>
+    </item>
+    
+    <item>
       <title>Books</title>
       <link>http://translusion.github.com/favorites/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -93,6 +103,16 @@ Science Fiction  The Martian A realistic science fiction book about an astronaut
 I try to write articles as well about the kind mathematics which is important to learn to understand machine learning, such as various matrix operations.
 Machine learning is basically a ton of matrix operations.
 Flux Machine Learning Library  Gentle Introduction to Machine Learning.</description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>http://translusion.github.com/stories/data-science/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://translusion.github.com/stories/data-science/</guid>
+      <description>This articles cover things such as:
+ Reading data in table form from file, such as CSV data. Processing, filtering and preparing this data. Plotting data stored in tables.  Data Manipulation  Working with Data in Tables for Machine Learning. A lot of the data you are going to feed into your Machine Learning algorithms will come in the shape of tables or data frames. Hence to do machine learning it is useful to have a good handle on how to manipulate data in tables, as well as visualizing that data with a plotting library.</description>
     </item>
     
     <item>
