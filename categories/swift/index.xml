@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swift on Translusion</title>
-    <link>http://translusion.github.com/categories/swift/</link>
+    <link>https://blog.translusion.com/categories/swift/</link>
     <description>Recent content in Swift on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 08 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/swift/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/swift/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>http://translusion.github.com/posts/swift_compared_to_python/</link>
+      <link>https://blog.translusion.com/posts/swift_compared_to_python/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/swift_compared_to_python/</guid>
+      <guid>https://blog.translusion.com/posts/swift_compared_to_python/</guid>
       <description>While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:
 &amp;gt;&amp;gt;&amp;gt; 2 + 3 5 &amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5 7 &amp;gt;&amp;gt;&amp;gt; 3.5 * 2 7.0 &amp;gt;&amp;gt;&amp;gt;  We can do much the same with Swift:</description>
     </item>
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</link>
+      <link>https://blog.translusion.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>https://blog.translusion.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it.</description>
     </item>
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>http://translusion.github.com/posts/swift-is-kotlin/</link>
+      <link>https://blog.translusion.com/posts/swift-is-kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/swift-is-kotlin/</guid>
+      <guid>https://blog.translusion.com/posts/swift-is-kotlin/</guid>
       <description>Around the internet people are saying Apple&amp;rsquo;s Swift looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and Swift has the var keyword. But it means completely different things since Swift is statically typed and JavaScript is not.
 Anyway being generally curious about programming languages I could see similarities in Swift with Rust, Go, Scala and Ruby. However all these languages differ from Swift in quite a number of ways.</description>
     </item>

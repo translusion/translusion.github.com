@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arduino on Translusion</title>
-    <link>http://translusion.github.com/categories/arduino/</link>
+    <link>https://blog.translusion.com/categories/arduino/</link>
     <description>Recent content in Arduino on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Fri, 01 Mar 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/arduino/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/arduino/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started with AVR programming</title>
-      <link>http://translusion.github.com/posts/avr_without_arduino/</link>
+      <link>https://blog.translusion.com/posts/avr_without_arduino/</link>
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/avr_without_arduino/</guid>
+      <guid>https://blog.translusion.com/posts/avr_without_arduino/</guid>
       <description>After Arduino So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.
 Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller.</description>
     </item>

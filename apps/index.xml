@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apps on Translusion</title>
-    <link>http://translusion.github.com/apps/</link>
+    <link>https://blog.translusion.com/apps/</link>
     <description>Recent content in Apps on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     
-	<atom:link href="http://translusion.github.com/apps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/apps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>QRude Scanner</title>
-      <link>http://translusion.github.com/apps/qrude/</link>
+      <link>https://blog.translusion.com/apps/qrude/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/apps/qrude/</guid>
+      <guid>https://blog.translusion.com/apps/qrude/</guid>
       <description>Current QRude is a simple QR Code scanner which is aimed at batch processing QR codes. The intention is to develop it into an app which can be paired up with OS X apps which needs to scan QR codes or bar codes. Example of usage is e.g. scanning bar codes on books to compose a list of ISBN numbers of books. But my intention for creating this app was to use it for scanning security related info stored on a QR code.</description>
     </item>
     

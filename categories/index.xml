@@ -2,390 +2,390 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Translusion</title>
-    <link>http://translusion.github.com/categories/</link>
+    <link>https://blog.translusion.com/categories/</link>
     <description>Recent content in Categories on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 29 Dec 2019 20:17:40 +0100</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fluidics</title>
-      <link>http://translusion.github.com/categories/fluidics/</link>
+      <link>https://blog.translusion.com/categories/fluidics/</link>
       <pubDate>Sun, 29 Dec 2019 20:17:40 +0100</pubDate>
       
-      <guid>http://translusion.github.com/categories/fluidics/</guid>
+      <guid>https://blog.translusion.com/categories/fluidics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dont Starve</title>
-      <link>http://translusion.github.com/categories/dont-starve/</link>
+      <link>https://blog.translusion.com/categories/dont-starve/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/dont-starve/</guid>
+      <guid>https://blog.translusion.com/categories/dont-starve/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Entertainment</title>
-      <link>http://translusion.github.com/categories/entertainment/</link>
+      <link>https://blog.translusion.com/categories/entertainment/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/entertainment/</guid>
+      <guid>https://blog.translusion.com/categories/entertainment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Video Games</title>
-      <link>http://translusion.github.com/categories/video-games/</link>
+      <link>https://blog.translusion.com/categories/video-games/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/video-games/</guid>
+      <guid>https://blog.translusion.com/categories/video-games/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Julia</title>
-      <link>http://translusion.github.com/categories/julia/</link>
+      <link>https://blog.translusion.com/categories/julia/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/julia/</guid>
+      <guid>https://blog.translusion.com/categories/julia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>http://translusion.github.com/categories/programming/</link>
+      <link>https://blog.translusion.com/categories/programming/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/programming/</guid>
+      <guid>https://blog.translusion.com/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>http://translusion.github.com/categories/python/</link>
+      <link>https://blog.translusion.com/categories/python/</link>
       <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/python/</guid>
+      <guid>https://blog.translusion.com/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Datascience</title>
-      <link>http://translusion.github.com/categories/datascience/</link>
+      <link>https://blog.translusion.com/categories/datascience/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/datascience/</guid>
+      <guid>https://blog.translusion.com/categories/datascience/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Datetime.jl</title>
-      <link>http://translusion.github.com/categories/datetime.jl/</link>
+      <link>https://blog.translusion.com/categories/datetime.jl/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/datetime.jl/</guid>
+      <guid>https://blog.translusion.com/categories/datetime.jl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Googleforms</title>
-      <link>http://translusion.github.com/categories/googleforms/</link>
+      <link>https://blog.translusion.com/categories/googleforms/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/googleforms/</guid>
+      <guid>https://blog.translusion.com/categories/googleforms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dynamic Typing</title>
-      <link>http://translusion.github.com/categories/dynamic-typing/</link>
+      <link>https://blog.translusion.com/categories/dynamic-typing/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/dynamic-typing/</guid>
+      <guid>https://blog.translusion.com/categories/dynamic-typing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Static Typing</title>
-      <link>http://translusion.github.com/categories/static-typing/</link>
+      <link>https://blog.translusion.com/categories/static-typing/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/static-typing/</guid>
+      <guid>https://blog.translusion.com/categories/static-typing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Noam Chomsky</title>
-      <link>http://translusion.github.com/categories/noam-chomsky/</link>
+      <link>https://blog.translusion.com/categories/noam-chomsky/</link>
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/noam-chomsky/</guid>
+      <guid>https://blog.translusion.com/categories/noam-chomsky/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Politics</title>
-      <link>http://translusion.github.com/categories/politics/</link>
+      <link>https://blog.translusion.com/categories/politics/</link>
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/politics/</guid>
+      <guid>https://blog.translusion.com/categories/politics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sam Harris</title>
-      <link>http://translusion.github.com/categories/sam-harris/</link>
+      <link>https://blog.translusion.com/categories/sam-harris/</link>
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/sam-harris/</guid>
+      <guid>https://blog.translusion.com/categories/sam-harris/</guid>
       <description></description>
     </item>
     
     <item>
       <title>War</title>
-      <link>http://translusion.github.com/categories/war/</link>
+      <link>https://blog.translusion.com/categories/war/</link>
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/war/</guid>
+      <guid>https://blog.translusion.com/categories/war/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Space</title>
-      <link>http://translusion.github.com/categories/space/</link>
+      <link>https://blog.translusion.com/categories/space/</link>
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/space/</guid>
+      <guid>https://blog.translusion.com/categories/space/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SpaceX</title>
-      <link>http://translusion.github.com/categories/spacex/</link>
+      <link>https://blog.translusion.com/categories/spacex/</link>
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/spacex/</guid>
+      <guid>https://blog.translusion.com/categories/spacex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CIA</title>
-      <link>http://translusion.github.com/categories/cia/</link>
+      <link>https://blog.translusion.com/categories/cia/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/cia/</guid>
+      <guid>https://blog.translusion.com/categories/cia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Torture</title>
-      <link>http://translusion.github.com/categories/torture/</link>
+      <link>https://blog.translusion.com/categories/torture/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/torture/</guid>
+      <guid>https://blog.translusion.com/categories/torture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Book</title>
-      <link>http://translusion.github.com/categories/book/</link>
+      <link>https://blog.translusion.com/categories/book/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/book/</guid>
+      <guid>https://blog.translusion.com/categories/book/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Economics</title>
-      <link>http://translusion.github.com/categories/economics/</link>
+      <link>https://blog.translusion.com/categories/economics/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/economics/</guid>
+      <guid>https://blog.translusion.com/categories/economics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Swift</title>
-      <link>http://translusion.github.com/categories/swift/</link>
+      <link>https://blog.translusion.com/categories/swift/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/swift/</guid>
+      <guid>https://blog.translusion.com/categories/swift/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>http://translusion.github.com/categories/go/</link>
+      <link>https://blog.translusion.com/categories/go/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/go/</guid>
+      <guid>https://blog.translusion.com/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kotlin</title>
-      <link>http://translusion.github.com/categories/kotlin/</link>
+      <link>https://blog.translusion.com/categories/kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/kotlin/</guid>
+      <guid>https://blog.translusion.com/categories/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Europe</title>
-      <link>http://translusion.github.com/categories/europe/</link>
+      <link>https://blog.translusion.com/categories/europe/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/europe/</guid>
+      <guid>https://blog.translusion.com/categories/europe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>US</title>
-      <link>http://translusion.github.com/categories/us/</link>
+      <link>https://blog.translusion.com/categories/us/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/us/</guid>
+      <guid>https://blog.translusion.com/categories/us/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rails</title>
-      <link>http://translusion.github.com/categories/rails/</link>
+      <link>https://blog.translusion.com/categories/rails/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/rails/</guid>
+      <guid>https://blog.translusion.com/categories/rails/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ruby</title>
-      <link>http://translusion.github.com/categories/ruby/</link>
+      <link>https://blog.translusion.com/categories/ruby/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/ruby/</guid>
+      <guid>https://blog.translusion.com/categories/ruby/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>http://translusion.github.com/categories/web/</link>
+      <link>https://blog.translusion.com/categories/web/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/web/</guid>
+      <guid>https://blog.translusion.com/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cryptography</title>
-      <link>http://translusion.github.com/categories/cryptography/</link>
+      <link>https://blog.translusion.com/categories/cryptography/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/cryptography/</guid>
+      <guid>https://blog.translusion.com/categories/cryptography/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Login</title>
-      <link>http://translusion.github.com/categories/login/</link>
+      <link>https://blog.translusion.com/categories/login/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/login/</guid>
+      <guid>https://blog.translusion.com/categories/login/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Passwords</title>
-      <link>http://translusion.github.com/categories/passwords/</link>
+      <link>https://blog.translusion.com/categories/passwords/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/passwords/</guid>
+      <guid>https://blog.translusion.com/categories/passwords/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project</title>
-      <link>http://translusion.github.com/categories/project/</link>
+      <link>https://blog.translusion.com/categories/project/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/project/</guid>
+      <guid>https://blog.translusion.com/categories/project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fischertechnik</title>
-      <link>http://translusion.github.com/categories/fischertechnik/</link>
+      <link>https://blog.translusion.com/categories/fischertechnik/</link>
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/fischertechnik/</guid>
+      <guid>https://blog.translusion.com/categories/fischertechnik/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prototyping</title>
-      <link>http://translusion.github.com/categories/prototyping/</link>
+      <link>https://blog.translusion.com/categories/prototyping/</link>
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/prototyping/</guid>
+      <guid>https://blog.translusion.com/categories/prototyping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AVR</title>
-      <link>http://translusion.github.com/categories/avr/</link>
+      <link>https://blog.translusion.com/categories/avr/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/avr/</guid>
+      <guid>https://blog.translusion.com/categories/avr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Debug</title>
-      <link>http://translusion.github.com/categories/debug/</link>
+      <link>https://blog.translusion.com/categories/debug/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/debug/</guid>
+      <guid>https://blog.translusion.com/categories/debug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Electronics</title>
-      <link>http://translusion.github.com/categories/electronics/</link>
+      <link>https://blog.translusion.com/categories/electronics/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/electronics/</guid>
+      <guid>https://blog.translusion.com/categories/electronics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maker</title>
-      <link>http://translusion.github.com/categories/maker/</link>
+      <link>https://blog.translusion.com/categories/maker/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/maker/</guid>
+      <guid>https://blog.translusion.com/categories/maker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Assembly</title>
-      <link>http://translusion.github.com/categories/assembly/</link>
+      <link>https://blog.translusion.com/categories/assembly/</link>
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/assembly/</guid>
+      <guid>https://blog.translusion.com/categories/assembly/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Arduino</title>
-      <link>http://translusion.github.com/categories/arduino/</link>
+      <link>https://blog.translusion.com/categories/arduino/</link>
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/categories/arduino/</guid>
+      <guid>https://blog.translusion.com/categories/arduino/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fischertechnik on Translusion</title>
-    <link>http://translusion.github.com/categories/fischertechnik/</link>
+    <link>https://blog.translusion.com/categories/fischertechnik/</link>
     <description>Recent content in Fischertechnik on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/fischertechnik/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/fischertechnik/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fischertechnik</title>
-      <link>http://translusion.github.com/prototyping/fischertechnik/</link>
+      <link>https://blog.translusion.com/prototyping/fischertechnik/</link>
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/prototyping/fischertechnik/</guid>
+      <guid>https://blog.translusion.com/prototyping/fischertechnik/</guid>
       <description>A down side to using fischertechnik is that it is far less known than Lego. So there are less resources available online and you can&amp;rsquo;t just walk into any toy store and buy fischertechnik.
 However I personally think fischertechnik is the superior prototyping system. It works very similar to standard industrial prototyping systems based on T-slots.
 Lego is well suited for building the same things that you would build with bricks such as houses and buildings.</description>

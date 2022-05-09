@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Space on Translusion</title>
-    <link>http://translusion.github.com/categories/space/</link>
+    <link>https://blog.translusion.com/categories/space/</link>
     <description>Recent content in Space on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Tue, 01 Dec 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/space/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/space/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Space 2.0</title>
-      <link>http://translusion.github.com/posts/whyspace/</link>
+      <link>https://blog.translusion.com/posts/whyspace/</link>
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/whyspace/</guid>
+      <guid>https://blog.translusion.com/posts/whyspace/</guid>
       <description>If you grew up in the 80s or early 90s like me, you might have had great hopes for space exploration. You dreamed of giant space colonies beyound the year 2000. But then you grow up and the year 2000 comes and passes. Yet another decade pass and you realize that space exploration is just a long list of broken dreams. We achieved so much leading up to the end of the 70s and then nothing.</description>
     </item>
     

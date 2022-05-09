@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dynamic Typing on Translusion</title>
-    <link>http://translusion.github.com/categories/dynamic-typing/</link>
+    <link>https://blog.translusion.com/categories/dynamic-typing/</link>
     <description>Recent content in Dynamic Typing on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/categories/dynamic-typing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/categories/dynamic-typing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dynamic Typing as a Paradigm</title>
-      <link>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</link>
+      <link>https://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/posts/dynamic_typing_as_a_paradigm/</guid>
+      <guid>https://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.</description>
     </item>
     

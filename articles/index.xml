@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Translusion</title>
-    <link>http://translusion.github.com/articles/</link>
+    <link>https://blog.translusion.com/articles/</link>
     <description>Recent content in Articles on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 29 Dec 2019 20:17:40 +0100</lastBuildDate>
     
-	<atom:link href="http://translusion.github.com/articles/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.translusion.com/articles/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Digital and Analog Fluidics Computers</title>
-      <link>http://translusion.github.com/articles/fluidics/</link>
+      <link>https://blog.translusion.com/articles/fluidics/</link>
       <pubDate>Sun, 29 Dec 2019 20:17:40 +0100</pubDate>
       
-      <guid>http://translusion.github.com/articles/fluidics/</guid>
+      <guid>https://blog.translusion.com/articles/fluidics/</guid>
       <description>Electricity can be thought of as a fluid flowing through cables. Hence it is possible to mimic the operations of a computer with fluids.
 In fact there is a whole engineering discipline devoted to this called fluidics and micro fluidics when dealing with extremely miniaturized devices. These devices work by using vacuum or pressure to pull or push a fluid through an intricate set of tiny pipes or tunnels. Presently the field of fluidics is mainly concerned with making devices for chemical and biological laboratories.</description>
     </item>
     
     <item>
       <title>Cryptography</title>
-      <link>http://translusion.github.com/articles/cryptography/</link>
+      <link>https://blog.translusion.com/articles/cryptography/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://translusion.github.com/articles/cryptography/</guid>
+      <guid>https://blog.translusion.com/articles/cryptography/</guid>
       <description>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</description>
     </item>
     
