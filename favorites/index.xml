@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Favorites on Translusion</title>
-    <link>https://blog.translusion.com/favorites/</link>
+    <link>http://blog.translusion.com/favorites/</link>
     <description>Recent content in Favorites on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     
-	<atom:link href="https://blog.translusion.com/favorites/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/favorites/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Books</title>
-      <link>https://blog.translusion.com/favorites/books/</link>
+      <link>http://blog.translusion.com/favorites/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/favorites/books/</guid>
+      <guid>http://blog.translusion.com/favorites/books/</guid>
       <description>Not so much favorites as simply a list of good books or books I found interesting or important in different ways. This is just updated randomly as the books comes to mind.
 Science Fiction  The Martian A realistic science fiction book about an astronaut stranded on Mars. Similar in concept to Robinson Crusoe. Neuromancer William Gibsons classic cyberpunk novel. Introduce many of the ideas we will see much later in movies such as the Matrix.</description>
     </item>
     
     <item>
       <title>Movies</title>
-      <link>https://blog.translusion.com/favorites/movies/</link>
+      <link>http://blog.translusion.com/favorites/movies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/favorites/movies/</guid>
+      <guid>http://blog.translusion.com/favorites/movies/</guid>
       <description>What spurred me to create the favorites section in the first place, was that I began reflecting on the fact that so many of the movies and series that I have really liked over the years have often been kind of quirky, odd and not mainstream. Hence it is easy to forget them.
 Of course I also like a lot of mainstream movies, but those are not as easily forgotten.</description>
     </item>
     
     <item>
       <title>Youtube</title>
-      <link>https://blog.translusion.com/favorites/youtube/</link>
+      <link>http://blog.translusion.com/favorites/youtube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/favorites/youtube/</guid>
+      <guid>http://blog.translusion.com/favorites/youtube/</guid>
       <description>The system to organize and locate favorites on Youtube plain sucks I have realized. And so this is an attempt at organizing an overview over things I have come to like on youtube. Mostly stuff I like but which I don&amp;rsquo;t necessarily watch often and thus forget where is located.
  City Beautiful A channel about city planning. In particular I found it interesting watching a video about Soviet City planning.</description>
     </item>

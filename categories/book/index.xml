@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Book on Translusion</title>
-    <link>https://blog.translusion.com/categories/book/</link>
+    <link>http://blog.translusion.com/categories/book/</link>
     <description>Recent content in Book on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Mon, 10 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/book/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/book/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>https://blog.translusion.com/posts/ceo-salaries/</link>
+      <link>http://blog.translusion.com/posts/ceo-salaries/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/ceo-salaries/</guid>
+      <guid>http://blog.translusion.com/posts/ceo-salaries/</guid>
       <description>A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.
 Michael B. Dorff shows in his book &amp;ldquo;Indispensable and Other Myths&amp;rdquo; how the &amp;ldquo;market&amp;rdquo; for CEOs isn&amp;rsquo;t really a market. The most refreshing thing about the book I think is that he shows how essentially both sides of the debate about CEO salaries are quite wrong.</description>
     </item>

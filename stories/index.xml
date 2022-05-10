@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stories on Translusion</title>
-    <link>https://blog.translusion.com/stories/</link>
+    <link>http://blog.translusion.com/stories/</link>
     <description>Recent content in Stories on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     
-	<atom:link href="https://blog.translusion.com/stories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/stories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programming</title>
-      <link>https://blog.translusion.com/stories/programming/</link>
+      <link>http://blog.translusion.com/stories/programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/programming/</guid>
+      <guid>http://blog.translusion.com/stories/programming/</guid>
       <description>I write mostly about different programming languages, tools for developers, various software libraries and to some extent about software engineering.
 Web  Explore REST APIs with cURL Using cURL Unix command, Pyhon&amp;rsquo;s urllib2 and Julia&amp;rsquo;s HTTP package to work access a REST API. JFrog Artifactory is used as an example. A Guide to Different Web Technologies and How They Are Related Gives and overview of all web stuff like difference between WebSockets and Unix sockets.</description>
     </item>
     
     <item>
       <title>Computers</title>
-      <link>https://blog.translusion.com/stories/computers/</link>
+      <link>http://blog.translusion.com/stories/computers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/computers/</guid>
+      <guid>http://blog.translusion.com/stories/computers/</guid>
       <description>A lot of my articles are about how various parts of a computer in particular microprocessors work. A lot of this is aimed towards beginners. I also write about what is special about emerging new technologies from companies such as Apple of new standards such as RISC-V.
 Apple  Why Is Apple’s M1 Chip So Fast?. My most popular story ever. It is a userfriendly but in depth guide to why the Apple M1 chip is so fast.</description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://blog.translusion.com/stories/machine-learning/</link>
+      <link>http://blog.translusion.com/stories/machine-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/machine-learning/</guid>
+      <guid>http://blog.translusion.com/stories/machine-learning/</guid>
       <description>These are stories primarily aimed at beginners who want to get started with machine learning. They target the Julia programming language as there is little material online for Julia aimed at complete beginners.
 I try to write articles as well about the kind mathematics which is important to learn to understand machine learning, such as various matrix operations.
 Machine learning is basically a ton of matrix operations.
@@ -44,20 +44,20 @@ Flux Machine Learning Library  Gentle Introduction to Machine Learning.</descrip
     
     <item>
       <title>Data Science</title>
-      <link>https://blog.translusion.com/stories/data-science/</link>
+      <link>http://blog.translusion.com/stories/data-science/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/data-science/</guid>
+      <guid>http://blog.translusion.com/stories/data-science/</guid>
       <description>This articles cover things such as:
  Reading data in table form from file, such as CSV data. Processing, filtering and preparing this data. Plotting data stored in tables.  Data Manipulation  Working with Data in Tables for Machine Learning. A lot of the data you are going to feed into your Machine Learning algorithms will come in the shape of tables or data frames. Hence to do machine learning it is useful to have a good handle on how to manipulate data in tables, as well as visualizing that data with a plotting library.</description>
     </item>
     
     <item>
       <title>Economics and Politics</title>
-      <link>https://blog.translusion.com/stories/economics/</link>
+      <link>http://blog.translusion.com/stories/economics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/economics/</guid>
+      <guid>http://blog.translusion.com/stories/economics/</guid>
       <description>Economics and politics has been a hot topic ever since the 2008 financial crisis. Increasingly more people are asking question about whether our current economic and political system works for the benefit of its citizens.
 I am trying to give a Scandinavian and social democratic perspective on a lot of these issues.
 Especially for people on the political left who want to learn more about economics, it is hard to not get a very libertarian or conservative view presented if you are reading in English.</description>
@@ -65,38 +65,38 @@ Especially for people on the political left who want to learn more about economi
     
     <item>
       <title>Science and Math</title>
-      <link>https://blog.translusion.com/stories/science/</link>
+      <link>http://blog.translusion.com/stories/science/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/science/</guid>
+      <guid>http://blog.translusion.com/stories/science/</guid>
       <description>The topics I cover in science and mathamatics is often related to topics I have stuggled with understanding in the past or wanted to find a way to teach my children. I try to write stuff that is very beginner friendly. Laying out all the individual steps and not assume too much prior knowledge.
 Mathematics  Why Does the Number 12 Occur so Frequently?. Reflections on the number 12 and why so many things are divided into 12 such as the clock, egg packages, a foot, pennies in a shilling.</description>
     </item>
     
     <item>
       <title>Space</title>
-      <link>https://blog.translusion.com/stories/space/</link>
+      <link>http://blog.translusion.com/stories/space/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/space/</guid>
+      <guid>http://blog.translusion.com/stories/space/</guid>
       <description>I have written a number of space themed stories. I am trying to appeal to those new to the field and who are curious. So I have tried to write some friendly explanations of how a rocket engine works. What makes a good rocket fuel. Some of the background for these more education articles is to make it easier for people who are excited about what is going on at SpaceX, Blue Origin, NASA, Rockets Labs and other places and want to understand more of the terminology.</description>
     </item>
     
     <item>
       <title>Environmentalism</title>
-      <link>https://blog.translusion.com/stories/environment/</link>
+      <link>http://blog.translusion.com/stories/environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/environment/</guid>
+      <guid>http://blog.translusion.com/stories/environment/</guid>
       <description>While I have spent many years in the oil industry, I have have a developed a passion for environmentalism. Although I am not a typical enviornmentalist. I am a pragmatist and not utopian. To me it is important to be honest about tradeoffs. You cannot simply state that you are in favor of everything good and don&amp;rsquo;t want to make any sacrifices. Thus let me list what I view as the most important problems to solve before talking about what I deem as less important.</description>
     </item>
     
     <item>
       <title>Games</title>
-      <link>https://blog.translusion.com/stories/games/</link>
+      <link>http://blog.translusion.com/stories/games/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/stories/games/</guid>
+      <guid>http://blog.translusion.com/stories/games/</guid>
       <description>Reviews of boards games and video games as well as discussion of strategies, mechanics and how games are played.
 Board Games  Mechanics of Game of Thrones Board Game Explanation of Pandemic Board Game Contrasts the resource usage and concept of the game with Cytosis and Catan.  Video Games  How to Beat Your Kids in Civilization 6 Learn Assembly Programming Fun Way Look at various video games that help children and others assembly programming.</description>
     </item>

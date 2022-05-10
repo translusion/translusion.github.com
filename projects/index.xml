@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Translusion</title>
-    <link>https://blog.translusion.com/projects/</link>
+    <link>http://blog.translusion.com/projects/</link>
     <description>Recent content in Projects on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Economics Simulator of Comparative Advantage, Trade and Production</title>
-      <link>https://blog.translusion.com/projects/econom-simulator/</link>
+      <link>http://blog.translusion.com/projects/econom-simulator/</link>
       <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/projects/econom-simulator/</guid>
+      <guid>http://blog.translusion.com/projects/econom-simulator/</guid>
       <description>When you look around the world at different economies you see that a common pattern is that countries richly endowed with natural resources are often the least industrialized. While many countries or areas such as Japan, Singapore, Hong Kong and Switzerland with little resources of importance often have sophisticated industries.
 There are of course lots of factors at work here and there are many exceptions to the rule. But what we want to explore is whether we can predict this sort of development in a model using just a few parameters.</description>
     </item>

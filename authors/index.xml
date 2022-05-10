@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Translusion</title>
-    <link>https://blog.translusion.com/authors/</link>
+    <link>http://blog.translusion.com/authors/</link>
     <description>Recent content in Authors on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     
-	<atom:link href="https://blog.translusion.com/authors/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

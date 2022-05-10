@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Translusion</title>
-    <link>https://blog.translusion.com/categories/python/</link>
+    <link>http://blog.translusion.com/categories/python/</link>
     <description>Recent content in Python on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</title>
-      <link>https://blog.translusion.com/posts/beautiful-julia/</link>
+      <link>http://blog.translusion.com/posts/beautiful-julia/</link>
       <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/beautiful-julia/</guid>
+      <guid>http://blog.translusion.com/posts/beautiful-julia/</guid>
       <description>I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia?
 So without further ado, her are some examples.
 Reverse an iterable There are two ways of doing this
@@ -25,10 +25,10 @@ Reverse an iterable There are two ways of doing this
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>https://blog.translusion.com/posts/swift_compared_to_python/</link>
+      <link>http://blog.translusion.com/posts/swift_compared_to_python/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/swift_compared_to_python/</guid>
+      <guid>http://blog.translusion.com/posts/swift_compared_to_python/</guid>
       <description>While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:
 &amp;gt;&amp;gt;&amp;gt; 2 + 3 5 &amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5 7 &amp;gt;&amp;gt;&amp;gt; 3.5 * 2 7.0 &amp;gt;&amp;gt;&amp;gt;  We can do much the same with Swift:</description>
     </item>

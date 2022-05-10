@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Translusion</title>
-    <link>https://blog.translusion.com/posts/</link>
+    <link>http://blog.translusion.com/posts/</link>
     <description>Recent content in Posts on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Don&#39;t Starve Together Noob Advice</title>
-      <link>https://blog.translusion.com/posts/dont-starve-together-donts/</link>
+      <link>http://blog.translusion.com/posts/dont-starve-together-donts/</link>
       <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dont-starve-together-donts/</guid>
+      <guid>http://blog.translusion.com/posts/dont-starve-together-donts/</guid>
       <description>I have been writing about Don&amp;rsquo;t Starve before, but after watching a number of videos of Mubo Jumbo (known for MineCraft videos) and Grian play Don&amp;rsquo;t Starve Together I realize there are a lot of things even fairly experienced players have noe clue about, which makes their game significantly harder than it needs to be.
 So in this post I would like to go through some of the mistakes Mubo Jumbo and Grian make while playing Don&amp;rsquo;t Starve Together, while giving them some advice on how to improve their game.</description>
     </item>
     
     <item>
       <title>Julia One Liners compared to Scala</title>
-      <link>https://blog.translusion.com/posts/julia-one-liners/</link>
+      <link>http://blog.translusion.com/posts/julia-one-liners/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/julia-one-liners/</guid>
+      <guid>http://blog.translusion.com/posts/julia-one-liners/</guid>
       <description>This was inspired by the blog post 10 Scala One Liners to Impress Your Friends.
 1. Multiple Each Item in a List by 2 Original Scala version
 (1 to 10) map { _ * 2 } I think the Julia version is clearer. The x-&amp;gt;2x notation for anonymous function looks very similar to regular mathematical notation.
@@ -35,10 +35,10 @@ map(x-&amp;gt;2x, 1:10) 2. Sum a List of Numbers Sums numbers from 1 to 1000 in 
     
     <item>
       <title>Beautiful Julia: Cool Language Constructs and Tricks for Beginners</title>
-      <link>https://blog.translusion.com/posts/beautiful-julia/</link>
+      <link>http://blog.translusion.com/posts/beautiful-julia/</link>
       <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/beautiful-julia/</guid>
+      <guid>http://blog.translusion.com/posts/beautiful-julia/</guid>
       <description>I just read this blog about cool language constructs in Python. Before clicking it I thought to myself: are there cool things only Python can do or could I easily replicate this in my favorite script language Julia?
 So without further ado, her are some examples.
 Reverse an iterable There are two ways of doing this
@@ -47,10 +47,10 @@ Reverse an iterable There are two ways of doing this
     
     <item>
       <title>Tricks in Julia</title>
-      <link>https://blog.translusion.com/posts/julia-tricks/</link>
+      <link>http://blog.translusion.com/posts/julia-tricks/</link>
       <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/julia-tricks/</guid>
+      <guid>http://blog.translusion.com/posts/julia-tricks/</guid>
       <description>After doing various small Julia projects I&amp;rsquo;ve had to learn a number of tricks or solutions to small problems, that I think would be usefull to collect:
 Parsing Strings Extract 3 numbers from a string into 3 variables:
 a, b, c = parse.(Int, split(&amp;#34;11 12 13&amp;#34;)) This requires some explanation. parse(Int, s) will parse a single string s as a number. However when you call parse.(Int, [&amp;quot;11&amp;quot;, &amp;quot;12&amp;quot;, &amp;quot;13&amp;quot;]), the dot causes parse to be called for every element of the array.</description>
@@ -58,134 +58,134 @@ a, b, c = parse.(Int, split(&amp;#34;11 12 13&amp;#34;)) This requires some expl
     
     <item>
       <title>Munching Data with Julia</title>
-      <link>https://blog.translusion.com/posts/munchingdata-julia/</link>
+      <link>http://blog.translusion.com/posts/munchingdata-julia/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/munchingdata-julia/</guid>
+      <guid>http://blog.translusion.com/posts/munchingdata-julia/</guid>
       <description>I&amp;rsquo;ve recently performed a survey at my work using Google form, unfortunately the data wasn&amp;rsquo;t usable right out of the box, because my company allowed people to register an answer multiple times. However a person should only be allowed to vote once.
 I chose to clean the data with the Julia programming language, which might not be the best choice for this sort of thing. Not because julia isn&amp;rsquo;t suited but because SQL, sed or awk might do such a specialized and simple task faster.</description>
     </item>
     
     <item>
       <title>Dynamic Typing as a Paradigm</title>
-      <link>https://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</link>
+      <link>http://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</guid>
+      <guid>http://blog.translusion.com/posts/dynamic_typing_as_a_paradigm/</guid>
       <description>The Dynamic vs Static Typing debate has been going on for decades and never seems to end. While I like both static and dynamic programming languages I probably have a slight preference for dynamic typing. However I feel of the two types of languages I feel the dynamic ones are the ones that are most profoundly misunderstood. The popular blog post Dynamic languages are static languages illustrates the misunderstanding very well.</description>
     </item>
     
     <item>
       <title>The significance of intention in war</title>
-      <link>https://blog.translusion.com/posts/military-intention/</link>
+      <link>http://blog.translusion.com/posts/military-intention/</link>
       <pubDate>Sat, 05 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/military-intention/</guid>
+      <guid>http://blog.translusion.com/posts/military-intention/</guid>
       <description>Cenk Uygur of the Young Turks news show covered a debate between Sam Harris and Noam Chomsky which I found interesting. I will not repeat the whole debate here but instead add my own thoughts.
 Personally I am somewhere between Sam Harris and Noam Chomsky in opinion although I definitely used to hold Sam Harris&amp;rsquo; opinion that we in the west are completely different from the terrorists in that we do not generally kill with intention.</description>
     </item>
     
     <item>
       <title>Space 2.0</title>
-      <link>https://blog.translusion.com/posts/whyspace/</link>
+      <link>http://blog.translusion.com/posts/whyspace/</link>
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/whyspace/</guid>
+      <guid>http://blog.translusion.com/posts/whyspace/</guid>
       <description>If you grew up in the 80s or early 90s like me, you might have had great hopes for space exploration. You dreamed of giant space colonies beyound the year 2000. But then you grow up and the year 2000 comes and passes. Yet another decade pass and you realize that space exploration is just a long list of broken dreams. We achieved so much leading up to the end of the 70s and then nothing.</description>
     </item>
     
     <item>
       <title>Don&#39;t Starve Evolved Strategy</title>
-      <link>https://blog.translusion.com/posts/dont-starve-strategy/</link>
+      <link>http://blog.translusion.com/posts/dont-starve-strategy/</link>
       <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dont-starve-strategy/</guid>
+      <guid>http://blog.translusion.com/posts/dont-starve-strategy/</guid>
       <description>Almost a year ago I wrote about playing Don’t Starve. I’ve had long breaks from it but had a burst playing it again a lot lately.
 So I wanted to write an updated strategy guide now that I feel I am a much better Don’t Starve Player. Surviving any number of days in Don’t Starve doesn’t seem that difficult anymore. Don’t Starve Reign of Giants is a bit trickier to not screw up though.</description>
     </item>
     
     <item>
       <title>Don&#39;t Starve for PS4</title>
-      <link>https://blog.translusion.com/posts/dont-starve-review/</link>
+      <link>http://blog.translusion.com/posts/dont-starve-review/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dont-starve-review/</guid>
+      <guid>http://blog.translusion.com/posts/dont-starve-review/</guid>
       <description>I don&amp;rsquo;t play much computer games anymore. Family and small kids limits time, but equally important I simply don&amp;rsquo;t find them as fun anymore as I once did. Not long ago I got a Playstation 4 and I was eager to look at the beautiful graphics which could now be rendered. I got a bunch of third or first person shooters which all looked beautiful and amazing. But eventually they all ended up boring me.</description>
     </item>
     
     <item>
       <title>Why I don&#39;t believe in Torture</title>
-      <link>https://blog.translusion.com/posts/torture/</link>
+      <link>http://blog.translusion.com/posts/torture/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/torture/</guid>
+      <guid>http://blog.translusion.com/posts/torture/</guid>
       <description>This is a rather hillarious heading, because who in their right mind believes in torture. Most people will say &amp;ldquo;I support human rights&amp;rdquo;. But then there are those who come with a big BUT. But there are of course those exceptional cases they say where an attack is imminent and we could tward the terrorists from killing thousands. This might of course also question how valuable is really human rights which only extends to those you love or deem good people, while nasty people don&amp;rsquo;t get it.</description>
     </item>
     
     <item>
       <title>Indispensable and Other Myths</title>
-      <link>https://blog.translusion.com/posts/ceo-salaries/</link>
+      <link>http://blog.translusion.com/posts/ceo-salaries/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/ceo-salaries/</guid>
+      <guid>http://blog.translusion.com/posts/ceo-salaries/</guid>
       <description>A lot of people assume that CEO salaries are completely determined by the market. But saying that something is determined by the market isn&amp;rsquo;t very informative. The market as described in Economic text books full or rational individuals with perfect information about the products they are buying rarely exists.
 Michael B. Dorff shows in his book &amp;ldquo;Indispensable and Other Myths&amp;rdquo; how the &amp;ldquo;market&amp;rdquo; for CEOs isn&amp;rsquo;t really a market. The most refreshing thing about the book I think is that he shows how essentially both sides of the debate about CEO salaries are quite wrong.</description>
     </item>
     
     <item>
       <title>An introduction to Swift for Python developers</title>
-      <link>https://blog.translusion.com/posts/swift_compared_to_python/</link>
+      <link>http://blog.translusion.com/posts/swift_compared_to_python/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/swift_compared_to_python/</guid>
+      <guid>http://blog.translusion.com/posts/swift_compared_to_python/</guid>
       <description>While Swift fundamentally isn&amp;rsquo;t very much like Python, it looks as if it has a number of similarities on the surface. For instance both have different REPL environments. These are great ways of learning how to code. I can use the Python REPL as a calculator:
 &amp;gt;&amp;gt;&amp;gt; 2 + 3 5 &amp;gt;&amp;gt;&amp;gt; 10 + 2 - 5 7 &amp;gt;&amp;gt;&amp;gt; 3.5 * 2 7.0 &amp;gt;&amp;gt;&amp;gt;  We can do much the same with Swift:</description>
     </item>
     
     <item>
       <title>Comparison of the Go tour with Swift</title>
-      <link>https://blog.translusion.com/posts/a_comparison_of_go_and_swift/</link>
+      <link>http://blog.translusion.com/posts/a_comparison_of_go_and_swift/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/a_comparison_of_go_and_swift/</guid>
+      <guid>http://blog.translusion.com/posts/a_comparison_of_go_and_swift/</guid>
       <description>One of my favorite programming languages is Go, so I thought it might be fun to do a bit of a superficial comparison of it with Swift which I am hoping will be a new favorite given that I work professionally as an iOS developer. Go takes such a bare bones and simple approach to programming that one can quite quickly get a sense of what it is like using it.</description>
     </item>
     
     <item>
       <title>Swift is Kotlin</title>
-      <link>https://blog.translusion.com/posts/swift-is-kotlin/</link>
+      <link>http://blog.translusion.com/posts/swift-is-kotlin/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/swift-is-kotlin/</guid>
+      <guid>http://blog.translusion.com/posts/swift-is-kotlin/</guid>
       <description>Around the internet people are saying Apple&amp;rsquo;s Swift looks like C#, JavaScript etc. This of course is just in the most superficial manner. E.g. both JavaScript and Swift has the var keyword. But it means completely different things since Swift is statically typed and JavaScript is not.
 Anyway being generally curious about programming languages I could see similarities in Swift with Rust, Go, Scala and Ruby. However all these languages differ from Swift in quite a number of ways.</description>
     </item>
     
     <item>
       <title>Why the US can&#39;t teach the world</title>
-      <link>https://blog.translusion.com/posts/america-cant-teach-the-world/</link>
+      <link>http://blog.translusion.com/posts/america-cant-teach-the-world/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/america-cant-teach-the-world/</guid>
+      <guid>http://blog.translusion.com/posts/america-cant-teach-the-world/</guid>
       <description>While the US isn&amp;rsquo;t the richest country in the world in per capita GDP, it is by far the richest large country. It can boast of impressive results in science and innovation. Does that mean that anyone whishing to obtain similar levels of prosperity have to follow the American model for economic system and organization of society? My short answer is &amp;ldquo;no&amp;rdquo;.
 The US is an outlier which has too many advantages not related to the organization of its economy or society.</description>
     </item>
     
     <item>
       <title>Why American states cannot be compared to European countries</title>
-      <link>https://blog.translusion.com/posts/europe-is-not-america/</link>
+      <link>http://blog.translusion.com/posts/europe-is-not-america/</link>
       <pubDate>Tue, 03 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/europe-is-not-america/</guid>
+      <guid>http://blog.translusion.com/posts/europe-is-not-america/</guid>
       <description>It is populare with peeing contests between America and Europe either in terms of GDP numbers, level of development, education, crime and what not. Of course regardless of how entertaining these sort of comparisons are, they are essentially apple to oranges comparisons. Europeans might score points by pointing to a number of of smaller European countries with very favorable statistics in a number of areas such as unemployment, human development index, crime rates, GDP etc.</description>
     </item>
     
     <item>
       <title>Learning Web Development with Rails</title>
-      <link>https://blog.translusion.com/posts/learning-rails/</link>
+      <link>http://blog.translusion.com/posts/learning-rails/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/learning-rails/</guid>
+      <guid>http://blog.translusion.com/posts/learning-rails/</guid>
       <description>Here are some of my notes from learning rails. I am following the course Web Application Architectures at Coursera. This is seen from perspective of someone used to more desktop applications. I used Ruby as a scripting language for writing small unix tools in the past, but I am not considering myself very up to date.
 Setup Project Have rails autogenerate a bunch of files for a project:
 $ rails new myproject  This seems to be the way to create a new model class with corresponding table in database:</description>
@@ -193,49 +193,49 @@ $ rails new myproject  This seems to be the way to create a new model class with
     
     <item>
       <title>Deterministic Password Generator</title>
-      <link>https://blog.translusion.com/posts/dulgt-intro/</link>
+      <link>http://blog.translusion.com/posts/dulgt-intro/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dulgt-intro/</guid>
+      <guid>http://blog.translusion.com/posts/dulgt-intro/</guid>
       <description>The heartbleed exploit made me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.</description>
     </item>
     
     <item>
       <title>Debugging AVR projects</title>
-      <link>https://blog.translusion.com/posts/debugavrproject/</link>
+      <link>http://blog.translusion.com/posts/debugavrproject/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/debugavrproject/</guid>
+      <guid>http://blog.translusion.com/posts/debugavrproject/</guid>
       <description>This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.
 Continuity Buzzer When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course).</description>
     </item>
     
     <item>
       <title>Development board for 8 pin AVR microcontrollers</title>
-      <link>https://blog.translusion.com/posts/avrdevboard/</link>
+      <link>http://blog.translusion.com/posts/avrdevboard/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avrdevboard/</guid>
+      <guid>http://blog.translusion.com/posts/avrdevboard/</guid>
       <description>I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.
 The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13.</description>
     </item>
     
     <item>
       <title>AVR Assembly programming on Mac OS X</title>
-      <link>https://blog.translusion.com/posts/avrassembly/</link>
+      <link>http://blog.translusion.com/posts/avrassembly/</link>
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avrassembly/</guid>
+      <guid>http://blog.translusion.com/posts/avrassembly/</guid>
       <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
 avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
     </item>
     
     <item>
       <title>Getting started with AVR programming</title>
-      <link>https://blog.translusion.com/posts/avr_without_arduino/</link>
+      <link>http://blog.translusion.com/posts/avr_without_arduino/</link>
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avr_without_arduino/</guid>
+      <guid>http://blog.translusion.com/posts/avr_without_arduino/</guid>
       <description>After Arduino So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.
 Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller.</description>
     </item>

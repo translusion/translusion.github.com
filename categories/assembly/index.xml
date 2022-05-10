@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Assembly on Translusion</title>
-    <link>https://blog.translusion.com/categories/assembly/</link>
+    <link>http://blog.translusion.com/categories/assembly/</link>
     <description>Recent content in Assembly on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Tue, 05 Mar 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AVR Assembly programming on Mac OS X</title>
-      <link>https://blog.translusion.com/posts/avrassembly/</link>
+      <link>http://blog.translusion.com/posts/avrassembly/</link>
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avrassembly/</guid>
+      <guid>http://blog.translusion.com/posts/avrassembly/</guid>
       <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
 avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
     </item>

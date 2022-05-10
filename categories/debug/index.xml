@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debug on Translusion</title>
-    <link>https://blog.translusion.com/categories/debug/</link>
+    <link>http://blog.translusion.com/categories/debug/</link>
     <description>Recent content in Debug on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 24 Mar 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/debug/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/debug/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debugging AVR projects</title>
-      <link>https://blog.translusion.com/posts/debugavrproject/</link>
+      <link>http://blog.translusion.com/posts/debugavrproject/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/debugavrproject/</guid>
+      <guid>http://blog.translusion.com/posts/debugavrproject/</guid>
       <description>This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.
 Continuity Buzzer When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course).</description>
     </item>

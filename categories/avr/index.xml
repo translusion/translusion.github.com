@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AVR on Translusion</title>
-    <link>https://blog.translusion.com/categories/avr/</link>
+    <link>http://blog.translusion.com/categories/avr/</link>
     <description>Recent content in AVR on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 24 Mar 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/avr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/avr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debugging AVR projects</title>
-      <link>https://blog.translusion.com/posts/debugavrproject/</link>
+      <link>http://blog.translusion.com/posts/debugavrproject/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/debugavrproject/</guid>
+      <guid>http://blog.translusion.com/posts/debugavrproject/</guid>
       <description>This is a distilation of my last weeks of experience building an AVR curcuit on a breadboard and prototype board and programming it in assembly. Look at one of my previous post to see how you get up to speed with the assembler, avrdude for transfering programs etc.
 Continuity Buzzer When I wanted to check whether to points on my circuit were connected before I turned my multimeter on measuring resistance (power turned off of course).</description>
     </item>
     
     <item>
       <title>Development board for 8 pin AVR microcontrollers</title>
-      <link>https://blog.translusion.com/posts/avrdevboard/</link>
+      <link>http://blog.translusion.com/posts/avrdevboard/</link>
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avrdevboard/</guid>
+      <guid>http://blog.translusion.com/posts/avrdevboard/</guid>
       <description>I got a bunch of ATtiny13 AVR microcontroller chips because I tought it would be fun to see what you can do with a tiny 8 pin microcontroller. The thought first popped into my mind when I looked at a project for creating motor controller for an electric spinning wheel.
 The project used the same chip as in an arduino with an arduino bootloader. The ATmega328 is a lot more expensive than a ATtiny13.</description>
     </item>
     
     <item>
       <title>AVR Assembly programming on Mac OS X</title>
-      <link>https://blog.translusion.com/posts/avrassembly/</link>
+      <link>http://blog.translusion.com/posts/avrassembly/</link>
       <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avrassembly/</guid>
+      <guid>http://blog.translusion.com/posts/avrassembly/</guid>
       <description>When starting with out programming the AVR microcontroller on OS X, you will probably start by using CrossPack. However the problem with that is it doesn&amp;rsquo;t come with a compiler meant to be used directly by you. It is mainly there for the C compiler. CrossPack installs the AVR GNU assembler avr-as described here. The assembly files typically end with .S. You can invoke it through gcc with e.g.
 avr-gcc -Wall -Os -DF_CPU=8000000 -mmcu=attiny13 -x assembler-with-cpp -c ledflash.</description>
     </item>
     
     <item>
       <title>Getting started with AVR programming</title>
-      <link>https://blog.translusion.com/posts/avr_without_arduino/</link>
+      <link>http://blog.translusion.com/posts/avr_without_arduino/</link>
       <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/avr_without_arduino/</guid>
+      <guid>http://blog.translusion.com/posts/avr_without_arduino/</guid>
       <description>After Arduino So you tried Arduino programming. It is a great way to get introduced to Microcontrollers. But if you are actually an experienced programmer it doesn&amp;rsquo;t quite feel like the real thing. It is sort of like learning BASIC when you know there is this other thing real programmers use which is C.
 Arduino is built around the AVR microcontroller. It simplifies a lot by providing a USB port on the board itself and having a loaded program to load your program into the memory of the AVR microcontroller.</description>
     </item>

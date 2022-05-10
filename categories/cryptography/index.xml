@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cryptography on Translusion</title>
-    <link>https://blog.translusion.com/categories/cryptography/</link>
+    <link>http://blog.translusion.com/categories/cryptography/</link>
     <description>Recent content in Cryptography on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.translusion.com/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.translusion.com/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cryptography</title>
-      <link>https://blog.translusion.com/articles/cryptography/</link>
+      <link>http://blog.translusion.com/articles/cryptography/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/articles/cryptography/</guid>
+      <guid>http://blog.translusion.com/articles/cryptography/</guid>
       <description>There are a lot of sources, tutorial, wiki pages and what not about cryptography, so I will not try to repeat that here. Instead this will be mainly an overview, to help you figure out what is out there. I will also try to explain concepts which I believe are not explained very well elsewhere. The focus will be on cryptography as a user. Understand enough to be able to pick the right tools and approaches.</description>
     </item>
     
     <item>
       <title>Deterministic Password Generator</title>
-      <link>https://blog.translusion.com/posts/dulgt-intro/</link>
+      <link>http://blog.translusion.com/posts/dulgt-intro/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.translusion.com/posts/dulgt-intro/</guid>
+      <guid>http://blog.translusion.com/posts/dulgt-intro/</guid>
       <description>The heartbleed exploit made me thing of my own way of keeping passwords which relies on 1Password. What was painfull with 1Password was having to regenerate every single password I have over again. That is a lot of work. The second problem because all my passwords are too hard to remember, I am screwed if I ever lose my encrypted database of passwords. So I also make paper copies, but they have to be made secure as well, so they can not be used directly in their paper form.</description>
     </item>
     
