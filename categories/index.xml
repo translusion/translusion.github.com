@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Translusion</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 29 Dec 2019 20:17:40 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://blog.translusion.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Assembly</title>
+      <link>http://blog.translusion.com/categories/assembly/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.translusion.com/categories/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RISC-V</title>
+      <link>http://blog.translusion.com/categories/risc-v/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.translusion.com/categories/risc-v/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Fluidics</title>
@@ -368,15 +386,6 @@
       <pubDate>Sun, 24 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>http://blog.translusion.com/categories/maker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Assembly</title>
-      <link>http://blog.translusion.com/categories/assembly/</link>
-      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.translusion.com/categories/assembly/</guid>
       <description></description>
     </item>
     
