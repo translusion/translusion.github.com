@@ -167,6 +167,16 @@ One min read
 
 <p><img src="/images/posts/RISC-V-cheatsheet-RV32I-4-3.pdf" alt="RISC-V Cheatsheet" /></p>
 
+<p>I have also added this sheet to help compare RISC-V instructions with AVR. The comparison is quite imperfect as many instructions don&rsquo;t have a good translation and I am leaving out a number of RISC-V and AVR instructions.</p>
+
+<p><img src="/images/posts/RISC-V-vs-AVR-cheatsheet.pdf" alt="RISC-V compared to AVR" /></p>
+
+<p>To get a full overview of AVR instructions you should look at: <a href="http://www.mmajunke.de/doc0856.pdf" target="_blank">AVR instruction set</a>.</p>
+
+<p>Some obvious differences between RISC-V and AVR is that AVR instructions are defined to be 16-bit wide while RISC-V instructions are 32-bit.</p>
+
+<p>What muddies the water a bit is that there are a few AVR instructions which are not 16-bit such as CALL, LDS, STS and JMP, while on RISC-V you can use compressed instructions if you have the C extension added. Compressed RISC-V instructions are 16-bit and look a lot like AVR instructions in terms of number of operands and bit sizes of immediate values.</p>
+
 </div>
 
   

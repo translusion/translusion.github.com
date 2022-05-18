@@ -17,7 +17,8 @@
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       
       <guid>http://blog.translusion.com/posts/risc-v-cheatsheet/</guid>
-      <description>A number of people have tried to make sheets giving an overview of the RISC-V instruction-set, so here is my variant. I have tried to find a balance between being useful and easy to read. That means some things I have excluded from this overview.</description>
+      <description>A number of people have tried to make sheets giving an overview of the RISC-V instruction-set, so here is my variant. I have tried to find a balance between being useful and easy to read. That means some things I have excluded from this overview.
+I have also added this sheet to help compare RISC-V instructions with AVR. The comparison is quite imperfect as many instructions don&amp;rsquo;t have a good translation and I am leaving out a number of RISC-V and AVR instructions.</description>
     </item>
     
   </channel>
