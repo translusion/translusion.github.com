@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on Translusion</title>
+    <link>http://blog.translusion.com/categories/macos/</link>
+    <description>Recent content in macOS on Translusion</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© Erik Engheim 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.translusion.com/categories/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unix Command Line Crash Course</title>
+      <link>http://blog.translusion.com/posts/unix-crash-course/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.translusion.com/posts/unix-crash-course/</guid>
+      <description>Hopefully, you have seen a command line interface, CLI, before. You can find them on nearly every system: Windows, Linux, macOS, and even my old Amiga had a CLI. Each of them work slightly different, but there is one standard which has come to dominate, which is based on the Unix operating system. Both Linux and macOS derive from the Unix operating system. When interacting with a CLI on Linux or Mac, you will use mostly the same Unix commands.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Learn about Unix shell, commands, and environment variables.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Unix Command Line Crash Course • Translusion'>
+<meta property='og:description' content='Learn about Unix shell, commands, and environment variables.'>
+<meta property='og:url' content='http://blog.translusion.com/posts/unix-crash-course/'>
+<meta property='og:site_name' content='Translusion'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:published_time' content='2022-07-06T00:00:00Z'/><meta property='article:modified_time' content='2022-07-06T00:00:00Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+  <title>Unix Command Line Crash Course • Translusion</title>
+  <link rel='canonical' href='http://blog.translusion.com/posts/unix-crash-course/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.6a060eb7.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Translusion
+      </a>
+    </h2>
+    <div class='desc'>
+    Erik Engheim&#39;s Projects and Stories
+    </div>
+  </header>
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'></a>
+      </li><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/posts/'>Blog</a>
+      </li><li class='item'>
+        <a href='/stories/'>Stories</a>
+      </li><li class='item'>
+        <a href='/maker/'>Maker</a>
+      </li><li class='item'>
+        <a href='/apps/'>Apps</a>
+      </li><li class='item'>
+        <a href='/projects/'>Projects</a>
+      </li><li class='item'>
+        <a href='https://github.com/ordovician'>Repo</a>
+      </li><li class='item'>
+        <a href='https://nextjournal.com/erik-engheim'>Papers</a>
+      </li><li class='item'>
+        <a href='/favorites/'>Favorites</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'></a></li><li><a href='/posts/'>Posts</a></li><li><span>Unix Command Line Crash Course</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Translusion</p><p class='desc site-desc'>Erik Engheim&#39;s Projects and Stories</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Unix Command Line Crash Course</h1>
+      
+<p class='desc'>Learn about Unix shell, commands, and environment variables.</p>
+
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2022-07-06T00:00:00Z'>2022, Jul 06</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+13 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p><img src="/images/posts/macOS-terminal-pink.png" alt="" /></p>
+
+<p>Hopefully, you have seen a command line interface, CLI, before. You can find them on nearly every system: Windows, Linux, macOS, and even my old Amiga had a CLI. Each of them work slightly different, but there is one standard which has come to dominate, which is based on the Unix operating system. Both Linux and macOS derive from the Unix operating system. When interacting with a CLI on Linux or Mac, you will use mostly the same Unix commands. Unix command line interfaces have also become popular on Windows the last few years through <a href="https://docs.microsoft.com/en-us/windows/wsl/about" target="_blank">Windows Subsystem for Linux (WSL)</a>.</p>
+
+<p>You interact with the Unix command line through a program, usually called terminal or console. Here is an example of using <a href="https://iterm2.com" target="_blank">iTerm2</a> on my Mac. In this particular example, I am issuing commands to look the contents of the <code>Godot</code> directory, where I have stored some games I have developed.</p>
+
+<p><img src="/images/posts/terminal-godot-dir.png" alt="Listing contents of Godot directory using Terminal application" /></p>
+
+<p>If you use a graphical file manager such as Finder, this <code>Godot</code> directory would have looked as follows:</p>
+
+<p><img src="/images/posts/finder-godot-dir.png" alt="Finder file manager showing Godot directory" /></p>
+
+<p>Why should you learn how to use a Unix command line interface? Isn&rsquo;t it much easier to just click around in a file manager? Indeed, graphical user interfaces tend to be easier to explore and learn. But text-based interfaces have numerous advantages which are hard to replicate in graphical user interfaces:</p>
+
+<ol>
+<li>They often prove a lot more power and flexibility.</li>
+<li>Complex graphical interfaces are harder to learn than complex text-based interfaces.</li>
+<li>Text-based interfaces naturally lend themselves to automation, which can be a big time saver.</li>
+</ol>
+
+<p>The second point requires some justification. It is true that it is easier to understand a graphical user interface, but only up to a point. Large and complex graphical applications can be hard to learn. What to do is not obvious. Finding the right buttons to click or dialogs to open may require a video or series of images with careful step-by-step instructions.</p>
+
+<p>Text-based interfaces in contrast are straightforward to explain in articles such as this one. Complex operations which you easily forget how to do, so you can easily copy to a notebook and write an explanation. These notes can later easily be retrieved using search tools. Searching images of a graphical UI is much harder.</p>
+
+<p>In this article, I will teach you how to do the following things:</p>
+
+<ul>
+<li>Navigate around the file system just as you would do with a graphical file manager.</li>
+<li>Look at what files are in a directory and filter out files or directories you are not interested in.</li>
+<li>Do operations on files.</li>
+<li>Explain the binary search path. It is used by the terminal to locate the command you write.</li>
+<li>What are environment variables, and what can you use them for?</li>
+</ul>
+
+<h2 id="work-with-files-and-directories">Work with Files and Directories</h2>
+
+<p>When you start the Unix command line, you will get some kind of greeting. It will differ depending on the system and configuration you have.  Mine looks like this:</p>
+
+<pre><code>Last login: Thu Jun 23 22:10:30 on ttys001
+Welcome to fish, the friendly interactive shell
+Type help for instructions on how to use fish
+
+~
+❯
+</code></pre>
+
+<p>You will have a cursor next to a prompt,  indicating that the CLI is  waiting for you to type a command and press enter. The prompt at the start of the line is usually one of the symbols <code>$</code>, <code>#</code> or <code>❯</code>. Mine is a <code>❯</code> because I am using the <a href="https://starship.rs" target="_blank">Starship prompt</a>.  It adds several cool features, but you don&rsquo;t have to use it.</p>
+
+<p>Let us look at the most basic commands <code>ls</code>, <code>cd</code>,  <code>pwd</code>,  <code>man</code>, <code>cat</code>, <code>touch</code> and <code>file</code>.</p>
+
+<h3 id="ls-list-directory-contents">ls - List directory contents</h3>
+
+<p>With the <code>ls</code> command, you can see what files and directories are in a directory, just like you can with a file manager.</p>
+
+<pre><code>❯ ls /bin
+[		expr		pwd
+bash		hostname	rm
+cat		kill		rmdir
+chmod		ksh		sh
+cp		launchctl	sleep
+csh		link		stty
+dash		ln		sync
+date		ls		tcsh
+dd		mkdir		test
+df		mv		unlink
+echo		pax		wait4path
+ed		ps		zsh
+
+❯
+</code></pre>
+
+<p>This shows the contents of the <code>bin</code> directory on a Unix system. That is where Unix keeps binaries for the most common commands. We call a file containing a program you can run for binary.</p>
+
+<p>The <code>ls</code> command is smarter than your file manager. You can do many neat tricks. Characters such as <code>*</code> and <code>?</code> get interpreted in a special way. They form what we call glob patterns. You can use glob patterns to filter what files are show. The <code>*</code> matches any number of letters while <code>?</code> matches a single letter.  So <code>a?</code> would match files named <code>ab</code>, <code>ab</code>, <code>ad</code>, <code>ae</code> and so on, while <code>*.txt</code> would match files named <code>foo.txt</code>, <code>bar.txt</code>, <code>baz,txt</code> and so on. What is up with the <code>foo</code> and <code>bar</code> names? Those a just silly names we tend to use in programming and Unix circles. As soon as you see the words <code>foo</code>, <code>bar</code>, <code>qux</code> or <code>baz</code> you should know that they are placeholders. The specific word used isn&rsquo;t important. It could be anything.</p>
+
+<h3 id="cd-change-working-directory">cd - Change working directory</h3>
+
+<p>To try out the <code>ls</code> command, we will use the <code>cd</code> and <code>pwd</code> commands. Just like with a graphical terminal, there is a current working directory. It is the directory your commands will apply changes to. You can change to a working directory with the <code>cd</code> command. If you have forgotten where you are, you can use the <code>pwd</code> command. <code>pwd</code> is sort for print working directory.</p>
+
+<p>Let us jump a bit around and look at some directories on a macOS system (will be similar on Linux).</p>
+
+<pre><code>❯ cd /bin
+
+❯ ls
+[         df        ln        sh
+bash      echo      ls        sleep
+cat       ed        mkdir     stty
+chmod     expr      mv        sync
+cp        hostname  pax       tcsh
+csh       kill      ps        test
+dash      ksh       pwd       unlink
+date      launchctl rm        wait4path
+dd        link      rmdir     zsh
+
+❯ pwd
+/bin
+
+❯ cd /System
+❯ ls
+Applications DriverKit    Volumes
+Developer    Library      iOSSupport
+
+❯ pwd
+/System
+</code></pre>
+
+<h3 id="touch-and-mkdir-make-files-and-directories">touch and mkdir - Make files and directories</h3>
+
+<p>To be able to experiment a bit more with <code>ls</code> we will make our own directory and fill it with bogus files. We will go to our home directory. If you just write <code>cd</code> you will jump to the home directory for your user. Here we will make a directory called <code>animals</code> to experiment with <code>ls</code>.</p>
+
+<p>From now on, I will show above the prompt what my current directory is and files will have a <code>*</code> as an ending, while directories have the ending <code>/</code>.  You can get trailing slash on your system by writing <code>ls -p</code> instead of just <code>ls</code>. The <code>-p</code> is called a switch. Every Unix command comes with several switches affecting how they run.</p>
+
+<p>Okay, let us make some dummy files with the <code>touch</code> command.</p>
+
+<pre><code>~
+❯ mkdir animals
+
+~
+❯ cd animals 
+
+~/animals
+❯ touch bird.png dog.jpg cat.jpg monkey.gif
+
+~/animals
+❯ ls
+bird.png    dog.jpg
+cat.jpg     monkey.gif
+
+~/animals
+❯ touch horse.png whale.png fox.gif
+</code></pre>
+
+<p>The <code>mkdir</code> command makes a directory with a given name, while <code>touch</code> can be used to make one or more empty files.  With these files, we will look at how we can use glob pattern with <code>ls</code> to show only a subset of the files you have in the current directory.</p>
+
+<pre><code>~/animals
+❯ ls
+bird.png    fox.gif     whale.png
+cat.jpg     horse.png
+dog.jpg     monkey.gif
+</code></pre>
+
+<p>If you want to only see the <code>.png</code> files in the <code>animals</code> directory you can use the <code>*.png</code> glob pattern which means we don&rsquo;t care what the name of the file is as long as it ends with <code>.png</code></p>
+
+<pre><code>❯ ls *.png
+bird.png   horse.png  whale.png
+
+~/animals
+❯ ls *.gif
+fox.gif     monkey.gif
+</code></pre>
+
+<p>You can find all three letter filenames with an <code>o</code> in the middle using the  question mark <code>?</code> which matches a single letter.</p>
+
+<pre><code>~/animals
+❯ ls ?o?.*
+dog.jpg  fox.gif
+
+</code></pre>
+
+<h3 id="man-manual-get-help">man - Manual - Get help</h3>
+
+<p>Once you know the basics of Unix commands you want to be able to look at specific detailed information which does not make sense to cover in a blog post. We can look at the manual for each command using the <code>man</code> command. <code>man ls</code> will give us the manual page for the <code>ls</code> (list) command. It will drop you into a pager program. A lot of beginners immediately ask: How do I get out of this program?! Whether you are inside the <code>vim</code> program, <code>less</code>, or <code>man</code> you press <code>q</code> to quit. In the <code>vim</code> editor you may have to press <code>ESC</code> key and then colon <code>:</code> before you can hit <code>q</code> to exit.</p>
+
+<p>Here is an overview of the most useful commands for navigating inside a <code>man</code> documentation page:</p>
+
+<ul>
+<li><code>↑</code> and  <code>↓</code> arrow keys for going up and down one line.</li>
+<li><code>Ctrl-U</code> and <code>Ctrl-D</code> for going up and down a whole page at a time.</li>
+<li><code>/foobar</code> searches for the text <code>foobar</code> in the manual page. You just write a slash <code>/</code> and then type the text you are interested in finding. (<code>foobar</code> is a nonsense word).</li>
+<li><code>q</code> quit the manual page viewing.</li>
+</ul>
+
+<p>See if you can find the manual entry for the <code>-l</code> switch. It prints info about directory contents on long form. You can search for it by writing <code>/-l</code>. The entry should look like this:</p>
+
+<pre><code>-l   (The lowercase letter “ell”.) List files in the long
+      format, as described in the The Long Format
+      subsection below.
+</code></pre>
+
+<p>We can try the <code>-l</code> switch to see how we get more info:</p>
+
+<pre><code>~/animals
+❯ ls -l
+total 0
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:11 bird.png
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:11 cat.jpg
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:11 dog.jpg
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:16 fox.gif
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:16 horse.png
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:11 monkey.gif
+-rw-r--r--  1 erikengheim  staff  0 Jun 24 14:16 whale.png
+</code></pre>
+
+<p>This shows a whole bunch of information about each file.  Each column is for the following:</p>
+
+<ol>
+<li>Whether you can read <code>r</code>, write <code>w</code> or execute <code>x</code> the file. There is a triplet for the user, group file belongs to and everybody else.</li>
+<li>Number of links to file. What appears as different files in different locations on your hard drive can all point to the same file.</li>
+<li>Owner of the file, <code>erikengheim</code> in this example.</li>
+<li>Group the file belongs to. <code>staff</code> in this example.</li>
+<li>Number of bytes in file. It is zero because we made empty files.</li>
+</ol>
+
+<p>The last columns are  for when the file was last modified and finally the name of the file.</p>
+
+<h3 id="cat-concatenate-join-files-and-show-contents">cat - Concatenate - Join files and show contents</h3>
+
+<p>Our files are empty, so to be able to test the <code>cat</code> command used to show contents we have to actually edit the files and add some content. You can use any text editor storing text as UTF-8 encoding, or you can use the <code>echo</code> command to add text to files.</p>
+
+<pre><code>~/animals
+❯ echo blue bird &gt; bird.png
+
+~/animals
+❯ echo black cat &gt; cat.jpg
+
+~/animals
+❯ echo red fox &gt; fox.gif
+</code></pre>
+
+<p>You can use <code>cat</code> to look at the contents of individual files or concatenate the contents of multiple files and show it.</p>
+
+<pre><code>~/animals
+❯ cat bird.png cat.jpg
+blue bird
+black cat
+
+~/animals
+❯ cat bird.png cat.jpg fox.gif
+blue bird
+black cat
+red fox
+</code></pre>
+
+<h3 id="echo-display-text">echo - Display text</h3>
+
+<p>In many cases we need to display some text to the user. We can use <code>echo</code> for this purpose:</p>
+
+<pre><code>❯ echo Hello world
+Hello world
+</code></pre>
+
+<p>This example many look at  bit pointless but it makes sense when writing  longer scripts doing multiple things where you want to give feedback to the user. You can also use it to show the contents of <em>environment variables</em>. We can use named variables to store text which can later be shown:</p>
+
+<pre><code>❯ NAME=Joe
+❯ echo hello $NAME
+hello Joe
+</code></pre>
+
+<p>Why do we need the dollar sign <code>$</code>? Because if you only wrote <code>NAME</code> the system would not be able to realize you want the contents of a variable named <code>NAME</code>. It would think you wanted to write the text <code>NAME</code>:</p>
+
+<pre><code>❯ echo hello NAME
+hello NAME
+</code></pre>
+
+<p>So while you don&rsquo;t need the dollars sign <code>$</code> when setting an environment variable, you will need it when using it.</p>
+
+<h2 id="how-commands-are-located-with-binary-search-path">How Commands are Located with Binary Search Path</h2>
+
+<p>Most commands such as <code>ls</code>, <code>cat</code>, <code>cp</code> and <code>rm</code> are actual small programs which are loaded and executed by the operating system. When you type a command the operating system will look for that command in different locations. You can find out where the command is found by the operating system by using the <code>which</code> command:</p>
+
+<pre><code>❯ which ls
+/bin/ls
+
+❯ which cat
+/bin/cat
+
+❯ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>How does the operating system know to look in the <code>/bin</code> directory for <code>ls</code> and <code>cat</code> while the <code>vim</code> editor is in the <code>/usr/bin</code> directory? That is done using the binary search path. It is stored in the environment variable called <code>PATH</code>. We can look at the contents of binary search path by using the <code>echo</code> command.</p>
+
+<pre><code>❯ echo $PATH
+/usr/local/bin /usr/bin /bin /usr/sbin /sbin
+</code></pre>
+
+<p>But maybe we have programs in other locations. How do we make the operating system find them? Say we have binaries in the <code>/opt/bin</code> directory which we want to use. Each search path is separate with a colon <code>:</code> and we can simply insert the existing path when redefining what the <code>PATH</code> variable should be:</p>
+
+<pre><code>❯ PATH=/opt/bin:$PATH
+</code></pre>
+
+<p>There is however one problem with what we just wrote. As soon as you close the terminal window the path will be forgotten. That is why you need to add this line to the <code>.profile</code> or <code>.zshrc</code> file in your home directory. Which file you add to depends on whether you use the <code>bash</code> or <code>zsh</code> shell. You also have to add the <code>export</code> keyword otherwise the environment variable will not be known outside the shell configuration file <code>.profile</code> or <code>.zshrc</code>. So you write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span>/opt/bin:$PATH</code></pre></div>
+<p>Because a path may contain spaces, we tend to use quotation marks <code>&quot;</code> around text strings to show that it is one contiguous block of text. Hence we usually write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/opt/bin:</span>$PATH<span style="color:#e6db74">&#34;</span></code></pre></div>
+<p>In this example we put <code>/opt/bin</code> first, but what if we wrote it like this instead?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:/opt/bin&#34;</span></code></pre></div>
+<p>That is perfectly valid and means that when looking for a Unix command the system will first look in one of the paths already defined in <code>PATH</code> <em>before</em> looking in <code>/opt/bin</code>. That may matter in case you have commands with the same name in multiple locations. For instance your operating system may come installed with the <code>python</code> language but then you install your own newer version to <code>/opt/bin</code>. Since you want your newer version to be used by default you put the <code>/opt/bin</code>directory first, so it gets priority.</p>
+
+<h2 id="environment-variables">Environment Variables</h2>
+
+<p>Environment variables can have many uses. We just saw the <code>PATH</code> environment variable used to specify the binary search path. Various Unix tools require a text editor. For instance the Git version control system will sometimes open an editor to let to edit commit messages. How is you operating system supposed to know what editor to open? You can specify that with the <code>EDITOR</code> environment variable. Although sometimes you want different editors for different programs. For instance I don&rsquo;t want to use my editor in the same way for Git as with the Julia programming language. Fortunately Julia allows me to specify an editor in the <code>JULIA_EDITOR</code> environment variable which takes precedence over what the <code>EDITOR</code> environment variable says. Let me show you:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export EDITOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mate -w&#34;</span>
+export JULIA_EDITOR<span style="color:#f92672">=</span>mate</code></pre></div>
+<p>For Git I used the <code>-w</code> switch because it will cause the calling program (Git) to halt until I close the editor. That is not desired behavior for me when using Julia.</p>
+
+<p>The text editor I use, TextMate allows you to set environment variables in a preference panel. You can see variables such as <code>BOARD</code>, <code>SERIALDEV</code> and <code>TM_JULIA</code>. This is useful because any program started by TextMate will have access to these environment variables.</p>
+
+<p><img src="/images/posts/environment-textmate.png" alt="" /></p>
+
+<p>Exported environment variables are inherited by child <em>processes</em>. What do you mean? A running program is called a <em>process</em>. Processes have parent-child relationships. The terminal window is a process and when run a command such as <code>ls</code>, <code>man</code> or <code>touch</code> you are creating a child process of this window, or more specifically the shell process running inside the window.</p>
+
+<p>Any running program could launch a child process, and define environment variables which should be inherited by the child process. TextMate allows you to write shell scripts, Python, Ruby or Julia scripts which could read these environment variables.</p>
+
+<p>Thus the use of environment variables is not limited to text-mode applications. You can use environment variables to pass data from and to any program.</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/unix/'>Unix</a>, <a class='category' href='/categories/macos/'>macOS</a>, <a class='category' href='/categories/linux/'>Linux</a>, <a class='category' href='/categories/shell/'>Shell</a>, <a class='category' href='/categories/terminal/'>Terminal</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/risc-v-cheatsheet/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>RISC-V Instruction-Set Cheatsheet</a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "translusion" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  </div>
+</section>
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/ordovician' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/erikengheim' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:erik.engheim@mac.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/erik-engheim-b8831917' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://www.youtube.com/channel/UC66PjfTxpg19YCGPUOLzyOg' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Youtube account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p>© Erik Engheim 2016. All rights reserved.</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.67d669ac.js'></script>
+
+</body>
+
+</html>
+

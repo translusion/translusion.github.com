@@ -4,7 +4,7 @@
   
   <url>
     <loc>http://blog.translusion.com/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -76,19 +76,54 @@
   </url>
   
   <url>
-    <loc>http://blog.translusion.com/categories/assembly/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
+    <loc>http://blog.translusion.com/categories/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.translusion.com/categories/</loc>
-    <lastmod>2022-05-18T00:00:00+00:00</lastmod>
+    <loc>http://blog.translusion.com/categories/linux/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.translusion.com/posts/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/categories/shell/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/categories/terminal/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/categories/unix/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/posts/unix-crash-course/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/categories/macos/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.translusion.com/categories/assembly/</loc>
     <lastmod>2022-05-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
